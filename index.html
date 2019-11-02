@@ -85,18 +85,15 @@
       
         <p>###矩阵链相乘</p>
 <p>矩阵链乘法<br>   求解矩阵链相乘问题时动态规划算法的另一个例子。给定一个n个矩阵的序列（矩阵链）&lt;A1,A2,…,An&gt;，我们希望计算它们的乘积  A1A2…An</p>
-<p> 两个矩阵A和B只有相容(compatible)，即A的列数等于B的行数时，才能相乘。如果A是p×q的矩阵，B是q×r的矩阵，那么乘积C是p×r的矩阵。计算C所需要时间由第8行的标量乘法的次数决定的，即pqr。<br>   以矩阵链&lt;A1,A2,A3&gt;为例，来说明不同的加括号方式会导致不同的计算代价。假设三个矩阵的规模分别为10×100、100×5和5×50。<br>   如果按照((A1A2)A3)的顺序计算，为计算A1A2(规模10×5)，需要做10×100×5=5000次标量乘法，再与A3相乘又需要做10×5×50=2500次标量乘法，共需7500次标量乘法。<br>   如果按照(A1(A2A3))的顺序计算，为计算A2A3(规模100×50)，需100×5×50=25000次标量乘法，再与A1相乘又需10×100×50=50000次标量乘法，共需75000次标量乘法。因此第一种顺序计算要比第二种顺序计算快10倍。</p>
-<p> 矩阵链乘法问题(matrix-chain multiplication problem)可描述如下：给定n个矩阵的链&lt;A1,A2,…,An&gt;，矩阵Ai的规模为p(i-1)×p(i) (1&lt;=i&lt;=n)，求完全括号化方案，使得计算乘积A1A2…An所需标量乘法次数最少。<br>###递推关系式</p>
-<p><a href="https://blog.csdn.net/Neo_kh/article/details/81282025" target="_blank" rel="noopener">https://blog.csdn.net/Neo_kh/article/details/81282025</a><br>    ①如果i=j，m[i,j]=0</p>
-<pre><code>②如果i&lt;j，m[i,j]=min{m[i,k]+m[k+1,j]+p(i-1)p(k)p(j)}  i&lt;=k&lt;j</code></pre><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> max_size 400</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 100000000</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> s[max_size][max_size];<span class="comment">//保存构造最优解信息</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> p[max_size];<span class="comment">//矩阵规模的记录</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> m[max_size][max_size];<span class="comment">//记录最优值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">matrix_chain_order</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        m[i][i]=<span class="number">0</span>;<span class="comment">//初始化最优值(起始于1,结束于n)</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">2</span>;l&lt;=n;l++)<span class="comment">//l表示矩阵链的长度</span></span><br><span class="line">    &#123;<span class="comment">//计算每一条对角线的最优值</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n-l+<span class="number">1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j=i+l<span class="number">-1</span>;</span><br><span class="line">            m[i][j]=INF;</span><br><span class="line">            s[i][j]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=j<span class="number">-1</span>;k&gt;=i;k--)<span class="comment">//解决方案优先选取先左边的矩阵</span></span><br><span class="line">            &#123;<span class="comment">//②如果i&lt;j，m[i,j]=min&#123;m[i,k]+m[k+1,j]+p(i-1)p(k)p(j)&#125;  i&lt;=k&lt;j</span></span><br><span class="line">                <span class="keyword">int</span> q=m[i][k]+m[k+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[k]*p[j];</span><br><span class="line">                <span class="keyword">if</span>(q&lt;m[i][j])</span><br><span class="line">                &#123;</span><br><span class="line">                    m[i][j]=q;</span><br><span class="line">                    s[i][j]=k;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_optimal_parents</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span><span class="comment">//打印最优解的结果</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==j)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"A%d"</span>,i);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;   <span class="comment">//中序二叉树?</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"("</span>);</span><br><span class="line">            print_optimal_parents(i,s[i][j]);</span><br><span class="line">            print_optimal_parents(s[i][j]+<span class="number">1</span>,j);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">")"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(p,<span class="number">0</span>,<span class="keyword">sizeof</span>(p));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;p[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        matrix_chain_order(n);</span><br><span class="line">        print_optimal_parents(<span class="number">1</span>,n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>小结:<br>动态规划算法设计要素<br>1.多阶段决策过程,每步处理一个子问题,界定子问题的边界<br>2.列出优化函数的递推方程及初值<br>3.问题要满足优化原则或最优子结构性质,即:一个最优决策序列的任何子序列本身一定是相对于子序列的<br>初始和结束状态的最优决策序列<br>拓展: 递归实现</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> m[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> s[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==j)               <span class="comment">/*如果只有一个矩阵就直接返回*/</span></span><br><span class="line">        <span class="keyword">return</span> m[i][j];</span><br><span class="line">    m[i][j]=<span class="number">999999999</span>;     <span class="comment">/*将m[i][j]设为无穷大*/</span></span><br><span class="line">    s[i][j]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=i;k&lt;j;k++)&#123;  <span class="comment">/*将i到j个矩阵分为i到k和k+1到j个矩阵*/</span></span><br><span class="line">        <span class="keyword">int</span> q=dp(i,k)+dp(k+<span class="number">1</span>,j)+p[i<span class="number">-1</span>]*p[k]*p[j]; </span><br><span class="line">        <span class="keyword">if</span>(q&lt;m[i][j])&#123;      <span class="comment">/*如果有更小的方案更新*/</span></span><br><span class="line">            m[i][j]=q;</span><br><span class="line">            s[i][j]=k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m[i][j];         </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)&#123;  <span class="comment">/*输入矩阵链*/</span></span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;p[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(m,<span class="number">0</span>,<span class="keyword">sizeof</span>(m));    <span class="comment">/*初始化*/</span></span><br><span class="line">        dp(<span class="number">1</span>,n);                    <span class="comment">/*查找目标1到n个矩阵链乘*/</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;m[<span class="number">1</span>][n]&lt;&lt;<span class="string">" "</span>&lt;&lt;s[<span class="number">1</span>][n]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>迭代</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/" data-id="ck2hj1mih0000lc7jhxqbcc81" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/" data-id="ck2hpkqnw0003zo7ja9thg3ch" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,202 +127,16 @@
       
         <div align="center" style="color:red">VS Code 使用 Markdown 编写文档</div>
 
-<p>[toc]<br>##1. 文本部分</p>
-<p>###1.1 斜体和粗体，删除线<br>使用 * 和 ** 表示斜体和粗体。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">示例：这是*斜体*，这是**粗体**。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这是<em>斜体</em>，这是<strong>粗体</strong>。<br>使用 ~~ 表示删除线。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~这是一段错误的文本。</span><br></pre></td></tr></table></figure></li>
-<li><del>这是一段错误的文本。</del></li>
-</ul>
-<p>###1.2 分级标题</p>
-<p>使用 === 表示一级标题，使用 — 表示二级标题。<br><img src="https://upload-images.jianshu.io/upload_images/1414656-4697bde7bd330473.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/654/format/webp" alt=""><br>你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：# H1, ## H2, ### H3，#### H4。<br><img src="https://upload-images.jianshu.io/upload_images/1414656-4e1275ac4a64ba20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/527/format/webp" alt=""></p>
-<p>###1.3 常用 Emoji &amp; Font-Awesome</p>
-<p><img src="https://img2018.cnblogs.com/blog/1683299/201909/1683299-20190911231431885-470598308.png" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/1414656-b1f92b959dfa863e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/301/format/webp" alt=""><br><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">更多emoji查看</a></p>
-<p>###1.4 引用和注脚</p>
-<p>使用 [^keyword] 表示注脚。</p>
-<h2 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 上标：30^th^</span><br><span class="line">- 下标：H~2~O</span><br><span class="line">- 脚注：Content [^1]</span><br><span class="line">[^1]:Hi 这里是一个注脚，会自动拉到最后面排版</span><br></pre></td></tr></table></figure>
-<ul>
-<li>上标：30^th^</li>
-<li>下标：H<del>2</del>O</li>
-<li>脚注：Content [^1]<br>[^1]:Hi 这里是一个注脚，会自动拉到最后面排版</li>
-</ul>
-<h2 id="缩略："><a href="#缩略：" class="headerlink" title="缩略："></a>缩略：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*[HTML]: 超文本标记语言</span><br><span class="line">*[W3C]:  World Wide Web Consortium</span><br><span class="line">The HTML specification</span><br><span class="line">is maintained by the W3C.</span><br></pre></td></tr></table></figure>
-<p>*[HTML]: 超文本标记语言<br>*[W3C]:  World Wide Web Consortium<br>The HTML specification<br>is maintained by the W3C.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这里要有空格隔开中文</span><br><span class="line">*[月]: yue4</span><br><span class="line">*[辍]: chuo4</span><br><span class="line">明 明 如 月，何 时 可 辍</span><br></pre></td></tr></table></figure>
-<p>*[月]: yue4<br>*[辍]: chuo4<br>明 明 如 月，何 时 可 辍</p>
-<h2 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==marked==</span><br></pre></td></tr></table></figure>
-
-<p>==marked==</p>
-<p>###1.5 外链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[关键词](链接地址 &quot;（可选）添加一个标题&quot;)</span><br><span class="line">图片带链接 </span><br><span class="line">    [![](.//img/01.png &apos;百度&apos;)](http://www.baidu.com)</span><br></pre></td></tr></table></figure>
-<p>这里是去 <a href="http://www.baidu.com/" target="_blank" rel="noopener" title="百度一下">百度</a> 的链接</p>
-<p><a href="https://user.qzone.qq.com/1535045887/" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1683299/201909/1683299-20190911232801569-1228742801.jpg" alt="" title="本人QQ:1535045887"></a></p>
-<p>###1.6文字引用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;                   Only action can relieve the uneasiness.</span><br></pre></td></tr></table></figure>
-<blockquote>
-<pre><code>Only action can relieve the uneasiness.</code></pre></blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">多层嵌套</span><br><span class="line">&gt;天大彭于晏</span><br><span class="line">&gt;&gt;天大彭于晏</span><br><span class="line">&gt;&gt;&gt;天大彭于晏</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>天大彭于晏</p>
-<blockquote>
-<p>天大彭于晏</p>
-<blockquote>
-<p>天大彭于晏<br>###1.7 内容目录<br>在段落中填写 [TOC] 以显示全文内容的目录结构。<br>[TOC]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1414656-4558e18cf543a874.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/376/format/webp" alt=""><br>###1.8行内标记<br>注：用 ` 标记代码块将变成一行<br>代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标记之外`hello </span><br><span class="line">world`标记之外</span><br></pre></td></tr></table></figure>
-<p>标记之外<code>hello 
-world</code>标记之外<br>###1.9支持内嵌CSS样式<br>代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style=&quot;color: #AD5D0F;font-size: 30px; font-family: &apos;宋体&apos;;&quot;&gt;内联样式&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-<p style="color: #AD5D0F;font-size: 30px; font-family: '宋体';">内联样式</p>
-
-<p>###1.10 支持html标签<br>直接使用 HTML 标签，可以设置文字居中，字体颜色等样色(HTML 语法)<br>代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align=&quot;center&quot; style=&quot;color:red&quot;&gt;VS Code 使用 Markdown 编写文档&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>演示:<br>        <div align="center" style="color:red">VS Code 使用 Markdown 编写文档</div><br>##2. 标签分类<br>在编辑区任意行的列首位置输入以下代码给文稿标签：</p>
-<p>标签： 数学 英语 Markdown<br>Tags： 数学 英语 Markdown<br>###2.0 常用布局</p>
-<p>###2.1 无序列表<br>使用 *，+，- 表示无序列表。</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 无序列表项 一</span><br><span class="line">* 无序列表项 二</span><br><span class="line">+ 无序列表项 三</span><br></pre></td></tr></table></figure>
-<p>效果:</p>
-<ul>
-<li>无序列表项 一</li>
-</ul>
-<ul>
-<li>无序列表项 二</li>
-</ul>
-<ul>
-<li>无序列表项 三<br>###2.2 有序列表（ol-li）<br>使用数字和点表示有序列表。<br>示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol &gt;</span><br><span class="line">  &lt;li&gt;有序列表项 一&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;有序列表项 二&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;有序列表项 三&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
-<ol >
-<li>有序列表项 一</li>
-<li>有序列表项 二</li>
-<li>有序列表项 三</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注：序列.后 保持空格</span><br><span class="line">1. one</span><br><span class="line">2. two</span><br><span class="line">3. three</span><br></pre></td></tr></table></figure>
-演示:</li>
-</ul>
-<ol>
-<li>one</li>
-<li>two</li>
-<li>three</li>
-</ol>
-<p>###2.3 行内代码块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用 ```代码```进行包裹</span><br></pre></td></tr></table></figure>
-<p>###2.4 插入图像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用 ![](图片链接地址&apos;描述&apos;) 插入图像。</span><br></pre></td></tr></table></figure>
-<p><img src="https://img2018.cnblogs.com/blog/1683299/201909/1683299-20190911233054628-1216522735.jpg" alt="" title="我是一名程序员"></p>
-<p>###2.5 表格支持</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">| 项目        | 价格   |  数量  |</span><br><span class="line">| --------   | -----:  | :----:  |</span><br><span class="line">| 计算机     | \$1600 |   5     |</span><br><span class="line">| 手机        |   \$12   |   12   |</span><br><span class="line">| 管线        |    \$1    |  234  |</span><br><span class="line">| &gt; | ce    |   ce|</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th align="right">价格</th>
-<th align="center">数量</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>计算机</td>
-<td align="right">$1600</td>
-<td align="center">5</td>
-</tr>
-<tr>
-<td>手机</td>
-<td align="right">$12</td>
-<td align="center">12</td>
-</tr>
-<tr>
-<td>管线</td>
-<td align="right">$1</td>
-<td align="center">234</td>
-</tr>
-<tr>
-<td>&gt;</td>
-<td align="right">ce</td>
-<td align="center">ce</td>
-</tr>
-</tbody></table>
-<p>###2.6 定义型列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">名词 1</span><br><span class="line">: 定义 1（左侧有一个可见的冒号和四个不可见的空格）</span><br><span class="line"></span><br><span class="line">代码块 2</span><br><span class="line">: 这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）</span><br></pre></td></tr></table></figure>
-<dl><dt>名词 1</dt><dd>定义 1（左侧有一个可见的冒号和四个不可见的空格）</dd></dl><dl><dt>代码块 2</dt><dd>这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）<br>###2.7表格对齐<br>注： : 代表对齐方式 ,** : 与 | 之间不要有空格**，否则对齐会有些不兼容</dd></dl><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">代码</span><br><span class="line"></span><br><span class="line">|    a    |       b       |      c     |</span><br><span class="line">|:-------:|:------------- | ----------:|</span><br><span class="line">|   居中  |     左对齐    |   右对齐   |</span><br><span class="line">|=========|===============|============|</span><br></pre></td></tr></table></figure>
-<p>演示</p>
-<table>
-<thead>
-<tr>
-<th align="center">a</th>
-<th align="left">b</th>
-<th align="right">c</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">居中</td>
-<td align="left">左对齐</td>
-<td align="right">右对齐</td>
-</tr>
-<tr>
-<td align="center">=========</td>
-<td align="left">===============</td>
-<td align="right">============</td>
-</tr>
-</tbody></table>
-<p>###2.8 Html 标签<br>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：<br>设置colspan，rowspan<br><a href="https://blog.csdn.net/loongshawn/article/details/72829090?utm_source=blogxgwz6" target="_blank" rel="noopener">Markdown表格之合并单元格效果</a><br>###2.8 待办事宜 Todo 列表<br>使用带有 [ ] 或 [x] （未完成或已完成）项的列表语法撰写一个待办事宜列表，并且支持子列表嵌套以及混用Markdown语法，例如：<br><img src="https://upload-images.jianshu.io/upload_images/1414656-3c07364e15ba43dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/773/format/webp" alt=""></p>
-<p>##3.补充<br>###3.1定义型列表<br>注：解释型定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">代码：</span><br><span class="line">        Markdown   </span><br><span class="line">        : 轻量级文本标记语言，可以转换成html，pdf等格式  //  开头一个`:` + `Tab` 或 四个空格</span><br></pre></td></tr></table></figure>
-<p>Markdown<br>  : 轻量级文本标记语言，可以转换成html，pdf等格式  //  开头一个<code>:</code> + <code>Tab</code> 或 四个空格<br>###3.2自动邮箱链接<br>代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;xxx@outlook.com&gt;</span><br></pre></td></tr></table></figure>
-<p>演示<br>    <a href="mailto:&#49;&#x35;&#x33;&#53;&#48;&#52;&#x35;&#x38;&#56;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#109;" target="_blank" rel="noopener">&#49;&#x35;&#x33;&#53;&#48;&#52;&#x35;&#x38;&#56;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#109;</a></p>
-<p>###3.3字体,字号与颜色</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;font face=&quot;STCAIYUN&quot;&gt;我是华文彩云&lt;/font&gt;</span><br><span class="line">&lt;font color=gray size=5&gt;color=gray&lt;/font&gt;</span><br><span class="line">&lt;font color=  #0099ff size=5 face=&quot;黑体&quot;&gt;color=#0099ff size=5 face=&quot;黑体&quot;&lt;/font&gt;</span><br></pre></td></tr></table></figure>
-<p><font face="STCAIYUN">我是华文彩云</font><br><font color=gray size=5>color=gray</font><br><font color=#0099ff size=5 face="黑体">color=#0099ff size=5 face=”黑体”</font><br><font face = "楷体"><br>Size：规定文本的尺寸大小。可能的值：从 1 到 7 的数字。浏览器默认值是 3。</font><br>##4. 数学和LaTeX<br>$ 表示行内公式：</p>
-<p>质能守恒方程可以用一个很简洁的方程式 E=mc^2 来表达。</p>
-<p>$$ 表示整行公式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$$\sum_&#123;i=1&#125;^n a_i=0$$</span><br><span class="line">$E=mc^2$</span><br></pre></td></tr></table></figure>
-<p>$$\sum_{i=1}^n a_i=0$$<br>$ E=mc^2$<br>###4.1 常用计算速查</p>
-<p>###4.2省略号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ a_1,a_2,\ldots,a_n$</span><br><span class="line">$ a_1+a_2+\ldots+a_n$</span><br><span class="line">$ a_1+a_2+\cdots+a_n$</span><br></pre></td></tr></table></figure>
-<p>$ a_1,a_2,\ldots,a_n$<br>$ a_1+a_2+\ldots+a_n$<br>$ a_1+a_2+\cdots+a_n$<br>###4.3字体</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ \mathsf&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125;   $</span><br><span class="line">$ \mathcal&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125; $</span><br><span class="line">$ \mathscr&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125; $</span><br><span class="line">$ \mathfrak&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125; $</span><br></pre></td></tr></table></figure>
-<p>$ \mathsf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}   $<br>$ \mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ} $<br>$ \mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ} $<br>$ \mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ} $<br>###4.4常用公式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$x_i^2$，$x_i^2+x_&#123;i^2&#125;$，$10^&#123;10&#125;$</span><br><span class="line">$\log_2 x$</span><br><span class="line">$&#123;x^y&#125;^z+x^&#123;y^z&#125;$</span><br><span class="line">$\sum^&#123;j-1&#125;_&#123;k=0&#125;&#123;\widehat&#123;\gamma&#125;_&#123;kj&#125; z_k&#125;$</span><br><span class="line">$\sum_&#123;i=0&#125;^n i^2 = \frac&#123;(n^2+n)(2n+1)&#125;&#123;6&#125;$</span><br><span class="line">$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $</span><br><span class="line">$\displaystyle \lim_&#123;t \to 0&#125; \int_t^1 f(t)\, dt$</span><br><span class="line">$\lim_&#123;t \to 0&#125; \int_t^1 f(t)\, dt$.</span><br></pre></td></tr></table></figure>
-<p>$x_i^2$，$x_i^2+x_{i^2}$，$10^{10}$<br>$\log_2 x$<br>${x^y}^z+x^{y^z}$<br>$\sum^{j-1}<em>{k=0}{\widehat{\gamma}</em>{kj} z_k}$<br>$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$<br>$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $<br>$\displaystyle \lim_{t \to 0} \int_t^1 f(t), dt$<br>$\lim_{t \to 0} \int_t^1 f(t), dt$.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果需要大小调整，大小写切换写</span><br><span class="line">$$\Biggl(\biggl(\Bigl(\bigl((x)\bigr)\Bigr)\biggr)\Biggr) gives (((((x)))))$$</span><br></pre></td></tr></table></figure>
-<p>$$\Biggl(\biggl(\Bigl(\bigl((x)\bigr)\Bigr)\biggr)\Biggr) gives (((((x)))))$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">括号自适应大小</span><br><span class="line">$$(\frac&#123;\sqrt x&#125;&#123;y^3&#125;)$$</span><br><span class="line">$$ \left(\frac&#123;\sqrt x&#125;&#123;y^3&#125;\right)$$</span><br></pre></td></tr></table></figure>
-<p>$$(\frac{\sqrt x}{y^3})$$<br>$$ \left(\frac{\sqrt x}{y^3}\right)$$<br>###4.5等式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">    \begin&#123;aligned&#125;</span><br><span class="line">        a &amp;= b + c \\</span><br><span class="line">        &amp;= d + e + f + g \\</span><br><span class="line">        &amp;= h + i</span><br><span class="line">    \end&#123;aligned&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<p>$$<br>    \begin{aligned}<br>        a &amp;= b + c \<br>        &amp;= d + e + f + g \<br>        &amp;= h + i<br>    \end{aligned}<br>$$<br>###4.6矩阵</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">$</span><br><span class="line">    \begin&#123;matrix&#125;</span><br><span class="line">    1 &amp; x &amp; x^2 \\</span><br><span class="line">    1 &amp; y &amp; y^2 \\</span><br><span class="line">    1 &amp; z &amp; z^2 \\</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">$ , $</span><br><span class="line">    \begin&#123;pmatrix&#125; </span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    \end&#123;pmatrix&#125;</span><br><span class="line">$ , $   </span><br><span class="line">    \begin&#123;bmatrix&#125; </span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    \end&#123;bmatrix&#125;</span><br><span class="line">$ , $</span><br><span class="line">    \begin&#123;Bmatrix&#125; </span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    \end&#123;Bmatrix&#125; </span><br><span class="line">$ , $</span><br><span class="line">    \begin&#123;vmatrix&#125; </span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    \end&#123;vmatrix&#125; </span><br><span class="line">$ , $</span><br><span class="line">    \begin&#123;Vmatrix&#125; </span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    1 &amp; 2 \\</span><br><span class="line">    \end&#123;Vmatrix&#125; </span><br><span class="line">$</span><br></pre></td></tr></table></figure>
-<p>$<br>    \begin{matrix}<br>    1 &amp; x &amp; x^2 \<br>    1 &amp; y &amp; y^2 \<br>    1 &amp; z &amp; z^2 \<br>    \end{matrix}<br>$ , $<br>    \begin{pmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{pmatrix}<br>$ , $<br>    \begin{bmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{bmatrix}<br>$ , $<br>    \begin{Bmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{Bmatrix}<br>$ , $<br>    \begin{vmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{vmatrix}<br>$ , $<br>    \begin{Vmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{Vmatrix}<br>$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">省略元素 \cdots ⋯ \ddots ⋱ vdots ⋮</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$$</span><br><span class="line">    \begin&#123;matrix&#125;</span><br><span class="line">    a_&#123;11&#125; &amp; a_&#123;12&#125; &amp; a_&#123;13&#125; &amp; \cdots &amp; a_&#123;1n&#125; \\</span><br><span class="line">    a_&#123;21&#125; &amp; a_&#123;22&#125; &amp; a_&#123;23&#125; &amp; \cdots &amp; a_&#123;2n&#125; \\</span><br><span class="line">    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\</span><br><span class="line">    a_&#123;n1&#125; &amp; a_&#123;n2&#125; &amp; a_&#123;n3&#125; &amp; \cdots &amp; a_&#123;2n&#125; \\</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">$$ \left[</span><br><span class="line">\begin&#123;array&#125;&#123;cc|c&#125;</span><br><span class="line">  1&amp;2&amp;3\\</span><br><span class="line">  4&amp;5&amp;6</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">\right] </span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$$</span><br><span class="line">  f(n) =</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">n/2,  &amp; \text&#123;if $n$ is even&#125; \\</span><br><span class="line">3n+1, &amp; \text&#123;if $n$ is odd&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$$</span><br><span class="line">\left.</span><br><span class="line">\begin&#123;array&#125;&#123;l&#125;</span><br><span class="line">\text&#123;if $n$ is even:&#125;&amp;n/2\\</span><br><span class="line">\text&#123;if $n$ is odd:&#125;&amp;3n+1</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">\right\&#125;</span><br><span class="line">=f(n)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-
-
-<p>$$<br>    \begin{matrix}<br>    a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1n} \<br>    a_{21} &amp; a_{22} &amp; a_{23} &amp; \cdots &amp; a_{2n} \<br>    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>    a_{n1} &amp; a_{n2} &amp; a_{n3} &amp; \cdots &amp; a_{2n} \<br>    \end{matrix}<br>$$</p>
-<p>$$ \left[<br>\begin{array}{cc|c}<br>  1&amp;2&amp;3\<br>  4&amp;5&amp;6<br>\end{array}<br>\right]<br>$$</p>
-<p>$$<br>  f(n) =<br>\begin{cases}<br>n/2,  &amp; \text{if $n$ is even} \<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p>
-<p>$$<br>\left.<br>\begin{array}{l}<br>\text{if $n$ is even:}&amp;n/2\<br>\text{if $n$ is odd:}&amp;3n+1<br>\end{array}<br>\right}<br>=f(n)<br>$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">上下行的间距调整 ex</span><br><span class="line">$$</span><br><span class="line">f(n) =</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">\frac&#123;n&#125;&#123;2&#125;,  &amp; \text&#123;if $n$ is even&#125; \\[5ex]</span><br><span class="line">3n+1, &amp; \text&#123;if $n$ is odd&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$$</span><br><span class="line">\left\&#123; </span><br><span class="line">\begin&#123;array&#125;&#123;c&#125;</span><br><span class="line">a_1x+b_1y+c_1z=d_1 \\ </span><br><span class="line">a_2x+b_2y+c_2z=d_2 \\ </span><br><span class="line">a_3x+b_3y+c_3z=d_3</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">\right. </span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<p>$$<br>f(n) =<br>\begin{cases}<br>\frac{n}{2},  &amp; \text{if $n$ is even} \[5ex]<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p>
-<p>$$<br>\left{<br>\begin{array}{c}<br>a_1x+b_1y+c_1z=d_1 \<br>a_2x+b_2y+c_2z=d_2 \<br>a_3x+b_3y+c_3z=d_3<br>\end{array}<br>\right.<br>$$<br>###aligned 对齐</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$$ </span><br><span class="line">\left\&#123;</span><br><span class="line">\begin&#123;aligned&#125; </span><br><span class="line">a_1x+b_1y+c_1z &amp;=d_1+e_1 \\ </span><br><span class="line">a_2x+b_2y&amp;=d_2 \\ </span><br><span class="line">a_3x+b_3y+c_3z &amp;=d_3 </span><br><span class="line">\end&#123;aligned&#125; </span><br><span class="line">\right. </span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<p>$$<br>\left{<br>\begin{aligned}<br>a_1x+b_1y+c_1z &amp;=d_1+e_1 \<br>a_2x+b_2y&amp;=d_2 \<br>a_3x+b_3y+c_3z &amp;=d_3<br>\end{aligned}<br>\right.<br>$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">继续用em调整行距</span><br><span class="line">$$\begin&#123;cases&#125;</span><br><span class="line">a_1x+b_1y+c_1z=d_1 \\[2ex] </span><br><span class="line">a_2x+b_2y+c_2z=d_2 \\[2ex] </span><br><span class="line">a_3x+b_3y+c_3z=d_3</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<p>$$\begin{cases}<br>a_1x+b_1y+c_1z=d_1 \[2ex]<br>a_2x+b_2y+c_2z=d_2 \[2ex]<br>a_3x+b_3y+c_3z=d_3<br>\end{cases}<br>$$<br>###颜色</p>
-<p>##5.流程图</p>
-<p>###5.1简单流程图</p>
-<p><a href="http://flowchart.js.org/" target="_blank" rel="noopener">流程图语法参考</a></p>
-<p>###5.2序列图x`<br>代码:<br><img src="./%E6%97%B6%E5%BA%8F%E5%9B%BE.png" alt=""><br>效果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A-&gt;&gt;B: 你好</span><br><span class="line">Note left of A: 我在左边 </span><br><span class="line">Note right of B: 我在右边</span><br><span class="line">B--&gt;A: 很高兴认识你</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">起床-&gt;吃饭: 稀饭油条</span><br><span class="line">吃饭-&gt;上班: 不要迟到了</span><br><span class="line">上班-&gt;午餐: 吃撑了</span><br><span class="line">上班-&gt;下班:</span><br><span class="line">Note right of 下班: 下班了</span><br><span class="line">下班-&gt;回家:</span><br><span class="line">Note right of 回家: 到家了</span><br><span class="line">回家--&gt;&gt;起床:</span><br><span class="line">Note left of 起床: 新的一天</span><br></pre></td></tr></table></figure>
-
-<p>###5.3mermaid 甘特图<br>###5.4 puml 序列图<br>###5.5 dot</p>
-
+<p>##1. 文本部分</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/11/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/" data-id="ck2hixsp20000os7jg81c0eb8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/" data-id="ck2hpkqkk0001zo7jfjp8bya7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -362,7 +173,7 @@ world</code>标记之外<br>###1.9支持内嵌CSS样式<br>代码:</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/27/i-m-rlj/" data-id="ck2hixspf0002os7jc7pibdzy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/27/i-m-rlj/" data-id="ck2hpkqea0000zo7j1vpw1kol" class="article-share-link">Share</a>
       
       
     </footer>
@@ -411,7 +222,7 @@ world</code>标记之外<br>###1.9支持内嵌CSS样式<br>代码:</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/27/hello-world/" data-id="ck2hixspb0001os7j7i32073j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/27/hello-world/" data-id="ck2hpkqni0002zo7jcyywaig2" class="article-share-link">Share</a>
       
       
     </footer>

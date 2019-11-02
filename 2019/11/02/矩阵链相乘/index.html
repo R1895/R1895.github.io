@@ -7,14 +7,14 @@
   
   <title>矩阵链相乘 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###矩阵链相乘 矩阵链乘法   求解矩阵链相乘问题时动态规划算法的另一个例子。给定一个n个矩阵的序列（矩阵链）&amp;lt;A1,A2,…,An&amp;gt;，我们希望计算它们的乘积  A1A2…An  两个矩阵A和B只有相容(compatible)，即A的列数等于B的行数时，才能相乘。如果A是p×q的矩阵，B是q×r的矩阵，那么乘积C是p×r的矩阵。计算C所需要时间由第8行的标量乘法的次数决定的，即pqr">
+  <meta name="description" content="###矩阵链相乘 矩阵链乘法   求解矩阵链相乘问题时动态规划算法的另一个例子。给定一个n个矩阵的序列（矩阵链）&amp;lt;A1,A2,…,An&amp;gt;，我们希望计算它们的乘积  A1A2…An">
 <meta property="og:type" content="article">
 <meta property="og:title" content="矩阵链相乘">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="###矩阵链相乘 矩阵链乘法   求解矩阵链相乘问题时动态规划算法的另一个例子。给定一个n个矩阵的序列（矩阵链）&amp;lt;A1,A2,…,An&amp;gt;，我们希望计算它们的乘积  A1A2…An  两个矩阵A和B只有相容(compatible)，即A的列数等于B的行数时，才能相乘。如果A是p×q的矩阵，B是q×r的矩阵，那么乘积C是p×r的矩阵。计算C所需要时间由第8行的标量乘法的次数决定的，即pqr">
+<meta property="og:description" content="###矩阵链相乘 矩阵链乘法   求解矩阵链相乘问题时动态规划算法的另一个例子。给定一个n个矩阵的序列（矩阵链）&amp;lt;A1,A2,…,An&amp;gt;，我们希望计算它们的乘积  A1A2…An">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-16T12:30:00.000Z">
+<meta property="og:updated_time" content="2019-11-02T15:14:19.297Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -86,6 +86,7 @@
       
         <p>###矩阵链相乘</p>
 <p>矩阵链乘法<br>   求解矩阵链相乘问题时动态规划算法的另一个例子。给定一个n个矩阵的序列（矩阵链）&lt;A1,A2,…,An&gt;，我们希望计算它们的乘积  A1A2…An</p>
+<a id="more"></a> 
 <p> 两个矩阵A和B只有相容(compatible)，即A的列数等于B的行数时，才能相乘。如果A是p×q的矩阵，B是q×r的矩阵，那么乘积C是p×r的矩阵。计算C所需要时间由第8行的标量乘法的次数决定的，即pqr。<br>   以矩阵链&lt;A1,A2,A3&gt;为例，来说明不同的加括号方式会导致不同的计算代价。假设三个矩阵的规模分别为10×100、100×5和5×50。<br>   如果按照((A1A2)A3)的顺序计算，为计算A1A2(规模10×5)，需要做10×100×5=5000次标量乘法，再与A3相乘又需要做10×5×50=2500次标量乘法，共需7500次标量乘法。<br>   如果按照(A1(A2A3))的顺序计算，为计算A2A3(规模100×50)，需100×5×50=25000次标量乘法，再与A1相乘又需10×100×50=50000次标量乘法，共需75000次标量乘法。因此第一种顺序计算要比第二种顺序计算快10倍。</p>
 <p> 矩阵链乘法问题(matrix-chain multiplication problem)可描述如下：给定n个矩阵的链&lt;A1,A2,…,An&gt;，矩阵Ai的规模为p(i-1)×p(i) (1&lt;=i&lt;=n)，求完全括号化方案，使得计算乘积A1A2…An所需标量乘法次数最少。<br>###递推关系式</p>
 <p><a href="https://blog.csdn.net/Neo_kh/article/details/81282025" target="_blank" rel="noopener">https://blog.csdn.net/Neo_kh/article/details/81282025</a><br>    ①如果i=j，m[i,j]=0</p>
@@ -97,7 +98,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/" data-id="ck2hj1mih0000lc7jhxqbcc81" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/" data-id="ck2hpkqnw0003zo7ja9thg3ch" class="article-share-link">Share</a>
       
       
     </footer>
