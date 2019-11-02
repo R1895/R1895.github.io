@@ -61,6 +61,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-矩阵链相乘" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/" class="article-date">
+  <time datetime="2019-11-02T12:12:04.666Z" itemprop="datePublished">2019-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/">矩阵链相乘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###矩阵链相乘</p>
+<p>矩阵链乘法<br>   求解矩阵链相乘问题时动态规划算法的另一个例子。给定一个n个矩阵的序列（矩阵链）&lt;A1,A2,…,An&gt;，我们希望计算它们的乘积  A1A2…An</p>
+<p> 两个矩阵A和B只有相容(compatible)，即A的列数等于B的行数时，才能相乘。如果A是p×q的矩阵，B是q×r的矩阵，那么乘积C是p×r的矩阵。计算C所需要时间由第8行的标量乘法的次数决定的，即pqr。<br>   以矩阵链&lt;A1,A2,A3&gt;为例，来说明不同的加括号方式会导致不同的计算代价。假设三个矩阵的规模分别为10×100、100×5和5×50。<br>   如果按照((A1A2)A3)的顺序计算，为计算A1A2(规模10×5)，需要做10×100×5=5000次标量乘法，再与A3相乘又需要做10×5×50=2500次标量乘法，共需7500次标量乘法。<br>   如果按照(A1(A2A3))的顺序计算，为计算A2A3(规模100×50)，需100×5×50=25000次标量乘法，再与A1相乘又需10×100×50=50000次标量乘法，共需75000次标量乘法。因此第一种顺序计算要比第二种顺序计算快10倍。</p>
+<p> 矩阵链乘法问题(matrix-chain multiplication problem)可描述如下：给定n个矩阵的链&lt;A1,A2,…,An&gt;，矩阵Ai的规模为p(i-1)×p(i) (1&lt;=i&lt;=n)，求完全括号化方案，使得计算乘积A1A2…An所需标量乘法次数最少。<br>###递推关系式</p>
+<p><a href="https://blog.csdn.net/Neo_kh/article/details/81282025" target="_blank" rel="noopener">https://blog.csdn.net/Neo_kh/article/details/81282025</a><br>    ①如果i=j，m[i,j]=0</p>
+<pre><code>②如果i&lt;j，m[i,j]=min{m[i,k]+m[k+1,j]+p(i-1)p(k)p(j)}  i&lt;=k&lt;j</code></pre><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> max_size 400</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 100000000</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> s[max_size][max_size];<span class="comment">//保存构造最优解信息</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> p[max_size];<span class="comment">//矩阵规模的记录</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> m[max_size][max_size];<span class="comment">//记录最优值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">matrix_chain_order</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        m[i][i]=<span class="number">0</span>;<span class="comment">//初始化最优值(起始于1,结束于n)</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">2</span>;l&lt;=n;l++)<span class="comment">//l表示矩阵链的长度</span></span><br><span class="line">    &#123;<span class="comment">//计算每一条对角线的最优值</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n-l+<span class="number">1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j=i+l<span class="number">-1</span>;</span><br><span class="line">            m[i][j]=INF;</span><br><span class="line">            s[i][j]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=j<span class="number">-1</span>;k&gt;=i;k--)<span class="comment">//解决方案优先选取先左边的矩阵</span></span><br><span class="line">            &#123;<span class="comment">//②如果i&lt;j，m[i,j]=min&#123;m[i,k]+m[k+1,j]+p(i-1)p(k)p(j)&#125;  i&lt;=k&lt;j</span></span><br><span class="line">                <span class="keyword">int</span> q=m[i][k]+m[k+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[k]*p[j];</span><br><span class="line">                <span class="keyword">if</span>(q&lt;m[i][j])</span><br><span class="line">                &#123;</span><br><span class="line">                    m[i][j]=q;</span><br><span class="line">                    s[i][j]=k;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_optimal_parents</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span><span class="comment">//打印最优解的结果</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==j)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"A%d"</span>,i);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;   <span class="comment">//中序二叉树?</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"("</span>);</span><br><span class="line">            print_optimal_parents(i,s[i][j]);</span><br><span class="line">            print_optimal_parents(s[i][j]+<span class="number">1</span>,j);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">")"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(p,<span class="number">0</span>,<span class="keyword">sizeof</span>(p));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;p[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        matrix_chain_order(n);</span><br><span class="line">        print_optimal_parents(<span class="number">1</span>,n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>小结:<br>动态规划算法设计要素<br>1.多阶段决策过程,每步处理一个子问题,界定子问题的边界<br>2.列出优化函数的递推方程及初值<br>3.问题要满足优化原则或最优子结构性质,即:一个最优决策序列的任何子序列本身一定是相对于子序列的<br>初始和结束状态的最优决策序列<br>拓展: 递归实现</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> m[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> s[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==j)               <span class="comment">/*如果只有一个矩阵就直接返回*/</span></span><br><span class="line">        <span class="keyword">return</span> m[i][j];</span><br><span class="line">    m[i][j]=<span class="number">999999999</span>;     <span class="comment">/*将m[i][j]设为无穷大*/</span></span><br><span class="line">    s[i][j]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=i;k&lt;j;k++)&#123;  <span class="comment">/*将i到j个矩阵分为i到k和k+1到j个矩阵*/</span></span><br><span class="line">        <span class="keyword">int</span> q=dp(i,k)+dp(k+<span class="number">1</span>,j)+p[i<span class="number">-1</span>]*p[k]*p[j]; </span><br><span class="line">        <span class="keyword">if</span>(q&lt;m[i][j])&#123;      <span class="comment">/*如果有更小的方案更新*/</span></span><br><span class="line">            m[i][j]=q;</span><br><span class="line">            s[i][j]=k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m[i][j];         </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)&#123;  <span class="comment">/*输入矩阵链*/</span></span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;p[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(m,<span class="number">0</span>,<span class="keyword">sizeof</span>(m));    <span class="comment">/*初始化*/</span></span><br><span class="line">        dp(<span class="number">1</span>,n);                    <span class="comment">/*查找目标1到n个矩阵链乘*/</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;m[<span class="number">1</span>][n]&lt;&lt;<span class="string">" "</span>&lt;&lt;s[<span class="number">1</span>][n]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>迭代</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/" data-id="ck2hj1mih0000lc7jhxqbcc81" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-VsCode支持的markdown语法参考" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/" class="article-date">
@@ -230,7 +275,7 @@ world</code>标记之外<br>###1.9支持内嵌CSS样式<br>代码:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">代码：</span><br><span class="line">        Markdown   </span><br><span class="line">        : 轻量级文本标记语言，可以转换成html，pdf等格式  //  开头一个`:` + `Tab` 或 四个空格</span><br></pre></td></tr></table></figure>
 <p>Markdown<br>  : 轻量级文本标记语言，可以转换成html，pdf等格式  //  开头一个<code>:</code> + <code>Tab</code> 或 四个空格<br>###3.2自动邮箱链接<br>代码:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;xxx@outlook.com&gt;</span><br></pre></td></tr></table></figure>
-<p>演示<br>    <a href="mailto:&#x31;&#x35;&#51;&#53;&#x30;&#52;&#x35;&#x38;&#56;&#55;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;" target="_blank" rel="noopener">&#x31;&#x35;&#51;&#53;&#x30;&#52;&#x35;&#x38;&#56;&#55;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p>演示<br>    <a href="mailto:&#49;&#x35;&#x33;&#53;&#48;&#52;&#x35;&#x38;&#56;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#109;" target="_blank" rel="noopener">&#49;&#x35;&#x33;&#53;&#48;&#52;&#x35;&#x38;&#56;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#109;</a></p>
 <p>###3.3字体,字号与颜色</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;font face=&quot;STCAIYUN&quot;&gt;我是华文彩云&lt;/font&gt;</span><br><span class="line">&lt;font color=gray size=5&gt;color=gray&lt;/font&gt;</span><br><span class="line">&lt;font color=  #0099ff size=5 face=&quot;黑体&quot;&gt;color=#0099ff size=5 face=&quot;黑体&quot;&lt;/font&gt;</span><br></pre></td></tr></table></figure>
 <p><font face="STCAIYUN">我是华文彩云</font><br><font color=gray size=5>color=gray</font><br><font color=#0099ff size=5 face="黑体">color=#0099ff size=5 face=”黑体”</font><br><font face = "楷体"><br>Size：规定文本的尺寸大小。可能的值：从 1 到 7 的数字。浏览器默认值是 3。</font><br>##4. 数学和LaTeX<br>$ 表示行内公式：</p>
@@ -280,7 +325,7 @@ world</code>标记之外<br>###1.9支持内嵌CSS样式<br>代码:</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/" data-id="ck2hivfsg0000p07jhi0b2da6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/" data-id="ck2hixsp20000os7jg81c0eb8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -317,7 +362,7 @@ world</code>标记之外<br>###1.9支持内嵌CSS样式<br>代码:</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/27/i-m-rlj/" data-id="ck2hivfsy0001p07j7za53j91" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/27/i-m-rlj/" data-id="ck2hixspf0002os7jc7pibdzy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +411,7 @@ world</code>标记之外<br>###1.9支持内嵌CSS样式<br>代码:</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/27/hello-world/" data-id="ck2hivft70002p07ja0dx3erk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/27/hello-world/" data-id="ck2hixspb0001os7j7i32073j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,6 +450,10 @@ world</code>标记之外<br>###1.9支持内嵌CSS样式<br>代码:</p>
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/">矩阵链相乘</a>
+          </li>
         
           <li>
             <a href="/2019/11/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/">VsCode支持的markdown语法参考</a>
