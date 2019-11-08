@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Ping 本质 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ping 本质（ ICMP ）1、什么是 Ping">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ping 本质">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;07&#x2F;Ping%20%E6%9C%AC%E8%B4%A8&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Ping 本质（ ICMP ）1、什么是 Ping">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;12814988-200da5d8944c012d.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;800&#x2F;format&#x2F;webp">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;12814988-660f2b1948e6e6c2.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1006&#x2F;format&#x2F;webp">
+<meta property="og:updated_time" content="2019-11-06T17:36:43.543Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;12814988-200da5d8944c012d.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;800&#x2F;format&#x2F;webp">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Ping 本质" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/07/Ping%20%E6%9C%AC%E8%B4%A8/" class="article-date">
+  <time datetime="2019-11-06T17:29:32.359Z" itemprop="datePublished">2019-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ping 本质
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Ping-本质（-ICMP-）"><a href="#Ping-本质（-ICMP-）" class="headerlink" title="Ping 本质（ ICMP ）"></a>Ping 本质（ ICMP ）</h1><h2 id="1、什么是-Ping"><a href="#1、什么是-Ping" class="headerlink" title="1、什么是 Ping"></a>1、什么是 Ping</h2><a id="more"></a>
+<blockquote>
+<p>ping是一种计算机网络工具，用来测试数据包能否透过IP协议到达特定主机。ping的运作原理是向目标主机传出一个ICMP echo@要求数据包，并等待接收echo回应数据包。程序会按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延，Round-trip delay time）。———— 维基百科<br> 我们在网络通信的过程中，常常使用 ping 某一个 IP 地址或者某个域名看下基本连接是否正常；是否有丢包；是否有网络延迟。ping 就是我们经常用来作为网络连接通信的测试“指令”。</p>
+</blockquote>
+<p>我记得我们以前调侃说只要会 Ping 就可以去当网吧网管了（其实网管的工作肯定比这个复杂的多）。</p>
+<p>Windows 10 下的 Ping</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;ping www.baidu.com</span><br><span class="line"></span><br><span class="line">正在 Ping www.a.shifen.com [<span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span>] 具有 <span class="number">32</span> 字节的数据:</span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line"></span><br><span class="line"><span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = <span class="number">4</span>，已接收 = <span class="number">4</span>，丢失 = <span class="number">0</span> (<span class="number">0</span>% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = <span class="number">42</span>ms，最长 = <span class="number">42</span>ms，平均 = <span class="number">42</span>ms</span><br></pre></td></tr></table></figure>
+<h2 id="Ping-的工作原理"><a href="#Ping-的工作原理" class="headerlink" title="Ping 的工作原理"></a>Ping 的工作原理</h2><p>在维基百科中解释有说明， Ping 的原理是 ICMP 协议.</p>
+<h2 id="什么是-ICMP-协议"><a href="#什么是-ICMP-协议" class="headerlink" title="什么是 ICMP 协议"></a>什么是 ICMP 协议</h2><blockquote>
+<p>ICMP 的全称是 Intent Control Message Protocol, 中文过来就是 互联网控制报文协议</p>
+</blockquote>
+<p>网络数据包在庞大的网络中会很多各种不同情况。如果一定需要举一个例子来比如的话，用相当于兵种的侦察兵。时刻给大部队探测前方的情况。以便后方的大部队能够根据不同情况做出不同的调整。所以 ICMP 经常用于网络环境的测试。</p>
+<blockquote>
+<p>互联网控制消息协议（英语：Internet Control Message Protocol，缩写：ICMP）是互联网协议族的核心协议之一。它用于TCP/IP网络中发送控制消息，提供可能发生在通信环境中的各种问题反馈，通过这些信息，使管理者可以对所发生的问题作出诊断，然后采取适当的措施解决。 —— 维基百科</p>
+</blockquote>
+<h2 id="ICMP-协议的格式"><a href="#ICMP-协议的格式" class="headerlink" title="ICMP 协议的格式"></a>ICMP 协议的格式</h2><p>用图文表示：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-200da5d8944c012d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp" alt="ICMP 协议格式"><br>ICMP 报文封装在 IP 包里面。ICMP 的报文类型根据类型和代码有很多，文章后面有来自维基百科的完整的表格。但是主要分为两类：</p>
+<blockquote>
+<p>A、查询报文<br>B、差错报文</p>
+</blockquote>
+<h2 id="查询报文-（Echo-Request与-Echo-Reply）"><a href="#查询报文-（Echo-Request与-Echo-Reply）" class="headerlink" title="查询报文 （Echo Request与 Echo Reply）"></a>查询报文 （Echo Request与 Echo Reply）</h2><p>定义：发送端主动发起请求，并且获取到应答。</p>
+<p>常见应用：Ping</p>
+<p>Ping 就是主动请求，获取到主动应答。但是 Ping 是在原生的 ICMP 中添加了自定义格式区域。例如 Ping 中放了发送的请求时间，以此计算出路程。所以，其实在 Ping 的报文中会加入序号，以用来区分数据包，从而提高计算时间或者路程的准确性。</p>
+<h2 id="差错报文"><a href="#差错报文" class="headerlink" title="差错报文"></a>差错报文</h2><p>主要有以下几种：</p>
+<ol>
+<li><p>源抑制<br>发送端发送大量数据时，可能会导致网络( 路由器 )过载，此时过载处可以向发送端发送源抑制的消息，让他降低发送速度。</p>
+</li>
+<li><p>终点不可到达<br>网络信息不能到达终点，就会给发送端发送一个目的不可到达的信息。告诉发送端可能是设备故障而引起关闭（情况之一）。然后这种又可以再次细分：<br>A、网络不可达 — 代码为 0，<br>B、主机不可达 — 代码为 1.<br>C、协议不可达 — 代码为 2.<br>D、端口不可达 — 代码为 3.<br>E、需要分段 - 代码为 4.（ 必须把数据分段才能去到终点 ）</p>
+</li>
+<li><p>超时<br>网络包超过设置的在网络中的生存时间，还没有达到。</p>
+</li>
+<li><p>路由重定向<br>定义数据包的路由股则。因为大部分的时候，路由规则是通过相关协议算法生成的，有些时候重新定义过之后，会让这个数据包绕的更远。</p>
+</li>
+</ol>
+<blockquote>
+<p>常见应用：Traceroute<br>Traceoute 有点像是在不断试错的意思。是用来侦测主机到目的主机之间所经路由情况的重要工具。Ping 我们知道是可以知道这条大路通不通的，Traceoute 通过设置 TTL 知道到底是哪个路由器不通。<br>TTL : 数据包在网络中生存时间，也就是通过数据被路由器转发的次数，没转发一次就减一。知道为 0 的时候就抛弃。<br>Traceroute 的原理：它收到目的主机的 IP 后，首先给目的主机发送一个 TTL=1 的 UDP 数据包，而经过的第一个路由器收到这个数据包以后，就自动把 TTL 减 1，而 TTL 变为 0 以后，路由器就把这个包给抛弃了，并同时产生 一个主机不可达的 ICMP 数据报给主机。如此循环就可以知道所有的路由 IP 了。（ ICMP 出错了就会回错误包 ）</p>
+</blockquote>
+<p>通常 Traceoute 的目的端口设置的是一个大于 30000 的值（ 一般的应用端口号远小于这个数 ）。所以如果回复的是 “端口不可达”，那就说明到达终点，否则这个信息就会超时。以此确保 消息是否到达终点。</p>
+<p>Traceoute 还有一个有意思的功能，就是确定 MTU（数据最大传输单元），Traceoute 通常对数据不分段，就直接发送，如果如果遇到过程中某个路由转发，出现返回 ICMP 需要分段的错误，就把数据进行拆分，直到最后到达终点。就验证出 MTU。</p>
+<p>ICMP 其实还有很多意思的地方，这边就简单的介绍到这里。<br>附表：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-660f2b1948e6e6c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1006/format/webp" alt="ICMP"></p>
+<p>作者：FutureEye<br>链接：<a href="https://www.jianshu.com/p/e1795962ad76" target="_blank" rel="noopener">https://www.jianshu.com/p/e1795962ad76</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/07/Ping%20%E6%9C%AC%E8%B4%A8/" data-id="ck2pj8jm300014s7j42oi5w2i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/11/07/arp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          arp
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">矩阵链相乘</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/07/%E8%AE%BF%E9%97%AE%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/">访问一个网页的全过程</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/07/arp/">arp</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/07/Ping%20%E6%9C%AC%E8%B4%A8/">Ping 本质</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/">矩阵链相乘</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/">VsCode支持的markdown语法参考</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
