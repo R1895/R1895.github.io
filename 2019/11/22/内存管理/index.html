@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="内存管理习题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存管理">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;22&#x2F;%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:description" content="内存管理习题">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-22T11:21:16.388Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/11/22/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>内存管理 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Only action can relieve the uneasiness.</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj.jpg">
+      <meta itemprop="name" content="任林杰">
+      <meta itemprop="description" content="建设最美114">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          内存管理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-22 19:21:49 / 修改时间：19:21:16" itemprop="dateCreated datePublished" datetime="2019-11-22T19:21:49+08:00">2019-11-22</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>内存管理习题</p>
+<a id="more"></a>
+<p>一.选择题</p>
+<p>1、设备分配问题中，算法实现时，同样要考虑安全性问题，防⽌在多个进程进⾏设备请求时，因相互等待对⽅释放所占设备所造成的（D）现象。<br>A．瓶颈    B．碎⽚    C．系统抖动    D．死锁</p>
+<p>2、主存与辅存间频繁的页⾯置换现象被称为（C）。<br>A．请求调页    B．碎⽚整理    C．系统抖动    D．输⼊输出</p>
+<p>3、在可变分区存储管理中，最差适应分配算法要求对空闲区表项按（   ）进⾏排列<br>A．地址从⼤到⼩ B．地址从⼩到⼤ C．尺⼨从⼤到⼩ D．尺⼨从⼩到⼤</p>
+<blockquote>
+<p>C<br>若为最优适应分配算法则D<br>最优适应分配算法可把空闲区按长度以递增顺序登记在空闲区表中。分配时顺序查找空闲区表，由于查找时每次总是从分区中的最小的一个区开始，所以，找到的第一个能满足作业要求的分区，一定是所有能满足作业要求的分区中的最小的一个分区。</p>
+</blockquote>
+<p>4、段页式存储管理汲取了页式管理和段式管理的长处，其实现原理结合了页式和段式管理的基本思想，即（    ）。<br>A、⽤分段⽅法来分配和管理物理存储空间，⽤分页⽅法来管理⽤户地址空间。<br>B、⽤分段⽅法来分配和管理⽤户地址空间，⽤分页⽅法来管理物理存储空间。<br>C、⽤分段⽅法来分配和管理主存空间，⽤分页⽅法来管理辅存空间。<br>D、⽤分段⽅法来分配和管理辅存空间，⽤分页⽅法来管理主存空间。</p>
+<p>5、下列措施中，能加快虚实地址转换的是：<br>I. 增⼤快表（TLB）    II. 让页表常驻内存    III. 增加交换区<br>A. 仅 I    B.  仅 II    C.  仅I,II    D. 仅II,III</p>
+<blockquote>
+<p>C<br>增大TLB，是为了避免去内存中匹配页表。TLB本身就在***里，而且能并行计算。把页表都放在内存里，也是可以的，但一般页表很大，可以经过多级页表和反置页表处理后再放在内存里。交换区是内存不够用时的解决手段，增大交换区能腾出更多地方。</p>
+</blockquote>
+<p>6、在页式存储管理系统中，采⽤某些页⾯置换算法，会出现Belady异常现象，即进程的缺页次数会随着分配给该进程的页框个数的增加⽽增加。下列算法中，可能出现Belady异常现象的是：<br>I. LRU 算法    II. FIFO 算法    III. OPT 算 法<br>A.  仅II    B.仅 I,II    C.  仅I,III    D. 仅II,III</p>
+<blockquote>
+<p>A</p>
+</blockquote>
+<p>7、下列选项中，属于多级页表优点的是：D<br>A.加快地址变换速度    B.减少缺页中断次数<br>C.  减少⼀个页表项所占字节数    D.减少页表所占的内存空间</p>
+<p>8、下列关于虚拟存储器的叙述中，正确的是<br>A.  虚拟存储器只能基于连续分配技术    B. 虚拟存储器只能基于⾮连续分配技术<br>C.  虚拟存储器只受外存容量的限制    D. 虚拟存储器只受内存容量的限制</p>
+<blockquote>
+<p>虚拟存储器(Virtual Memory)是为了给用户提供更大的随机存取空间而采用的一种存储技术。它将内存与外存(辅存)结合使用，好像有一个容量极大的内存储器，工作速度接近于主存，每位的成本又与辅存相近，在整机形成多层次存储系统。虚拟存储区的容量与物理主存大小无关，而受限于计算机的地址结构和可用磁盘容量。 虚拟存储器是由硬件和操作系统自动实现存储信息调度和管理的，其工作过程包括6个步骤： ①中央处理器将访问主存的逻辑地址分解成组号a和组内地址b，并对组号a进行地址变换，即以a为索引查地址变换表，以确定该组信息是否在主存中。 ②若该组号已在主存，则转而执行④；否则检查主存中是否有空闲区，便将某个暂时不用的组调出送往辅存，以便将需要的这组信息调入主存。 ②从辅存读出所要的组，并送到主存空闲区，并登记在地址变换表中。 ③从地址变换表读出与逻辑组号a对应的物理组号a。 ⑤从物理组号a和组内字节地址b得到物理地址。 ⑥根据物理地址从主存中存取需要的信息。</p>
+</blockquote>
+<p>9、在⼀个请求分页系统中，采⽤ LRU 页⾯转换算法时，加⼊⼀个作业的页⾯⾛向为：<br>1，3，2，1，1，3，5，1，3，2，1，5.当分配给该作业的物理块数分别为 3 和 4 时，在访问过程中所发⽣的缺页率为<br>A. 25%，33%    B. 50%，25%    C.50%,33%    D. 50%，75%</p>
+<blockquote>
+<p>M=3<br>1 3 2<br>请求5 缺页 1 3 5<br>请求2 缺页 1 3 2<br>请求5 缺页 1 5 2<br>3/12 = 25%<br>M=4<br>9-2<br>在一个请求分页系统中，假如一个作业的页面走向为4、3、2、1、4、3、5、4、3、2、1、5，当分配给该作业的物理块数M分别是3和4时，分别采用LRU和FIFO面替换算法，计算访问过程中所发生的缺页次数和缺页率，比较所得结果。<br>当M=3时，采用LRU替换算法，如表3-3所示。<br>表3-3 LRU算法的缺页情况<br>4 3 2 1 4 3 5 4 3 2 1 5</p>
+</blockquote>
+<p>4 4 4 1 1 1 5 5 5 2 2 2<br>3 3 3 4 4 4 4 4 4 1 1<br>2 2 2 3 3 3 3 3 3 5<br>缺页次数为10次，缺页率为：(10/12)×00%=83%。<br>当M=3时，采用FIFO替换算法，如表3-4所示。<br>表3-4 FIFO算法的缺页情况<br>4 3 2 1 4 3 5 4 3 2 1 5<br>4 4 4 1 1 1 5 5 5 5 5 5<br>3 3 3 4 4 4 4 4 2 2 2<br>2 2 2 3 3 3 3 3 1 1<br>缺页次数为9次，缺页率为：(9/12)×100%=75%。 (2) 当M=4时，采用LRU替换算法，如表3-5所示。<br>表3-5 LRU算法的缺页情况<br>4 3 2 1 4 3 5 4 3 2 1 5<br>4 4 4 4 4 4 4 4 4 4 4 5<br>3 3 3 3 3 3 3 3 3 3 3<br>2 2 2 2 5 5 5 5 1 1<br>1 1 1 1 1 1 2 2 2<br>缺页次数为8次，缺页率为：(8/12)×100%=67%。 当M=4时，采用FIFO替换算法，如表3-6所示。<br>表3-6 FIFO算法的缺页情况<br>4 3 2 1 4 3 5 4 3 2 1 5<br>4 4 4 4 4 4 5 5 5 5 1 1<br>3 3 3 3 3 3 4 4 4 4 5<br>2 2 2 2 2 3 3 3 3<br>1 1 1 1 1 1 2 2 2<br>缺页次数为10次，缺页率为：(10/12)×100%=83%。<br>通过以上缺页次数和缺页率的分析计算，可以看出，对于LRU算法，增加物理块数，可以减少缺页次数，降低缺页率；而对FIFO算法，增加物理块数，不一定能减少缺页次数。</p>
+<p>9-3<br>在一个请求分页系统中,假如一个作业的也面走向为:4,3,2,1,5,4,3,2,4,5,当分配给该作业的物理块数为4时,试分别计算采用最佳（optimal)置换算法和最近最久未使用（lru)置换算法时,访问过程中所发生的缺页次数</p>
+<blockquote>
+<p>最佳置换,置换掉最长时间内不会在用的页；最近最久未使用,置换掉当前最久没有被使用的页<br>1：最佳置换<br>序列：4 3 2 1 5 4 3 2 4 5<br>内存页有4 3 2 1<br>请求5时,缺页,置换掉1,因为1不会再被使用了；内存页有4 3 2 5<br>请求4 3 2 4 5时,都不缺页；<br>缺页次数为1<br>2：最近最久未使用<br>序列：4 3 2 1 5 4 3 2 4 5<br>内存页有4 3 2 1<br>请求5时,缺页,置换掉4,因为4最早进内存,最久未被使用；内存页有5 3 2 1<br>请求4时,缺页,置换掉3,理由同上；内存页有5 4 2 1<br>请求3时,缺页,置换掉2,理由同上,内存页有5 4 3 1<br>请求2时,置换1,内存页有5 4 3 2；<br>请求4,5时不缺页；<br>缺页次数为4</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">一个请求分页系统中，假设系统分配给 某进程的物理块数为 <span class="number">3</span> ，开始时内存为空，执行如下访问页号序列：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> ， <span class="number">2</span> ， <span class="number">3</span> ， <span class="number">4</span> ， <span class="number">1</span> ， <span class="number">2</span> ， <span class="number">5</span> ， <span class="number">1</span> ， <span class="number">2</span> ， <span class="number">3</span> ， <span class="number">4</span> ， <span class="number">5</span></span><br><span class="line"></span><br><span class="line">试说明采用先进先出 (FIFO) 、最近最少使用（ LRU ）和最佳置换算法 (OPT) 进行页面置换时，缺页次数各是多少？</span><br><span class="line">（ <span class="number">1</span> ） FIFO: <span class="number">9</span> 次</span><br><span class="line"></span><br><span class="line">（ <span class="number">2</span> ） LRU ： <span class="number">10</span> 次</span><br><span class="line"></span><br><span class="line">（ <span class="number">3</span> ） OPT ： <span class="number">7</span> 次</span><br></pre></td></tr></table></figure>
+
+<p>10、   设有 8 页的逻辑空间，每页有 1024B,它们被映射到 32 块的物理存储区中。那么， 逻辑地址的有效位是     位，物理地址⾄少是     位。<br>A. 10、11    B. 12、14    C. 13、15    D. 14、16</p>
+<p>11、    某基于动态分区存储管理的计算机,其主存容量为  55M B(初始为空闲),采⽤最佳适配(Best Fit)算法,分配和释放的顺序为:分配 15M B,分配 30M B,释放 15M B,分配 8M B, 分配 6M B,此时主存中最⼤空闲分区的⼤⼩是     。<br>A.7MB    B.9MB    C.10MB    D.15MB</p>
+<ol start="12">
+<li>某作业的逻辑地址空间为4页，页⾯⼤⼩为2048，已知页表如下所⽰，则逻辑地址<br>4865（⼗进制）对应的物理地址为（C ）。<br>页号    0    1    2    3<br>块号    2    4    6    8<br>A、4865    B、8961    C、13057    D、6865</li>
+</ol>
+<p>13、    若⽤户进程访问内存时产⽣缺页，则下列选项中，操作系统可能执⾏的操作是I.处理越界错    II.置换页    III.分配内存<br>A.仅I、II    B.仅II、III    C.  仅I、III    D. I、II和III</p>
+<p>14、    可以被多个进程在任意时刻共享的代码必须是     _。<br>A.  顺序代码    B.  机器语⾔代码   C.不能⾃⾝修改的代码    D. ⽆转移指令代码</p>
+<p>15、    假设变址寄存器 R 的内容为 1000H，指令中的形式地址为 2000 H；地址 1000H 中的内容为 2000H，地址 2000H 中的内容为 3000H，地址 3000 H 中的内容为 4000H，则变址寻址⽅式下访问到的操作数是：<br>A. 1000H    B. 2000H    C. 3000H    D. 4000 H</p>
+<p>16、    有⼀个整数矩阵为 100 ⾏*200 列，即 a[100][200]。在⼀个虚拟系统中，采⽤ LRU 算法，系统分给该进程 5 个页⾯来存储数据（不包含程序），设每页可存放 200 个整数，该程序要对整个数组初始化，数组存储时是按⾏存放的。试计算下列两个程序各⾃的缺页次数（假定所有页都以请求⽅式调⼊）。<br>A. 100,200    B. 100,20000    C. 200,100    D. 20000,100</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">程 序 一 ： </span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">99</span>;i++)</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;=<span class="number">199</span>;j++) </span><br><span class="line">        a[i][j]=i*j;</span><br><span class="line">程 序 二 ： </span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;=<span class="number">199</span>;j++)</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">99</span>;i++)</span><br><span class="line">         a[i][j]=i*j;</span><br></pre></td></tr></table></figure>
+<p>17、  考虑页⾯置换算法，系统有 m 个物理块供调度，初始时全空，页⾯引⽤串长度为p，包含了 n 个不同的页号，⽆论⽤什么算法，缺页次数不会少于（ ）<br>A、m    B 、 p C 、 n D 、 min(m,n)</p>
+<p>18、 总体上说，“按需调页”（Demand-Paging）是个很好的虚拟内存管理策略。但是， 有些程序设计技术并不适合于这适种环境。例如（ ）<br>A、堆栈    B、线性搜索    C、⽮量运算    D、⼆分法搜索</p>
+<p>19、    把进程地址空间中使⽤的逻辑地址变成内存中物理地址的过程称为： A、重定位    B、物理化    C、逻辑化    D、加载</p>
+<p>20、    在可变分区存储管理中，最佳适应分配算法要求对空闲区表项按（    ）进⾏排列。A、地址从⼤到⼩    B、地址从⼩到⼤    C、尺⼨从⼤到⼩    D、尺⼨从⼩到⼤</p>
+<p>21、    主存与辅存间频繁的页⾯置换现象被称为（    ）。<br>A、请求调页    B、碎⽚整理    C、系统抖动    D、输⼊输出</p>
+<p>22、    某作业的逻辑地址空间为 4 页，页⾯⼤⼩为 2048，已知页表如下所⽰，则逻辑地址<br>4865（⼗进制）对应的物理地址为（    ）。<br>页号    0    1    2    3<br>块号    2    4    6    8<br>A、4865    B、8961    C、13057    D、6865</p>
+<p>23、 某基于动态分区存储管理的计算机,其主存容量为 55M B(初始为空闲),采⽤最佳适配(Best Fit)算法,分配和释放的顺序为:分配 15M B,分配 30M B,释放 15M B,分配 8M B, 分配 6M B,此时主存中最⼤空闲分区的⼤⼩是     。<br>A.7MB    B.9MB    C.10MB    D.15MB</p>
+<p>二.计算题</p>
+<p>五、简答题</p>
+<p>1、 在虚拟存储管理中，分段式内存管理⽅式解决了分页式内存管理中的什么问题，又带来了什么问题呢？</p>
+<p>2、 Intel IA32体系结构中的保护模式是将逻辑地址转成线性地址再转成物理地址，这种内存管理⽅式是段页式内存管理⽅式吗，为什么？</p>
+<p>3、 LRU页⾯置换算法是⼀种⽐较优秀的算法但是较难实现，为什么？试给出⼀种可⾏的近似算法作为LRU的取代⽅案。</p>
+<p>4、 单纯的分段式和分页式内存管理各有什么缺点？为什么段页式可以避免这些缺点？ 为什么段页式内存管理没有被⼴泛采⽤呢？</p>
+<p>5、 为什么内存管理⽅式中，可变分区管理中有最差适应（worst fit)分配算法，⽽固定分区管理中没有这个算法？分区管理中的交换技术（swap）和段式管理中的请求式分段技术有什么区别？请求式分段与覆盖技术（overlay）又有什么区别？</p>
+<p>6、 页⾯置换（淘汰）的时机是什么？哪种算法最理想同时也不可能实现？为什么说LRU算法很有效但是很难实现？什么是Belady异常？哪种算法存在Belady异常现 象？</p>
+<p>7、 请讨论⼀下页⾯置换算法中⼯作集（Working Set）置换算法的⼯作原理。</p>
+<p>8、 在内存管理的⽅法中，分段式管理⽐分页式管理有什么优势？段页式与其他⽅式相<br>⽐有什么好处？</p>
+<p>9、 为了同时抢占⾼端和中低端市场，CPU ⼚商常常在同⼀⽣产线上⽣产主频和制作⼯艺相同的⾼端和低端CPU，如Intel   曾经同时⽣产相同主频和制作⼯艺的“奔腾   4”和“赛扬”，价格上相差很⼤，据称主要区别在⼆级缓存的⼤⼩。请问缓存（Cache）有  什么⽤，什么地⽅会⽤到它？</p>
+<p>10、 为什么要使⽤倒排页表？倒排页表⾯临的最⼤的问题是什么？如何解决？</p>
+<p>11、 内存分区管理中的交换技术与请求式分段技术相⽐，有什么相同点和不同点？</p>
+<p>12、 在页⾯淘汰算法中，为什么说⽼化(Aging)算法只是 LRU 的⼀个近似实现？</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/19/%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E5%86%99%E4%BD%9C/" rel="next" title="英语四级写作">
+                  <i class="fa fa-chevron-left"></i> 英语四级写作
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/11/22/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" rel="prev" title="文件管理">
+                  文件管理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="任林杰"
+    src="/images/rlj.jpg">
+  <p class="site-author-name" itemprop="name">任林杰</p>
+  <div class="site-description" itemprop="description">建设最美114</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">任林杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">64k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">59 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
