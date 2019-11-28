@@ -51,15 +51,19 @@
   };
 </script>
 
-  <meta name="description" content="内存管理习题">
+  <meta name="description" content="内存管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="内存管理">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;22&#x2F;%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="Jason&#39;s blogs">
-<meta property="og:description" content="内存管理习题">
+<meta property="og:description" content="内存管理">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-22T11:21:16.388Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os%E4%B9%A0%E9%A2%98&#x2F;%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%861.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os%E4%B9%A0%E9%A2%98&#x2F;%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%862.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os%E4%B9%A0%E9%A2%98&#x2F;%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%863.png">
+<meta property="og:updated_time" content="2019-11-28T13:17:23.564Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os%E4%B9%A0%E9%A2%98&#x2F;%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%861.png">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/22/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
 
@@ -217,10 +221,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-22 19:21:49 / 修改时间：19:21:16" itemprop="dateCreated datePublished" datetime="2019-11-22T19:21:49+08:00">2019-11-22</time>
+              <time title="创建时间：2019-11-22 19:21:49" itemprop="dateCreated datePublished" datetime="2019-11-22T19:21:49+08:00">2019-11-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-28 21:17:23" itemprop="dateModified" datetime="2019-11-28T21:17:23+08:00">2019-11-28</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -228,14 +238,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.1k</span>
+              <span>9.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>9 分钟</span>
             </span>
 
         </div>
@@ -247,16 +257,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>内存管理习题</p>
-<a id="more"></a>
+        <h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><a id="more"></a>
 <p>一.选择题</p>
 <p>1、设备分配问题中，算法实现时，同样要考虑安全性问题，防⽌在多个进程进⾏设备请求时，因相互等待对⽅释放所占设备所造成的（D）现象。<br>A．瓶颈    B．碎⽚    C．系统抖动    D．死锁</p>
 <p>2、主存与辅存间频繁的页⾯置换现象被称为（C）。<br>A．请求调页    B．碎⽚整理    C．系统抖动    D．输⼊输出</p>
-<p>3、在可变分区存储管理中，最差适应分配算法要求对空闲区表项按（   ）进⾏排列<br>A．地址从⼤到⼩ B．地址从⼩到⼤ C．尺⼨从⼤到⼩ D．尺⼨从⼩到⼤</p>
+<p>3、在可变分区存储管理中，最差适应分配算法要求对空闲区表项按（ C）进⾏排列<br>A．地址从⼤到⼩ B．地址从⼩到⼤ C．尺⼨从⼤到⼩ D．尺⼨从⼩到⼤</p>
 <blockquote>
-<p>C<br>若为最优适应分配算法则D<br>最优适应分配算法可把空闲区按长度以递增顺序登记在空闲区表中。分配时顺序查找空闲区表，由于查找时每次总是从分区中的最小的一个区开始，所以，找到的第一个能满足作业要求的分区，一定是所有能满足作业要求的分区中的最小的一个分区。</p>
+<p>若为最优适应分配算法则D<br>最优适应分配算法可把空闲区按长度以递增顺序登记在空闲区表中。分配时顺序查找空闲区表，由于查找时每次总是从分区中的最小的一个区开始，所以，找到的第一个能满足作业要求的分区，一定是所有能满足作业要求的分区中的最小的一个分区。</p>
 </blockquote>
-<p>4、段页式存储管理汲取了页式管理和段式管理的长处，其实现原理结合了页式和段式管理的基本思想，即（    ）。<br>A、⽤分段⽅法来分配和管理物理存储空间，⽤分页⽅法来管理⽤户地址空间。<br>B、⽤分段⽅法来分配和管理⽤户地址空间，⽤分页⽅法来管理物理存储空间。<br>C、⽤分段⽅法来分配和管理主存空间，⽤分页⽅法来管理辅存空间。<br>D、⽤分段⽅法来分配和管理辅存空间，⽤分页⽅法来管理主存空间。</p>
+<p>4、段页式存储管理汲取了页式管理和段式管理的长处，其实现原理结合了页式和段式管理的基本思想，即（ B ）。<br>A、⽤分段⽅法来分配和管理物理存储空间，⽤分页⽅法来管理⽤户地址空间。<br>B、⽤分段⽅法来分配和管理⽤户地址空间，⽤分页⽅法来管理物理存储空间。<br>C、⽤分段⽅法来分配和管理主存空间，⽤分页⽅法来管理辅存空间。<br>D、⽤分段⽅法来分配和管理辅存空间，⽤分页⽅法来管理主存空间。</p>
+<blockquote>
+<p>段页式存储管理兼有页式管理和段式管理的优点，采用分段方法来分配和管理用户地址空间，用分页方法来管理物理存储空间。</p>
+</blockquote>
 <p>5、下列措施中，能加快虚实地址转换的是：<br>I. 增⼤快表（TLB）    II. 让页表常驻内存    III. 增加交换区<br>A. 仅 I    B.  仅 II    C.  仅I,II    D. 仅II,III</p>
 <blockquote>
 <p>C<br>增大TLB，是为了避免去内存中匹配页表。TLB本身就在***里，而且能并行计算。把页表都放在内存里，也是可以的，但一般页表很大，可以经过多级页表和反置页表处理后再放在内存里。交换区是内存不够用时的解决手段，增大交换区能腾出更多地方。</p>
@@ -266,52 +278,169 @@
 <p>A</p>
 </blockquote>
 <p>7、下列选项中，属于多级页表优点的是：D<br>A.加快地址变换速度    B.减少缺页中断次数<br>C.  减少⼀个页表项所占字节数    D.减少页表所占的内存空间</p>
-<p>8、下列关于虚拟存储器的叙述中，正确的是<br>A.  虚拟存储器只能基于连续分配技术    B. 虚拟存储器只能基于⾮连续分配技术<br>C.  虚拟存储器只受外存容量的限制    D. 虚拟存储器只受内存容量的限制</p>
+<p>8、下列关于虚拟存储器的叙述中，正确的是 B<br>A.  虚拟存储器只能基于连续分配技术    B. 虚拟存储器只能基于⾮连续分配技术<br>C.  虚拟存储器只受外存容量的限制    D. 虚拟存储器只受内存容量的限制</p>
 <blockquote>
 <p>虚拟存储器(Virtual Memory)是为了给用户提供更大的随机存取空间而采用的一种存储技术。它将内存与外存(辅存)结合使用，好像有一个容量极大的内存储器，工作速度接近于主存，每位的成本又与辅存相近，在整机形成多层次存储系统。虚拟存储区的容量与物理主存大小无关，而受限于计算机的地址结构和可用磁盘容量。 虚拟存储器是由硬件和操作系统自动实现存储信息调度和管理的，其工作过程包括6个步骤： ①中央处理器将访问主存的逻辑地址分解成组号a和组内地址b，并对组号a进行地址变换，即以a为索引查地址变换表，以确定该组信息是否在主存中。 ②若该组号已在主存，则转而执行④；否则检查主存中是否有空闲区，便将某个暂时不用的组调出送往辅存，以便将需要的这组信息调入主存。 ②从辅存读出所要的组，并送到主存空闲区，并登记在地址变换表中。 ③从地址变换表读出与逻辑组号a对应的物理组号a。 ⑤从物理组号a和组内字节地址b得到物理地址。 ⑥根据物理地址从主存中存取需要的信息。</p>
 </blockquote>
-<p>9、在⼀个请求分页系统中，采⽤ LRU 页⾯转换算法时，加⼊⼀个作业的页⾯⾛向为：<br>1，3，2，1，1，3，5，1，3，2，1，5.当分配给该作业的物理块数分别为 3 和 4 时，在访问过程中所发⽣的缺页率为<br>A. 25%，33%    B. 50%，25%    C.50%,33%    D. 50%，75%</p>
+<p>9、在⼀个请求分页系统中，采⽤ LRU 页⾯转换算法时，加⼊⼀个作业的页⾯⾛向为：<br>1，3，2，1，1，3，5，1，3，2，1，5.当分配给该作业的物理块数分别为 3 和 4 时，在访问过程中所发⽣的缺页率为  C<br>A. 25%，33%    B. 50%，25%    C.50%,33%    D. 50%，75%</p>
 <blockquote>
-<p>M=3<br>1 3 2<br>请求5 缺页 1 3 5<br>请求2 缺页 1 3 2<br>请求5 缺页 1 5 2<br>3/12 = 25%<br>M=4<br>9-2<br>在一个请求分页系统中，假如一个作业的页面走向为4、3、2、1、4、3、5、4、3、2、1、5，当分配给该作业的物理块数M分别是3和4时，分别采用LRU和FIFO面替换算法，计算访问过程中所发生的缺页次数和缺页率，比较所得结果。<br>当M=3时，采用LRU替换算法，如表3-3所示。<br>表3-3 LRU算法的缺页情况<br>4 3 2 1 4 3 5 4 3 2 1 5</p>
+<p>M=3<br>1 3 2<br>请求5 缺页 1 3 5<br>请求2 缺页 1 3 2<br>请求5 缺页 1 5 2<br>6/12 = 25%<br>M=4<br>1 3 2 5<br>4 / 12 = 33%</p>
 </blockquote>
-<p>4 4 4 1 1 1 5 5 5 2 2 2<br>3 3 3 4 4 4 4 4 4 1 1<br>2 2 2 3 3 3 3 3 3 5<br>缺页次数为10次，缺页率为：(10/12)×00%=83%。<br>当M=3时，采用FIFO替换算法，如表3-4所示。<br>表3-4 FIFO算法的缺页情况<br>4 3 2 1 4 3 5 4 3 2 1 5<br>4 4 4 1 1 1 5 5 5 5 5 5<br>3 3 3 4 4 4 4 4 2 2 2<br>2 2 2 3 3 3 3 3 1 1<br>缺页次数为9次，缺页率为：(9/12)×100%=75%。 (2) 当M=4时，采用LRU替换算法，如表3-5所示。<br>表3-5 LRU算法的缺页情况<br>4 3 2 1 4 3 5 4 3 2 1 5<br>4 4 4 4 4 4 4 4 4 4 4 5<br>3 3 3 3 3 3 3 3 3 3 3<br>2 2 2 2 5 5 5 5 1 1<br>1 1 1 1 1 1 2 2 2<br>缺页次数为8次，缺页率为：(8/12)×100%=67%。 当M=4时，采用FIFO替换算法，如表3-6所示。<br>表3-6 FIFO算法的缺页情况<br>4 3 2 1 4 3 5 4 3 2 1 5<br>4 4 4 4 4 4 5 5 5 5 1 1<br>3 3 3 3 3 3 4 4 4 4 5<br>2 2 2 2 2 3 3 3 3<br>1 1 1 1 1 1 2 2 2<br>缺页次数为10次，缺页率为：(10/12)×100%=83%。<br>通过以上缺页次数和缺页率的分析计算，可以看出，对于LRU算法，增加物理块数，可以减少缺页次数，降低缺页率；而对FIFO算法，增加物理块数，不一定能减少缺页次数。</p>
+<p>9-2<br>在一个请求分页系统中，假如一个作业的页面走向为4、3、2、1、4、3、5、4、3、2、1、5，当分配给该作业的物理块数M分别是3和4时，分别采用LRU和FIFO面替换算法，计算访问过程中所发生的缺页次数和缺页率，比较所得结果。</p>
+<blockquote>
+<p>当M=3时，采用LRU替换算法<br>缺页次数为10次，缺页率为：(10/12)×00%=83%。<br>当M=3时，采用FIFO替换算法<br>缺页次数为9次，缺页率为：(9/12)×100%=75%。<br>(2) 当M=4时，采用LRU替换算法<br>缺页次数为8次，缺页率为：(8/12)×100%=67%。<br>当M=4时，采用FIFO替换算法，<br>缺页次数为10次，缺页率为：(10/12)×100%=83%。<br>通过以上缺页次数和缺页率的分析计算，可以看出，对于LRU算法，增加物理块数，可以减少缺页次数，降低缺页率；而对FIFO算法，增加物理块数，不一定能减少缺页次数。</p>
+</blockquote>
 <p>9-3<br>在一个请求分页系统中,假如一个作业的也面走向为:4,3,2,1,5,4,3,2,4,5,当分配给该作业的物理块数为4时,试分别计算采用最佳（optimal)置换算法和最近最久未使用（lru)置换算法时,访问过程中所发生的缺页次数</p>
 <blockquote>
 <p>最佳置换,置换掉最长时间内不会在用的页；最近最久未使用,置换掉当前最久没有被使用的页<br>1：最佳置换<br>序列：4 3 2 1 5 4 3 2 4 5<br>内存页有4 3 2 1<br>请求5时,缺页,置换掉1,因为1不会再被使用了；内存页有4 3 2 5<br>请求4 3 2 4 5时,都不缺页；<br>缺页次数为1<br>2：最近最久未使用<br>序列：4 3 2 1 5 4 3 2 4 5<br>内存页有4 3 2 1<br>请求5时,缺页,置换掉4,因为4最早进内存,最久未被使用；内存页有5 3 2 1<br>请求4时,缺页,置换掉3,理由同上；内存页有5 4 2 1<br>请求3时,缺页,置换掉2,理由同上,内存页有5 4 3 1<br>请求2时,置换1,内存页有5 4 3 2；<br>请求4,5时不缺页；<br>缺页次数为4</p>
 </blockquote>
+<blockquote>
+<p>这题和前面的题缺页次数基准好像不同,不过大多数题目都是跟9-2一样</p>
+</blockquote>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">一个请求分页系统中，假设系统分配给 某进程的物理块数为 <span class="number">3</span> ，开始时内存为空，执行如下访问页号序列：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> ， <span class="number">2</span> ， <span class="number">3</span> ， <span class="number">4</span> ， <span class="number">1</span> ， <span class="number">2</span> ， <span class="number">5</span> ， <span class="number">1</span> ， <span class="number">2</span> ， <span class="number">3</span> ， <span class="number">4</span> ， <span class="number">5</span></span><br><span class="line"></span><br><span class="line">试说明采用先进先出 (FIFO) 、最近最少使用（ LRU ）和最佳置换算法 (OPT) 进行页面置换时，缺页次数各是多少？</span><br><span class="line">（ <span class="number">1</span> ） FIFO: <span class="number">9</span> 次</span><br><span class="line"></span><br><span class="line">（ <span class="number">2</span> ） LRU ： <span class="number">10</span> 次</span><br><span class="line"></span><br><span class="line">（ <span class="number">3</span> ） OPT ： <span class="number">7</span> 次</span><br></pre></td></tr></table></figure>
 
-<p>10、   设有 8 页的逻辑空间，每页有 1024B,它们被映射到 32 块的物理存储区中。那么， 逻辑地址的有效位是     位，物理地址⾄少是     位。<br>A. 10、11    B. 12、14    C. 13、15    D. 14、16</p>
-<p>11、    某基于动态分区存储管理的计算机,其主存容量为  55M B(初始为空闲),采⽤最佳适配(Best Fit)算法,分配和释放的顺序为:分配 15M B,分配 30M B,释放 15M B,分配 8M B, 分配 6M B,此时主存中最⼤空闲分区的⼤⼩是     。<br>A.7MB    B.9MB    C.10MB    D.15MB</p>
-<ol start="12">
-<li>某作业的逻辑地址空间为4页，页⾯⼤⼩为2048，已知页表如下所⽰，则逻辑地址<br>4865（⼗进制）对应的物理地址为（C ）。<br>页号    0    1    2    3<br>块号    2    4    6    8<br>A、4865    B、8961    C、13057    D、6865</li>
-</ol>
-<p>13、    若⽤户进程访问内存时产⽣缺页，则下列选项中，操作系统可能执⾏的操作是I.处理越界错    II.置换页    III.分配内存<br>A.仅I、II    B.仅II、III    C.  仅I、III    D. I、II和III</p>
-<p>14、    可以被多个进程在任意时刻共享的代码必须是     _。<br>A.  顺序代码    B.  机器语⾔代码   C.不能⾃⾝修改的代码    D. ⽆转移指令代码</p>
-<p>15、    假设变址寄存器 R 的内容为 1000H，指令中的形式地址为 2000 H；地址 1000H 中的内容为 2000H，地址 2000H 中的内容为 3000H，地址 3000 H 中的内容为 4000H，则变址寻址⽅式下访问到的操作数是：<br>A. 1000H    B. 2000H    C. 3000H    D. 4000 H</p>
-<p>16、    有⼀个整数矩阵为 100 ⾏*200 列，即 a[100][200]。在⼀个虚拟系统中，采⽤ LRU 算法，系统分给该进程 5 个页⾯来存储数据（不包含程序），设每页可存放 200 个整数，该程序要对整个数组初始化，数组存储时是按⾏存放的。试计算下列两个程序各⾃的缺页次数（假定所有页都以请求⽅式调⼊）。<br>A. 100,200    B. 100,20000    C. 200,100    D. 20000,100</p>
+<p>10、   设有 8 页的逻辑空间，每页有 1024B,它们被映射到 32 块的物理存储区中。那么， 逻辑地址的有效位是     位，物理地址⾄少是     位。(C)<br>A. 10、11    B. 12、14    C. 13、15    D. 14、16</p>
+<blockquote>
+<p>8 = 2^3  32 = 2^5<br>逻辑 10+3=13<br>物理 10+5=15</p>
+</blockquote>
+<p>11、    某基于动态分区存储管理的计算机,其主存容量为  55M B(初始为空闲),采⽤最佳适配(Best Fit)算法,分配和释放的顺序为:分配 15M B,分配 30M B,释放 15M B,分配 8M B, 分配 6M B,此时主存中最⼤空闲分区的⼤⼩是 B 。</p>
+<blockquote>
+<p>若为WF 选 A<br>A.7MB    B.9MB    C.10MB    D.15MB</p>
+</blockquote>
+<p>***12.    某作业的逻辑地址空间为4页，页⾯⼤⼩为2048，已知页表如下所⽰，则逻辑地址<br>4865（⼗进制）对应的物理地址为（==C==）。<br>页号    0    1    2    3<br>块号    2    4    6    8<br>A、4865    B、8961    C、13057    D、6865</p>
+<blockquote>
+<p>4865 = 1301H = ‭0001001100000001‬<br>2对应6<br>11001100000001‬ = 13057</p>
+</blockquote>
+<p>13、若⽤户进程访问内存时产⽣缺页，则下列选项中，操作系统可能执⾏的操作是 ==B==<br>I.处理越界错    II.置换页    III.分配内存<br>A.仅I、II    B.仅II、III    C.  仅I、III    D. I、II和III</p>
+<blockquote>
+<p>用户进程访问内存时缺页会发生缺页中断。发生缺页中断，系统会执行的操作可能是置换页面或分配内存。系统内没有越界的错误，不会进行越界出错处理。</p>
+</blockquote>
+<p>14、    可以被多个进程在任意时刻共享的代码必须是 ==C==。<br>A.  顺序代码    B.  机器语⾔代码   C.不能⾃⾝修改的代码    D. ⽆转移指令代码</p>
+<p>15、    假设变址寄存器 R 的内容为 1000H，指令中的形式地址为 2000 H；地址 1000H 中的内容为 2000H，地址 2000H 中的内容为 3000H，地址 3000 H 中的内容为 4000H，则变址寻址⽅式下访问到的操作数是： ==D==<br>A. 1000H    B. 2000H    C. 3000H    D. 4000 H</p>
+<p>16、    有⼀个整数矩阵为 100 ⾏*200 列，即 a[100][200]。在⼀个虚拟系统中，采⽤ LRU 算法，系统分给该进程 5 个页⾯来存储数据（不包含程序），设每页可存放 200 个整数，该程序要对整个数组初始化，数组存储时是按⾏存放的。试计算下列两个程序各⾃的缺页次数（假定所有页都以请求⽅式调⼊）。 ==B==<br>A. 100,200    B. 100,20000    C. 200,100    D. 20000,100</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">程 序 一 ： </span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">99</span>;i++)</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;=<span class="number">199</span>;j++) </span><br><span class="line">        a[i][j]=i*j;</span><br><span class="line">程 序 二 ： </span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;=<span class="number">199</span>;j++)</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">99</span>;i++)</span><br><span class="line">         a[i][j]=i*j;</span><br></pre></td></tr></table></figure>
-<p>17、  考虑页⾯置换算法，系统有 m 个物理块供调度，初始时全空，页⾯引⽤串长度为p，包含了 n 个不同的页号，⽆论⽤什么算法，缺页次数不会少于（ ）<br>A、m    B 、 p C 、 n D 、 min(m,n)</p>
-<p>18、 总体上说，“按需调页”（Demand-Paging）是个很好的虚拟内存管理策略。但是， 有些程序设计技术并不适合于这适种环境。例如（ ）<br>A、堆栈    B、线性搜索    C、⽮量运算    D、⼆分法搜索</p>
-<p>19、    把进程地址空间中使⽤的逻辑地址变成内存中物理地址的过程称为： A、重定位    B、物理化    C、逻辑化    D、加载</p>
-<p>20、    在可变分区存储管理中，最佳适应分配算法要求对空闲区表项按（    ）进⾏排列。A、地址从⼤到⼩    B、地址从⼩到⼤    C、尺⼨从⼤到⼩    D、尺⼨从⼩到⼤</p>
-<p>21、    主存与辅存间频繁的页⾯置换现象被称为（    ）。<br>A、请求调页    B、碎⽚整理    C、系统抖动    D、输⼊输出</p>
-<p>22、    某作业的逻辑地址空间为 4 页，页⾯⼤⼩为 2048，已知页表如下所⽰，则逻辑地址<br>4865（⼗进制）对应的物理地址为（    ）。<br>页号    0    1    2    3<br>块号    2    4    6    8<br>A、4865    B、8961    C、13057    D、6865</p>
-<p>23、 某基于动态分区存储管理的计算机,其主存容量为 55M B(初始为空闲),采⽤最佳适配(Best Fit)算法,分配和释放的顺序为:分配 15M B,分配 30M B,释放 15M B,分配 8M B, 分配 6M B,此时主存中最⼤空闲分区的⼤⼩是     。<br>A.7MB    B.9MB    C.10MB    D.15MB</p>
-<p>二.计算题</p>
-<p>五、简答题</p>
+<p>17、  考虑页⾯置换算法，系统有 m 个物理块供调度，初始时全空，页⾯引⽤串长度为p，包含了 n 个不同的页号，⽆论⽤什么算法，缺页次数不会少于（C）<br>A、m    B 、 p C 、 n D 、 min(m,n)</p>
+<blockquote>
+<p>无论采用什么置换算法,每种页面第一次访问时不可能在内存中.必然发生缺页.</p>
+</blockquote>
+<p>18、 总体上说，“按需调页”（Demand-Paging）是个很好的虚拟内存管理策略。但是， 有些程序设计技术并不适合于这适种环境。例如（D）<br>A、堆栈    B、线性搜索    C、⽮量运算    D、⼆分法搜索</p>
+<blockquote>
+<p>因为二分法搜索地址是不连续的、跳跃的，不在同一页面，需要不断地调页。</p>
+</blockquote>
+<ol start="19">
+<li>把进程地址空间中使⽤的逻辑地址变成内存中物理地址的过程称为：==A==<br>A、重定位    B、物理化    C、逻辑化    D、加载<blockquote>
+<p>由程序中逻辑地址组成的地址范围叫做逻辑地址空间，或简称为地址空间。而由内存中的一系列存储单元所限定的地址范围称为内存空间，也称为物理空间或者绝对空间。<br>程序和数据装入内存时需对目标程序中的地址进行修改。这种把逻辑地址转变为内存的物理地址的过程叫重定位。<br>对程序进行重定位的技术按重定位的时机可分为两种：静态重定位和动态重定位。</p>
+</blockquote>
+</li>
+</ol>
+<p>二.计算题<br> 某操作系统中，进程的逻辑地址空间和系统的物理地址空间均为 64KB，按字节编址。某进程最多需要 8 页（Page）数据存储空间，页的⼤⼩为 2KB，操作系统采⽤固定分配局部置换策略为此进程分配  6  个页框（Page Frame），采⽤⽼化算法（aging）进⾏页⾯置换，每个页⾯使⽤ 8bits 记录使⽤情况。在每个 clock tick 结束时，6 个页⾯的 R 位如下所⽰：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	        页⾯ 0	页⾯ 1	页⾯ 2	页⾯ 3	页⾯ 4	页⾯ 5</span><br><span class="line">clock tick 0	0	1	0	1	0	1</span><br><span class="line">clock tick 1	1	1	1	0	0	0</span><br><span class="line">clock tick 2	0	0	1	1	1	0</span><br><span class="line">clock tick 3	1	0	0	1	0	0</span><br></pre></td></tr></table></figure>
+<p>此时的页表如下所⽰：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">页号	页框号	是否在内存中（P 位）	是否在 TLB（快表）中</span><br><span class="line"><span class="number">00</span>H	<span class="number">08</span>H	<span class="number">1</span>	                        是</span><br><span class="line"><span class="number">01</span>H	<span class="number">07</span>H	<span class="number">1</span>	                        是</span><br><span class="line"><span class="number">02</span>H	<span class="number">04</span>H	<span class="number">1</span>	                        是</span><br><span class="line"><span class="number">03</span>H	<span class="number">1</span>EH	<span class="number">1</span>	                        是</span><br><span class="line"><span class="number">04</span>H	<span class="number">15</span>H	<span class="number">1</span>	                        是</span><br><span class="line"><span class="number">05</span>H	<span class="number">0</span>FH	<span class="number">1</span>	                        是</span><br><span class="line"><span class="number">06</span>H	---	<span class="number">0</span>	                        否</span><br><span class="line"><span class="number">07</span>H	---	<span class="number">0</span>	                        否</span><br></pre></td></tr></table></figure>
+<p>页表存放在主存中，对主存的⼀次存取需要<code>100</code>ns，对TLB表的查找时间为10ns，处理<br>⼀次缺页中断需要<code>108</code> ns（10的8次⽅ns，含更新TLB和慢表的时间）。</p>
+<ol start="20">
+<li><p>如果现在程序执⾏时遇到逻辑地址1AC5H，这次访问耗费时间为 ==C==    。<br>A.    108+220ns    B.    100ns    C. 110ns    D. 210ns</p>
+</li>
+<li><p>然后，程序执⾏时遇到逻辑地址32C5H，这次访问耗费时间为     。<br>A.    108+220ns    B.    100ns    C. 110ns    D. 210ns</p>
+</li>
+<li><p>32C5H对应的物理地址为     。<br>A.7AC5H    B.    22C5H    C. 3AC5H    D. F2C5H</p>
+<blockquote>
+<p>物理 16<br>逻辑 16<br>页内偏移 11<br>1AC5H = 11 … 在快表中<br>32C5H 缺页<br>置换页面1 因为1的访问计数器0011值最小<br>物理地址为<br>0011101010100101=3AC5</p>
+</blockquote>
+</li>
+</ol>
+<p>某计算机主存按字节编址，逻辑地址和物理地址都是 32 位，页⾯⼤⼩为 4KB，页表项<br>⼤⼩为 4 字节。请回答下列问题。<br>23. 若使⽤⼀级页表的分页存储管理⽅式，逻辑地址结构为：</p>
+<blockquote>
+<p>|页号(20位) | 页内偏移量（12 位）|</p>
+</blockquote>
+<p>此时页表最⼤占⽤空间为     ==C==。<br>A. 4KB    B. 1MB    C. 4MB    D. 32MB</p>
+<ol start="24">
+<li>若使⽤⼆级页表的分页存储管理⽅式，逻辑地址结构为：<blockquote>
+<p>|页⽬录号（10 位）| 页表索引（10 位）| 页内偏移量（12 位）</p>
+</blockquote>
+</li>
+</ol>
+<p>??25. 若该进程共⽤到了10000个页，则此时此⼆级页表占⽤的总空间最⼩为 ==C==    。<br>A. 4KB    B. 11KB    C. 44KB    D. 11MB</p>
+<blockquote>
+<p>4KB/4B = 1024<br>需要11个页表<br>11 * 4MB</p>
+</blockquote>
+<p><strong>某操作系统的内存管理器采⽤请求式分页，页⾯⼤⼩为 1KB，逻辑地址空间为 32 位， 物理地址空间⼤⼩为 4 GB，按字节编址。页表采⽤多级页表，⼀个页表项⼤⼩为 4B。TLB</strong><br>（快表）采⽤全相联映射，有 4 个页表项，内容如下表所⽰。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">有效位	页号	页框号	…</span><br><span class="line"><span class="number">0</span>	FF180H	------	…</span><br><span class="line"><span class="number">1</span>	<span class="number">3</span>FFF1H	<span class="number">0</span>F035H	…</span><br><span class="line"><span class="number">1</span>	FFFC6H	<span class="number">3054</span>CH	…</span><br><span class="line"><span class="number">1</span>	<span class="number">03</span>FFFH	<span class="number">0</span>C153H	…</span><br></pre></td></tr></table></figure>
+<p>34、该系统的页表项中，最多可以保存     ==B==位标志位。<br>A．8    B．10    C．12    D．16<br>35、若采⽤多级页表，要求每级页表均可以装⼊⼀个页⾯内，则应该采⽤ ==D==    级页表较合适。<br>A．0    B．1    C．2    D．3<br>36、对逻辑地址3FFF1880H转换为物理地址的结果是 ==A==    。<br>A. 0C153080H    B. 0F035880H    C.  TLB 缺失    D.缺页</p>
+<blockquote>
+<p>此题目 难在 页面大小为1K<br>大同小异</p>
+</blockquote>
+<p>某请求页式存储管理，允许⽤户空间为 32 个页⾯（每页 2KB），主存为 16KB，如有⼀个⽤户程序有 10 页长，且某时刻该⽤户进程的页表如下表所⽰</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">页号	物理块号	是否在 TLB 中</span><br><span class="line"><span class="number">0</span>	<span class="number">8</span>	是</span><br><span class="line"><span class="number">1</span>	<span class="number">7</span>	是</span><br><span class="line"><span class="number">2</span>	<span class="number">4</span>	否</span><br><span class="line"><span class="number">3</span>	<span class="number">9</span>	否</span><br><span class="line"><span class="number">4</span>	<span class="number">5</span>	否</span><br><span class="line"><span class="number">5</span>	<span class="number">3</span>	是</span><br><span class="line"><span class="number">6</span>	<span class="number">2</span>	是</span><br><span class="line">其它	<span class="keyword">not</span> valid</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>逻辑地址 5+11=16<br>页内偏移11位<br>物理 14位</p>
+</blockquote>
+<p>37、    如果程序执⾏时遇到逻辑地址1AC5H，则它对应的物理地址为 ==B==    。?<br>A.    7AC5H    B.    4AC5H    C. 3AC5H    D. 缺 页</p>
+<p>38、    页表存放在主存中，对主存的⼀次存取需要100ns，对TLB表的查找时间为10ns， 这次访问耗费时间为 ==D==。<br>A.    10ns    B.    100ns    C. 110ns    D. 210ns</p>
+<blockquote>
+<p>10+100+100=210</p>
+</blockquote>
+<p>39、    如果不考虑缺页的情况，对于已经载⼊内存的页⾯，快表命中率为80%，则访问内存中数据的平均有效访问时间是 ==B==。<br>A．20ns    B．30ns    C．70ns    D．90ns</p>
+<blockquote>
+<p>10<em>0.8 + (10+100)</em>0.2=8+22=30ns</p>
+</blockquote>
+<p>某操作系统的内存管理器采⽤请求式分页，页⾯⼤⼩为 4KB，逻辑地址空间为 32 位， 物理地址空间为 36 位，⼀个页表项⼤⼩为 4B。⼀次快表（TLB）的访问时间是 10ns，⼀次内存的访问时间是 100ns，处理⼀次缺页的平均时间 10^8 ns（已含更新 TLB 和页表的时间）。进程的驻留集⼤⼩固定为 2,采⽤最近未使⽤置换算法(NRU)和局部淘汰策略。假设（1） TLB 初始为空;（2）地址转换时先访问 TLB,若 TLB 未命中,再访问页表(忽略访问页表之后的 TLB  更新时间);（3）有效位为  0  表⽰页⾯不在内存,产⽣缺页中断,缺页中断处理后,返回到产⽣缺页中断的指令处重新执⾏。进程的部分页表如下所⽰：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">页号	页框(Page Frame)号	P存在位	R访问位	M修改位</span><br><span class="line"><span class="number">00000</span>H	------	                <span class="number">0</span>	-	-</span><br><span class="line"><span class="number">00001</span>H	<span class="number">007</span>F61H	                <span class="number">1</span>	<span class="number">0</span>	<span class="number">0</span></span><br><span class="line"><span class="number">00002</span>H	<span class="number">101254</span>H	                <span class="number">1</span>	<span class="number">0</span>	<span class="number">0</span></span><br><span class="line"><span class="number">00003</span>H	------	                <span class="number">0</span>	-	-</span><br></pre></td></tr></table></figure>
+
+<p>40、    该系统的页表项中，最多可以保存 ==D==位标志位。<br>A．4    B．8    C．12    D．16</p>
+<blockquote>
+<p>==物理地址不等于逻辑地址==<br>所以36-20 = 16</p>
+</blockquote>
+<p>41、若采⽤多级页表，要求每级页表均可以装⼊⼀个页⾯内，则应该采⽤ ==C==级页表较合适。<br>A．0    B．1    C．2    D．3<br>42、    如果不考虑缺页的情况，对于已经载⼊内存的页⾯，快表命中率为90%，则访问内存中数据的平均有效访问时间是 ==C==。<br>A．20ns    B．110ns    C．120ns    D．320ns<br>43、    ⾸先，访问逻辑地址00001618H，则读⼊所需数据需要的总时间是 ==C==。<br>A．约 10^8ns    B．110ns    C．200ns    D．210ns<br>44、    然后，访问逻辑地址00000FA6H，则读⼊所需数据需要的总时间是 ==A==    。<br>A．约 10^8ns    B．110ns    C．200ns    D．210ns<br>45、    最后，访问逻辑地址0000126CH，则读⼊所需数据需要的总时间是 ==B==    。<br>A．约 10^8ns    B．110ns    C．200ns    D．210ns<br>46、    在依次访问完上述三个逻辑地址后，页框101254H对应的页号为 ==B==。(这题我也没太理解)<br>A．00000H    B．00001H    C．00002H    D．00003H</p>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%861.png" alt=""></p>
+<blockquote>
+<p>答案:(1) 4KB (2) 4MB (3) (LA&gt;&gt;22)&amp;0x000003FF (4) (LA&gt;&gt;12)&amp;0x000003FF (5)  4×4M<br>(6) 00200020H (7) 00200040H (8) 00900H (9) 00901H (10)00901000H</p>
+</blockquote>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%862.png" alt=""></p>
+<blockquote>
+<p>解答:<br>2362H: 页号是2 先访问快表 再内存 再读内存<br>10 +100 +100 =210ns<br>物理地址:254362H<br>1565H: 页号1 快表,内存,缺页处理,快表,读内存<br>10+100+10^8+10+100 ns<br>置换页面0 物理地址为 101565H<br>25A5: 快表,内存<br>10+100 =110ns<br>物理地址 2545A5H</p>
+</blockquote>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%863.png" alt=""></p>
+<blockquote>
+<p>解答:</p>
+</blockquote>
+<p>三、简答题</p>
 <p>1、 在虚拟存储管理中，分段式内存管理⽅式解决了分页式内存管理中的什么问题，又带来了什么问题呢？</p>
-<p>2、 Intel IA32体系结构中的保护模式是将逻辑地址转成线性地址再转成物理地址，这种内存管理⽅式是段页式内存管理⽅式吗，为什么？</p>
+<blockquote>
+<p>解决了分页式机械化的分页(功能可能不同)导致 颠簸现象?<br>分段式由内在逻辑来分, 不过段大 类似于动态分区会产生外碎片 倒是内存利用率低<br>2、 在页⾯淘汰算法中，为什么说⽼化(Aging)算法只是 LRU 的⼀个近似实现？<br>(1老化算法 无法区分用了多少次<br>(2)老化算法的计数器只能有有限位数,限制了对以往页面的记录<br>老化算法只有有限位的存储，记录最近若干次页面使用情况，更早的使用情况会丢失。另外，老化算法没有记录在一个时间周期内页面的使用频度和时间等，所以与 LRU 相比只是一个近似实现。</p>
+</blockquote>
 <p>3、 LRU页⾯置换算法是⼀种⽐较优秀的算法但是较难实现，为什么？试给出⼀种可⾏的近似算法作为LRU的取代⽅案。</p>
+<blockquote>
+<p>每次访问内存都必须更新整个链表,在链表中找到一个页面,删除它.然后再把它移动到表头<br>老化算法:在R位被加进去之前先将计数器右移一位,<br>其次,将R位加到计数器的最左端的位而不是最右端的位置</p>
+</blockquote>
 <p>4、 单纯的分段式和分页式内存管理各有什么缺点？为什么段页式可以避免这些缺点？ 为什么段页式内存管理没有被⼴泛采⽤呢？</p>
+<blockquote>
+<p>分段式,段太大,倒是产生外碎片,  内存利用率低<br>分页式机械化的分页(功能可能不同)导致 颠簸现象<br>段页式存储管理兼有页式管理和段式管理的优点，采用分段方法来分配和管理用户地址空间，用分页方法来管理物理存储空间。<br>段页式实现起来太麻烦了.</p>
+</blockquote>
 <p>5、 为什么内存管理⽅式中，可变分区管理中有最差适应（worst fit)分配算法，⽽固定分区管理中没有这个算法？分区管理中的交换技术（swap）和段式管理中的请求式分段技术有什么区别？请求式分段与覆盖技术（overlay）又有什么区别？</p>
-<p>6、 页⾯置换（淘汰）的时机是什么？哪种算法最理想同时也不可能实现？为什么说LRU算法很有效但是很难实现？什么是Belady异常？哪种算法存在Belady异常现 象？</p>
+<p>6、 页⾯置换（淘汰）的时机是什么？哪种算法最理想同时也不可能实现？为什么说LRU算法很有效但是很难实现？什么是Belady异常？哪种算法存在Belady异常现象？</p>
+<blockquote>
+<p>内存中找不到页表<br>OPT<br>很难知道<br>采用FIFO算法时，如果对一个进程未分配它所要求的全部页面，有时就会出现分配的页面数增多但缺页率反而提高的异常现象<br>FIFO存在Belady异常现象</p>
+</blockquote>
 <p>7、 请讨论⼀下页⾯置换算法中⼯作集（Working Set）置换算法的⼯作原理。</p>
-<p>8、 在内存管理的⽅法中，分段式管理⽐分页式管理有什么优势？段页式与其他⽅式相<br>⽐有什么好处？</p>
+<blockquote>
+<p>一个进程当前正在使用的页面的集合称为它的工作集。<br><a href="https://blog.csdn.net/qq_41209741/article/details/99586257#9__35" target="_blank" rel="noopener">页面置换算法详解（10种）</a><br>基于工作集的页面置换算法就是找出一个不在工作集中的页面并淘汰它,每个表项至少包含两条信息：上次使用该页面的近似时间和R（访问位）。</p>
+</blockquote>
+<p>8、 在内存管理的⽅法中，分段式管理⽐分页式管理有什么优势？段页式与其他⽅式相<br>⽐有什么好处？<br>分段式不会出现抖动的情况,<br>段页式:先分段再分页<br>既有了分段的好处又有了分页的好处,(不会出现外碎片吧?)</p>
 <p>9、 为了同时抢占⾼端和中低端市场，CPU ⼚商常常在同⼀⽣产线上⽣产主频和制作⼯艺相同的⾼端和低端CPU，如Intel   曾经同时⽣产相同主频和制作⼯艺的“奔腾   4”和“赛扬”，价格上相差很⼤，据称主要区别在⼆级缓存的⼤⼩。请问缓存（Cache）有  什么⽤，什么地⽅会⽤到它？</p>
+<blockquote>
+<p>cache是存在于主存与CPU之间的一级存储器， 由静态存储芯片(SRAM)组成，容量比较小但速度比主存高得多， 接近于CPU的速度。<br>作用：缓和中央处理器(CPU)和主存储器(内存)之间速度不匹配的矛盾。<br>原理：当中央处理器存取主存储器某一单元时，计算机硬件就自动地将包括该单元在内的那一组单元内容调入高速缓冲存储器，中央处理器即将存取的主存储器单元很可能就在刚刚调入到高速缓冲存储器的那一组单元内。<br>效果：中央处理器绝大多数存取主存储器的操作能为存取高速缓冲存储器所代替，计算机系统处理速度就能显著提高。</p>
+</blockquote>
 <p>10、 为什么要使⽤倒排页表？倒排页表⾯临的最⼤的问题是什么？如何解决？</p>
+<blockquote>
+<p>最差情况下需要搜索整个倒排索引表才能找到映射关系<br>倒排页表节省大量的空间.<br>从虚拟地址到物理地址的转换变得很困难<br>解决:使用TLB,用TLB记录所有频繁使用的页,<br>建立一张散列表,用虚拟地址来散列.</p>
+</blockquote>
 <p>11、 内存分区管理中的交换技术与请求式分段技术相⽐，有什么相同点和不同点？</p>
-<p>12、 在页⾯淘汰算法中，为什么说⽼化(Aging)算法只是 LRU 的⼀个近似实现？</p>
+<p><a href="https://blog.csdn.net/qq_26816591/article/details/51910518" target="_blank" rel="noopener">分页管理系统计算题</a><br>强烈推荐阅读此文<a href="https://blog.csdn.net/qq_28602957/article/details/53744956" target="_blank" rel="noopener">请求分页存储管理方式</a></p>
+<blockquote>
+<p>程序局部性原理，是指程序在执行时呈现出局部性规律，即在一段时间内，整个程序的执行仅限于程序中的某一部分。相应地，执行所访问的存储空间也局限于某个内存区域。<br>　　局部性原理又表现为：时间局部性和空间局部性。<br>　　时间局部性是指如果程序中的某条指令一旦执行，则不久之后该指令可能再次被执行；如果某数据被访问，则不久之后该数据可能再次被访问。<br>　　空间局部性是指一旦程序访问了某个存储单元，则不久之后。其附近的存储单元也将被访问。<br>　　另外，根据程序的局部性理论，Denning提出了工作集理论。所谓工作集是指进程运行时被频繁访问的页面集合。显然我们知道只要使程序的工作集全部集中在内存中，就可以大大减少进程的缺页次数；否则会使进程在运行过程中频繁出现缺页中断，从而出现频繁的页面调入/调出现象，造成系统性能的下降，甚至出现“抖动”。<br>　　划分工作集可以按定长时间或定长页面两种方法进行划分。当颠簸现象发生时，说明系统的负荷过大，通常采用处理器均衡调度。另一种是控制缺页率，当缺页率达到上限时，则增加内存分配量；当缺页率达到下限时，就减少内存的分配量。</p>
+</blockquote>
+<p>工作集就是最近k次内存访问过所使用过的页面的集合</p>
 
     </div>
 
@@ -374,6 +503,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存管理"><span class="nav-number">1.</span> <span class="nav-text">内存管理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -429,12 +559,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">73k</span>
+    <span title="站点总字数">77k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:06</span>
+    <span title="站点阅读时长">1:10</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
