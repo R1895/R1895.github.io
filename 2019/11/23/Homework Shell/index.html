@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="操作系统 Homework: ShellHomework: shell 通过此次作业，将会了解到 Shell 的工作原理，以及类 Linux 系统的新进程到底是如何产生的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Homework Shell">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;23&#x2F;Homework%20Shell&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:description" content="操作系统 Homework: ShellHomework: shell 通过此次作业，将会了解到 Shell 的工作原理，以及类 Linux 系统的新进程到底是如何产生的。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os&#x2F;shell4">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os&#x2F;shell2">
+<meta property="og:updated_time" content="2019-11-23T04:44:32.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os&#x2F;shell4">
+
+<link rel="canonical" href="http://yoursite.com/2019/11/23/Homework%20Shell/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Homework Shell | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Only action can relieve the uneasiness.</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/Homework%20Shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj.jpg">
+      <meta itemprop="name" content="任林杰">
+      <meta itemprop="description" content="建设最美114">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Homework Shell
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-23 12:47:03 / 修改时间：12:44:32" itemprop="dateCreated datePublished" datetime="2019-11-23T12:47:03+08:00">2019-11-23</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="操作系统-Homework-Shell"><a href="#操作系统-Homework-Shell" class="headerlink" title="操作系统 Homework: Shell"></a>操作系统 Homework: Shell</h2><p><a href="https://pdos.csail.mit.edu/6.828/2016/homework/xv6-shell.html" target="_blank" rel="noopener">Homework: shell</a></p>
+<p>通过此次作业，将会了解到 Shell 的工作原理，以及类 Linux 系统的新进程到底是如何产生的。</p>
+<a id="more"></a>
+<p>首先自然是看懂 main 函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span></span><br><span class="line">main(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">100</span>];</span><br><span class="line">  <span class="keyword">int</span> fd, r;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Read and run input commands.</span></span><br><span class="line">  <span class="keyword">while</span>(getcmd(buf, <span class="keyword">sizeof</span>(buf)) &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(buf[<span class="number">0</span>] == <span class="string">'c'</span> &amp;&amp; buf[<span class="number">1</span>] == <span class="string">'d'</span> &amp;&amp; buf[<span class="number">2</span>] == <span class="string">' '</span>)&#123;</span><br><span class="line">      <span class="comment">// 如果只是 cd 命令，则切换文件夹后继续等待命令</span></span><br><span class="line">      <span class="comment">// Clumsy but will have to do for now.</span></span><br><span class="line">      <span class="comment">// Chdir has no effect on the parent if run in the child.</span></span><br><span class="line">      <span class="comment">// 一般写完命令敲回车，这里就是把回车改为'\0'</span></span><br><span class="line">      buf[<span class="built_in">strlen</span>(buf)<span class="number">-1</span>] = <span class="number">0</span>;  <span class="comment">// chop \n</span></span><br><span class="line">      <span class="keyword">if</span>(chdir(buf+<span class="number">3</span>) &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"cannot cd %s\n"</span>, buf+<span class="number">3</span>);</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若不是 cd 命令，则fork出子程序尝试运行命令</span></span><br><span class="line">    <span class="keyword">if</span>(fork1() == <span class="number">0</span>)</span><br><span class="line">      runcmd(parsecmd(buf));</span><br><span class="line">    <span class="comment">// 等待子进程完成</span></span><br><span class="line">    wait(&amp;r);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>循环调用 getcmd 函数读入命令：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span></span><br><span class="line">getcmd(<span class="keyword">char</span> *buf, <span class="keyword">int</span> nbuf)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isatty(fileno(<span class="built_in">stdin</span>)))  <span class="comment">// 判断标准输入是否为终端</span></span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"6.828$ "</span>);  <span class="comment">// 是终端则显示提示符</span></span><br><span class="line">  <span class="built_in">memset</span>(buf, <span class="number">0</span>, nbuf);</span><br><span class="line">  fgets(buf, nbuf, <span class="built_in">stdin</span>);  <span class="comment">// 从标准输入读入nbuf个字符到 buf 中</span></span><br><span class="line">  <span class="keyword">if</span>(buf[<span class="number">0</span>] == <span class="number">0</span>) <span class="comment">// EOF</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>读入命令并确定不是 cd 命令后，执行关键语句<br><code>runcmd(parsecmd(buf))</code>,显然是将 buf 用 parsecmd 解析后，送入 runcmd 运行。我们暂时并不关心如何解析，无非是一些字符串处理，提取关键符号确定类型。先看 runcmd 函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Execute cmd.  Never returns.</span></span><br><span class="line"><span class="keyword">void</span></span><br><span class="line">runcmd(struct cmd *cmd)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> p[<span class="number">2</span>], r;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">execcmd</span> *<span class="title">ecmd</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">pipecmd</span> *<span class="title">pcmd</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">redircmd</span> *<span class="title">rcmd</span>;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(cmd == <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">switch</span>(cmd-&gt;type)&#123;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"unknown runcmd\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">    ecmd = (struct execcmd*)cmd;</span><br><span class="line">    <span class="keyword">if</span>(ecmd-&gt;argv[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"exec not implemented\n"</span>);</span><br><span class="line">    <span class="comment">// Your code here ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">    rcmd = (struct redircmd*)cmd;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"redir not implemented\n"</span>);</span><br><span class="line">    <span class="comment">// Your code here ...</span></span><br><span class="line">    runcmd(rcmd-&gt;cmd);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">    pcmd = (struct pipecmd*)cmd;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">    <span class="comment">// Your code here ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;    </span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由此可看出，parsecmd 把命令分成了3个类型，分别是可执行命令，重定向命令，以及管道命令。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p><strong>可执行命令</strong><br>在文中找到关键提示：</p>
+<blockquote>
+<p>You may want to change the 6.828 shell to always try /bin, if the program doesn’t exist in the current working directory, so that below you don’t have to type “/bin” for each program. If you are ambitious you can implement support for a PATH variable.</p>
+</blockquote>
+<p>也就是说对于 ls 这个存在的命令，我们只需要想办法将命令引导到 /bin/目录下寻找即可。这里涉及到 linux 系统调用的一个关键函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">access</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * pathname, <span class="keyword">int</span> mode)</span></span></span><br></pre></td></tr></table></figure>
+<p>它的作用是检查能否对某个文件(pathname)执行某个操作(mode)，操作的主要模式有：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">R_OK      <span class="comment">// 测试读许可权</span></span><br><span class="line">W_OK      <span class="comment">// 测试写许可权</span></span><br><span class="line">X_OK      <span class="comment">// 测试执行许可权</span></span><br><span class="line">F_OK      <span class="comment">// 测试文件是否存在</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，测试成功返回值为0。失败为-1。有了这个函数，可以把之前的类型为’ ‘的部分改为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">  ecmd = (struct execcmd*)cmd;</span><br><span class="line">  <span class="keyword">if</span> (ecmd-&gt;argv[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="comment">// fprintf(stderr, "exec not implemented\n");</span></span><br><span class="line">  <span class="keyword">if</span> (access(ecmd-&gt;argv[<span class="number">0</span>], F_OK) == <span class="number">0</span>) &#123;</span><br><span class="line">  execv(ecmd-&gt;argv[<span class="number">0</span>], ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">char</span> *binPath = <span class="string">"/bin/"</span>;</span><br><span class="line">  <span class="keyword">int</span> pathLen = <span class="built_in">strlen</span>(binPath) + <span class="built_in">strlen</span>(ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="keyword">char</span> *abs_path = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>((pathLen+<span class="number">1</span>)*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">  <span class="built_in">strcpy</span>(abs_path, binPath);</span><br><span class="line">  <span class="built_in">strcat</span>(abs_path, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="keyword">if</span> (access(abs_path, F_OK) == <span class="number">0</span>) &#123;</span><br><span class="line">      execv(abs_path, ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"%s: Command not found\n"</span>, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要补充说明的可能就是 execv 函数，它是 exec 函数族的一个，exec 函数族的作用就是根据 pathname 找到可执行文件，并用它取代调用进程的内容。虽然 pid 未改变，但是实际运行的内容已经不同。结合之前 main 函数中的内容，可以看出 Shell 执行某个命令实际上就是 fork 出一个子进程，然后把子进程替换为想要执行的程序。<br>测试结果为：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">rlj@rlj-virtual-machine:~/OS/shell$ ./myShell</span><br><span class="line">6.828$ ls</span><br><span class="line">myShell  sh.c  shell_script  Shell_script_习题.pdf  t.sh</span><br><span class="line">6.828$ ls .//</span><br><span class="line">myShell  sh.c  shell_script  Shell_script_习题.pdf  t.sh</span><br><span class="line">6.828$ abc</span><br><span class="line">abc: Command not found</span><br><span class="line">6.828$ ps</span><br><span class="line">   PID TTY          TIME CMD</span><br><span class="line"> 17514 pts/2    00:00:00 bash</span><br><span class="line"> 17537 pts/2    00:00:00 myShell</span><br><span class="line"> 17541 pts/2    00:00:00 ps</span><br><span class="line">6.828$ <span class="built_in">echo</span> i love you</span><br><span class="line">i love you</span><br></pre></td></tr></table></figure>
+<p>好奇又试了试其他指令</p>
+<h3 id="输入输出重定向"><a href="#输入输出重定向" class="headerlink" title="输入输出重定向"></a>输入输出重定向</h3><p>首先可能需要看一下配套的 xv6 教材第 10 页的文件系统，至少需要了解文件描述符 (file descriptor) 是什么。<br>刚开始写的时候还以为需要自己处理 ‘&lt;’ 和 ‘&gt;’ 情况，后来发现结构体 rcmd 中已经设置好，不需要分开处理。注意一下这个函数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">struct cmd*</span><br><span class="line">redircmd(struct cmd *subcmd, char *file, int <span class="built_in">type</span>)</span><br><span class="line">&#123;</span><br><span class="line">  struct redircmd *cmd;</span><br><span class="line"></span><br><span class="line">  cmd = malloc(sizeof(*cmd));</span><br><span class="line">  memset(cmd, 0, sizeof(*cmd));</span><br><span class="line">  cmd-&gt;<span class="built_in">type</span> = <span class="built_in">type</span>;</span><br><span class="line">  cmd-&gt;cmd = subcmd;</span><br><span class="line">  cmd-&gt;file = file;</span><br><span class="line">  cmd-&gt;mode = (<span class="built_in">type</span> == <span class="string">'&lt;'</span>) ?  O_RDONLY : O_WRONLY|O_CREAT|O_TRUNC;</span><br><span class="line">  cmd-&gt;fd = (<span class="built_in">type</span> == <span class="string">'&lt;'</span>) ? 0 : 1;</span><br><span class="line">  <span class="built_in">return</span> (struct cmd*)cmd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看懂之后的工作就很简单了，结果代码为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line"><span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">  rcmd = (struct redircmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"redir not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  close(rcmd-&gt;fd);</span><br><span class="line">  <span class="keyword">if</span> (open(rcmd-&gt;file, rcmd-&gt;flags, 0644) &lt; 0) &#123;</span><br><span class="line">  fprintf(stderr, <span class="string">"Unable to open file: %s\n"</span>, rcmd-&gt;file);</span><br><span class="line">  <span class="built_in">exit</span>(0);</span><br><span class="line">  &#125;</span><br><span class="line">  runcmd(rcmd-&gt;cmd);</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+<pre><code>思路就是先关闭程序原先的标准输入/输出，打开指定文件作为新的标准输入/输出。</code></pre><p>非常容易漏掉权限位，即open的第三个参数。注意这里用的是8进制数，所以一定不能直接写<code>644</code>而要写<code>0644。</code><br>我还遇到了一个问题，在此记录一下，第一次权限设置不对，导致无法打开生成的文件，更改后运行，还是不行。后来发现其实由于只是 Truncate，没有把之前生成的文件删除新建，所以权限还是第一次有问题的版本。删掉之前的文件，重新运行，结果正常。</p>
+<h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>本次作业的最难的就是管道。重点还是参考 xv6 教材 13 页管道部分，在 xv6 源码的 Sheet 86 还能找到管道的实现。重点是搞明白 <code>pipe</code>，<code>dup</code> 两个函数。</p>
+<ul>
+<li><code>int pipe(int p[])</code><br>作用是建立一个缓冲区，并把缓冲区通过 fd 形式给程序调用。它将 p[0] 修改为缓冲区的读取端， p[1] 修改为缓冲区的写入端。</li>
+<li><code>int dup(int old_fd)</code><br>作用是产生一个fd，指向 old_fd 指向的文件，并返回这个fd。产生的 fd 总是空闲的最小 fd。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">  pcmd = (struct pipecmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  <span class="keyword">if</span> (pipe(p) &lt; 0) fprintf(stderr,<span class="string">"pipe failed\n"</span>);</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  // 先关闭标准输出再 dup</span><br><span class="line">  // dup 会把标准输出定向到 p[1] 所指文件，即管道写入端</span><br><span class="line">  close(1);</span><br><span class="line">  dup(p[1]);</span><br><span class="line">  // 去掉管道对端口的引用</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  // 此时 left 的标准输入不变，标准输出流入管道</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  // 先关闭标准输入再 dup</span><br><span class="line">  // dup 会把标准输入定向到 p[0] 所指文件，即管道读取端</span><br><span class="line">  close(0);</span><br><span class="line">  dup(p[0]);</span><br><span class="line">  // 去掉管道对端口的引用</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  // 此时 right 的标准输入从管道读取，标准输出不变</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  <span class="built_in">wait</span>(&amp;r);</span><br><span class="line">  <span class="built_in">wait</span>(&amp;r);</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+比较费解的就是 fork 了两次，也 wait 了两次。我自己写了一个实现，似乎也能正常运行，并且只 fork 了一次。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">  pcmd = (struct pipecmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  <span class="keyword">if</span> (pipe(p) &lt; 0) fprintf(stderr,<span class="string">"pipe failed\n"</span>);</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  close(1);</span><br><span class="line">  dup(p[1]);</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  close(0);</span><br><span class="line">  dup(p[0]);</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+最后，执行脚本判断：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell4" alt=""><br>好的 ，又出现了问题。这几个命令都位于 <code>/usr/bin/</code>下，而我们在执行中只加入了 <code>/bin/</code> 目录，于是我又为case ‘ ‘添加了一个一劳永逸的实现，方便以后添加新的路径。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">  ecmd = (struct execcmd*)cmd;</span><br><span class="line">  <span class="keyword">if</span>(ecmd-&gt;argv[0] == 0)</span><br><span class="line">    <span class="built_in">exit</span>(0);</span><br><span class="line">  // fprintf(stderr, <span class="string">"exec not implemented\n"</span>);</span><br><span class="line">  <span class="keyword">if</span>(access(ecmd-&gt;argv[0], F_OK) == 0) &#123;</span><br><span class="line">  execv(ecmd-&gt;argv[0], ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  // 将路径改为数组实现</span><br><span class="line">  const char *binPath[] = &#123;<span class="string">"/bin/"</span>, <span class="string">"/usr/bin/"</span>&#125;;</span><br><span class="line">  char *abs_path;</span><br><span class="line">  int bin_count = sizeof(binPath)/sizeof(binPath[0]);</span><br><span class="line">  int found = 0;</span><br><span class="line">  <span class="keyword">for</span> (int i=0; i&lt;bin_count &amp;&amp; found==0; i++) &#123;</span><br><span class="line">      int pathLen = strlen(binPath[i]) + strlen(ecmd-&gt;argv[0]);</span><br><span class="line">      abs_path = (char *)malloc((pathLen+1)*sizeof(char));</span><br><span class="line">      strcpy(abs_path, binPath[i]);</span><br><span class="line">      strcat(abs_path, ecmd-&gt;argv[0]);</span><br><span class="line">      <span class="keyword">if</span>(access(abs_path, F_OK) == 0) &#123;</span><br><span class="line">          execv(abs_path, ecmd-&gt;argv);</span><br><span class="line">      found = 1;</span><br><span class="line">      &#125;</span><br><span class="line">      free(abs_path);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (found == 0) &#123;</span><br><span class="line">      fprintf(stderr, <span class="string">"%s: Command not found\n"</span>, ecmd-&gt;argv[0]);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+运行成功,结果如下<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell2" alt=""></li>
+</ul>
+<p>[本文来源]<a href="https://www.jianshu.com/p/64385b80210b" target="_blank" rel="noopener">https://www.jianshu.com/p/64385b80210b</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/23/Thread%20and%20locking/" rel="next" title="Thread and locking">
+                  <i class="fa fa-chevron-left"></i> Thread and locking
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统-Homework-Shell"><span class="nav-number">1.</span> <span class="nav-text">操作系统 Homework: Shell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">1.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出重定向"><span class="nav-number">1.2.</span> <span class="nav-text">输入输出重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">1.3.</span> <span class="nav-text">管道</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="任林杰"
+    src="/images/rlj.jpg">
+  <p class="site-author-name" itemprop="name">任林杰</p>
+  <div class="site-description" itemprop="description">建设最美114</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">任林杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">73k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:06</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
