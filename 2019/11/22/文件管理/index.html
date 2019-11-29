@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="Jason&#39;s blogs">
 <meta property="og:description" content="文件管理-">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-28T13:22:34.941Z">
+<meta property="og:updated_time" content="2019-11-29T09:38:52.197Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/22/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
@@ -225,7 +225,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-28 21:22:34" itemprop="dateModified" datetime="2019-11-28T21:22:34+08:00">2019-11-28</time>
+                <time title="修改时间：2019-11-29 17:38:52" itemprop="dateModified" datetime="2019-11-29T17:38:52+08:00">2019-11-29</time>
               </span>
 
           <br>
@@ -305,7 +305,7 @@
 <p>B<br>存取时间 = 寻道时间 延迟时间 传输时间。<br>存取一个扇区的平均延迟时间为旋转半周的时间,即 (60/7200)/2 = 4.17ms<br>传输时间　60/7200/1000 =0.01ms<br>4.17+0.01+8 =12.18ms<br>保留一位小数则为 12.2ms </p>
 </blockquote>
 </li>
-<li><p>在文件的索引节点中存放直接索引指针10个，一级二级索引指针各1 个，磁盘块大小为1KB。每个索引指针占4个字节。若某个文件的索引节点已在内存中，到把该文件的偏移量（按字节编址）为1234和307400处所在的磁盘块读入内存。需访问的磁盘块个数分别是（）<br>A．1，2    B．1，3    C．2，3    D．2，4</p>
+<li><p>在文件的索引节点中存放直接索引指针10个，一级二级索引指针各1 个，磁盘块大小为1KB。每个索引指针占4个字节。若某个文件的索引节点已在内存中，到把该文件的偏移量（按字节编址）为1234和307400处所在的磁盘块读入内存。需访问的磁盘块个数分别是（）<br>C???<br>A．1，2    B．1，3    C．2，3    D．2，4</p>
 </li>
 <li><p>假设磁头当前位于第 100 道,正在向磁道序号增加的方向移动。现有一个磁道访问请求序列为 35,68,110,180,采用 SSTF （最近寻道优先）调度算法得到的磁道访问序列是 。<br>A. 35,68,110,180 B. 110,180,35,68 C. 110,180,68,35 D. 110,68,35,180</p>
 <blockquote>
@@ -325,7 +325,7 @@
 </li>
 <li><p>假设该索引节点已经被加载进内存中，则若要读取文件的第1MB的内容，需要访问磁盘     次。<br>A．1    B．2    C．3    D．4</p>
 <blockquote>
-<p>A</p>
+<p>C<br>1级 一个间接块 == 256个指针  256KB  269KB<br>需要访问二级间接  然后再访问数据 3次</p>
 </blockquote>
 </li>
 <li><p>该文件系统能支持的文件最大容量约为     。<br>A．64KB    B．64MB    C．4GB    D．16GB</p>
@@ -346,7 +346,7 @@
 </ol>
 <p>???21.    若inode的大小为128B，NBPI (Number of Bytes Per Inode) 为1024，则一个32GB大小的文件系统中，用于存放数据和间接指针的数据块总大小约为         。<br>A．4GB    B．8GB    C．24GB    D．28GB</p>
 <blockquote>
-<p>Inode 数量= 文件系统大小 / NBPI<br>Inode数量 = 32 * 1024 *1024 * 1024 / 1024<br>数量 * 128 B = 4GB</p>
+<p>D<br>1024/128 = 8  1/8放 inode 7/8 放数据<br>7/8 * 32 = 28GB</p>
 </blockquote>
 <h4 id="在逻辑卷管理（LVM）中，某卷组（VG）vg00中PE大小为16MB，vg00中现有2个物理卷（PV）pv00和pv01，每个PV大小均为10000个PE。"><a href="#在逻辑卷管理（LVM）中，某卷组（VG）vg00中PE大小为16MB，vg00中现有2个物理卷（PV）pv00和pv01，每个PV大小均为10000个PE。" class="headerlink" title="在逻辑卷管理（LVM）中，某卷组（VG）vg00中PE大小为16MB，vg00中现有2个物理卷（PV）pv00和pv01，每个PV大小均为10000个PE。"></a>在逻辑卷管理（LVM）中，某卷组（VG）vg00中PE大小为16MB，vg00中现有2个物理卷（PV）pv00和pv01，每个PV大小均为10000个PE。</h4><ol start="22">
 <li>在vg00中创建逻辑卷（LV）lv00，大小为100GB（1G=1024M）。则逻辑卷lv00的逻辑块个数为     。<br>A．1000    B．1600    C．3200    D．6400<blockquote>
@@ -365,11 +365,11 @@
 <h2 id="计算题"><a href="#计算题" class="headerlink" title="计算题"></a>计算题</h2><p>自己瞎写的,老师没给答案<br>答案日后更新<br>==经典题==<br>1、xv6 操作系统中，给文件分配外存空间采用的是混合索引分配方式。索引节点<br>（inode）中包含 12 个直接块指针和 1 个一级间接块指针，间接块指向的是一个索引块，每个索引块和数据块的大小均为一个扇区，即 512B，地址指针所占空间为 4B。</p>
 <p>1）该文件系统能支持的文件最大容量是  70KB 。<br>2）为了支持更大的文件，在不增加 inode 中的指针个数的前提下，取消一个直接块指针，增加一个二级间接块指针，则能支持的文件最大容量是 11<code>*</code>512B + 512/4<code>*</code>512B + 128 * 128 * 512B 。<br>3）在上一问的基础上，若将数据块的大小修改为 1KB，则该文件系统能支持的文件最大容量是 11<code>*</code>1KB + 256 * 1KB + 256 * 256 * 1KB 。<br>4）在上一问的基础上，假设该索引节点已经被加载进内存中，则若要读取文件的第 10MB 的内容，需要访问磁盘     (4)     次。<br>5）若 inode 的大小为 128B，NBPI (Number of Bytes Per Inode) 为 2048，<br>则一个 32GB 大小的文件系统中，用于存放数据和间接指针的数据块总大小约为<br>2GB    。</p>
 <blockquote>
-<p>计算过程:<br>1)12 * 512B + 512/4 * 512B = 140 * 512B = 70 KB<br>2)11<code>*</code>512B + 512/4<code>*</code>512B + 128 * 128 * 512B<br>3)11<code>*</code>1KB + 256 * 1KB + 256 * 256 * 1KB<br>4) 3 第二级指针?<br>5) Inode 数量= 文件系统大小 / NBPI<br> 32 * 1024 *1024 * 1024 / 2048 * 128 B = 2GB</p>
+<p>计算过程:<br>1)12 * 512B + 512/4 * 512B = 140 * 512B = 70 KB<br>2)11<code>*</code>512B + 512/4<code>*</code>512B + 128 * 128 * 512B<br>3)11<code>*</code>1KB + 256 <code>*</code> 1KB + 256 * 256 * 1KB<br>4)3 第二级指针?<br>5)Inode 数量= 文件系统大小 / NBPI<br> 32 * 1024 *1024 * 1024 / 2048 * 128 B = 2GB</p>
 </blockquote>
 <p>2、假如你刚刚成为一台服务器的管理员，这台服务器安装的是Linux 操作系统。服务器上只有一块容量为 250GB 的硬盘，系统只划分了一个文件系统，所有的数据都在根文件系统中。根据规划，这台服务器将要满足以下的需求：<br>（1）开放给多个用户使用，限制每个用户在自己的主目录下最多只能存放<br>500MB 数据。另外，每个用户的邮箱限制只能容纳 200MB 的邮件。<br>（2）目前计划支持的用户数 300 人，但是日后可能扩大，希望空间可以很方便的扩充，但不能影响数据的正常使用。<br>（3）服务器上安装数据库软件，需要一个很大的文件系统存放数据文件， 一个单独的数据文件甚至可能达到 2TB，文件系统则需要随时增长。可以适当购买一些新硬盘，但是市场上能购买到的硬盘最大只有容量为 1TB 的。<br>（4）因节约成本，服务器没有安装硬件 RAID 支持，也没有购买 SAN 存储阵列的。在这方面近期也没有新的预算。<br>请问你应该如何规划存储方案，满足上述要求？</p>
 <blockquote>
-<p>1） 应使用磁盘配额管理（quota）技术。<br>将用户主目录和邮箱目录分在两个文件系统中，并分别设置用户的磁盘配额以限制用户对存储空<br>间的使用。<br>（2） 应采用逻辑卷管理（LVM）技术。因为 LVM 有以下特点<br>a) 可以方便的将物理卷，如硬盘等，加入卷组，以扩充存储容量。以支持需求（2）。<br>b) 支持数据不连续存放，可以充分利用磁盘空间，或者跨跃多块硬盘，以支持需求（3）。<br>c) 此外，LVM 可以支持 LV 镜像化（mirroring）和条带化（striping），以软件方式模拟 RAID，以<br>支持需求（4）节约成本。</p>
+<p>1） 应使用磁盘配额管理（quota）技术。<br>将用户主目录和邮箱目录分在两个文件系统中，并分别设置用户的磁盘配额以限制用户对存储空间的使用。<br>（2） 应采用逻辑卷管理（LVM）技术。因为 LVM 有以下特点<br>a) 可以方便的将物理卷，如硬盘等，加入卷组，以扩充存储容量。以支持需求（2）。<br>b) 支持数据不连续存放，可以充分利用磁盘空间，或者跨跃多块硬盘，以支持需求（3）。<br>c) 此外，LVM 可以支持 LV 镜像化（mirroring）和条带化（striping），以软件方式模拟 RAID，以<br>支持需求（4）节约成本。</p>
 </blockquote>
 <p>3、在 inode 的多级索引指针中，为什么保留了直接指向数据块的指针，而不是设计成只使用一个指向多级间接索引块的指针，就可以访问到所有的数据块？ 数据块的大小可以影响文件系统能支持的最大文件的大小，但是数据块的大 小对文件系统的性能和空间利用率之间有什么关系？为什么？</p>
 <blockquote>
@@ -380,45 +380,55 @@
 <p>FCFS: 20 44 40 4 80 12 76  20+24+4+36+76+68+64 =292<br>SSTF:  40 44 20 12 4 76 80  4+24+8+8+72+4=120<br>SCAN:  40 44 76 80 20 12 4  4+32+4+60+8+8=116</p>
 </blockquote>
 <p>6、假设计算机系统采用 CSCAN(循环扫描)磁盘调度策略,使用 2KB 的内存空间记录 16384 个磁盘块的空闲状态。</p>
-<p>(1)请说明在上述条件下如何进行磁盘块空闲状态的管理。<br>(2)设某单面磁盘旋转速度为每分钟6000 转,每个磁道有100 个扇区,相邻磁道间的平均移动时间为1ms。若在某时刻,磁头位于100 号磁道处,并沿着磁道号增大的方向移动(如下图所示),磁道号请求队列为50,90,30,120,对请求队列中的每个磁道需读取1 个随机分布的扇区,则读完这4 个扇区点共需要多少时间?要求给出计算过程。<br>(3)如果将磁盘替换为随机访问的Flash 半导体存储器(如U 盘、SSD 等),是否有比CSCAN 更高效的磁盘调度策略?若有,给出磁盘调度策略的名称并说明理由;若无,说明理由。</p>
-<blockquote>
-<p>(1) 因为2×1024×8=16384，所以使用位示图法，每一位表示一个磁盘块是否空闲。<br>(2) 磁盘旋转速度为每分钟6000转，则转1圈需要0.01s(10ms)；每个磁道有100个扇区则平均通过一个扇区需要0.0001s(0.1ms)。计算机系统采用CSCAN，即磁头从盘面上的一端向另一端移动，遇到请求立即服务，返回是直接快速移至起始端，而不服务于任何请求，如此往复地单向扫描并平均为各种请求服务。<br>在本题中，数据读取的总时间为“寻道时间+寻区时间+读数据时间”，由于题目要求“读取1个随机分布的扇区”，不妨假设取平均值，即寻区时间为5ms。根据这个原理，计算如下：<br>100→120：20×1ms+5ms+0.1ms=25.1ms。<br>0→30：30×1ms+5ms+0.1ms=35.1ms。<br>30→50：20×1ms+5ms+0.1ms=25.1ms。<br>50→90：40×1ms+5ms+0.1ms=45.1ms。<br>总时间为：25.1+35.1+25.1+45.1=130.4ms。<br>说明：以上时间不包括磁头“直接快速移至起始端”的时间。<br>(3)设备管理的题 采用FIFO</p>
-</blockquote>
+<p>(1)请说明在上述条件下如何进行磁盘块空闲状态的管理。<br>(2)设某单面磁盘旋转速度为每分钟6000 转,每个磁道有100 个扇区,相邻磁道间的平均移动时间为1ms。若在某时刻,磁头位于100 号磁道处,并沿着磁道号增大的方向移动(如下图所示), ,90,30,120,对请求队列中的每个磁道需读取1 个随机分布的扇区,则读完这4 个扇区点共需要多少时间?要求给出计算过程。<br>(3)如果将磁盘替换为随机访问的Flash 半导体存储器(如U 盘、SSD 等),是否有比CSCAN 更高效的磁盘调度策略?若有,给出磁盘调度策略的名称并说明理由;若无,说明理由。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>) 因为<span class="number">2</span>×<span class="number">1024</span>×<span class="number">8</span>=<span class="number">16384</span>，所以使用位示图法，每一位表示一个磁盘块是否空闲。</span><br><span class="line">(<span class="number">2</span>) 磁盘旋转速度为每分钟<span class="number">6000</span>转，则转<span class="number">1</span>圈需要<span class="number">0.01</span>s(<span class="number">10</span>ms)；</span><br><span class="line">每个磁道有<span class="number">100</span>个扇区则平均通过一个扇区需要<span class="number">0.0001</span>s(<span class="number">0.1</span>ms)。</span><br><span class="line">计算机系统采用CSCAN，即磁头从盘面上的一端向另一端移动，遇到请求立即服务，返回是直接快速移至起始端，</span><br><span class="line">而不服务于任何请求，如此往复地单向扫描并平均为各种请求服务。</span><br><span class="line">在本题中，数据读取的总时间为“寻道时间+寻区时间+读数据时间”，由于题目要求“读取<span class="number">1</span>个随机分布的扇区”，</span><br><span class="line">不妨假设取平均值，即寻区时间为<span class="number">5</span>ms。根据这个原理，计算如下：</span><br><span class="line">磁道移动时间+盘片旋转时间+读取时间</span><br><span class="line"><span class="number">100</span>→<span class="number">120</span>：<span class="number">20</span>×<span class="number">1</span>ms+<span class="number">5</span>ms+<span class="number">0.1</span>ms=<span class="number">25.1</span>ms。</span><br><span class="line"><span class="number">0</span>→<span class="number">30</span>：<span class="number">30</span>×<span class="number">1</span>ms+<span class="number">5</span>ms+<span class="number">0.1</span>ms=<span class="number">35.1</span>ms。</span><br><span class="line"><span class="number">30</span>→<span class="number">50</span>：<span class="number">20</span>×<span class="number">1</span>ms+<span class="number">5</span>ms+<span class="number">0.1</span>ms=<span class="number">25.1</span>ms。</span><br><span class="line"><span class="number">50</span>→<span class="number">90</span>：<span class="number">40</span>×<span class="number">1</span>ms+<span class="number">5</span>ms+<span class="number">0.1</span>ms=<span class="number">45.1</span>ms。</span><br><span class="line">总时间为：<span class="number">25.1</span>+<span class="number">35.1</span>+<span class="number">25.1</span>+<span class="number">45.1</span>=<span class="number">130.4</span>ms。</span><br><span class="line">说明：以上时间不包括磁头“直接快速移至起始端”的时间。</span><br><span class="line">(<span class="number">3</span>)采用FCFS调度策略更高效,因为flash 半导体存储器结构不需要考虑寻道时间和旋转延迟,可直接按I/O请求先后顺序服务</span><br></pre></td></tr></table></figure>
+
 <h3 id="Linux-file"><a href="#Linux-file" class="headerlink" title="Linux-file"></a>Linux-file</h3><p>1.In the event that you run out of disk space on one partition, which of the following would be an easy way to move data between partitions without reconfiguring the path to the data in all the applications?</p>
 <p>A.Run ext2fs ACL.<br>B.Use a hard link.<br>C.Use a symbolic link.<br>D.Use the loopback device.<br>E.Create a block device offset.</p>
-<p>2.If you set the umask to 022, by default what permissions will your files have?</p>
+<p>2.If you set the umask to 022, by default what permissions will your files have? D</p>
 <p>A.—-w–w-</p>
 <p>B.-w–w—-</p>
 <p>C.r-xr-x—</p>
-<p>==D.rw-r–r–==</p>
+<p>D.rw-r–r–</p>
 <p>E.r–rw-rw-</p>
 <blockquote>
-<p>Default permissions </p>
+<p>Default permissions<br>| rw-rw-rw | 666 |<br>| umask (-) | —-w–w- | 022 |<br>| Resulting permissions | rw-r–r– | 644 |</p>
 </blockquote>
-<p>| rw-rw-rw | 666 |<br>| umask (-) | —-w–w- | 022 |<br>| Resulting permissions | rw-r–r– | 644 |</p>
-<p>3.What permissions must a user have in order to run a shell script? (Select all the apply.)</p>
+<p>3.What permissions must a user have in order to run a shell script? (Select all the apply.)  </p>
 <p>A.read</p>
 <p>B.write</p>
-<p>==C.execute==</p>
+<p>C.execute </p>
 <p>D.browse on the directory</p>
 <p>E.users cannot run shell scripts</p>
+<blockquote>
+<p>C</p>
+</blockquote>
 <p>4.What command would be used to view the contents of a binary file?</p>
-<p>==A.od==</p>
+<p>A.od</p>
 <p>B.vil</p>
 <p>C.view</p>
 <p>D.expand</p>
 <p>E.binview</p>
+<blockquote>
+<p>A</p>
+</blockquote>
 <p>5.What will the command “cd ~” do?</p>
 <p>A.Take you to the ~ directory.</p>
 <p>B.Take you to the sys directory.</p>
-<p>==C.Take you to your home directory.==</p>
+<p>C.Take you to your home directory.</p>
 <p>D.Nothing, this command is invalid.</p>
+<blockquote>
+<p>C</p>
+</blockquote>
 <p>6.What command can be used to remove the file: -file-?</p>
 <p>A.rm -file-</p>
 <p>B.rm “file”</p>
-<p>==C.rm -“file”-==</p>
+<p>C.rm -“file”-</p>
 <p>D.rm – -file-</p>
 <p>E.rm [-]file[-]</p>
+<blockquote>
+<p>C</p>
+</blockquote>
 <p>7.As root you have navigated to directory /B. You wish to move all of the files and directories from directory /A to directory /B. Which of the following options would be the most appropriate command line to execute this task?</p>
 <p>A.cp /A/* .</p>
 <p>B.mv -f /A/* .</p>
@@ -429,8 +439,11 @@
 <p>A.del /tmp/*</p>
 <p>B.rm -rf /tmp</p>
 <p>C.rm -Ra /tmp/*</p>
-<p>==D.rm -rf /tmp/*==</p>
+<p> D.rm -rf /tmp/* </p>
 <p>E.delete /tmp/<em>.</em></p>
+<blockquote>
+<p>D</p>
+</blockquote>
 <p>9.Which of the following commands could be used to change the permissions of the<br>/home/html/ directory to 0755 and all files and subdirectories contained therein?</p>
 <p>A.chmod 0755 /home/html</p>
 <p>B.chmod 0755 /home/html/*</p>
@@ -578,7 +591,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -618,12 +631,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">77k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:10</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
