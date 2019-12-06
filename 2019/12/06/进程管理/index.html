@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="进程管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进程管理">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:description" content="进程管理">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86&#x2F;pv.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86&#x2F;pv2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86&#x2F;pv1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86&#x2F;pv3.png">
+<meta property="og:updated_time" content="2019-11-28T01:54:17.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86&#x2F;pv.png">
+
+<link rel="canonical" href="http://yoursite.com/2019/12/06/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>进程管理 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Only action can relieve the uneasiness.</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/06/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj.jpg">
+      <meta itemprop="name" content="任林杰">
+      <meta itemprop="description" content="建设最美114">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          进程管理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-06 23:05:32" itemprop="dateCreated datePublished" datetime="2019-12-06T23:05:32+08:00">2019-12-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-28 09:54:17" itemprop="dateModified" datetime="2019-11-28T09:54:17+08:00">2019-11-28</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>16k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>14 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><a id="more"></a>
+<h2 id="解答题"><a href="#解答题" class="headerlink" title="解答题"></a>解答题</h2><p>1、你需要在一个很古老的 UNIX 上编写支持多线程的程序，它的内核不支持线程，内核代码也未公开，所以很难改造内核。请问如何解决这个问题？</p>
+<blockquote>
+<p>使用用户级线程,即线程调度由进程自己实现在用户态的运行时完成</p>
+</blockquote>
+<p>2、在 UNIX 中父进程通过 fork()产生与自己一模一样的子进程，请问执行什么系统调用后， 子进程才拥有自己独立的新代码段。这个系统调用的返回值是如何规定的？</p>
+<blockquote>
+<p>exec系列函数,如execlp()等.改系统调用替换进程的正文段,如果成功,没有返回值,如果失败,返回值为-1.</p>
+</blockquote>
+<p>3、当检测到死锁发生时，如果必须杀死一个进程以解除死锁，请问以什么标准来选择被杀死的进程比较合理？</p>
+<blockquote>
+<p>选择最年轻的进程,因为重新运行它的成本较低</p>
+</blockquote>
+<p>4、 某操作系统中，处在就绪队列中的进程，进程调度策略采用时间片轮转法与优先级法相结合的方法。 具体作法是: 系统规定了 0~127 共 128 级的优先级，其中 0 级优先级最高，127 级最低，在同一优先级 中的进程采用时间片轮转法，只有当高优先级的进程运行完毕后， 才运行低优先级的进程。进程调度采取三种调度策略， SCHED_FIFO、SCHED_RR 和 SCHED_OTHER。其中前二种适用于实时进程，第三种适用于普通进程。实时进程的优先级在创建后就固定不变，普通进程的优先级是动态变化的，其公式为: 优先级 = 优先级基数 + NICE 值 + CPU_PENALTY，其中，优先级基数为 40，NICE 值对于前台进程为 20，对于后台进程为 24，普通用户可以使用 nice  命令或 renice  命令来增大一个进程的 NICE  值，root  用户可以将其减小(但必须为正值)。 CPU_PENALTY 的计算公式为: CPU_PENALTY = CPU_USAGE * R， 其中 R= 0.5。CPU_USAGE 是记录某进程使用 CPU 时间片数目的一个变量，处于运行态的进程，其 CPU_USAGE 的值每经过一个时钟周期增加 1。所有的进程，每一秒种，CPU_USAGE 都要做一次修改，公式为: CPU_USAGE = CPU_USAGE * D，其中 D=0.5。根据上述材料，回答下列问题:<br>(1)应如何设置实时进程的优先级，使得实时进程一定优于普通进程来运行?<br>(2)在普通进程的优先级公式中，哪一部分体现静态优先级的概念，哪一部分体现动态优先级的概念?为什么?<br>(3)为什么所有的进程，每秒钟都要对 CPU_USAGE 进行一次修改(减半)?</p>
+<blockquote>
+<p>(1)<br>(2)<br>(3)</p>
+</blockquote>
+<p>5、 有三个批处理作业，第一个作业 10:00  到达，需要执行 2  小时;第二个作业在 10:10<br>到 达，需要执行 1 小时;第三个作业在 10:25 到达，需要执行 25 分钟。分别采用先来先服务，短作业优先和最高响应比优先三种调度算法，各自的平均周转时间是多少?</p>
+<blockquote>
+<p>FIFO </p>
+</blockquote>
+<h2 id="PV题"><a href="#PV题" class="headerlink" title="PV题"></a>PV题</h2><p>==有部分是自己写的不一定对,仅供参考!==<br>1.<br>(1)读者优先</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">semaphore fmutex=<span class="number">1</span> <span class="comment">//fmutex --&gt; access to file; </span></span><br><span class="line">sepaphore rdcntmutex=<span class="number">1</span>; <span class="comment">// rdcntmutex --&gt; access to reader_count </span></span><br><span class="line"><span class="keyword">int</span> reader_count = <span class="number">0</span>; <span class="comment">// reader_count --&gt; the number of readers </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span> ( TRUE )&#123; </span><br><span class="line">P(rdcntmutex); </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">reader_count = reader_count + <span class="number">1</span>; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line"><span class="comment">//Do read operation ... </span></span><br><span class="line">P(rdcntmutex); </span><br><span class="line">reader_count = reader_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span>) &#123; V(fmutex); &#125; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span> ( TRUE )&#123; </span><br><span class="line">P(fmutex); </span><br><span class="line"><span class="comment">//Do write operation ... </span></span><br><span class="line">V(fmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(2)写者优先</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">semaphore fmutex=<span class="number">1</span>, rdcntmutex=<span class="number">1</span>, wtcntmutex=<span class="number">1</span>, <span class="built_in">queue</span>=<span class="number">1</span>; </span><br><span class="line"><span class="keyword">int</span> reader_count = <span class="number">0</span>, writer_count = <span class="number">0</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(rdcntmutex); </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">reader_count = reader_count + <span class="number">1</span>; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//Do read operation ... </span></span><br><span class="line">P(rdcntmutex); </span><br><span class="line">reader_count = reader_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; V(fmutex); &#125; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(wtcntmutex); </span><br><span class="line"><span class="keyword">if</span>( writer_count == <span class="number">0</span> ) &#123; P(<span class="built_in">queue</span>); &#125; </span><br><span class="line">writer_count = writer_count + <span class="number">1</span>; </span><br><span class="line">V(wtcntmutex); </span><br><span class="line">P(fmutex); </span><br><span class="line"><span class="comment">//Do write operation ... </span></span><br><span class="line">V(fmutex); </span><br><span class="line">P(wtcntmutex); </span><br><span class="line">writer_count = writer_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( writer_count == <span class="number">0</span> ) &#123; V(<span class="built_in">queue</span>); &#125; </span><br><span class="line">V(wtcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(3)公平竞争</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">semaphore fmutex=<span class="number">1</span>, rdcntmutex=<span class="number">1</span>, wtcntmutex=<span class="number">1</span>, <span class="built_in">queue</span>=<span class="number">1</span>; </span><br><span class="line"><span class="keyword">int</span> reader_count = <span class="number">0</span>, writer_count = <span class="number">0</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(rdcntmutex); </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">reader_count = reader_count + <span class="number">1</span>; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//Do read operation ... </span></span><br><span class="line">P(rdcntmutex); </span><br><span class="line">reader_count = reader_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; V(fmutex); &#125; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(fmutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//Do write operation ... </span></span><br><span class="line">V(fmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.理发师问题</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">Semaphore mutex = <span class="number">1</span>;    <span class="comment">//互斥信号量，初值为1.</span></span><br><span class="line">Semaphore  Wait = <span class="number">0</span>;     <span class="comment">//等待服务的顾客数 </span></span><br><span class="line">Semaphore  barbers= <span class="number">0</span>;    <span class="comment">//等待顾客的理发师数</span></span><br><span class="line">Int custNum = <span class="number">0</span>;    <span class="comment">//等待的顾客(还没理发的)  </span></span><br><span class="line"></span><br><span class="line">Costumer()</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">　　&#123;</span><br><span class="line">        P(mutex);            <span class="comment">//申请理发</span></span><br><span class="line">        <span class="keyword">if</span>(custNum&gt;<span class="number">0</span>)         </span><br><span class="line">　　　　　&#123;</span><br><span class="line">            <span class="keyword">if</span>(custNum&lt;N)   <span class="comment">//若等待人数小于N</span></span><br><span class="line">　　　　　　　&#123;</span><br><span class="line">                V(mutex);     <span class="comment">//释放进程等待</span></span><br><span class="line">                CustNum++；     <span class="comment">//增加等待人数</span></span><br><span class="line">            &#125;</span><br><span class="line">　　　　　　　<span class="keyword">else</span>            <span class="comment">//若等待人数超过N</span></span><br><span class="line">　　　　　　　　&#123;</span><br><span class="line">                V(mutex);   <span class="comment">//释放进程等待</span></span><br><span class="line">                离开；</span><br><span class="line">             &#125;</span><br><span class="line">　　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">else</span>                <span class="comment">//若目前无人等待</span></span><br><span class="line">　　　　&#123;</span><br><span class="line">            V(mutex);        <span class="comment">//释放进程等待</span></span><br><span class="line">            V(barbers)；     <span class="comment">//如果必要的话，唤醒理发师</span></span><br><span class="line">            理发；</span><br><span class="line">            离开；</span><br><span class="line">            P(mutex);        <span class="comment">//要求进程等待</span></span><br><span class="line">            custNum--；        <span class="comment">//顾客人数减1</span></span><br><span class="line">            V(mutex);       <span class="comment">//释放进程等待</span></span><br><span class="line">            V(wait);        <span class="comment">//等待人数减1</span></span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Barber()</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">　　&#123;</span><br><span class="line">        P(mutex);            <span class="comment">//要求进程等待</span></span><br><span class="line">        <span class="keyword">if</span>(custNum ==<span class="number">0</span>)    <span class="comment">//目前无顾客</span></span><br><span class="line">　　　　 &#123;</span><br><span class="line">            V(mutex);        <span class="comment">//释放进程等待</span></span><br><span class="line">            P(barbers);        <span class="comment">//理发师睡觉</span></span><br><span class="line">　　     &#125;</span><br><span class="line">　　　　<span class="keyword">else</span></span><br><span class="line">　　　　&#123;</span><br><span class="line">            V(mutex);        <span class="comment">//释放进程等待</span></span><br><span class="line">            理发;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、烟—吸烟者问题。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">Semaphore S = <span class="number">1</span>;                <span class="comment">//供应者</span></span><br><span class="line">Semaphore S1,S2,S3;                <span class="comment">//三个吸烟者</span></span><br><span class="line">S1 = S2 = S3 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">bool</span> flag1,flag2,fiag3;            <span class="comment">//三种吸烟原料</span></span><br><span class="line">fiag1=flag2=flag3=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">Apply()                            <span class="comment">//供应者</span></span><br><span class="line">&#123;</span><br><span class="line">　　While(<span class="literal">true</span>)</span><br><span class="line">　　&#123;</span><br><span class="line">          P(S);</span><br><span class="line">　　   　　 取两样香烟原料放桌上，由flagi标记；</span><br><span class="line">　　　     <span class="keyword">if</span> (flag2 &amp;&amp; flag3) <span class="comment">//供纸和火柴</span></span><br><span class="line">　　　　　　&#123;</span><br><span class="line">　　　        V(S1);          <span class="comment">//唤醒吸烟者一</span></span><br><span class="line">　　　       &#125;</span><br><span class="line">　　       <span class="keyword">else</span> <span class="keyword">if</span>(flag1 &amp;&amp; fiag3) <span class="comment">//供烟草和火柴</span></span><br><span class="line">　　　　　　&#123;</span><br><span class="line">　　　        V(S2);                <span class="comment">//唤醒吸烟者二</span></span><br><span class="line">　　　       &#125;</span><br><span class="line">　　   　　<span class="keyword">else</span>                      <span class="comment">//供烟草和纸</span></span><br><span class="line">　　　　　　&#123;</span><br><span class="line">　　　        V(S3);                <span class="comment">//唤醒吸烟者三</span></span><br><span class="line">           &#125;</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Smoker1()                         <span class="comment">//吸烟者一</span></span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　 &#123;</span><br><span class="line">　　　    P(S1);</span><br><span class="line">　　　    取原料；</span><br><span class="line">　　　    做香烟；</span><br><span class="line">　　　    V(S);                    <span class="comment">//唤醒供应者</span></span><br><span class="line">　　　    吸香烟；</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">smoker2()                        <span class="comment">//吸烟者二</span></span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　    P(S2);</span><br><span class="line">　　　    取原料；</span><br><span class="line">　　　    做香烟；</span><br><span class="line">　　　    V(S);                    <span class="comment">//唤醒供应者</span></span><br><span class="line">　　　    吸香烟;</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;　　</span><br><span class="line"></span><br><span class="line">Smoker3()                        <span class="comment">//吸烟者三</span></span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">　　　    P(S3);</span><br><span class="line">　　     取原料；</span><br><span class="line">　　     做香烟；</span><br><span class="line">　　　    V(S);                    <span class="comment">//唤醒供应者</span></span><br><span class="line">　　　   吸香烟;</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.面包师问题</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Semaphore buyer= <span class="number">0</span>;                <span class="comment">//顾客人数</span></span><br><span class="line">Semaphore seller = n;            <span class="comment">//销售人员数</span></span><br><span class="line">Semaphore mutex_s = <span class="number">1</span>;            <span class="comment">//用于销售人员的互斥信号量</span></span><br><span class="line">Semaphore mutex_b = <span class="number">1</span>;            <span class="comment">//用于顾客的互斥信号量</span></span><br><span class="line"><span class="keyword">int</span> count_s = <span class="number">0</span>;                <span class="comment">//记录取号的值</span></span><br><span class="line"><span class="keyword">int</span> count_b = <span class="number">0</span>;                <span class="comment">//记录叫号的值 </span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Buy</span><span class="params">()</span>                    <span class="comment">//顾客进程</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     进店；</span><br><span class="line">    P(mutex_b);          <span class="comment">//取号</span></span><br><span class="line">    count_b++; </span><br><span class="line">　　 V(mutex_b);</span><br><span class="line">　　 V(buyer);</span><br><span class="line"> 　　P(seller);            <span class="comment">//等待叫号</span></span><br><span class="line">    买面包；</span><br><span class="line">    离开             </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sell</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">         P(buyer);</span><br><span class="line">         P(mutex_s);   <span class="comment">//叫号</span></span><br><span class="line">        </span><br><span class="line">         count_s++;</span><br><span class="line">         </span><br><span class="line">         叫编号为count_s的顾客；</span><br><span class="line">         V(mutex_s);</span><br><span class="line">         V(seller)；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.</p>
+<blockquote>
+<p>桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘<br>子放苹果（ apple），妈妈专向盘子中放桔子（ orange）；两个儿子专等吃盘子中的桔子，<br>两个女儿专等吃盘子中的苹果。请用 P、 V 操作来实现爸爸、妈妈、儿子、女儿之间的<br>同步与互斥关系。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">Semaphore mutex = <span class="number">1</span>;      <span class="comment">//互斥信号量, 其初值为1</span></span><br><span class="line">Semaphore empty = <span class="number">2</span>;       <span class="comment">//记录允许向盘子中放入水果的个数，初值为2</span></span><br><span class="line">Semaphore orange = <span class="number">0</span>;      <span class="comment">//盘子中已放入的苹果的个数，初值为0</span></span><br><span class="line">Semaphore apple = <span class="number">0</span>;      <span class="comment">//盘子中已放入的桔子的个数，初值为0</span></span><br><span class="line">main()  </span><br><span class="line">&#123;   </span><br><span class="line">Cobegin  </span><br><span class="line">&#123;   </span><br><span class="line">　 father                    <span class="comment">//父亲进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　　　  P(empty);           <span class="comment">//减少盘中可放入的水果数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                向盘中放苹果;  </span><br><span class="line">                V(mutex);           <span class="comment">//允许向盘中取、放水果  </span></span><br><span class="line">                V(apple);           <span class="comment">//递增盘中的苹果数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">    mother                    <span class="comment">//母亲进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　　　　 P(empty);           <span class="comment">//减少盘中可放入的水果数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                向盘中放桔子;  </span><br><span class="line">                V(mutex);           <span class="comment">//允许向盘中取、放水果  </span></span><br><span class="line">                V(orange);          <span class="comment">//递增盘中的桔子数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    daughteri（i=<span class="number">1</span>,<span class="number">2</span>）      <span class="comment">//两女儿进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　      P(apple);           <span class="comment">//减少盘中苹果数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                取盘中苹果;  </span><br><span class="line">                V(mutex);           <span class="comment">//允许向盘中取、放水果  </span></span><br><span class="line">                V(empty);           <span class="comment">//递增盘中可放入的水果数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">    sonj（j=<span class="number">1</span>,<span class="number">2</span>）           <span class="comment">//两儿子进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　　　  P(orange);          <span class="comment">//减少盘中桔子数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                取盘中桔子;  </span><br><span class="line">                V(mutex);           ／/允许向盘中取、放水果  </span><br><span class="line">                V(empty);           <span class="comment">//递增盘中可放入的水果数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">   &#125;  </span><br><span class="line">    Coend  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6.有一个仓库，可以存放 A 和 B 两种产品，仓库的存储空间足够大，但要求：<br>（ 1）一次只能存入一种产品（ A 或 B）；<br>（ 2） -N &lt; (A 产品数量-B 产品数量) &lt; M。<br>其中， N 和 M 是正整数。试用“存放 A”和“存放 B”以及 P、 V 操作描述产品 A 与<br>产品 B 的入库过程。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Semaphore mutex = <span class="number">1</span>;   <span class="comment">//互斥信号量</span></span><br><span class="line">Semaphore a = M<span class="number">-1</span> ;   <span class="comment">//存放A的资源信号量，初值为M-1</span></span><br><span class="line">Semaphore b = N<span class="number">-1</span>;      <span class="comment">//存放B的资源信号量，初值为N-1</span></span><br><span class="line">存放 A:</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">        Get A；</span><br><span class="line">        P(&amp;a); </span><br><span class="line">         P(&amp;mutex); </span><br><span class="line">Put A；  </span><br><span class="line">V(&amp;mutex);  </span><br><span class="line">V(&amp;b);</span><br><span class="line">&#125;  </span><br><span class="line">&#125; </span><br><span class="line">存放B:</span><br><span class="line">&#123; </span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">&#123; </span><br><span class="line">        Get B；</span><br><span class="line">        P(&amp;b);</span><br><span class="line">        P(&amp;mutex);</span><br><span class="line">        Put B；</span><br><span class="line">        V(&amp;mutex);</span><br><span class="line">        V(&amp;a);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>三个进程 P1、 P2、 P3 互斥使用一个包含 N(N&gt;0)个单元的缓冲区。 P1 每次用 produce()<br>生成一个正整数并用 put()送入缓冲区某一空单元中;P2 每次用 getodd()从该缓冲区中<br>取出一个奇数并用 countodd()统计奇数个数;P3 每次用 geteven()从该缓冲区中取出一<br>个偶数并用 counteven()统计偶数个数。请用信号量机制实现这三个进程的同步与互斥活<br>动,并说明所定义信号量的含义。要求用伪代码描述。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">P1()</span><br><span class="line">&#123;  </span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　    X = produce();      <span class="comment">//生成一个数</span></span><br><span class="line">　　　 　 P(empty);     <span class="comment">//是否有空单元格</span></span><br><span class="line">　　　    P(mutex);    <span class="comment">//进入临界区</span></span><br><span class="line">　　　    Put();  </span><br><span class="line">　　　    <span class="keyword">if</span>(X%<span class="number">2</span> == <span class="number">0</span>)  </span><br><span class="line">　　　         V(s2);   <span class="comment">//如果是偶数，向P3发出信号 </span></span><br><span class="line">　　　    <span class="keyword">else</span>  </span><br><span class="line">　　　          V(s1);   <span class="comment">//如果是奇数，向P2发出信号 </span></span><br><span class="line">　　　    V(mutex);         <span class="comment">//离开临界区，释放互斥信号量  </span></span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">P2()</span><br><span class="line">&#123;  </span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　    P(s1);     <span class="comment">//收到P1发送来的信号，已产生奇数</span></span><br><span class="line">　　　 　 P(mutex);         <span class="comment">//进入临界区     </span></span><br><span class="line">　　　    getodd();  </span><br><span class="line">　　　    countodd():=countodd()+<span class="number">1</span>; </span><br><span class="line">　　　    V(mutex);    </span><br><span class="line">　　　    V(empty);         <span class="comment">//离开临界区，释放互斥信号量   </span></span><br><span class="line">　　　&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">P3()</span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　 　 P(s2)        <span class="comment">//收到P1发送来的信号，已产生偶数   </span></span><br><span class="line">　　　   P(mutex);         <span class="comment">//进入临界区  </span></span><br><span class="line">　　　   geteven();  </span><br><span class="line">　　　   counteven():=counteven()+<span class="number">1</span>;  </span><br><span class="line">　　　   V(mutex);    </span><br><span class="line">　　　   V(empty);         <span class="comment">//离开临界区，释放互斥信号量   </span></span><br><span class="line">　　　&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>8.在天津大学与南开大学之间有一条弯曲的小路，这条路上每次每个方向上只允许一辆自<br>行车通过。但其中有一个小的安全岛 M，同时允许两辆自行车停留，可供两辆自行车已<br>从两端进入小路的情况下错车使用。如图所示。<br><img src="pv.png" alt=""><br>下面的算法可以使来往的自行车均可顺利通过。其中使用了 4 个信号量， T 代表天大路<br>口资源， S 代表南开路口资源， L 代表从天大到安全岛一段路的资源， K 代表从南开到<br>安全岛一段路的资源。程序如下，请在空白位置处填写适当的 PV 操作语句，每处空白<br>可能包含若干个 PV 操作语句。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">begin</span><br><span class="line">    t:=<span class="number">1</span>;s:=<span class="number">1</span>;l:=<span class="number">1</span>;k:=<span class="number">1</span>;</span><br><span class="line">    cobegin</span><br><span class="line">    从天大到南开的进程</span><br><span class="line">        begin</span><br><span class="line">            ______(<span class="number">1</span>)______</span><br><span class="line">           通过 L 路段;</span><br><span class="line">           进入安全岛 M；</span><br><span class="line">           ______(<span class="number">2</span>)______</span><br><span class="line">           通过 K 路段</span><br><span class="line">           ______(<span class="number">3</span>)______</span><br><span class="line">        end</span><br><span class="line">   从南开到天大的进程</span><br><span class="line">       begin</span><br><span class="line">          略，与“从天大到南开的进程”相反。</span><br><span class="line">       end</span><br><span class="line">    coend</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>9.有桥如下图所示，车流如箭头所示，桥上不允许两车交汇，但允许同方向多辆车依次<br>通过（即桥上可以有多个同方向的车）。用P、V操作实现交通管理以防止桥上堵塞。<br><img src="pv2.png" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这题和读者写者问题类似</span></span><br><span class="line">semaphore fmutex=<span class="number">1</span>, normutex=<span class="number">1</span>, sormutex=<span class="number">1</span>,<span class="built_in">queue</span> = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> sou_count = <span class="number">0</span>, nor_count = <span class="number">0</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tonorth</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>)</span><br><span class="line">P(normutex); </span><br><span class="line"><span class="keyword">if</span>( nor_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">nor_count = nor_count + <span class="number">1</span>; </span><br><span class="line">V(normutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//过去了 ... </span></span><br><span class="line">P(normutex); </span><br><span class="line">nor_count = nor_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( nor_count == <span class="number">0</span> ) &#123; V(fmutex); &#125; </span><br><span class="line">V(normutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tosouth</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(sormutex);</span><br><span class="line"><span class="keyword">if</span>(sor_count==<span class="number">0</span>) &#123;P(fmutex);&#125;</span><br><span class="line">sor_count = sor_count++;</span><br><span class="line">V(sormutex);</span><br><span class="line">V(<span class="built_in">queue</span>);</span><br><span class="line"><span class="comment">// ... </span></span><br><span class="line">P(sormutex)</span><br><span class="line">sor_count = sor_count + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(sorcount==<span class="number">0</span>)&#123;V(fmutexl)&#125;</span><br><span class="line">V(sormutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>10.用 P、V 操作和信号量实现下图中的前趋关系。其中 S1~S5 是 5 个具有同步关系的<br>进程。<br><img src="pv1.png" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">semaphore s1 =<span class="number">0</span>,s2=<span class="number">0</span>,s3=<span class="number">0</span>,s4=<span class="number">0</span>,s5=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//s1....</span></span><br><span class="line">    V(s1);</span><br><span class="line">    V(s1);</span><br><span class="line">    V(s1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s1);</span><br><span class="line">    <span class="comment">//s2...</span></span><br><span class="line">    V(s2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s1);</span><br><span class="line">    <span class="comment">//s3...</span></span><br><span class="line">    V(s3);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p4</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s2);</span><br><span class="line">    <span class="comment">//s4....</span></span><br><span class="line">    V(s4);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p5</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s1);</span><br><span class="line">    P(s3);</span><br><span class="line">    P(s4);</span><br><span class="line">    <span class="comment">//s5...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>11.设有两个优先级相同的进程 P1 和 P2，共享 x、y、z 三个变量，执行代码见下表。<br>信号量 s1 和 s2 的初值均为 0。试问 P1、P2 并发执行后，x、y、z 的值各是多少？给出<br>解题过程。<br><img src="pv3.png" alt=""></p>
+<p>x=1;x=3P(s1)<br>y=1;y=3;<br>z = 4;P(s2)<br>v(s1)<br>x = x+y=3+3=6</p>
+<p>V(s2)<br>//这两句先执行哪句呢<br>y =z+y 4 + 6 =10</p>
+<p>z = x + z =6 + 4;</p>
+<p><a href="https://blog.csdn.net/qq_35433716/article/details/82778367" target="_blank" rel="noopener">点击这里</a></p>
+<h3 id="Linux-process"><a href="#Linux-process" class="headerlink" title="Linux-process"></a>Linux-process</h3><p>Linux 进程与 shell<br>1.What will this statement do?<br>set PS1=”[\u\w\t]$“,export PS1<br>A.Make the color display work.<br>B.Change the look of the command prompt.<br>C.Change some of the terminal parameters.<br>D.Change the secondary command line prompt.<br>E.change the way the mouse works on the console.<br>2.What is the purpose of the bash shell export command?<br>A.To allow disks to be mouted remotely.<br>B.To run a command as a process in a sub-shell.<br>C.To make the command history available to sub-shells.<br>D.To setup environment variables for use by other applications.<br>E.to share NFS partitions for use by other systems on the network.<br>3.Which command will find the path for the binary file vi with a single command?<br>A.man vi<br>B.find vi<br>C.where vi<br>D.which vi<br>E.apropos vi<br>4.Which command would you use to display how much space is available on all partitions?<br>5.What program would you use to increase or decrease the priority of a command before it is executed?<br>6.In bash, inserting “1&gt;&amp;2” after a command redirects<br>A.standard error to standard input<br>B.standard input to standard error<br>C.standard output to standard error<br>D.standard error to standard output<br>E.standard output to standard input<br>7.Which of the following would copy the file file1.txt to file2.txt?<br>A.cp file1.txt | file2.txt<br>B.cat file1.txt | file2.txt<br>C.cat file1.txt &gt; file2.txt<br>D.copy file1.txt | file2.txt<br>E.cat |file1.txt | file2.txt<br>8.Which command outputs the last few lines of a file?<br>A.tac<br>B.tail<br>C.rear<br>D.last<br>E.cat -r<br>9.What command outputs the first few lines of a given file?<br>10.When the kill command is given with only the PID number of the process to kill (as</p>
+<p>in kill 1234), the corresponds to which type of kill signal?<br>A.2(SIGINT)<br>B.1(SIGHUP)<br>C.9(SIGKILL)<br>D.3(SIGQUIT)<br>E.15(SIGTERM)<br>11.The command <code>kill 9</code><br>A.kills the process whose PID is 9.<br>B.kills all processes belonging to UID 9.<br>C.sends SIGKILL to all running processes.<br>D.sends SIGKILL to the process whose PID is 9.<br>E.sends SIGTERM to the process whose PID IS 9.<br>12.What does the following command do? cat <code>echo &#39;$TEST&#39;</code><br>A.Displays a bash syntax error message.<br>B.Displays the contents of the file named $TEST if it exists.<br>C.Waits for the user to enter text and then echos the text back.<br>D.Displays the contents of the file named inside the back quotes.<br>E.Displays the contents of the file named by the environment variable TEST.<br>13.What three-letter command in bash will display all environment variables?<br>14.What command would execute cmd1 followed by cmd2,regardless of the exit status of cmd1?<br>A.cmd1 cmd2<br>B.cmd1 | cmd2<br>C.cmd1 ; cmd2<br>D.cmd1 &amp;&amp; cmd2 E. cmd1 || cmd2<br>15.You have a file called turkey.tst which contains lines and lines of data. You need to know which lines contain capital letters. Which command would display this information?<br>A.cat turkey.tst | wc -l<br>B.grep -n [A-Z] burkey.tst<br>C.cat trukey.tst | wc -w [A-Z]<br>D.grep -v [A-Z] &lt; turkey.tst<br>E.for [A-Z] in turkey.tst | count<br>16.Which of the following are valid ways of getting a list of all processes running on the system?(Select all the apply)<br>A.ps fu<br>B.ps ax<br>C.pstree<br>D.pstree -a<br>E.echo /proc/[0-9]*<br>17.The output from the jobs command in bash is:<br>[1] Stopped joe superbatch.1.sort<br>[2]- Stopped (signal) lynx <a href="http://www.microsoft.com" target="_blank" rel="noopener">www.microsoft.com</a> [3]+ Stopped (signal) top</p>
+<p>Which of these commands could be used to kill the process running top?<br>A.kill 3<br>B.bg -x 3<br>C.kill -9 3<br>D.fg &3; kill<br>E.job 3 –kill<br>18.Assume that foobar is a text file containing 30 lines. What command(s) could you use to number the lines from 1 to 30 and print them to the screen in reverse order?<br>A.nl foobar | tac<br>B.ln foobar | tac<br>C.tac foobar | nl<br>D.ln foobar | reverse<br>E.nl &lt; foobar | reverse<br>19.Why should “kill -9” be avoided except in cases of absolute need?<br>A.A core dump file will be created.<br>B.It affects the entire process group.<br>C.It makes excessive use of system resources.<br>D.The action can be blocked by buggy of malicious process.<br>E.The affected process is unable to clean up before exiting.<br>20.What utility would you use to remove/display columns from each line of a file?<br>A.pwd<br>B.col<br>C.cut<br>D.tail<br>E.extract<br>21.You are concerned that core files are taking up excessive space on your /home file system. Which command would you use to remove all files named core that are older than 1 week?<br>A.cd /home;rm -r -mtime +7 core<br>B.find /home -older +7 -exec rm {core} ;<br>C.find /home -atime +1 -name core -exec rm {} ;<br>D.find /home -mtime +7 -name core -exec rm {} ;<br>E.find /home -mtime +1 -name core -exec rm {} ;<br>22.Which of the following statements are true?(Select all that apply.)<br>A.The default “nice” priority value is 0.<br>B.”Nice” priority values range from 0 to 20.<br>C.Lower “nice” priority values signify greater priority.<br>D.Only the super user may assign a process maximum priority.<br>E.Setting a process’s “nice” value to the lowest priority is the same as stopping the process.<br>23.Sally has created a text file for data which uses an asterisk to highlight items of significance. Which command would list the line she marked as significant in her file?<br>A.find * sallysfile<br>B.wc -l * &lt;sallysfile</p>
+<p>C.grep -n * sallysfile<br>D.search * &lt;sallysfile<br>E.grep * sallysfile<br>24.Which programs will allow you to change the priority of a program already running?(Select all that apply.)<br>A.top<br>B.nice<br>C.niceit<br>D.renice<br>E.chnice<br>25.What environment variable has your home directory?<br>26.Which of the following commands could be used to see which processes are currently running? (Select all that apply.)<br>A.w<br>B.ps<br>C.top<br>D.proc<br>E.lsproc<br>27.What would you use an alias for?<br>A.To provide faster lookups for commands.<br>B.To avoid having to type long command lines.<br>C.So others cannot tell what command you are running.<br>D.To make a local copy of a file in a directory other than the one it exists in.<br>28.The command “cat&gt;foo.bar” redirects the<br>A.cat to foo.bar<br>B.foo.bar to cat<br>C.standard output to cat<br>D.standard input to foo.bar<br>E.foo.bar to standard output<br>29.Which ps parameter would you use to display the process of all other users?<br>A.a<br>B.b<br>C.u<br>D.x<br>30.What command could be used to get a hierarchical view of all the processes running on the system without requiring you to provide any switches or options?<br>31.Which line below would count the total number of lines with the word “reject” in<br>/var/log/maillog?<br>A.wc -l ‘reject /var/log/maillog’<br>B.for “reject” in [maillog (count) +1]<br>C.wc -l /var/log/maillog |grep ‘reject’<br>D.cat /var/log/maillog |grep ‘reject’ |wc -l<br>E.cat /var/log/maillog |grep ‘reject’ |wc -r<br>32.Assume that the file foobar contains 30 lines. Which command line would you use to</p>
+<p>display the middle 10 lines of the file?<br>A.tail -n 1- -h 10<br>B.head -n 10 -s 10<br>C.head -n 10 foobar |tail -n 10<br>D.head -n 20 foobar |tail -n 10<br>E.tail -n 20 &lt;foobar |tail -n 20<br>33.In the command <code>foo &lt;bar |foobar</code>.<br>A.the stdout from the command foobar is saved to the file foo.<br>B.the stdout from the command foo is saved to the file foobar.<br>C.the command foobar receives its stdin from stderr of foo.<br>D.the command foobar receives its stdin from the stdout of foo.<br>E.the command bar receives its stdin from the contents of the file foobar.<br>34.User Sally has lost a file. She saved it a week ago and now cannot remember where it is. She knows the file name contains the word “turkey” but that’s all she can remember. Which command string would help Sally find the complete name of her missing file?<br>A.ls turkey<br>B.find turkey<br>C.grep turkey<br>D.which turkey<br>E.ls |grep ‘turkey’<br>35.In what file do you change default variables for all users?<br>A./etc/bashrc<br>B./etc/profile<br>C.~/.bash_profile<br>D./etc/skel/.bashrc<br>E./etc/skel/.bash_profile<br>36.What symbol can be placed at the end of a line to indicate that the command continues on the next line?<br>A./<br>B.<br>C.;<br>D.|<br>E.:<br>二、简答题<br>1.If you use shell script to setup some environment variables, How should you run this shell script? Why?<br>2.Write the commands to finish the following tasks.<br>1)show the number of subdirectories in the working directory<br>2)show the number of processes in the system<br>3)show the number of users currently logged in the system<br>4)find all files named “.hushlogin” and delete them.<br>5)display the current system time and date<br>3.Which keystroke sequence can be used, in bash, to interrupt a foreground process</p>
+<p>and usually terminate it? Which keystroke sequence can be used to suspend a process in the shell to the background so it may be restarted at a later time?<br>4.Translate the following command into your native language: ls -l | grep “^-“ | egrep “html$|htm$” | wc -l<br>5.How to run an executable program in the working directory regardless whether the working directory is in $PATH. Why should we do it in this way?</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/12/06/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="next" title="内存管理">
+                  <i class="fa fa-chevron-left"></i> 内存管理
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程管理"><span class="nav-number">1.</span> <span class="nav-text">进程管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解答题"><span class="nav-number"></span> <span class="nav-text">解答题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PV题"><span class="nav-number"></span> <span class="nav-text">PV题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-process"><span class="nav-number">1.</span> <span class="nav-text">Linux-process</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="任林杰"
+    src="/images/rlj.jpg">
+  <p class="site-author-name" itemprop="name">任林杰</p>
+  <div class="site-description" itemprop="description">建设最美114</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">任林杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">97k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:28</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
