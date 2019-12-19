@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="计网马上要考试了,之前从头看了遍网课,整理了点知识点和习题. 挑挑拣拣选一些考纲上的内容也来一个一天一遍,预防失眠(yjn_语录)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络の摘要">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:description" content="计网马上要考试了,之前从头看了遍网课,整理了点知识点和习题. 挑挑拣拣选一些考纲上的内容也来一个一天一遍,预防失眠(yjn_语录)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-19T04:11:01.828Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/12/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>计算机网络の摘要 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Only action can relieve the uneasiness.</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj.jpg">
+      <meta itemprop="name" content="任林杰">
+      <meta itemprop="description" content="建设最美114">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络の摘要
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-19 12:14:49 / 修改时间：12:11:01" itemprop="dateCreated datePublished" datetime="2019-12-19T12:14:49+08:00">2019-12-19</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>计网马上要考试了,之前从头看了遍网课,整理了点知识点和习题. 挑挑拣拣选一些考纲上的内容也来一个<br><strong>一天一遍,预防失眠</strong>(yjn_语录)</p>
+<a id="more"></a>
+<h3 id="摘要部分"><a href="#摘要部分" class="headerlink" title="摘要部分"></a>摘要部分</h3><ol>
+<li><p>在TCP协议中，某数据包的确认包丢失也不一定导致发送方重传该数据包 √</p>
+</li>
+<li><p>传输层用进程编号（PID）来标示主机间通信的应用进程        × port</p>
+</li>
+<li><p>客户使用SMTP协议既能发送邮件又能接收邮件                × POP3接收邮件</p>
+</li>
+<li><p>某种网络安全威胁是通过非法手段取得对数据的使用权，并对数据进行恶意地添加和修改，这种安全威胁属于<strong>B__</strong><br>A、窃听数据 B、破坏数据完整性<br>C、拒绝服务 D、物理安全威胁</p>
+</li>
+<li><p>如要将138.10.0.0 网络分为6个子网，则子网掩码应设为（D）<br>A、255.0.0.0 B、255.255.0.0<br>C、255.255.128.0 D、255.255.224.0</p>
+<blockquote>
+<p>6个子网需要3个子网位,因为2^3=8 所以子网掩码是255.255.1110.0000,即255.255.224.0</p>
+</blockquote>
+</li>
+<li><ol>
+<li>下面有关网络互连设备说法正确的有（ABCD）<br>A、在物理层实现网络互连的主要设备有中继器和HUB。<br>B、在数据链路层实现网络互联的主要设备有二层交换机和网桥。<br>C、在网络层实现网络互连的主要设备有三层交换机和路由器。<br>D、在传输层（包括传输层）以上实现网络互连的设备有网关。</li>
+</ol>
+</li>
+<li><p>试简述TCP协议在数据传输过程中收发双方是如何保证数据包的可靠性的。</p>
+<blockquote>
+<p>（1）为了保证数据包的可靠传递，发送方必须把已发送的数据包保留在缓冲区； （1分）<br>（2）并为每个已发送的数据包启动一个超时定时器；（1分）<br>（3）如在定时器超时之前收到了对方发来的应答信息（可能是对本包的应答，也可以是对本包后续包的应答），则释放该数据包占用的缓冲区;（1分）<br>（4）否则，重传该数据包，直到收到应答或重传次数超过规定的最大次数为止。（1分）<br>（5）接收方收到数据包后，先进行CRC校验，如果正确则把数据交给上层协议，然后给发送方发送一个累计应答包，表明该数据已收到，如果接收方正好也有数据要发给发送方，应答包也可方在数据包中捎带过去。（1分）</p>
+</blockquote>
+</li>
+<li><p>假设有五个IP地址A：131.107.256.80，B：231.222.0.11，C：126.1.0.0，D：198.121.254.255，E：202.117.34.32，找出不能分配给主机的IP地址，并说明原因。</p>
+<blockquote>
+<p>(1）A的第三个数256大于255是非法值，不能用于主机地址；（1分）<br>（2）B的第一个数231是保留给组播的地址，不能用于主机地址；（1分）<br>（3）C以全0结尾的IP地址是网络地址，不能用于主机地址；（1分）<br>（4）D以全1结尾的IP地址是广播地址，不能用于主机地址。（2分）</p>
+</blockquote>
+</li>
+<li><p>为什么说TCP协议中针对某数据包的应答包丢失也不一定导致该数据包重传？<br>（1）由于TCP协议采用的是面向字符流的累计确认机制；（2分）<br>（2）当某数据包的应答丢失时，只要接收方还有数据发给发送方，在其应答字段中将包含对前面收到的数据包的应答信息，所以发送方不需要重发该数据包。（3分）<br><a href="https://zhidao.baidu.com/question/241652922.html?qbl=relate_question_0&word=TCP%D0%AD%D2%E9%D6%D0%D5%EB%B6%D4%C4%B3%CA%FD%BE%DD%B0%FC%B5%C4%D3%A6%B4%F0%B0%FC%B6%AA%CA%A7%D2%B2%B2%BB%D2%BB%B6%A8%B5%BC%D6%C2%B8%C3%CA%FD%BE%DD%B0%FC%D6%D8%B4%AB" target="_blank" rel="noopener">click</a></p>
+</li>
+<li><p>占据两个山顶的红军1与红军2与驻扎在这两个山之间的白军作战。其力量对比是:红军1或红军2打不赢白军，但红军1和红军2协同作战可战胜白军。红军1拟于次日凌晨6点向白军发起攻击，于是给红军2发送电文，但通信线路很不好，电文出错或丢失的可能性较大，因此要求收到电文的红军2必须送回一个确认电文，但确认电文也可能出错或丢失。试问能否设计出一种协议使得红军能够实现协同作战，因而100%的取得胜利？<br>答：</p>
+<blockquote>
+<p>（1）采用三次握手的方式；（2分）<br>（2）红军1给红军2发送电文，决定次日凌晨6点向白军发起攻击，请求红军2协同作战，并等待红军2的应答，如果在规定时间内没有收到应答，则重发请求；（3分）<br>（3）红军2如果收到红军1的作战报文后，则回送一个响应报文，表明已知道次日凌晨6点向白军发起攻击且愿意协同作战，并等待红军1的确认，如果在规定时间内没有收到确认报文，则重发响应报文；（3分）<br>（4）红军1收到红军2的响应报文，再向红军2发送一个确认报文，并表明已知道红军2将协同作战。（2分）</p>
+</blockquote>
+</li>
+<li><p>学生A希望访问网站<code>www.sina.com</code>，A在其浏览器中输入<a href="http://www.sina.com并按回车，直到新浪的网站首页显示在其浏览器中，请问：在此过程中，按照TCP/IP参考模型，从应用层到网络层都用到了哪些协议？" target="_blank" rel="noopener">http://www.sina.com并按回车，直到新浪的网站首页显示在其浏览器中，请问：在此过程中，按照TCP/IP参考模型，从应用层到网络层都用到了哪些协议？</a><br>答：</p>
+<blockquote>
+<p>（1）应用层：HTTP：WWW访问协议，DNS：域名解析；（3分）<br>（2）传输层：TCP：在客户和服务器之间建立连接，提供可靠的数据传输；（4分）<br>（3）网络层：IP：IP包传输和路由选择，ICMP：提供网络传输中的差错检测，ARP：将本机的缺省网关IP地址映射成物理MAC地址。（4分）</p>
+</blockquote>
+</li>
+<li><p>目前实际存在与使用的广域网基本都采用（D）。<br>A)总线拓扑 B)环状拓扑   C)星状拓扑 D)网状拓扑 </p>
+</li>
+<li><p>下列IP地址中属于B类IP地址的是（B）。<br>A) 200.126.32.50 B) 191.23.56.89 C) 192.168.0.1 D) 126.45.33.9</p>
+<blockquote>
+<p>A类IP地址 地址范围从1.0.0.1到127.255.255.254  子网掩码为255.0.0.0<br>B类IP地址地址范围从128.0.0.1-191.255.255.254   子网掩码为255.255.0.0<br>C类IP地址范围从192.0.0.1-223.255.255.254      子网掩码为255.255.255.0<br>私有地址范围:<br>A类地址：10.0.0.0～10.255.255.255<br>B类地址：172.16.0.0～172.31.255.255<br>C类地址：192.168.0.0～192.168.255.255<br>回送地址：127.0.0.1。 也是本机地址，等效于localhost或本机IP。</p>
+</blockquote>
+</li>
+<li><p>在总线型局域网的介质访问控制方法中，采用“先听后发，边听边发，冲突停止，随机延迟后重发”的是（A）<br>A)CSMA/CD B)TokenBus C)TokenRing D)FDDI</p>
+<blockquote>
+<p>[解析] CSMA/CD的发送流程可以简单地概括为先听后发、边听边发、冲突停止、随机延迟后重发。<br>采用CSMA/CD介质访问控制方法的总线型局域网在发送数据前，先监听总线是否空闲。<br>若总线忙，则不发送：若总线空闲，则把准备好的数据发送到总线上。<br>在发送数据的过程中，工作站边发送边检测总线，是否自己发送的数据有冲突。<br>若无冲突则继续发送直到发完全部数据；若有冲突，则立即停止发送数据，但是要发送一个加强冲突的信号，以便使网络上所有工作站都知道网上发生了冲突，<br>然后，等待一个预定的随机时间，且在总线为空闲时，再重新发送未发完的数据。</p>
+</blockquote>
+</li>
+<li><p>(ARP)是将IP地址映射成物理地址，而(TCP/IP)的主要目的是把资源名称解析成IP地址。 </p>
+</li>
+<li><p>网络安全的威胁因素有很多，其中人为的威胁因素类型有中断、窃取、更改和伪造。（√） </p>
+</li>
+</ol>
+<ol start="17">
+<li>网络安全的特性。 </li>
+</ol>
+<ul>
+<li>保密性：信息不泄露给非授权用户、实体或过程，或供其利用的特性。</li>
+<li>(数据)完整性：数据未经授权不能进行改变的特性。即信息在存储或传输过程中保持不被修改、不被破坏和丢失的特性。</li>
+<li>可用性：可被授权实体访问并按需求使用的特性。即当需要时能否存取所需的信息。例如网络环境下拒绝服务、破坏网络和有关系统的正常运行等都属于对可用性的攻击；</li>
+<li>可控性：对信息的传播及内容具有控制能力。</li>
+</ul>
+<ol start="17">
+<li><p>计算机网络需要哪几方面的安全性？</p>
+<blockquote>
+<p>答案：<br>(1)保密性：计算机中的信息只能由授予访问权限的用户读取(包括显示、打印等，也包含暴露信息存在的事实)。<br>(2)数据完整性：计算机系统中的信息资源只能被授予权限的用户修改。<br>(3)可利用性：具有访问权限的用户在需要时可以利用计算机系统中的信息资源，得到密文。</p>
+</blockquote>
+</li>
+<li><p>网络上两个进程之间进行通信需要用一个五元组来标识：(本机主机地址,本机端口号,协议,远程主机地址,远程端口号)</p>
+</li>
+<li><p>下列媒体访问协议中没有冲突的协议是(D)<br>A、1-支持CSMA B、ALOHA C、CSMA/CD D、TOKEN RING (令牌环网)</p>
+</li>
+<li><p>试简述主机1（IP地址为192.168.25.1，MAC地址为 E1）向主机2（IP地址为192.168.25.2，MAC地址为E2）发送数据时ARP 协议的工作过程（主机1、主机2在同一个子网内）。</p>
+<blockquote>
+<p>答：<br>（1）当主机1要向主机2发送数据时，必须知道主机2的MAC地址，为此，先根据主机2的IP地址在本机的ARP缓冲表内查找，如找到E2，则把E2填到MAC帧中，并把数据发送给主机2；<br>（2）如果在本机的ARP缓冲表内找不到主机2的MAC地址，则主机1产生一个ARP询问包，其中包含主机1的IP地址，MAC地址E1，主机2的IP地址，并广播到网络上询问有谁知道主机2的MAC地址？<br>（3）主机2收到ARP询问包后，根据询问者的IP和MAC地址E1立即向主机1回送一个ARP响应包，其中包含主机1的IP地址，MAC地址E1，主机2的IP地址和MAC地址E2，从而主机1获得了主机2的MAC地址E2，进而可向主机2发送数据。<br>3、设某网络在某一时刻的结构如下图所示，试用L-S路由算法为节点C计算到各节点的路由表（包括目的地、下一站、最小代价）。</p>
+</blockquote>
+</li>
+<li><p>在某网络应用系统中，计算机A( IP地址为 192.168.25.168 , MAC地址为00：11：22：33：44：55)需要知道目前本网络内有多少台计算机在联网，其IP地址分别为多少，试运用所学的网络原理，说明解决此问题的方案（要求说明所采用的网络原理以及解决该问题的工作过程）。（本题10分）</p>
+<blockquote>
+<p>答：<br>（1）采用ICMP 请求应答报文（echo）；（1分）<br>（2）计算机A从IP地址192.168.25.1 到 192.168.25.254 做以下工作；（2分）<br>（3）构造一个ICMP请求应答报文，分别发给上述IP地址；（3分）<br>（4）如果能收到某IP有响应包，说明该IP对应的计算机已联网。（4分）</p>
+</blockquote>
+</li>
+<li><p>将某C 网 192.168.118.0 划分成4个子网，请计算出每个子网的有效的主机IP地址范围和对应的网络掩码（掩码用2进制表示） 。（10分）（答案只要符合题目需求就可给满分，下面只是参考答案之一。）</p>
+<blockquote>
+<p>解：<br>（1）子网1的有效IP地址范围为： 192.168.118.1 — 192.168.118.63     (2分)</p>
+<pre><code>（00 00 0001-00 11 1110）</code></pre><p>子网1的网络掩码为：11111111.11111111.11111111.11000000          (2分)<br>（2）子网2的有效IP地址范围为： 192.168.118.65 — 192.168.118.126   (2分)</p>
+<pre><code>（01 00 0001-01 11 1110）</code></pre><p>子网2的网络掩码为：11111111.11111111.11111111.11000000<br>（3）子网3的有效IP地址范围为： 192.168.118.129 — 192.168.118.190  (2分)</p>
+<pre><code>（10 00 0001-10 11 1110）</code></pre><p>子网3的网络掩码为：11111111.11111111.11111111.11000000<br>（4）子网4的有效IP地址范围为： 192.168.118.193 — 192.168.118.254  (2分)</p>
+<pre><code>（11 00 0001-11 11 1110）</code></pre><p>子网4的网络掩码为：11111111.11111111.11111111.11000000</p>
+</blockquote>
+</li>
+<li><p>假设要设计一个网络应用程序，用来测试从本机到互联网上任意一台主机是否连通，如果不通，还 要知道在哪个路由器不通，并了解中间需要经过哪些路由器（或网关）及从本机到这些路由器的时延有多长，请你根据所学的网络原理（要求先简述该网络原理）， 简要说明如何实现该应用程序。（15分）</p>
+<blockquote>
+<p>答：<br>（1）根据IP协议的规定，在每一个IP包中有一个TTL字段，标示该IP包剩余的生命周期（如开始时为128），IP包经过某一个路由器时，将IP包中的TTL值减1，当变为0时，该路由器将丢弃该IP包，并通过ICMP协议向发该IP包的源主机报告丢弃的原因（其中包括原因即TTL=0，丢弃的路由器IP，丢弃的时间等信息）；<br>（2）第一次让应用程序向目的主机发送一个TTL=1的ICMP 包，达到第一个路由器后，由于TTL将会变为0，该ICMP包被丢弃，故第一个路由器将源主机报告丢弃的原因，从而得知该路由器的IP地址和时延；<br>（3）同理，第N次让应用程序向目的主机发送一个TTL=N的ICMP 包，达到第N个路由器后，由于TTL将会变为0，该ICMP包被丢弃，故第N个路由器将源主机报告丢弃的原因，从而得知该路由器的IP地址和时延；<br>（4）直到到达目的主机（假如到达目的主机需要经过M个路由器）或无法到达目的主机（通过M个路由器)。</p>
+</blockquote>
+</li>
+<li><p>设有两台主机的IP地址分别：195.248.8.145，195.248.9.220子网掩码都是255.255.255.0。判断这两个主机能否直接通信。如果不能直接通信，可以采用何种方法？并进行详细说明。</p>
+<blockquote>
+<p>（1）根据两主机的IP地址和子网掩码可以判断两主机不在同一个网络，所以不能直接通信。<br>（2）采用的方法：<br>1、用路由连接两个网络。由路由器来实现数据包从一个网络到另一个网络的转发，使这两台主机可以通信。<br>2.、将子网掩码改为255.255.240.0这样两主机就处于同一个网络中，即网络号相同，这样就能直接通信。</p>
+</blockquote>
+</li>
+<li><p>简答分组交换的特点和不足。</p>
+<blockquote>
+<p>答案：（1）节点暂时存储的是一个个分组，而不是整个数据文件（2）分组暂时保存在节点的内存中，保证了较高的交换速率（3）动态分配信道，极大的提高了通信线路的利用率缺点：（4）分组在节点转发时因排队而造成一定的延时（5）分组必须携带一些控制信息而产生额外开销，管理控制比较困难</p>
+</blockquote>
+</li>
+<li><p>简述在数据传输中，防止阻塞产生的办法</p>
+<blockquote>
+<p>答案：（1）通过对点对点的同步控制，使计算机之间的收发数据速率同步（2）控制网络的输入，避免突然大量数据报文提交（3）接收工作站在接收数据报文之前，保留足够的缓冲空间</p>
+</blockquote>
+</li>
+<li><p>什么是路由？简述路由器的主要功能。<br>答：路由指的是从本地到网络的各个地方应该走的路径，由路由器根据目的地址将数据帧转发到不同的路径。选择最佳的转发数据的路径，建立非常灵活的联接，均衡网络负载；利用通信协议本身的流量控制功能来控制数据传输，有效解决拥挤问题；具有判断需要转发的数据分组的功能；把一个大的网络划分成若干个子网。</p>
+</li>
+<li><p>试说明IP地址与物理地址的区别。为什么要使用这两种不同的地址</p>
+<blockquote>
+<p>答：IP地址（Internet Protocol Address） 用于确定因特网上的每台主机，它是每台主机唯一性的标识。联网设备用物理地址标识自己，例如网卡地址。<br>TCP／IP用IP地址来标识源地址和目标地址，但源和目标主机却位于某个网络中，故源地址和目标地址都由网络号和主机号组成，但这种标号只是一种逻辑编号，而不是路由器和计算机网卡的物理地址。对于一台计算机而言，IP地址是可变的，而物理地址是固定的。</p>
+</blockquote>
+</li>
+<li><p>（1）子网掩码为255.255.255.0代表什么意思？<br>（2）某网络的现在掩码为255.255.255.248，问该网络能够连接多少个主机？<br>（3）某A类网络和某B类网络的子网号subnet-id分别为16个1和8个1，问这两个网络的子网掩码有何不同？<br>（4）某A类网络的子网掩码为255.255.0.255，它是否是一个有效的子网掩码？</p>
+<blockquote>
+<p>答：（1）255.255.255.0可代表C类地址对应的子网掩码默认值；也可代表A类或B类地址的掩码，即主机号由最后8bit决定，而路由器寻找网络由前24bit决定。<br>（2）248=（11111000）2，即IP地址中前29位代表网络，后3位代表主机。所以共有主机数=23=8，但由于其中主机号全0代表该网络的网络地址，主机号全1代表该网络的广播地址，均不能分配给连网主机使用，所以网络能够连接的主机数=23-2=6台。<br>（3）这两个网络的子网掩码是一样的，均为255.255.255.0，但子网数不同，子网号为16bit的A类网络的子网数有216-2个，而子网号为8bit的B类网络的子网数有28-2个。<br>（4）有效，因RFC文档中没有规定子网掩码中的一串1必须是连续的，但不建议这样使用。</p>
+</blockquote>
+</li>
+<li><p>与静态路由协议相比，动态路由有哪些优点？ ．（ AB ）<br>A、带宽占用少<br>B、简单<br>C、路由器能自动发现网络拓扑变化<br>D、路由器能自动计算新的路由</p>
+</li>
+<li><p>为什么要把IP地址解析成MAC地址才能实现数据传输？怎样进行地址解析？</p>
+</li>
+</ol>
+<blockquote>
+<p>（1）发送数据时，数据从高层到低层封装，然后才到通信链路上传输，使用IP地址的IP数据报一旦交给了数据链路层，就被封装成MAC帧。MAC帧在传送时使用的源地址和目的地址都是硬件地址（MAC地址），这两个硬件地址都写在MAC帧的首部中。<br>（2）连接在通信链路上的设备（主机或路由器）在接收MAC帧时，根据MAC帧首部中的MAC地址来决定接收或放弃。因此要把IP地址解析成MAC地址才能实现数据在链路层的封装，进而实现数据传输。<br>（3）每个主机或路由器接口都有一个ARP缓存用来完成IP地址到MAC地址的解析，在进行链路层封装时接口会查询该缓存，来实现解析。如果在缓存表中找不到所查询的IP地址对应的MAC地址，接口会向该局域网发送    ARP查询广播包，对应IP地址的接口收到该ARP查询，会向源地址发送ARP应答单播包，从而完成ARP解析。</p>
+</blockquote>
+<ol start="32">
+<li><p>考虑某路由器具有下列路由表项：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">网络前缀	               下一跳</span><br><span class="line"><span class="number">142.150</span><span class="number">.64</span><span class="number">.0</span>/<span class="number">24</span> 	 A</span><br><span class="line"><span class="number">142.150</span><span class="number">.71</span><span class="number">.128</span>/<span class="number">28</span>        B</span><br><span class="line"><span class="number">142.150</span><span class="number">.71</span><span class="number">.128</span>/<span class="number">30</span>	 C</span><br><span class="line"><span class="number">142.150</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">16</span>	         D</span><br></pre></td></tr></table></figure>
+<p>（1）假设路由器接收到一个目的地址为142.150.71.132的IP分组，请确定该路由器为该IP分组选择的下一跳，并解释说明。<br>（2）在上面的路由表中增加一条路由表项，该路由表项使以142.150.71.132为目的地址的IP分组选择“A”作为下一跳，而不影响其他目的地址的IP分组转发。<br>（3）在上面的路由表中增加一条路由表项，使所有目的地址与该路由表中的任何路由表项都不匹配的IP分组被转发到下一跳“E”。<br>(4) 将142.150.64.0/24划分为4个规模尽可能大的等长子网，给出子网掩码及每个子网的可分配地址范围。</p>
+<blockquote>
+<p>（1）下一跳为B，因为该IP地址只和路由</p>
+</blockquote>
+</li>
+<li><p>150.71.128/28|B<br>匹配。<br>（2）即增加一条主机路由</p>
+</li>
+<li><p>150.71.132/32|A<br>（3）即增加一条默认路由</p>
+</li>
+<li><p>0.0.0/0|E<br>（4）</p>
+</li>
+<li><p>255.255.192<br>范围:</p>
+</li>
+<li><p>150.64.1——142.150.64.62</p>
+</li>
+<li><p>150.64.65——142.150.64.126</p>
+</li>
+<li><p>150.64.129——142.150.64.190</p>
+</li>
+<li><p>150.64.193——142.150.64.254</p>
+</li>
+<li><p>三种计算机分组交换方式比较</p>
+<blockquote>
+<p>a)    电路交换（Circuit Switching）－整个报文的比特流连续地从源点直达终点，好像在一个管道中传输；在通话的全部时间内，通话的两个用户始终占用端到端的通信资源，所以资源利用率低<br>b)    报文交换（Message Switching）－整个报文传送到相邻节点，全部存储下来后查找转发表，转发到下一个节点；通信线路利用率高、出错后纠错效率高等优点，被计算机与通信界广泛采用。存储转发是该技术的核心。<br>c)    分组（包）交换（Packet Switching）－单个分组（只是整个报文的一部分）传送到相邻节点，存储下来后查找转发表，转发到下一个节点；<br>分组交换的优点<br>高效    动态分配传输带宽，对通信链路是逐段占用。<br>灵活    以分组为传送单位和查找路由。<br>迅速    不必先建立连接就能向其他主机发送分组。<br>可靠    保证可靠性的网络协议；分布式的路由选择协议使网络有很好的生存性。 </p>
+</blockquote>
+</li>
+<li><p>arp的四种使用情况：</p>
+<blockquote>
+<p>1.发送方是主机，要把IP数据报发送到本网络上的另一个主机。这时用 ARP 找到目的主机的硬件地址。 </p>
+</blockquote>
+</li>
+<li><p>发送方是主机，要把 IP 数据报发送到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。</p>
+</li>
+<li><p>发送方是路由器，要把 IP 数据报转发到本网络上的一个主机。这时用 ARP 找到目的主机的硬件地址。 </p>
+</li>
+<li><p>发送方是路由器，要把 IP 数据报转发到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。</p>
+</li>
+<li><p>RIP OSPF工作原理的理解与比较区别?</p>
+</li>
+</ol>
+<ul>
+<li>RIP工作原理：路由信息协议 RIP 是内部网关协议 IGP中最先得到广泛使用的协议。<ul>
+<li>RIP 是一种分布式的基于距离向量的路由选择协议。</li>
+<li>RIP 协议要求网络中的每一个路由器都要维护从它自己到其他每一个目的网络的距离记录。</li>
+</ul>
+</li>
+<li>OSPF的特征：最主要的特征是分布式的链路状态协议，而不是距离向量协议。<ul>
+<li>所有的路由器都维护一个链路状态数据库（路由器到子网的链路状态和可以到达的邻居路由器）。 </li>
+<li>当网络中链路状态改变时，通过洪泛法（flooding）方法把更新的本地链路状态信息广播到区域或自治系统中的每个路由器。</li>
+<li>每一个路由器用链路状态数据库中的数据，计算出到每个目的地最短路径。</li>
+</ul>
+</li>
+<li>比较区别：<ul>
+<li>SPF：只有当链路状态发生变化时，路由器才用洪泛法向所有路由器发送此信息。RIP：不管网络拓扑有无发生变化，路由器之间都要定期交换路由表信息</li>
+</ul>
+</li>
+<li>与RIP相比<ul>
+<li>1.OSPF 规定每隔一段时间，如 30分钟，要刷新一次数据库中的链路状态。 </li>
+<li>2.由于一个路由器的链路状态只涉及到与相邻路由器的连通状态，因而与整个互联网的规模并无直接关系。因此当互联网规模很大时，OSPF 协议要比距离向量协议 RIP 好得多。 </li>
+<li>3.OSPF 没有“坏消息传播得慢”的问题，据统计，其响应网络变化的时间小于 100 ms。</li>
+<li>4.指定的路由器:多点接入的局域网采用了指定的路由器的方法，使广播的信息量大大减少。指定的路由器代表该局域网上所有的链路向连接到该网络上的各路由器发送状态信息。</li>
+</ul>
+</li>
+</ul>
+<ol start="36">
+<li>假定在地球和一个新月亮之间建立一条100M 位/秒的链路。从该月亮到地球的距离大约是385000 公里，数据在链路上以光速3×10^8米/秒传输。</li>
+</ol>
+<ul>
+<li>（a） 计算该链路的最小RTT。<br>解：最小RTT 等于2×385000000 米÷（3×10^8米/秒）=2.57 秒</li>
+<li>（b） 使用RTT 作为延迟，计算该链路的“延迟×带宽”值。<br>解：“延迟×带宽”值等于2.57 秒×100M 位/秒=257M 位≈32M 字节</li>
+<li>（c） 在（b）中计算的“延迟×带宽”值的含义是什么？<br>解：它表示发送方在收到一个响应之前能够发送的数据量。</li>
+<li>（d） 在月亮上用一个照相机拍取地球的相片，并把它们以数字形式保存到磁盘上。<br>假定在地球上的任务控制要下载25M 字节的最新图象，那么，从发出数据请求<br>到传送结束最少要化多少时间？<br>解：在图象可以开始到达地面之前，至少需要一个RTT。假定仅有带宽延迟，那么发送需要<br>的时间等于25M 字节÷100M 位/秒=200M 位÷100M 位/秒=2 秒。所以，直到最后一个图象位到达地球，总共化的时间等于2.0+2.57=4.57 秒。</li>
+</ul>
+<ol start="37">
+<li><p>在因特网上的一个B 类网络具有子网掩码255.255.240.0。问每个子网中的最大主<br>机数目是多少？</p>
+<blockquote>
+<p>解答：对于一个B 类网络，高端16 位形成网络号，低端16 位是子网或主机域。在子网掩码的低端16 位<br>中，最高有效4 位是1111，因此剩下12 位（第3 字节低4 位和第4 字节）用于主机号。因此，存在4096<br>个主机地址，但由于全零和全1 是特别地址，因此最大主机数目应该是4094。</p>
+</blockquote>
+</li>
+<li><p>假定TCP 使用两次握手替代三次握手来建立连接。也就是说，不需要第三个报文。那么<br>现在是否可能产生死锁？请给出例子来说明你的答案。<br>解答：我们知道，3 次握手完成两个重要功能，既要双方做好发送数据的准备工作（双方都<br>知道彼此已准备好），也要允许双方就初始序列号进行协商，这个序列号在握手过程中被发<br>送与确认。<br>现在把三次握手改成仅需要两次握手，死锁是可能发生的。作为例子，考虑计算机A<br>和B 之间的通信。假定B 给A 发送一个连接请求分组，A 收到了这个分组，并发送了确认<br>应答分组。按照两次握手的协定，A 认为连接已经成功地建立了，可以开始发送数据分组。<br>可是，B 在A 的应答分组在传输中被丢失的情况下，将不知道A 是否已准备好，不知道A<br>建议什么样的序列号用于A 到B 的交通，也不知道A 是否同意B 所建议的用于B 到A 交<br>通的初始序列号，B 甚至怀疑A 是否收到自己的连接请求分组。在这种情况下，B 认为连<br>接还未建立成功，将忽略A 发来的任何数据分组，只等待接收连接确认应答分组。而A 在<br>发出的分组超时后，重复发送同样的分组。这样就形成了死锁。</p>
+</li>
+<li><p><strong>试简述CSMA/CD协议的工作原理</strong>(重点)</p>
+<blockquote>
+<p>答： CSMA/CD协议即载波监听，多点接入，碰撞检测。（2分）<br>首先，每个站点发送数据之前必须侦听信道的忙、闲状态。如果信道空闲，立即发送数据，同时进行冲突检测；如果信道忙，站点继续侦听总线，直到信道变成空闲。（2分）<br>如果在数据发送过程中检测到冲突，将立即停止发送数据并等待一段随机长的时间，然后重复上述过程。（1分）<br>即：先听后发，边听边发；冲突检测，延时重发。（1分）</p>
+</blockquote>
+</li>
+<li><ul>
+<li>第七,八,九章 </li>
+<li>A通过计算机网络给B发送消息，说其同意签订合同。随后A反悔，不承认发过该消息。为防止这种情况发生，在计算机网络中应采用 D 技术。<br>A、消息认证 B、数据加密 C、防火墙 D、数字签名 </li>
+<li>在公钥密码体制中，不公开的是 B 。<br>A、公钥 B、私钥 C、公钥和加密算法 D、私钥和加密算法</li>
+</ul>
+</li>
+</ol>
+<p><a href="https://blog.csdn.net/u012557765/article/details/81638446" target="_blank" rel="noopener">相关文章:数据交换</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/12/19/Computer%20Networking/" rel="next" title="Computer Networking">
+                  <i class="fa fa-chevron-left"></i> Computer Networking
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#摘要部分"><span class="nav-number">1.</span> <span class="nav-text">摘要部分</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="任林杰"
+    src="/images/rlj.jpg">
+  <p class="site-author-name" itemprop="name">任林杰</p>
+  <div class="site-description" itemprop="description">建设最美114</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">任林杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">128k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:56</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
