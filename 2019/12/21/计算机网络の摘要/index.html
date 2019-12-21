@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="Jason&#39;s blogs">
 <meta property="og:description" content="计网马上要考试了,之前从头看了遍网课,整理了点知识点和习题. 挑挑拣拣选一些考纲上的内容也来一个一天一遍,预防失眠(yjn_语录)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-19T04:11:01.828Z">
+<meta property="og:updated_time" content="2019-12-21T08:54:39.449Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/">
@@ -217,16 +217,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-12-21 13:53:08" itemprop="dateCreated datePublished" datetime="2019-12-21T13:53:08+08:00">2019-12-21</time>
+              <time title="创建时间：2019-12-21 13:53:08 / 修改时间：16:54:39" itemprop="dateCreated datePublished" datetime="2019-12-21T13:53:08+08:00">2019-12-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-19 12:11:01" itemprop="dateModified" datetime="2019-12-19T12:11:01+08:00">2019-12-19</time>
-              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -395,24 +389,8 @@
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">网络前缀	               下一跳</span><br><span class="line"><span class="number">142.150</span><span class="number">.64</span><span class="number">.0</span>/<span class="number">24</span> 	 A</span><br><span class="line"><span class="number">142.150</span><span class="number">.71</span><span class="number">.128</span>/<span class="number">28</span>        B</span><br><span class="line"><span class="number">142.150</span><span class="number">.71</span><span class="number">.128</span>/<span class="number">30</span>	 C</span><br><span class="line"><span class="number">142.150</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">16</span>	         D</span><br></pre></td></tr></table></figure>
 <p>（1）假设路由器接收到一个目的地址为142.150.71.132的IP分组，请确定该路由器为该IP分组选择的下一跳，并解释说明。<br>（2）在上面的路由表中增加一条路由表项，该路由表项使以142.150.71.132为目的地址的IP分组选择“A”作为下一跳，而不影响其他目的地址的IP分组转发。<br>（3）在上面的路由表中增加一条路由表项，使所有目的地址与该路由表中的任何路由表项都不匹配的IP分组被转发到下一跳“E”。<br>(4) 将142.150.64.0/24划分为4个规模尽可能大的等长子网，给出子网掩码及每个子网的可分配地址范围。</p>
 <blockquote>
-<p>（1）下一跳为B，因为该IP地址只和路由</p>
+<p>(1)下一跳为B，因为该IP地址只和路由 142.150.71.128/28|B匹配。<br>（2）即增加一条主机路由 142.150.71.132/32|A<br>（3）即增加一条默认路由0.0.0.0/0|E<br>（4）255.255.255.192<br>范围:<br><code>142.150.64.1——142.150.64.62</code><br><code>142.150.64.65——142.150.64.126</code><br><code>142.150.64.129——142.150.64.190</code><br><code>142.150.64.193——142.150.64.254</code></p>
 </blockquote>
-</li>
-<li><p>150.71.128/28|B<br>匹配。<br>（2）即增加一条主机路由</p>
-</li>
-<li><p>150.71.132/32|A<br>（3）即增加一条默认路由</p>
-</li>
-<li><p>0.0.0/0|E<br>（4）</p>
-</li>
-<li><p>255.255.192<br>范围:</p>
-</li>
-<li><p>150.64.1——142.150.64.62</p>
-</li>
-<li><p>150.64.65——142.150.64.126</p>
-</li>
-<li><p>150.64.129——142.150.64.190</p>
-</li>
-<li><p>150.64.193——142.150.64.254</p>
 </li>
 <li><p>三种计算机分组交换方式比较</p>
 <blockquote>
@@ -421,14 +399,8 @@
 </li>
 <li><p>arp的四种使用情况：</p>
 <blockquote>
-<p>1.发送方是主机，要把IP数据报发送到本网络上的另一个主机。这时用 ARP 找到目的主机的硬件地址。 </p>
+<p>1)发送方是主机，要把IP数据报发送到本网络上的另一个主机。这时用 ARP 找到目的主机的硬件地址。<br>2)发送方是主机，要把 IP 数据报发送到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。<br>3)发送方是路由器，要把 IP 数据报转发到本网络上的一个主机。这时用 ARP 找到目的主机的硬件地址。<br>4)发送方是路由器，要把 IP 数据报转发到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。</p>
 </blockquote>
-</li>
-<li><p>发送方是主机，要把 IP 数据报发送到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。</p>
-</li>
-<li><p>发送方是路由器，要把 IP 数据报转发到本网络上的一个主机。这时用 ARP 找到目的主机的硬件地址。 </p>
-</li>
-<li><p>发送方是路由器，要把 IP 数据报转发到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。</p>
 </li>
 <li><p>RIP OSPF工作原理的理解与比较区别?</p>
 </li>
