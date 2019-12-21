@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="Jason&#39;s blogs">
 <meta property="og:description" content="计网马上要考试了,之前从头看了遍网课,整理了点知识点和习题. 挑挑拣拣选一些考纲上的内容也来一个一天一遍,预防失眠(yjn_语录)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-21T08:54:39.449Z">
+<meta property="og:updated_time" content="2019-12-21T15:56:14.545Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/">
@@ -219,7 +219,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-21 13:53:08 / 修改时间：16:54:39" itemprop="dateCreated datePublished" datetime="2019-12-21T13:53:08+08:00">2019-12-21</time>
+              <time title="创建时间：2019-12-21 13:53:08 / 修改时间：23:56:14" itemprop="dateCreated datePublished" datetime="2019-12-21T13:53:08+08:00">2019-12-21</time>
             </span>
 
           <br>
@@ -228,14 +228,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>10k</span>
+              <span>18k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>16 分钟</span>
             </span>
 
         </div>
@@ -394,7 +394,7 @@
 </li>
 <li><p>三种计算机分组交换方式比较</p>
 <blockquote>
-<p>a)    电路交换（Circuit Switching）－整个报文的比特流连续地从源点直达终点，好像在一个管道中传输；在通话的全部时间内，通话的两个用户始终占用端到端的通信资源，所以资源利用率低<br>b)    报文交换（Message Switching）－整个报文传送到相邻节点，全部存储下来后查找转发表，转发到下一个节点；通信线路利用率高、出错后纠错效率高等优点，被计算机与通信界广泛采用。存储转发是该技术的核心。<br>c)    分组（包）交换（Packet Switching）－单个分组（只是整个报文的一部分）传送到相邻节点，存储下来后查找转发表，转发到下一个节点；<br>分组交换的优点<br>高效    动态分配传输带宽，对通信链路是逐段占用。<br>灵活    以分组为传送单位和查找路由。<br>迅速    不必先建立连接就能向其他主机发送分组。<br>可靠    保证可靠性的网络协议；分布式的路由选择协议使网络有很好的生存性。 </p>
+<p>a)    电路交换（Circuit Switching）－整个报文的比特流连续地从源点直达终点，好像在一个管道中传输；在通话的全部时间内，通话的两个用户始终占用端到端的通信资源，所以资源利用率低<br>b)    报文交换（Message Switching）－整个报文传送到相邻节点，全部存储下来后查找转发表，转发到下一个节点；通信线路利用率高、出错后纠错效率高等优点，被计算机与通信界广泛采用。存储转发是该技术的核心。<br>c)    分组（包）交换（Packet Switching）－单个分组（只是整个报文的一部分）传送到相邻节点，存储下来后查找转发表，转发到下一个节点；<br>的优点<br>高效    动态分配传输带宽，对通信链路是逐段占用。<br>灵活    以分组为传送单位和查找路由。<br>迅速    不必先建立连接就能向其他主机发送分组。<br>可靠    保证可靠性的网络协议；分布式的路由选择协议使网络有很好的生存性。 </p>
 </blockquote>
 </li>
 <li><p>arp的四种使用情况：</p>
@@ -451,14 +451,233 @@
 <p>答： CSMA/CD协议即载波监听，多点接入，碰撞检测。（2分）<br>首先，每个站点发送数据之前必须侦听信道的忙、闲状态。如果信道空闲，立即发送数据，同时进行冲突检测；如果信道忙，站点继续侦听总线，直到信道变成空闲。（2分）<br>如果在数据发送过程中检测到冲突，将立即停止发送数据并等待一段随机长的时间，然后重复上述过程。（1分）<br>即：先听后发，边听边发；冲突检测，延时重发。（1分）</p>
 </blockquote>
 </li>
-<li><ul>
-<li>第七,八,九章 </li>
+<li><p>一个Web页面请求全过程？<br>从键入<a href="http://www.google.com到浏览器显示网页经历了一系列的事件" target="_blank" rel="noopener">www.google.com到浏览器显示网页经历了一系列的事件</a></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.首先需要利用DNS域名服务知道google服务器的<span class="built_in">IP</span>地址：主机的操作系统生成一个DNS域名查询  报文，采用UDP传输层协议，端口号<span class="number">53</span>，网络层将此报文封装上<span class="built_in">IP</span>头部信息，加上源<span class="built_in">IP</span>地址与目的<span class="built_in">IP</span>地址（即DNS服务器的<span class="built_in">IP</span>地址），数据链路层将数据报封装成链路层数据帧，并将其转发到网关路由器</span><br><span class="line">（通过ARP协议，链路层转发），网关路由器抽取DNS数据报的<span class="built_in">IP</span>地址，查询转发表，将其从某接口转发，最终到达DNS服务器，DNS服务器查询这个域名DNS源记录，并将包含google服务器的地址的DNS应答报文发送给主机，主机接收到后，提取出google服务器的<span class="built_in">IP</span>地址</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.主机得先与google服务器建立TCP连接：传输层得先创建TCP套接字，目的端口<span class="number">80</span>，目的<span class="built_in">IP</span>地址google服务器的地址，建立连接需要三次握手，主机发送SYN连接请求报文，google服务器收到后，分配缓存与变量，回复SYNACK报文，主机收到后，分配缓存与变量资源，回复ACK报文，并可以携带HTTP <span class="meta">GET</span>报文</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>.主机发送HTTP <span class="meta">GET</span>报文：主机应用层生成HTTP <span class="meta">GET</span>报文，传递给TCP传输层，TCP协议给HTTP <span class="meta">GET</span>报文封装TCP头部信息，并交给<span class="built_in">IP</span>层，<span class="built_in">IP</span>层封装<span class="built_in">IP</span>头部信息称为数据报，再交给数据链路层封装成数据帧，通过ARP协议，进行链路层转发到网关路由器，网关路由器提取<span class="built_in">IP</span>地址，查询转发表，再转发到某借口，最终到达google服务器，服务器提取出HTTP <span class="meta">GET</span>报文，生成一个HTTP响应报文，将所请求的WEB页面放入HTTP响应体中，并通过TCP连接将此报文发送回主机，主机收到后，提取出HTTP 响应报文，从HTTP响应体中提取出HTML文件，最终显示出了WEB页面</span><br></pre></td></tr></table></figure></li>
+<li><p>概述MAC地址与ARP协议？</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">每一个网络设备的适配器都有自己的链路层地址，<span class="keyword">MAC</span>地址，这个地址是自生产出来就是唯一的。数据链路层需要通过<span class="keyword">MAC</span>地址来转发数据帧来通过交换机网络</span><br><span class="line"></span><br><span class="line">ARP协议称为地址解析协议，提供了IP地址转换为链路层<span class="keyword">MAC</span>地址的机制</span><br><span class="line">IP地址相当于邮政地址，<span class="keyword">MAC</span>地址相当于身份证号</span><br><span class="line"></span><br><span class="line">ARP工作原理：</span><br><span class="line">每台主机或路由器都保存有一张ARP表，表中包含IP地址与<span class="keyword">MAC</span>地址的映射关系当表中有目的IP地址的信息时，就直接交给链路层进行发送</span><br><span class="line">如果表中还没有相关信息，则在本子网内发送ARP广播查询，若此IP目的节点收到后应回复一个ARP应答报文</span><br><span class="line">所以ARP是自适应的，自动建立的，即插即用的</span><br></pre></td></tr></table></figure></li>
+<li><p>概述MAC协议？</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">MAC</span>协议称为多路访问控制协议</span><br><span class="line">主要能分为三类：信道划分协议，随机接入协议，轮流协议</span><br><span class="line"></span><br><span class="line">信道划分协议</span><br><span class="line">主要分为时分多路复用（TDM），频分多路复用（FDM），码分多址（CDMA）</span><br><span class="line">相当于是为每一个可能使用的人预留了一段资源，每个人在自己分配的那段资源里传输数据，所以一定不会发生碰撞</span><br><span class="line">当某时刻用的人很多时，利用率高当某时刻用的人很少时，利用率低</span><br><span class="line">随机接入协议基本思想是：当用户有数据需要发送时，就直接发送，如果与其他人发生碰撞了，就等一个随机时延，再重新发送，直到没有碰撞发生，发送成功为止</span><br><span class="line">主要有时隙ALOHA，ALOHA，CSMA，CSMA/<span class="keyword">CD</span>协议</span><br><span class="line">时隙ALOHA将时间划分若干时隙，规定所有人只能在某一个时隙的起始点发送数据</span><br><span class="line">ALOHA则没有这个规定，所有人可以在任何时间发送数据时隙ALOHA的效率比ALOHA协议的效率要高一倍左右</span><br><span class="line">CSMA协议称为载波侦听多路访问，即发送数据之前先侦听信道，当没有人发送数据时，才发送数据</span><br><span class="line">CSMA/<span class="keyword">CD</span>协议称为带碰撞检测的载波侦听多路访问协议，在CSMA基础上加了碰撞检测，若检测到碰撞，则都立即停止发送，等一个随机时间后再次发送</span><br><span class="line"></span><br><span class="line">那么既然所有人都侦听了，为什么还会发生碰撞呢？原因是存在传播延迟。随机接入协议，当某时刻用的人少时，效率很高</span><br><span class="line">用的人多时，发生碰撞概率高，效率较低</span><br><span class="line">轮流协议</span><br><span class="line">按照一定的轮流规则，所有需要发送数据的人轮流发送数据，轮到谁就谁发。主要有</span><br><span class="line">轮询协议：主节点轮流通知每个节点，你可以发送数据了，如果你有数据，就发，没数据，就过缺点：带来额外的轮询消耗；如果主节点发生故障，则后果严重</span><br><span class="line">令牌传递：某种称为令牌的特殊帧在节点之间按特定次序传递，令牌传递到的节点才可以发送数据。</span><br><span class="line">缺点：同样带来消耗，某一节点发生故障也可能给整个信道带来奔溃。</span><br></pre></td></tr></table></figure></li>
+<li><p>概述数据链路层的服务？</p>
+<blockquote>
+<p>基本服务：将网络层的数据报封装成数据帧，通过单一通信链路从一个节点传输到另一个节点<br>链路层的主体是在网络适配器上实现的<br>链路层信道主要分为两类，点对点链路（PPP），和广播链路</p>
+</blockquote>
+</li>
+<li><p>概述路由算法？</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">链路状态路由算法（LS）</span><br><span class="line">全局式的路由选择算法</span><br><span class="line">每个节点有本网络所有的网络拓扑以及链路费用的全局信息运用迪杰斯特拉（Dijkstra）算法计算最短路由选择</span><br><span class="line">特点</span><br><span class="line">向网络上所有其他节点广播消息消息仅包括到邻居节点的费用 收敛速度较快</span><br><span class="line">存在震荡现象（当费用与通信量相关时）</span><br><span class="line">距离向量路由算法（DV）</span><br><span class="line">分布式的路由算则算法</span><br><span class="line">每个节点仅保存通往目的地的最短路径的下一跳，通过迭代的方式计算出路径选择</span><br><span class="line">每个节点从直接相连的邻居处获取信息，然后计算，若有变化，则将计算结果分发给直接相连的邻居</span><br><span class="line">每个节点直接检测到链路费用，更新路由信息，若变化，发送给所有直接的邻居</span><br><span class="line">特点</span><br><span class="line">分布式，迭代，异步的路由算法仅向直接相连的邻居交换信息</span><br><span class="line">每个节点仅保存通往目的地最短路径的下一跳收敛速度慢</span><br><span class="line">好消息传播快，坏消息传播慢</span><br><span class="line">存在无穷计数的问题，解决办法为毒性逆转，（如果A通往目的地的最短路径的下一跳是B，则当B 询问B通过A去目的地的最短路径时，A回复无穷大）</span><br><span class="line">层次路由选择</span><br><span class="line">将一个大规模网络分为多个自治系统（AS），每个自治系统内运行相同的路由算法，称为自治系统</span><br><span class="line"></span><br><span class="line">内部路由选择协议（如RIP，OSPF）</span><br><span class="line">两个自治系统AS之间的通信运行自治系统间路由选择协议（如BGP）</span><br><span class="line">RIP</span><br><span class="line">路由选择信息协议（Routing Information Protocol）</span><br><span class="line">基于距离向量路由算法（DV），定义跳数为其链路费用RIP被当做一个应用进程来实现，交换信息使用UDP RIP通常被用于小规模网络，下层ISP及公司网络 OSPF</span><br><span class="line">开放最短路优先协议（Open Shortest Path First） 基于链路状态路由算法（LS）</span><br><span class="line">当一条链路费用变化时，节点向网络中所有节点广播路由选择信息每个节点使用Dijkstra算法计算最低费用路径选择</span><br><span class="line">OSPF更复杂，也有很多优点： 安全</span><br><span class="line">可以有多条相同费用路径，当需要传递大量分组时，有多个选择，充分利用支持单播和多播路由</span><br><span class="line">OSPF支持在AS内部进一步分层</span><br><span class="line">BGP</span><br><span class="line">边界网关协议（Border Gateway Protocol）,自治系统间的路由选择协议eBGP，从邻居子网获取可达信息                           iBGP，向本子网内节点传递子网可达信息</span><br><span class="line">基于可达信息的路径，确定到达外部子网的好的路径</span><br></pre></td></tr></table></figure></li>
+<li><p>概述NAT协议？</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">NAT</span>又称为网络地址转换，为本地私有网络提供合法<span class="built_in">IP</span>地址，连接到外部网络</span><br><span class="line"><span class="symbol">NAT</span>不仅能解决<span class="built_in">IP</span>地址不足的问题，而且能有效避免被攻击，隐藏和保护内部计算机NAT的转换方式主要有三种：</span><br><span class="line">静态转换：将私有网络的某<span class="built_in">IP</span>地址转换成特定的合法<span class="built_in">IP</span>地址，一对一静态转换</span><br><span class="line">动态转换：将私有网络的<span class="built_in">IP</span>地址转换成合法<span class="built_in">IP</span>地址时，是不确定的，可以随机转换成任意指定的合法<span class="built_in">IP</span>地址</span><br><span class="line">端口多路复用：将私有网络的<span class="built_in">IP</span>地址转换成合法<span class="built_in">IP</span>地址时，所有私有网络主机共享一个合法<span class="built_in">IP</span>地址，每个主机转换为端口号，进行外部网络的访问。</span><br></pre></td></tr></table></figure></li>
+<li><p>概述DHCP协议？<br>DHCP协议又称为动态主机配置协议，DHCP允许主机自动获取IP地址<br>DHCP是一种客户端-服务器协议，在应用层实现，采用UDP<br>主机获取IP地址步骤：</p>
+</li>
+</ol>
+<ul>
+<li><ol>
+<li>主机广播DHCP发现报文</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>DHCP服务器回应ACK，并携带分配给它的IP地址，表示提供服务</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>主机广播DHCP请求，表示我打算连接到你分配的IP地址，同时也相当于告诉其他DHCP服务器， 我已经打算连接到这个DHCP服务器的IP地址了，你们分配的IP地址可收回了</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>DHCP服务器最后回复ACK报文</li>
+</ol>
+</li>
+</ul>
+<ol start="47">
+<li>概述TCP协议？<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TCP协议是一种点对点的，面向连接的，全双工的服务的，面向字节流的，可靠的，具有拥塞控制的传输层协议</span><br><span class="line">点对点：TCP连接只能是一对一建立的</span><br><span class="line">面向连接：TCP协议在传输数据之前需要建立连接</span><br><span class="line">全双工服务：TCP连接建立之后，连接双方都可以同时向对方发送数据</span><br><span class="line">面向字节流的：TCP把数据看成无结构的，有序的字节流，TCP的序号是建立在字节流上而不是建立在报文段上</span><br><span class="line">可靠的：TCP采用确认重传机制，序号机制，定时器机制，快速重传，滑动窗口机制，流量控制等 来保证数据传输的可靠性</span><br><span class="line">拥塞控制：TCP采用慢启动，拥塞避免，快速恢复的机制来进行拥塞控制，共避免网络空间陷入拥塞</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>TCP报文头部<ul>
+<li>源端口号：发送方进程端口号目的端口号：接收方进程端口号</li>
+<li>序号：32比特，建立在字节流上的序号机制</li>
+</ul>
+<ul>
+<li>确认号：32比特，确认号表示期望收到的下一字节的序号，与序号共同保证TCP的可靠传输首部长度：TCP首部长度，因为选项字段的存在，一般无选项头部长为20字节       URG：表示报文段中存在被发送方指示为紧急的数据。紧急数据由紧急数据指针指出ACK：确认标志位，表示首部的确认号有效</li>
+<li>PSH：表示接收方应立即将接收的数据交付给上层。因为TCP接收方可能存在接收缓存，接收方可能在忙其他事情，可能等接收缓存满的时候，才会将数据交付给上层，PSH标志位表示接收方应立即将数据交付上层</li>
+<li>RST：表示复位，用来异常的关闭连接，引发RST的原因主要有：提前关闭，请求超时，端口未打开，在一个已关闭的SOCKET接收到数据</li>
+<li>SYN：建立TCP连接时的标志位FIN：关闭TCP连接时的标志位</li>
+<li>接收窗口：表示接收方还有多少缓存供接收，用于控制发送方的发送速率，以免溢出。用于流量控制</li>
+<li>检验和：首部+数据全部的检验和</li>
+<li>紧急数据指针：与URG标志位共同使用，指出数据中的紧急数据字段</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>TCP的可靠数据传输<br>  TCP的可靠数据传输服务保证应用进程从接收缓存中读取的数据是不错，不乱，不丢的数据<ul>
+<li>确认：只发送ACK确认被正确接收的分组，不发NAK，确认号是期望收到的下一字节序号：序号基于无结构，有序的字节流。序号表示该报文段的首字节的字节流编号</li>
+<li>定时器：TCP设置单一定时器</li>
+<li>累计确认：TCP采用累计确认，即接收方发送确认号为x的ACK，表示x之前的报文段都已被正确的接收；但是采用全部重传还是选择重传，TCP没有明确规定</li>
+<li>超时重传：如果报文段的传输时间超时，则重传</li>
+<li>快速重传：当发送方收到三个重复ACK（即共4个ACK），则快速重传该报文段</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>TCP流量控制<br>  因为接收方设置有限的接收缓存，如果发送方发送速率过大的话，接收方缓存可能溢出，导致不必要的分组丢失<br>  所以流量控制是为了限制发送方的发送速率，来保证接收方可以来得及接收到来的报文段<br>  接收方在头部的接收窗口告诉发送方，接收缓存还剩多少，即还能接收多少数据，发送方保证发送的数据量不超过这个量<br>  若接收方告知接收窗口为0了，为避免阻塞，发送方仍发送数据量为1的报文段，接收方接收并回复ACK，并同时告知此时的接收窗口大小<br>  发送方的发送速率由流量控制的接收窗口大小与拥塞控制的拥塞窗口大小共同控制</li>
+<li>TCP的拥塞控制<ul>
+<li>发送方控制自己的发送速率，避免公共网络陷入拥塞，所有TCP发送方共同维护公共网络</li>
+<li>拥塞控制与流量控制的区别：流量控制是考虑端到端之间的问题，是避免发送方发送速率过快导 致接收方来不及接收，考虑的是私人利益；拥塞控制考虑的是公共网络，避免发送方发送速率过快而导致网络陷入拥塞，考虑的是公共网络的问题</li>
+<li>TCP在发送方维护一个CWND的拥塞窗口变量，与接收窗口RWND共同控制发送速率（滑动窗口的大小）</li>
+<li>TCP根据丢包事件来感知网络的拥塞状态，如果发生超时丢包事件，则说明网络已经比较拥塞  了，数据已经传输不到接收方；如果重复ACK丢包事件，则表示网络可能即将陷入拥塞，但是没有那么严重，因为数据还能传输到接收方</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>拥塞控制方法<ul>
+<li>慢启动：TCP启动速度很慢，一般从MSS从1开始，但是希望快速找到可用带宽的数量，发送速率指数增长，知道遇到丢包时间，则设置一个阀值等于丢包时的速率的一般，即ssthresh = CWND/2 拥塞避免：如果是超时事件引起的丢包，则进入拥塞避免状态，拥塞避免状态将阀值设为拥塞窗口值的一半之后，将速率设为MSS = 1，然后开始指数增长，直到达到阀值ssthresh，此时可能即将进入拥塞状态了，所以之后再线性增长，直到遇到丢包事件</li>
+<li>快速恢复：如果是3个重复ACK引起的丢包事件，此时TCP执行快速重传，并进入快速恢复状态， 将阀值设为拥塞窗口值的一般，即ssthresh = CWND/2，然后将发送速率降为阀值ssthresh，之后线性增长，直到遇到丢包事件</li>
+</ul>
+</li>
+</ul>
+<p>能够理解计算机网络协议栈分层设计的方法，每层的名称、主要功能、Internet 对应层的主要协议。<br>48. OSI七层架构</p>
+<table>
+<thead>
+<tr>
+<th align="center">r</th>
+<th align="center">l</th>
+<th align="center">j</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第一层</td>
+<td align="center">物理层（physical）</td>
+<td align="center">（单位类型：比特）    实现比特流的透明传输，物理接口，具有电气特性</td>
+</tr>
+<tr>
+<td align="center">第二层</td>
+<td align="center">数据链路层（date link）（单位类型：帧）</td>
+<td align="center">访问介质；数据在该层封装成帧；用MAC地址作为访问媒介；具有错误检测与修正功能。MAC描述在共享介质环境中如何进行站的调度、发生和接收数据。MAC确保信息跨链路的可靠传输，对数据传输进行同步，识别错误和控制数据的流向。一般地讲，MAC只在共享介质环境中才是重要的，只有在共享介质环境中多个节点才能连接到同一传输介质上</td>
+</tr>
+<tr>
+<td align="center">第三层</td>
+<td align="center">网络层（network）（单位类型：报文）</td>
+<td align="center">数据传输；提供逻辑地址，选择路由数据包，负责在源和终点之间建立连接</td>
+</tr>
+<tr>
+<td align="center">第四层</td>
+<td align="center">传输层（transport）</td>
+<td align="center">实现端到端传输；分可靠与不可靠传输；在传输前实现错误检测与流量控制，定义端口号（标记相应的服务）</td>
+</tr>
+<tr>
+<td align="center">第五层</td>
+<td align="center">会话层（session）</td>
+<td align="center">主机间通信；对应用会话管理，同步</td>
+</tr>
+<tr>
+<td align="center">第六层</td>
+<td align="center">表示层（presention）</td>
+<td align="center">数据表现形式；特定功能的实现-比如加密模式确保原始设备上加密的数据可以在目标设备上正确地解密</td>
+</tr>
+<tr>
+<td align="center">第七层</td>
+<td align="center">应用层（application）</td>
+<td align="center">最接近终端用户的OSI层，这就意味着OSI应用层与用户之间是通过应用软件直接相互作用的。网络进程访问应用层；提供接口服务</td>
+</tr>
+<tr>
+<td align="center">- 2.TCP/IP四层架构</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">r</th>
+<th align="center">l</th>
+<th align="center">j</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第四层</td>
+<td align="center">应用层</td>
+<td align="center">TCP/IP协议的应用层相当于OSI模型的会话层、表示层和应用层，FTP(文件传输协议)，DNS（域名系统），HTTP协议，Telnet（网络远程访问协议）</td>
+</tr>
+<tr>
+<td align="center">第三层</td>
+<td align="center">传输层</td>
+<td align="center">提供TCP(传输控制协议)，UDP（用户数据报协议）两个协议，主要功能是数据格式化、数据确认和丢失重传等。</td>
+</tr>
+<tr>
+<td align="center">第二层</td>
+<td align="center">网络层</td>
+<td align="center">该层负责相同或不同网络中计算机之间的通信主要处理数据包和路由。数据包是网络传输的最小数据单位。通过某条传输路线将数据包传给对方。IP协议,ICMP协议，IGMP协议。在IP层中，ARP协议用于将IP地址转换成物理地址，ICMP协议用于报告差错和传送控制信息。IP协议在TCP/IP协议组中处于核心地位。</td>
+</tr>
+<tr>
+<td align="center">第一层</td>
+<td align="center">网络接口层</td>
+<td align="center">TCP/IP协议的最低一层，对实际的网络媒体的管理，包括操作系统中的设备驱动程序和计算机对应的网络接口卡</td>
+</tr>
+</tbody></table>
+<ul>
+<li>3.TCP/IP五层架构</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">r</th>
+<th align="center">l</th>
+<th align="center">j</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第五层</td>
+<td align="center">应用层 单位:报文(message)</td>
+<td align="center">应用层是网络应用程序及它们的应用层协议存留的地方    面向用户提供端到端的网络服务</td>
+</tr>
+<tr>
+<td align="center">第四层</td>
+<td align="center">运输层 单位:报文段(segment)</td>
+<td align="center">因特网的运输层在应用程序端点之间传送应用层报文.有两种运输层协议TCP和UDP.为应用层提供端到端的数据传输服务。</td>
+</tr>
+<tr>
+<td align="center">第三层</td>
+<td align="center">网络层 单位:数据报(datagram)</td>
+<td align="center">负责将名为数据报的网络层分组从一台主机移动到另一台主机.转发和路由.为数据包找到一条从源地址到目的地址的路径</td>
+</tr>
+<tr>
+<td align="center">第二层</td>
+<td align="center">链路层 单位:帧(frame)</td>
+<td align="center">将整个帧从一个网络元素移动到邻近的网络元素  为共享同一条链路的多个用户分配链路资源,以便把数据包传输到网络层指定的相邻节点上</td>
+</tr>
+<tr>
+<td align="center">第一层</td>
+<td align="center">物理层 单位:比特(bit)</td>
+<td align="center">将帧中的一个个比特从一个节点移动到下一个节点    负责把数字信号转换成模拟信号（光/电等）在物理介质上传输。</td>
+</tr>
+</tbody></table>
+<ol start="49">
+<li><p>C/S模式和P2P模式的区别和优点缺点?</p>
+<blockquote>
+<p>1、C/S工作模式中信息资源的共享是以服务器为中心<br>2、P2P工作模式淡化服务提供者与服务使用者的界限，P2P网络中的每台计算机即可以是网络服务使用者也可以是提供者<br>3、C/S与P2P模式的差别主要在应用层<br>C/S：DNS，SMTP，FTP，Web<br>P2P：支持文件共享类Napster与BitTorrent服务协议、支持多媒体传输类Skype服务的协议<br>P2P网络是在IP网络上构建的一种逻辑的覆盖网，P2P是一种网络的覆盖模式</p>
+</blockquote>
+</li>
+<li><p>DNS<br>(name,value,type,ttl)</p>
+</li>
+</ol>
+<ul>
+<li>type = A<br>  name 是主机名,value是主机名对应的ip<br>  例如(tju.rlj.com,123.124.0.1,A)</li>
+<li>type = NS<br>  name 是个域 如(rlj.com) value是个知道如何获得该域中主机ip地址的权威dns服务器的主机名<br>  例如:(rlj.com,dns.rlj.com,NS)</li>
+<li>type = CNAME<br>  value是别名为name的主机对应的规范主机名<br>  例如:(rlj.com,tju.rlj.com,CNAME)</li>
+<li>type = MX<br>  value 是个别名为name的邮件服务器的规范主机名<br>  (rlj.com,mail.rlj.com,NX)</li>
+</ul>
+<ol start="51">
+<li>NAT在P2P应用又事码问题? 怎么能解决?具体名字是什么?<blockquote>
+<p>：P2P 需要实现两台主机间端到端的对等连接与通信,即参与通信的两台主机都可以是服务器,等待对 方的连接.而使用 NAT 技术后,NAT 设备后面的主机使用的是内部 IP 地址,不能直接被外部的设备访问, 因此部署在 NAT 设备之后的主机不能作为服务器,因而无法实现 P2P 通信.可以通过事先配置 NAT 转换 表来解决这一问题,即在表中增加内部主机的内部 IP,内部端口号和外部 IP,外部端口号的对应表项.这 一技术有 NAT 穿越 技术,UPnP协议</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>第七,八,九章 <ul>
 <li>A通过计算机网络给B发送消息，说其同意签订合同。随后A反悔，不承认发过该消息。为防止这种情况发生，在计算机网络中应采用 D 技术。<br>A、消息认证 B、数据加密 C、防火墙 D、数字签名 </li>
 <li>在公钥密码体制中，不公开的是 B 。<br>A、公钥 B、私钥 C、公钥和加密算法 D、私钥和加密算法</li>
 </ul>
 </li>
-</ol>
-<p><a href="https://blog.csdn.net/u012557765/article/details/81638446" target="_blank" rel="noopener">相关文章:数据交换</a></p>
+</ul>
+<p><a href="https://blog.csdn.net/u012557765/article/details/81638446" target="_blank" rel="noopener">相关文章:数据交换</a><br><a href="https://blog.csdn.net/qq894040717/article/details/82426965" target="_blank" rel="noopener">CSMA/CA</a></p>
 
     </div>
 
@@ -534,7 +753,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -574,12 +793,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">160k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:25</span>
+    <span title="站点阅读时长">2:19</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
