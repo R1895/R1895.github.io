@@ -51,30 +51,34 @@
   };
 </script>
 
-  <meta name="description" content="建设最美114">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jason&#39;s blogs">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="哪个学生选了所有选修课 12345678910select s.snofrom students swhere not exists (    select c.cno     from classes c    except     select r.cno     from reserves r     where r.sno=s.sno)  group by语句,例如查询 考试平均分超过8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库摘要">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;25&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93%E6%91%98%E8%A6%81&#x2F;index.html">
 <meta property="og:site_name" content="Jason&#39;s blogs">
-<meta property="og:description" content="建设最美114">
+<meta property="og:description" content="哪个学生选了所有选修课 12345678910select s.snofrom students swhere not exists (    select c.cno     from classes c    except     select r.cno     from reserves r     where r.sno=s.sno)  group by语句,例如查询 考试平均分超过8">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;25&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93%E6%91%98%E8%A6%81&#x2F;gx2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;25&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93%E6%91%98%E8%A6%81&#x2F;gx1.png">
+<meta property="og:updated_time" content="2019-12-25T01:57:44.832Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;25&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93%E6%91%98%E8%A6%81&#x2F;gx2.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2019/12/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%91%98%E8%A6%81/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Jason's blogs</title>
+  <title>数据库摘要 | Jason's blogs</title>
   
 
 
@@ -190,10 +194,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%91%98%E8%A6%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -207,8 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%91%98%E8%A6%81/" class="post-title-link" itemprop="url">数据库摘要</a>
+          数据库摘要
         </h1>
 
         <div class="post-meta">
@@ -247,7 +250,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ol>
+        <ol>
 <li><p>哪个学生选了所有选修课</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> s.sno</span><br><span class="line"><span class="keyword">from</span> students s</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span> (</span><br><span class="line">    <span class="keyword">select</span> c.cno </span><br><span class="line">    <span class="keyword">from</span> classes c</span><br><span class="line">    <span class="keyword">except</span> </span><br><span class="line">    <span class="keyword">select</span> r.cno </span><br><span class="line">    <span class="keyword">from</span> reserves r </span><br><span class="line">    <span class="keyword">where</span> r.sno=s.sno</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 </li>
@@ -474,766 +477,36 @@
 <p> 问答题24分<br>1.授权图 画图<br>2.给一个调度 有读写 什么叫有冲突的<br>两个事物对同一个事物的读与写<br>看一个调度是否是可串行化的 画一个优先图 没有环 然后给等价的串行调度<br>3.关于日志恢复的 日志记录 redo日志 undo日志<br>书上例子 根据这段日志 来恢复磁盘上的数据  以及恢复之后是什么样子的 书上的例题<br>4.数据库设计题 12分<br>给一个描述  如图书馆、购物网站的设计图 主键必须写下划线。</p>
 <p>冲突是指<font color =red size = 5>  不同的事务对同一数据的读写操作和写写操作**</font>   </p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rlj.jpg">
-      <meta itemprop="name" content="任林杰">
-      <meta itemprop="description" content="建设最美114">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/" class="post-title-link" itemprop="url">计算机网络の摘要</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-21 13:53:08 / 修改时间：23:56:14" itemprop="dateCreated datePublished" datetime="2019-12-21T13:53:08+08:00">2019-12-21</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>18k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>16 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>计网马上要考试了,之前从头看了遍网课,整理了点知识点和习题. 挑挑拣拣选一些考纲上的内容也来一个<br><strong>一天一遍,预防失眠</strong>(yjn_语录)</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/" rel="next" title="计算机网络の摘要">
+                  <i class="fa fa-chevron-left"></i> 计算机网络の摘要
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+            <span class="post-nav-divider"></span>
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/DataBase/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rlj.jpg">
-      <meta itemprop="name" content="任林杰">
-      <meta itemprop="description" content="建设最美114">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/21/DataBase/" class="post-title-link" itemprop="url">DataBase</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-21 13:53:02" itemprop="dateCreated datePublished" datetime="2019-12-21T13:53:02+08:00">2019-12-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-25 10:46:03" itemprop="dateModified" datetime="2019-12-25T10:46:03+08:00">2019-12-25</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>49k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>45 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="数据库复习"><a href="#数据库复习" class="headerlink" title="数据库复习"></a>数据库复习</h2><p>还几天考数据库了,看了看往年试卷没找几道会的题.<br>翻了翻书复习,内容太多了<br>所以打算拿往年试卷复习.<br>INTERSECT ∩<br>UNION ∪<br>EXCEPT -<br>exists/in/all/any R</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/21/DataBase/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+            <div class="post-nav-prev post-nav-item">
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+          </div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/19/Computer%20Networking/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rlj.jpg">
-      <meta itemprop="name" content="任林杰">
-      <meta itemprop="description" content="建设最美114">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/19/Computer%20Networking/" class="post-title-link" itemprop="url">Computer Networking</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-19 12:14:40 / 修改时间：12:14:23" itemprop="dateCreated datePublished" datetime="2019-12-19T12:14:40+08:00">2019-12-19</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>36k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>33 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="111"><a href="#111" class="headerlink" title="111"></a>111</h2><h3 id="计算机网络名词"><a href="#计算机网络名词" class="headerlink" title="计算机网络名词"></a>计算机网络名词</h3><ul>
-<li><p>computer network 计算机网络</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/19/Computer%20Networking/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/06/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rlj.jpg">
-      <meta itemprop="name" content="任林杰">
-      <meta itemprop="description" content="建设最美114">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/06/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">内存管理</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-06 23:05:04" itemprop="dateCreated datePublished" datetime="2019-12-06T23:05:04+08:00">2019-12-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-09 23:38:48" itemprop="dateModified" datetime="2019-12-09T23:38:48+08:00">2019-12-09</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>9.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/06/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/Homework%20Shell/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rlj.jpg">
-      <meta itemprop="name" content="任林杰">
-      <meta itemprop="description" content="建设最美114">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/23/Homework%20Shell/" class="post-title-link" itemprop="url">Homework Shell</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-23 12:47:03 / 修改时间：12:44:32" itemprop="dateCreated datePublished" datetime="2019-11-23T12:47:03+08:00">2019-11-23</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="操作系统-Homework-Shell"><a href="#操作系统-Homework-Shell" class="headerlink" title="操作系统 Homework: Shell"></a>操作系统 Homework: Shell</h2><p><a href="https://pdos.csail.mit.edu/6.828/2016/homework/xv6-shell.html" target="_blank" rel="noopener">Homework: shell</a></p>
-<p>通过此次作业，将会了解到 Shell 的工作原理，以及类 Linux 系统的新进程到底是如何产生的。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/23/Homework%20Shell/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/Thread%20and%20locking/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rlj.jpg">
-      <meta itemprop="name" content="任林杰">
-      <meta itemprop="description" content="建设最美114">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/23/Thread%20and%20locking/" class="post-title-link" itemprop="url">Thread and locking</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-23 12:02:54 / 修改时间：12:10:51" itemprop="dateCreated datePublished" datetime="2019-11-23T12:02:54+08:00">2019-11-23</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Threads-and-Locking"><a href="#Threads-and-Locking" class="headerlink" title="Threads and Locking"></a>Threads and Locking</h3><p>题目来源<a href="https://pdos.csail.mit.edu/6.828/2018/homework/lock.html" target="_blank" rel="noopener">Threads and Locking</a><br>本次作业主要讲的是并行作业，以及并行作业中互斥锁（P,V问题）的相关知识。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/23/Thread%20and%20locking/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E5%86%99%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rlj.jpg">
-      <meta itemprop="name" content="任林杰">
-      <meta itemprop="description" content="建设最美114">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/19/%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E5%86%99%E4%BD%9C/" class="post-title-link" itemprop="url">英语四级写作</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-19 10:12:24 / 修改时间：10:15:32" itemprop="dateCreated datePublished" datetime="2019-11-19T10:12:24+08:00">2019-11-19</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>33k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>30 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="英语四级写作相关"><a href="#英语四级写作相关" class="headerlink" title="英语四级写作相关"></a>英语四级写作相关</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/19/%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E5%86%99%E4%BD%9C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/11/%E5%AF%B95%E4%B8%AA%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%E6%9C%80%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E6%AC%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rlj.jpg">
-      <meta itemprop="name" content="任林杰">
-      <meta itemprop="description" content="建设最美114">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/11/%E5%AF%B95%E4%B8%AA%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%E6%9C%80%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E6%AC%A1/" class="post-title-link" itemprop="url">对5个数进行排序最少需要多少次</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-11 20:43:11 / 修改时间：20:51:27" itemprop="dateCreated datePublished" datetime="2019-11-11T20:43:11+08:00">2019-11-11</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>537</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="对五个数排序最少需要7次"><a href="#对五个数排序最少需要7次" class="headerlink" title="对五个数排序最少需要7次."></a>对五个数排序最少需要7次.</h2><p>今个儿,算法老师上课给我们出的一道题,老师只是告诉我们7次,也没说具体怎么个过程.<br>上网查了查也是看懂了吧<br>本文介绍一个对5个数进行排序的方法，仅使用7次比较。假设要排序的数为a,b,c,d,e。</p>
-<blockquote>
-<p>首先将a,b进行比较，假设结果为a&lt;b，再将c,d进行比较，假设结果为c&lt;d；然后将两组数的较大者进行比较（即比较b,d），假设结果为b&lt;d，于是就有下面的关系，箭头的关系表示“&lt;”，即”小于”，至此，已经进行了三次比较。</p>
-</blockquote>
-<p>即:a&lt;b&lt;d,c&lt;d</p>
-<blockquote>
-<p>  现在将e插入到{a,b,d}的适当位置，采用二分查找法寻找查找位置时，只需要两次比较——先同b比较，然后再同a或d比较。将e插入到{a,b,d}时,一共有四种情况</p>
-</blockquote>
-<p>e&lt;a&lt;b&lt;d,<br>a&lt;e&lt;b&lt;d,<br>a&lt;b&lt;e&lt;d,<br>a&lt;b&lt;d&lt;e,<br>c&lt;d</p>
-<blockquote>
-<p> 在这四中情况中，要将c插入到由[abcd]组成的序列中最多只需要两次比较。同样使用二分法寻找插入位置。以第一种情况为例：c首先同a比较，如果大于a，再同b比较，如果大于b，则不会再同d比较，因为我们在之前已经知道c&lt;d。</p>
-</blockquote>
-<p>所以 3 + 2 + 2 = 7,一共是7次比较</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/07/%E8%AE%BF%E9%97%AE%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rlj.jpg">
-      <meta itemprop="name" content="任林杰">
-      <meta itemprop="description" content="建设最美114">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason's blogs">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/07/%E8%AE%BF%E9%97%AE%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">访问一个网页的全过程</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-07 19:09:42 / 修改时间：19:31:26" itemprop="dateCreated datePublished" datetime="2019-11-07T19:09:42+08:00">2019-11-07</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="访问一个网页的全过程"><a href="#访问一个网页的全过程" class="headerlink" title="访问一个网页的全过程"></a>访问一个网页的全过程</h1><p>这是由一道题目引起的一篇文章,当然原创链接以在文末标出</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/07/%E8%AE%BF%E9%97%AE%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
   
 
   </div>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
 
 
           </div>
