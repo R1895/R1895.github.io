@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ibjx</title>
-    <url>/2020/02/25/ibjx/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/02/25/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -181,7 +176,7 @@ world</code>标记之外</p>
 <p>Markdown<br>  : 轻量级文本标记语言，可以转换成html，pdf等格式  //  开头一个<code>:</code> + <code>Tab</code> 或 四个空格</p>
 <h3 id="3-2自动邮箱链接"><a href="#3-2自动邮箱链接" class="headerlink" title="3.2自动邮箱链接"></a>3.2自动邮箱链接</h3><p>代码:</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">xxx</span>@<span class="keyword">outlook</span>.<span class="keyword">com</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>演示<br>    <a href="mailto:&#49;&#53;&#x33;&#x35;&#48;&#52;&#53;&#56;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#49;&#53;&#x33;&#x35;&#48;&#52;&#53;&#56;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#109;</a></p>
+<p>演示<br>    <a href="mailto:&#49;&#x35;&#x33;&#x35;&#x30;&#x34;&#53;&#x38;&#x38;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;" target="_blank" rel="noopener">&#49;&#x35;&#x33;&#x35;&#x30;&#x34;&#53;&#x38;&#x38;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;</a></p>
 <h3 id="3-3字体-字号与颜色"><a href="#3-3字体-字号与颜色" class="headerlink" title="3.3字体,字号与颜色"></a>3.3字体,字号与颜色</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;font <span class="attribute">face</span>=<span class="string">"STCAIYUN"</span>&gt;我是华文彩云&lt;/font&gt;</span><br><span class="line">&lt;font <span class="attribute">color</span>=gray <span class="attribute">size</span>=5&gt;color=gray&lt;/font&gt;</span><br><span class="line">&lt;font color=  #0099ff <span class="attribute">size</span>=5 <span class="attribute">face</span>=<span class="string">"黑体"</span>&gt;color=#0099ff <span class="attribute">size</span>=5 <span class="attribute">face</span>=<span class="string">"黑体"</span>&lt;/font&gt;</span><br></pre></td></tr></table></figure>
 <p><font face="STCAIYUN">我是华文彩云</font><br><font color=gray size=5>color=gray</font><br><font color=#0099ff size=5 face="黑体">color=#0099ff size=5 face=”黑体”</font><br><font face = "楷体"><br>Size：规定文本的尺寸大小。可能的值：从 1 到 7 的数字。浏览器默认值是 3。</font><br>##4. 数学和LaTeX<br>$ 表示行内公式：</p>
 <p>质能守恒方程可以用一个很简洁的方程式 E=mc^2 来表达。</p>
@@ -225,54 +220,6 @@ world</code>标记之外</p>
 <h3 id="5-3mermaid-甘特图"><a href="#5-3mermaid-甘特图" class="headerlink" title="5.3mermaid 甘特图"></a>5.3mermaid 甘特图</h3><h3 id="5-4-puml-序列图"><a href="#5-4-puml-序列图" class="headerlink" title="5.4 puml 序列图"></a>5.4 puml 序列图</h3><h3 id="5-5-dot"><a href="#5-5-dot" class="headerlink" title="5.5 dot"></a>5.5 dot</h3>]]></content>
       <tags>
         <tag>VsCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Homework Shell</title>
-    <url>/2020/01/01/Homework%20Shell/</url>
-    <content><![CDATA[<h2 id="操作系统-Homework-Shell"><a href="#操作系统-Homework-Shell" class="headerlink" title="操作系统 Homework: Shell"></a>操作系统 Homework: Shell</h2><p><a href="https://pdos.csail.mit.edu/6.828/2016/homework/xv6-shell.html" target="_blank" rel="noopener">Homework: shell</a></p>
-<p>通过此次作业，将会了解到 Shell 的工作原理，以及类 Linux 系统的新进程到底是如何产生的。</p>
-<a id="more"></a>
-<p>首先自然是看懂 main 函数。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span></span><br><span class="line">main(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">100</span>];</span><br><span class="line">  <span class="keyword">int</span> fd, r;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Read and run input commands.</span></span><br><span class="line">  <span class="keyword">while</span>(getcmd(buf, <span class="keyword">sizeof</span>(buf)) &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(buf[<span class="number">0</span>] == <span class="string">'c'</span> &amp;&amp; buf[<span class="number">1</span>] == <span class="string">'d'</span> &amp;&amp; buf[<span class="number">2</span>] == <span class="string">' '</span>)&#123;</span><br><span class="line">      <span class="comment">// 如果只是 cd 命令，则切换文件夹后继续等待命令</span></span><br><span class="line">      <span class="comment">// Clumsy but will have to do for now.</span></span><br><span class="line">      <span class="comment">// Chdir has no effect on the parent if run in the child.</span></span><br><span class="line">      <span class="comment">// 一般写完命令敲回车，这里就是把回车改为'\0'</span></span><br><span class="line">      buf[<span class="built_in">strlen</span>(buf)<span class="number">-1</span>] = <span class="number">0</span>;  <span class="comment">// chop \n</span></span><br><span class="line">      <span class="keyword">if</span>(chdir(buf+<span class="number">3</span>) &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"cannot cd %s\n"</span>, buf+<span class="number">3</span>);</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若不是 cd 命令，则fork出子程序尝试运行命令</span></span><br><span class="line">    <span class="keyword">if</span>(fork1() == <span class="number">0</span>)</span><br><span class="line">      runcmd(parsecmd(buf));</span><br><span class="line">    <span class="comment">// 等待子进程完成</span></span><br><span class="line">    wait(&amp;r);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>循环调用 getcmd 函数读入命令：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span></span><br><span class="line">getcmd(<span class="keyword">char</span> *buf, <span class="keyword">int</span> nbuf)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isatty(fileno(<span class="built_in">stdin</span>)))  <span class="comment">// 判断标准输入是否为终端</span></span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"6.828$ "</span>);  <span class="comment">// 是终端则显示提示符</span></span><br><span class="line">  <span class="built_in">memset</span>(buf, <span class="number">0</span>, nbuf);</span><br><span class="line">  fgets(buf, nbuf, <span class="built_in">stdin</span>);  <span class="comment">// 从标准输入读入nbuf个字符到 buf 中</span></span><br><span class="line">  <span class="keyword">if</span>(buf[<span class="number">0</span>] == <span class="number">0</span>) <span class="comment">// EOF</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>读入命令并确定不是 cd 命令后，执行关键语句<br><code>runcmd(parsecmd(buf))</code>,显然是将 buf 用 parsecmd 解析后，送入 runcmd 运行。我们暂时并不关心如何解析，无非是一些字符串处理，提取关键符号确定类型。先看 runcmd 函数。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Execute cmd.  Never returns.</span></span><br><span class="line"><span class="keyword">void</span></span><br><span class="line">runcmd(struct cmd *cmd)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> p[<span class="number">2</span>], r;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">execcmd</span> *<span class="title">ecmd</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">pipecmd</span> *<span class="title">pcmd</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">redircmd</span> *<span class="title">rcmd</span>;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(cmd == <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">switch</span>(cmd-&gt;type)&#123;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"unknown runcmd\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">    ecmd = (struct execcmd*)cmd;</span><br><span class="line">    <span class="keyword">if</span>(ecmd-&gt;argv[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"exec not implemented\n"</span>);</span><br><span class="line">    <span class="comment">// Your code here ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">    rcmd = (struct redircmd*)cmd;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"redir not implemented\n"</span>);</span><br><span class="line">    <span class="comment">// Your code here ...</span></span><br><span class="line">    runcmd(rcmd-&gt;cmd);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">    pcmd = (struct pipecmd*)cmd;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">    <span class="comment">// Your code here ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;    </span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由此可看出，parsecmd 把命令分成了3个类型，分别是可执行命令，重定向命令，以及管道命令。</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p><strong>可执行命令</strong><br>在文中找到关键提示：</p>
-<blockquote>
-<p>You may want to change the 6.828 shell to always try /bin, if the program doesn’t exist in the current working directory, so that below you don’t have to type “/bin” for each program. If you are ambitious you can implement support for a PATH variable.</p>
-</blockquote>
-<p>也就是说对于 ls 这个存在的命令，我们只需要想办法将命令引导到 /bin/目录下寻找即可。这里涉及到 linux 系统调用的一个关键函数</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">access</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * pathname, <span class="keyword">int</span> mode)</span></span></span><br></pre></td></tr></table></figure>
-<p>它的作用是检查能否对某个文件(pathname)执行某个操作(mode)，操作的主要模式有：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">R_OK      <span class="comment">// 测试读许可权</span></span><br><span class="line">W_OK      <span class="comment">// 测试写许可权</span></span><br><span class="line">X_OK      <span class="comment">// 测试执行许可权</span></span><br><span class="line">F_OK      <span class="comment">// 测试文件是否存在</span></span><br></pre></td></tr></table></figure>
-<p>需要注意的是，测试成功返回值为0。失败为-1。有了这个函数，可以把之前的类型为’ ‘的部分改为：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">  ecmd = (struct execcmd*)cmd;</span><br><span class="line">  <span class="keyword">if</span> (ecmd-&gt;argv[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="comment">// fprintf(stderr, "exec not implemented\n");</span></span><br><span class="line">  <span class="keyword">if</span> (access(ecmd-&gt;argv[<span class="number">0</span>], F_OK) == <span class="number">0</span>) &#123;</span><br><span class="line">  execv(ecmd-&gt;argv[<span class="number">0</span>], ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">char</span> *binPath = <span class="string">"/bin/"</span>;</span><br><span class="line">  <span class="keyword">int</span> pathLen = <span class="built_in">strlen</span>(binPath) + <span class="built_in">strlen</span>(ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="keyword">char</span> *abs_path = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>((pathLen+<span class="number">1</span>)*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">  <span class="built_in">strcpy</span>(abs_path, binPath);</span><br><span class="line">  <span class="built_in">strcat</span>(abs_path, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="keyword">if</span> (access(abs_path, F_OK) == <span class="number">0</span>) &#123;</span><br><span class="line">      execv(abs_path, ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"%s: Command not found\n"</span>, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>需要补充说明的可能就是 execv 函数，它是 exec 函数族的一个，exec 函数族的作用就是根据 pathname 找到可执行文件，并用它取代调用进程的内容。虽然 pid 未改变，但是实际运行的内容已经不同。结合之前 main 函数中的内容，可以看出 Shell 执行某个命令实际上就是 fork 出一个子进程，然后把子进程替换为想要执行的程序。<br>测试结果为：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rlj@rlj-virtual-machine:~/OS/shell$ ./myShell</span><br><span class="line">6.828$ ls</span><br><span class="line">myShell  sh.c  shell_script  Shell_script_习题.pdf  t.sh</span><br><span class="line">6.828$ ls .//</span><br><span class="line">myShell  sh.c  shell_script  Shell_script_习题.pdf  t.sh</span><br><span class="line">6.828$ abc</span><br><span class="line">abc: Command not found</span><br><span class="line">6.828$ ps</span><br><span class="line">   PID TTY          TIME CMD</span><br><span class="line"> 17514 pts/2    00:00:00 bash</span><br><span class="line"> 17537 pts/2    00:00:00 myShell</span><br><span class="line"> 17541 pts/2    00:00:00 ps</span><br><span class="line">6.828$ <span class="built_in">echo</span> i love you</span><br><span class="line">i love you</span><br></pre></td></tr></table></figure>
-<p>好奇又试了试其他指令</p>
-<h3 id="输入输出重定向"><a href="#输入输出重定向" class="headerlink" title="输入输出重定向"></a>输入输出重定向</h3><p>首先可能需要看一下配套的 xv6 教材第 10 页的文件系统，至少需要了解文件描述符 (file descriptor) 是什么。<br>刚开始写的时候还以为需要自己处理 ‘&lt;’ 和 ‘&gt;’ 情况，后来发现结构体 rcmd 中已经设置好，不需要分开处理。注意一下这个函数：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">struct cmd*</span><br><span class="line">redircmd(struct cmd *subcmd, char *file, int <span class="built_in">type</span>)</span><br><span class="line">&#123;</span><br><span class="line">  struct redircmd *cmd;</span><br><span class="line"></span><br><span class="line">  cmd = malloc(sizeof(*cmd));</span><br><span class="line">  memset(cmd, 0, sizeof(*cmd));</span><br><span class="line">  cmd-&gt;<span class="built_in">type</span> = <span class="built_in">type</span>;</span><br><span class="line">  cmd-&gt;cmd = subcmd;</span><br><span class="line">  cmd-&gt;file = file;</span><br><span class="line">  cmd-&gt;mode = (<span class="built_in">type</span> == <span class="string">'&lt;'</span>) ?  O_RDONLY : O_WRONLY|O_CREAT|O_TRUNC;</span><br><span class="line">  cmd-&gt;fd = (<span class="built_in">type</span> == <span class="string">'&lt;'</span>) ? 0 : 1;</span><br><span class="line">  <span class="built_in">return</span> (struct cmd*)cmd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>看懂之后的工作就很简单了，结果代码为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line"><span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">  rcmd = (struct redircmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"redir not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  close(rcmd-&gt;fd);</span><br><span class="line">  <span class="keyword">if</span> (open(rcmd-&gt;file, rcmd-&gt;flags, 0644) &lt; 0) &#123;</span><br><span class="line">  fprintf(stderr, <span class="string">"Unable to open file: %s\n"</span>, rcmd-&gt;file);</span><br><span class="line">  <span class="built_in">exit</span>(0);</span><br><span class="line">  &#125;</span><br><span class="line">  runcmd(rcmd-&gt;cmd);</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
-<pre><code>思路就是先关闭程序原先的标准输入/输出，打开指定文件作为新的标准输入/输出。</code></pre><p>非常容易漏掉权限位，即open的第三个参数。注意这里用的是8进制数，所以一定不能直接写<code>644</code>而要写<code>0644。</code><br>我还遇到了一个问题，在此记录一下，第一次权限设置不对，导致无法打开生成的文件，更改后运行，还是不行。后来发现其实由于只是 Truncate，没有把之前生成的文件删除新建，所以权限还是第一次有问题的版本。删掉之前的文件，重新运行，结果正常。</p>
-<h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>本次作业的最难的就是管道。重点还是参考 xv6 教材 13 页管道部分，在 xv6 源码的 Sheet 86 还能找到管道的实现。重点是搞明白 <code>pipe</code>，<code>dup</code> 两个函数。</p>
-<ul>
-<li><code>int pipe(int p[])</code><br>作用是建立一个缓冲区，并把缓冲区通过 fd 形式给程序调用。它将 p[0] 修改为缓冲区的读取端， p[1] 修改为缓冲区的写入端。</li>
-<li><code>int dup(int old_fd)</code><br>作用是产生一个fd，指向 old_fd 指向的文件，并返回这个fd。产生的 fd 总是空闲的最小 fd。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">  pcmd = (struct pipecmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  <span class="keyword">if</span> (pipe(p) &lt; 0) fprintf(stderr,<span class="string">"pipe failed\n"</span>);</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  // 先关闭标准输出再 dup</span><br><span class="line">  // dup 会把标准输出定向到 p[1] 所指文件，即管道写入端</span><br><span class="line">  close(1);</span><br><span class="line">  dup(p[1]);</span><br><span class="line">  // 去掉管道对端口的引用</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  // 此时 left 的标准输入不变，标准输出流入管道</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  // 先关闭标准输入再 dup</span><br><span class="line">  // dup 会把标准输入定向到 p[0] 所指文件，即管道读取端</span><br><span class="line">  close(0);</span><br><span class="line">  dup(p[0]);</span><br><span class="line">  // 去掉管道对端口的引用</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  // 此时 right 的标准输入从管道读取，标准输出不变</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  <span class="built_in">wait</span>(&amp;r);</span><br><span class="line">  <span class="built_in">wait</span>(&amp;r);</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
-比较费解的就是 fork 了两次，也 wait 了两次。我自己写了一个实现，似乎也能正常运行，并且只 fork 了一次。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">  pcmd = (struct pipecmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  <span class="keyword">if</span> (pipe(p) &lt; 0) fprintf(stderr,<span class="string">"pipe failed\n"</span>);</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  close(1);</span><br><span class="line">  dup(p[1]);</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  close(0);</span><br><span class="line">  dup(p[0]);</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
-最后，执行脚本判断：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell4" alt=""><br>好的 ，又出现了问题。这几个命令都位于 <code>/usr/bin/</code>下，而我们在执行中只加入了 <code>/bin/</code> 目录，于是我又为case ‘ ‘添加了一个一劳永逸的实现，方便以后添加新的路径。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">  ecmd = (struct execcmd*)cmd;</span><br><span class="line">  <span class="keyword">if</span>(ecmd-&gt;argv[0] == 0)</span><br><span class="line">    <span class="built_in">exit</span>(0);</span><br><span class="line">  // fprintf(stderr, <span class="string">"exec not implemented\n"</span>);</span><br><span class="line">  <span class="keyword">if</span>(access(ecmd-&gt;argv[0], F_OK) == 0) &#123;</span><br><span class="line">  execv(ecmd-&gt;argv[0], ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  // 将路径改为数组实现</span><br><span class="line">  const char *binPath[] = &#123;<span class="string">"/bin/"</span>, <span class="string">"/usr/bin/"</span>&#125;;</span><br><span class="line">  char *abs_path;</span><br><span class="line">  int bin_count = sizeof(binPath)/sizeof(binPath[0]);</span><br><span class="line">  int found = 0;</span><br><span class="line">  <span class="keyword">for</span> (int i=0; i&lt;bin_count &amp;&amp; found==0; i++) &#123;</span><br><span class="line">      int pathLen = strlen(binPath[i]) + strlen(ecmd-&gt;argv[0]);</span><br><span class="line">      abs_path = (char *)malloc((pathLen+1)*sizeof(char));</span><br><span class="line">      strcpy(abs_path, binPath[i]);</span><br><span class="line">      strcat(abs_path, ecmd-&gt;argv[0]);</span><br><span class="line">      <span class="keyword">if</span>(access(abs_path, F_OK) == 0) &#123;</span><br><span class="line">          execv(abs_path, ecmd-&gt;argv);</span><br><span class="line">      found = 1;</span><br><span class="line">      &#125;</span><br><span class="line">      free(abs_path);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (found == 0) &#123;</span><br><span class="line">      fprintf(stderr, <span class="string">"%s: Command not found\n"</span>, ecmd-&gt;argv[0]);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
-运行成功,结果如下<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell2" alt=""></li>
-</ul>
-<p>[本文来源]<a href="https://www.jianshu.com/p/64385b80210b" target="_blank" rel="noopener">https://www.jianshu.com/p/64385b80210b</a></p>
-]]></content>
-      <tags>
-        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -324,27 +271,51 @@ world</code>标记之外</p>
       </tags>
   </entry>
   <entry>
-    <title>对5个数进行排序最少需要多少次</title>
-    <url>/2020/01/01/%E5%AF%B95%E4%B8%AA%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%E6%9C%80%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E6%AC%A1/</url>
-    <content><![CDATA[<h2 id="对五个数排序最少需要7次"><a href="#对五个数排序最少需要7次" class="headerlink" title="对五个数排序最少需要7次."></a>对五个数排序最少需要7次.</h2><p>今个儿,算法老师上课给我们出的一道题,老师只是告诉我们7次,也没说具体怎么个过程.<br>上网查了查也是看懂了吧<br>本文介绍一个对5个数进行排序的方法，仅使用7次比较。假设要排序的数为a,b,c,d,e。</p>
+    <title>Homework Shell</title>
+    <url>/2020/01/01/Homework%20Shell/</url>
+    <content><![CDATA[<h2 id="操作系统-Homework-Shell"><a href="#操作系统-Homework-Shell" class="headerlink" title="操作系统 Homework: Shell"></a>操作系统 Homework: Shell</h2><p><a href="https://pdos.csail.mit.edu/6.828/2016/homework/xv6-shell.html" target="_blank" rel="noopener">Homework: shell</a></p>
+<p>通过此次作业，将会了解到 Shell 的工作原理，以及类 Linux 系统的新进程到底是如何产生的。</p>
+<a id="more"></a>
+<p>首先自然是看懂 main 函数。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span></span><br><span class="line">main(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">100</span>];</span><br><span class="line">  <span class="keyword">int</span> fd, r;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Read and run input commands.</span></span><br><span class="line">  <span class="keyword">while</span>(getcmd(buf, <span class="keyword">sizeof</span>(buf)) &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(buf[<span class="number">0</span>] == <span class="string">'c'</span> &amp;&amp; buf[<span class="number">1</span>] == <span class="string">'d'</span> &amp;&amp; buf[<span class="number">2</span>] == <span class="string">' '</span>)&#123;</span><br><span class="line">      <span class="comment">// 如果只是 cd 命令，则切换文件夹后继续等待命令</span></span><br><span class="line">      <span class="comment">// Clumsy but will have to do for now.</span></span><br><span class="line">      <span class="comment">// Chdir has no effect on the parent if run in the child.</span></span><br><span class="line">      <span class="comment">// 一般写完命令敲回车，这里就是把回车改为'\0'</span></span><br><span class="line">      buf[<span class="built_in">strlen</span>(buf)<span class="number">-1</span>] = <span class="number">0</span>;  <span class="comment">// chop \n</span></span><br><span class="line">      <span class="keyword">if</span>(chdir(buf+<span class="number">3</span>) &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"cannot cd %s\n"</span>, buf+<span class="number">3</span>);</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若不是 cd 命令，则fork出子程序尝试运行命令</span></span><br><span class="line">    <span class="keyword">if</span>(fork1() == <span class="number">0</span>)</span><br><span class="line">      runcmd(parsecmd(buf));</span><br><span class="line">    <span class="comment">// 等待子进程完成</span></span><br><span class="line">    wait(&amp;r);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>循环调用 getcmd 函数读入命令：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span></span><br><span class="line">getcmd(<span class="keyword">char</span> *buf, <span class="keyword">int</span> nbuf)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isatty(fileno(<span class="built_in">stdin</span>)))  <span class="comment">// 判断标准输入是否为终端</span></span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"6.828$ "</span>);  <span class="comment">// 是终端则显示提示符</span></span><br><span class="line">  <span class="built_in">memset</span>(buf, <span class="number">0</span>, nbuf);</span><br><span class="line">  fgets(buf, nbuf, <span class="built_in">stdin</span>);  <span class="comment">// 从标准输入读入nbuf个字符到 buf 中</span></span><br><span class="line">  <span class="keyword">if</span>(buf[<span class="number">0</span>] == <span class="number">0</span>) <span class="comment">// EOF</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>读入命令并确定不是 cd 命令后，执行关键语句<br><code>runcmd(parsecmd(buf))</code>,显然是将 buf 用 parsecmd 解析后，送入 runcmd 运行。我们暂时并不关心如何解析，无非是一些字符串处理，提取关键符号确定类型。先看 runcmd 函数。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Execute cmd.  Never returns.</span></span><br><span class="line"><span class="keyword">void</span></span><br><span class="line">runcmd(struct cmd *cmd)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> p[<span class="number">2</span>], r;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">execcmd</span> *<span class="title">ecmd</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">pipecmd</span> *<span class="title">pcmd</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">redircmd</span> *<span class="title">rcmd</span>;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(cmd == <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">switch</span>(cmd-&gt;type)&#123;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"unknown runcmd\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">    ecmd = (struct execcmd*)cmd;</span><br><span class="line">    <span class="keyword">if</span>(ecmd-&gt;argv[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"exec not implemented\n"</span>);</span><br><span class="line">    <span class="comment">// Your code here ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">    rcmd = (struct redircmd*)cmd;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"redir not implemented\n"</span>);</span><br><span class="line">    <span class="comment">// Your code here ...</span></span><br><span class="line">    runcmd(rcmd-&gt;cmd);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">    pcmd = (struct pipecmd*)cmd;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">    <span class="comment">// Your code here ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;    </span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由此可看出，parsecmd 把命令分成了3个类型，分别是可执行命令，重定向命令，以及管道命令。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p><strong>可执行命令</strong><br>在文中找到关键提示：</p>
 <blockquote>
-<p>首先将a,b进行比较，假设结果为a&lt;b，再将c,d进行比较，假设结果为c&lt;d；然后将两组数的较大者进行比较（即比较b,d），假设结果为b&lt;d，于是就有下面的关系，箭头的关系表示“&lt;”，即”小于”，至此，已经进行了三次比较。</p>
+<p>You may want to change the 6.828 shell to always try /bin, if the program doesn’t exist in the current working directory, so that below you don’t have to type “/bin” for each program. If you are ambitious you can implement support for a PATH variable.</p>
 </blockquote>
-<p>即:a&lt;b&lt;d,c&lt;d</p>
+<p>也就是说对于 ls 这个存在的命令，我们只需要想办法将命令引导到 /bin/目录下寻找即可。这里涉及到 linux 系统调用的一个关键函数</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">access</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * pathname, <span class="keyword">int</span> mode)</span></span></span><br></pre></td></tr></table></figure>
+<p>它的作用是检查能否对某个文件(pathname)执行某个操作(mode)，操作的主要模式有：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">R_OK      <span class="comment">// 测试读许可权</span></span><br><span class="line">W_OK      <span class="comment">// 测试写许可权</span></span><br><span class="line">X_OK      <span class="comment">// 测试执行许可权</span></span><br><span class="line">F_OK      <span class="comment">// 测试文件是否存在</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，测试成功返回值为0。失败为-1。有了这个函数，可以把之前的类型为’ ‘的部分改为：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">  ecmd = (struct execcmd*)cmd;</span><br><span class="line">  <span class="keyword">if</span> (ecmd-&gt;argv[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="comment">// fprintf(stderr, "exec not implemented\n");</span></span><br><span class="line">  <span class="keyword">if</span> (access(ecmd-&gt;argv[<span class="number">0</span>], F_OK) == <span class="number">0</span>) &#123;</span><br><span class="line">  execv(ecmd-&gt;argv[<span class="number">0</span>], ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">char</span> *binPath = <span class="string">"/bin/"</span>;</span><br><span class="line">  <span class="keyword">int</span> pathLen = <span class="built_in">strlen</span>(binPath) + <span class="built_in">strlen</span>(ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="keyword">char</span> *abs_path = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>((pathLen+<span class="number">1</span>)*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">  <span class="built_in">strcpy</span>(abs_path, binPath);</span><br><span class="line">  <span class="built_in">strcat</span>(abs_path, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="keyword">if</span> (access(abs_path, F_OK) == <span class="number">0</span>) &#123;</span><br><span class="line">      execv(abs_path, ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"%s: Command not found\n"</span>, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>  现在将e插入到{a,b,d}的适当位置，采用二分查找法寻找查找位置时，只需要两次比较——先同b比较，然后再同a或d比较。将e插入到{a,b,d}时,一共有四种情况</p>
+<p>需要补充说明的可能就是 execv 函数，它是 exec 函数族的一个，exec 函数族的作用就是根据 pathname 找到可执行文件，并用它取代调用进程的内容。虽然 pid 未改变，但是实际运行的内容已经不同。结合之前 main 函数中的内容，可以看出 Shell 执行某个命令实际上就是 fork 出一个子进程，然后把子进程替换为想要执行的程序。<br>测试结果为：</p>
 </blockquote>
-<p>e&lt;a&lt;b&lt;d,<br>a&lt;e&lt;b&lt;d,<br>a&lt;b&lt;e&lt;d,<br>a&lt;b&lt;d&lt;e,<br>c&lt;d</p>
-<blockquote>
-<p> 在这四中情况中，要将c插入到由[abcd]组成的序列中最多只需要两次比较。同样使用二分法寻找插入位置。以第一种情况为例：c首先同a比较，如果大于a，再同b比较，如果大于b，则不会再同d比较，因为我们在之前已经知道c&lt;d。</p>
-</blockquote>
-<p>所以 3 + 2 + 2 = 7,一共是7次比较</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rlj@rlj-virtual-machine:~/OS/shell$ ./myShell</span><br><span class="line">6.828$ ls</span><br><span class="line">myShell  sh.c  shell_script  Shell_script_习题.pdf  t.sh</span><br><span class="line">6.828$ ls .//</span><br><span class="line">myShell  sh.c  shell_script  Shell_script_习题.pdf  t.sh</span><br><span class="line">6.828$ abc</span><br><span class="line">abc: Command not found</span><br><span class="line">6.828$ ps</span><br><span class="line">   PID TTY          TIME CMD</span><br><span class="line"> 17514 pts/2    00:00:00 bash</span><br><span class="line"> 17537 pts/2    00:00:00 myShell</span><br><span class="line"> 17541 pts/2    00:00:00 ps</span><br><span class="line">6.828$ <span class="built_in">echo</span> i love you</span><br><span class="line">i love you</span><br></pre></td></tr></table></figure>
+<p>好奇又试了试其他指令</p>
+<h3 id="输入输出重定向"><a href="#输入输出重定向" class="headerlink" title="输入输出重定向"></a>输入输出重定向</h3><p>首先可能需要看一下配套的 xv6 教材第 10 页的文件系统，至少需要了解文件描述符 (file descriptor) 是什么。<br>刚开始写的时候还以为需要自己处理 ‘&lt;’ 和 ‘&gt;’ 情况，后来发现结构体 rcmd 中已经设置好，不需要分开处理。注意一下这个函数：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">struct cmd*</span><br><span class="line">redircmd(struct cmd *subcmd, char *file, int <span class="built_in">type</span>)</span><br><span class="line">&#123;</span><br><span class="line">  struct redircmd *cmd;</span><br><span class="line"></span><br><span class="line">  cmd = malloc(sizeof(*cmd));</span><br><span class="line">  memset(cmd, 0, sizeof(*cmd));</span><br><span class="line">  cmd-&gt;<span class="built_in">type</span> = <span class="built_in">type</span>;</span><br><span class="line">  cmd-&gt;cmd = subcmd;</span><br><span class="line">  cmd-&gt;file = file;</span><br><span class="line">  cmd-&gt;mode = (<span class="built_in">type</span> == <span class="string">'&lt;'</span>) ?  O_RDONLY : O_WRONLY|O_CREAT|O_TRUNC;</span><br><span class="line">  cmd-&gt;fd = (<span class="built_in">type</span> == <span class="string">'&lt;'</span>) ? 0 : 1;</span><br><span class="line">  <span class="built_in">return</span> (struct cmd*)cmd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看懂之后的工作就很简单了，结果代码为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line"><span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">  rcmd = (struct redircmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"redir not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  close(rcmd-&gt;fd);</span><br><span class="line">  <span class="keyword">if</span> (open(rcmd-&gt;file, rcmd-&gt;flags, 0644) &lt; 0) &#123;</span><br><span class="line">  fprintf(stderr, <span class="string">"Unable to open file: %s\n"</span>, rcmd-&gt;file);</span><br><span class="line">  <span class="built_in">exit</span>(0);</span><br><span class="line">  &#125;</span><br><span class="line">  runcmd(rcmd-&gt;cmd);</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+<pre><code>思路就是先关闭程序原先的标准输入/输出，打开指定文件作为新的标准输入/输出。</code></pre><p>非常容易漏掉权限位，即open的第三个参数。注意这里用的是8进制数，所以一定不能直接写<code>644</code>而要写<code>0644。</code><br>我还遇到了一个问题，在此记录一下，第一次权限设置不对，导致无法打开生成的文件，更改后运行，还是不行。后来发现其实由于只是 Truncate，没有把之前生成的文件删除新建，所以权限还是第一次有问题的版本。删掉之前的文件，重新运行，结果正常。</p>
+<h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>本次作业的最难的就是管道。重点还是参考 xv6 教材 13 页管道部分，在 xv6 源码的 Sheet 86 还能找到管道的实现。重点是搞明白 <code>pipe</code>，<code>dup</code> 两个函数。</p>
+<ul>
+<li><code>int pipe(int p[])</code><br>作用是建立一个缓冲区，并把缓冲区通过 fd 形式给程序调用。它将 p[0] 修改为缓冲区的读取端， p[1] 修改为缓冲区的写入端。</li>
+<li><code>int dup(int old_fd)</code><br>作用是产生一个fd，指向 old_fd 指向的文件，并返回这个fd。产生的 fd 总是空闲的最小 fd。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">  pcmd = (struct pipecmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  <span class="keyword">if</span> (pipe(p) &lt; 0) fprintf(stderr,<span class="string">"pipe failed\n"</span>);</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  // 先关闭标准输出再 dup</span><br><span class="line">  // dup 会把标准输出定向到 p[1] 所指文件，即管道写入端</span><br><span class="line">  close(1);</span><br><span class="line">  dup(p[1]);</span><br><span class="line">  // 去掉管道对端口的引用</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  // 此时 left 的标准输入不变，标准输出流入管道</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  // 先关闭标准输入再 dup</span><br><span class="line">  // dup 会把标准输入定向到 p[0] 所指文件，即管道读取端</span><br><span class="line">  close(0);</span><br><span class="line">  dup(p[0]);</span><br><span class="line">  // 去掉管道对端口的引用</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  // 此时 right 的标准输入从管道读取，标准输出不变</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  <span class="built_in">wait</span>(&amp;r);</span><br><span class="line">  <span class="built_in">wait</span>(&amp;r);</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+比较费解的就是 fork 了两次，也 wait 了两次。我自己写了一个实现，似乎也能正常运行，并且只 fork 了一次。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">  pcmd = (struct pipecmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  <span class="keyword">if</span> (pipe(p) &lt; 0) fprintf(stderr,<span class="string">"pipe failed\n"</span>);</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  close(1);</span><br><span class="line">  dup(p[1]);</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  close(0);</span><br><span class="line">  dup(p[0]);</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+最后，执行脚本判断：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell4" alt=""><br>好的 ，又出现了问题。这几个命令都位于 <code>/usr/bin/</code>下，而我们在执行中只加入了 <code>/bin/</code> 目录，于是我又为case ‘ ‘添加了一个一劳永逸的实现，方便以后添加新的路径。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">  ecmd = (struct execcmd*)cmd;</span><br><span class="line">  <span class="keyword">if</span>(ecmd-&gt;argv[0] == 0)</span><br><span class="line">    <span class="built_in">exit</span>(0);</span><br><span class="line">  // fprintf(stderr, <span class="string">"exec not implemented\n"</span>);</span><br><span class="line">  <span class="keyword">if</span>(access(ecmd-&gt;argv[0], F_OK) == 0) &#123;</span><br><span class="line">  execv(ecmd-&gt;argv[0], ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  // 将路径改为数组实现</span><br><span class="line">  const char *binPath[] = &#123;<span class="string">"/bin/"</span>, <span class="string">"/usr/bin/"</span>&#125;;</span><br><span class="line">  char *abs_path;</span><br><span class="line">  int bin_count = sizeof(binPath)/sizeof(binPath[0]);</span><br><span class="line">  int found = 0;</span><br><span class="line">  <span class="keyword">for</span> (int i=0; i&lt;bin_count &amp;&amp; found==0; i++) &#123;</span><br><span class="line">      int pathLen = strlen(binPath[i]) + strlen(ecmd-&gt;argv[0]);</span><br><span class="line">      abs_path = (char *)malloc((pathLen+1)*sizeof(char));</span><br><span class="line">      strcpy(abs_path, binPath[i]);</span><br><span class="line">      strcat(abs_path, ecmd-&gt;argv[0]);</span><br><span class="line">      <span class="keyword">if</span>(access(abs_path, F_OK) == 0) &#123;</span><br><span class="line">          execv(abs_path, ecmd-&gt;argv);</span><br><span class="line">      found = 1;</span><br><span class="line">      &#125;</span><br><span class="line">      free(abs_path);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (found == 0) &#123;</span><br><span class="line">      fprintf(stderr, <span class="string">"%s: Command not found\n"</span>, ecmd-&gt;argv[0]);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+运行成功,结果如下<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell2" alt=""></li>
+</ul>
+<p>[本文来源]<a href="https://www.jianshu.com/p/64385b80210b" target="_blank" rel="noopener">https://www.jianshu.com/p/64385b80210b</a></p>
 ]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
       <tags>
-        <tag>算法</tag>
+        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -382,6 +353,472 @@ world</code>标记之外</p>
 ]]></content>
       <tags>
         <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对5个数进行排序最少需要多少次</title>
+    <url>/2020/01/01/%E5%AF%B95%E4%B8%AA%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%E6%9C%80%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E6%AC%A1/</url>
+    <content><![CDATA[<h2 id="对五个数排序最少需要7次"><a href="#对五个数排序最少需要7次" class="headerlink" title="对五个数排序最少需要7次."></a>对五个数排序最少需要7次.</h2><p>今个儿,算法老师上课给我们出的一道题,老师只是告诉我们7次,也没说具体怎么个过程.<br>上网查了查也是看懂了吧<br>本文介绍一个对5个数进行排序的方法，仅使用7次比较。假设要排序的数为a,b,c,d,e。</p>
+<blockquote>
+<p>首先将a,b进行比较，假设结果为a&lt;b，再将c,d进行比较，假设结果为c&lt;d；然后将两组数的较大者进行比较（即比较b,d），假设结果为b&lt;d，于是就有下面的关系，箭头的关系表示“&lt;”，即”小于”，至此，已经进行了三次比较。</p>
+</blockquote>
+<p>即:a&lt;b&lt;d,c&lt;d</p>
+<blockquote>
+<p>  现在将e插入到{a,b,d}的适当位置，采用二分查找法寻找查找位置时，只需要两次比较——先同b比较，然后再同a或d比较。将e插入到{a,b,d}时,一共有四种情况</p>
+</blockquote>
+<p>e&lt;a&lt;b&lt;d,<br>a&lt;e&lt;b&lt;d,<br>a&lt;b&lt;e&lt;d,<br>a&lt;b&lt;d&lt;e,<br>c&lt;d</p>
+<blockquote>
+<p> 在这四中情况中，要将c插入到由[abcd]组成的序列中最多只需要两次比较。同样使用二分法寻找插入位置。以第一种情况为例：c首先同a比较，如果大于a，再同b比较，如果大于b，则不会再同d比较，因为我们在之前已经知道c&lt;d。</p>
+</blockquote>
+<p>所以 3 + 2 + 2 = 7,一共是7次比较</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络の摘要</title>
+    <url>/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/</url>
+    <content><![CDATA[<p>计网马上要考试了,之前从头看了遍网课,整理了点知识点和习题. 挑挑拣拣选一些考纲上的内容也来一个<br><strong>一天一遍,预防失眠</strong>(yjn_语录)</p>
+<a id="more"></a>
+<h3 id="摘要部分"><a href="#摘要部分" class="headerlink" title="摘要部分"></a>摘要部分</h3><ol>
+<li><p>在TCP协议中，某数据包的确认包丢失也不一定导致发送方重传该数据包 √</p>
+</li>
+<li><p>传输层用进程编号（PID）来标示主机间通信的应用进程        × port</p>
+</li>
+<li><p>客户使用SMTP协议既能发送邮件又能接收邮件                × POP3接收邮件</p>
+</li>
+<li><p>某种网络安全威胁是通过非法手段取得对数据的使用权，并对数据进行恶意地添加和修改，这种安全威胁属于<strong>B__</strong><br>A、窃听数据 B、破坏数据完整性<br>C、拒绝服务 D、物理安全威胁</p>
+</li>
+<li><p>如要将138.10.0.0 网络分为6个子网，则子网掩码应设为（D）<br>A、255.0.0.0 B、255.255.0.0<br>C、255.255.128.0 D、255.255.224.0</p>
+<blockquote>
+<p>6个子网需要3个子网位,因为2^3=8 所以子网掩码是255.255.1110.0000,即255.255.224.0</p>
+</blockquote>
+</li>
+<li><ol>
+<li>下面有关网络互连设备说法正确的有（ABCD）<br>A、在物理层实现网络互连的主要设备有中继器和HUB。<br>B、在数据链路层实现网络互联的主要设备有二层交换机和网桥。<br>C、在网络层实现网络互连的主要设备有三层交换机和路由器。<br>D、在传输层（包括传输层）以上实现网络互连的设备有网关。</li>
+</ol>
+</li>
+<li><p>试简述TCP协议在数据传输过程中收发双方是如何保证数据包的可靠性的。</p>
+<blockquote>
+<p>（1）为了保证数据包的可靠传递，发送方必须把已发送的数据包保留在缓冲区； （1分）<br>（2）并为每个已发送的数据包启动一个超时定时器；（1分）<br>（3）如在定时器超时之前收到了对方发来的应答信息（可能是对本包的应答，也可以是对本包后续包的应答），则释放该数据包占用的缓冲区;（1分）<br>（4）否则，重传该数据包，直到收到应答或重传次数超过规定的最大次数为止。（1分）<br>（5）接收方收到数据包后，先进行CRC校验，如果正确则把数据交给上层协议，然后给发送方发送一个累计应答包，表明该数据已收到，如果接收方正好也有数据要发给发送方，应答包也可方在数据包中捎带过去。（1分）</p>
+</blockquote>
+</li>
+<li><p>假设有五个IP地址A：131.107.256.80，B：231.222.0.11，C：126.1.0.0，D：198.121.254.255，E：202.117.34.32，找出不能分配给主机的IP地址，并说明原因。</p>
+<blockquote>
+<p>(1）A的第三个数256大于255是非法值，不能用于主机地址；（1分）<br>（2）B的第一个数231是保留给组播的地址，不能用于主机地址；（1分）<br>（3）C以全0结尾的IP地址是网络地址，不能用于主机地址；（1分）<br>（4）D以全1结尾的IP地址是广播地址，不能用于主机地址。（2分）</p>
+</blockquote>
+</li>
+<li><p>为什么说TCP协议中针对某数据包的应答包丢失也不一定导致该数据包重传？<br>（1）由于TCP协议采用的是面向字符流的累计确认机制；（2分）<br>（2）当某数据包的应答丢失时，只要接收方还有数据发给发送方，在其应答字段中将包含对前面收到的数据包的应答信息，所以发送方不需要重发该数据包。（3分）<br><a href="https://zhidao.baidu.com/question/241652922.html?qbl=relate_question_0&word=TCP%D0%AD%D2%E9%D6%D0%D5%EB%B6%D4%C4%B3%CA%FD%BE%DD%B0%FC%B5%C4%D3%A6%B4%F0%B0%FC%B6%AA%CA%A7%D2%B2%B2%BB%D2%BB%B6%A8%B5%BC%D6%C2%B8%C3%CA%FD%BE%DD%B0%FC%D6%D8%B4%AB" target="_blank" rel="noopener">click</a></p>
+</li>
+<li><p>占据两个山顶的红军1与红军2与驻扎在这两个山之间的白军作战。其力量对比是:红军1或红军2打不赢白军，但红军1和红军2协同作战可战胜白军。红军1拟于次日凌晨6点向白军发起攻击，于是给红军2发送电文，但通信线路很不好，电文出错或丢失的可能性较大，因此要求收到电文的红军2必须送回一个确认电文，但确认电文也可能出错或丢失。试问能否设计出一种协议使得红军能够实现协同作战，因而100%的取得胜利？<br>答：</p>
+<blockquote>
+<p>（1）采用三次握手的方式；（2分）<br>（2）红军1给红军2发送电文，决定次日凌晨6点向白军发起攻击，请求红军2协同作战，并等待红军2的应答，如果在规定时间内没有收到应答，则重发请求；（3分）<br>（3）红军2如果收到红军1的作战报文后，则回送一个响应报文，表明已知道次日凌晨6点向白军发起攻击且愿意协同作战，并等待红军1的确认，如果在规定时间内没有收到确认报文，则重发响应报文；（3分）<br>（4）红军1收到红军2的响应报文，再向红军2发送一个确认报文，并表明已知道红军2将协同作战。（2分）</p>
+</blockquote>
+</li>
+<li><p>学生A希望访问网站<code>www.sina.com</code>，A在其浏览器中输入<a href="http://www.sina.com并按回车，直到新浪的网站首页显示在其浏览器中，请问：在此过程中，按照TCP/IP参考模型，从应用层到网络层都用到了哪些协议？" target="_blank" rel="noopener">http://www.sina.com并按回车，直到新浪的网站首页显示在其浏览器中，请问：在此过程中，按照TCP/IP参考模型，从应用层到网络层都用到了哪些协议？</a><br>答：</p>
+<blockquote>
+<p>（1）应用层：HTTP：WWW访问协议，DNS：域名解析；（3分）<br>（2）传输层：TCP：在客户和服务器之间建立连接，提供可靠的数据传输；（4分）<br>（3）网络层：IP：IP包传输和路由选择，ICMP：提供网络传输中的差错检测，ARP：将本机的缺省网关IP地址映射成物理MAC地址。（4分）</p>
+</blockquote>
+</li>
+<li><p>目前实际存在与使用的广域网基本都采用（D）。<br>A)总线拓扑 B)环状拓扑   C)星状拓扑 D)网状拓扑 </p>
+</li>
+<li><p>下列IP地址中属于B类IP地址的是（B）。<br>A) 200.126.32.50 B) 191.23.56.89 C) 192.168.0.1 D) 126.45.33.9</p>
+<blockquote>
+<p>A类IP地址 地址范围从1.0.0.1到127.255.255.254  子网掩码为255.0.0.0<br>B类IP地址地址范围从128.0.0.1-191.255.255.254   子网掩码为255.255.0.0<br>C类IP地址范围从192.0.0.1-223.255.255.254      子网掩码为255.255.255.0<br>私有地址范围:<br>A类地址：10.0.0.0～10.255.255.255<br>B类地址：172.16.0.0～172.31.255.255<br>C类地址：192.168.0.0～192.168.255.255<br>回送地址：127.0.0.1。 也是本机地址，等效于localhost或本机IP。</p>
+</blockquote>
+</li>
+<li><p>在总线型局域网的介质访问控制方法中，采用“先听后发，边听边发，冲突停止，随机延迟后重发”的是（A）<br>A)CSMA/CD B)TokenBus C)TokenRing D)FDDI</p>
+<blockquote>
+<p>[解析] CSMA/CD的发送流程可以简单地概括为先听后发、边听边发、冲突停止、随机延迟后重发。<br>采用CSMA/CD介质访问控制方法的总线型局域网在发送数据前，先监听总线是否空闲。<br>若总线忙，则不发送：若总线空闲，则把准备好的数据发送到总线上。<br>在发送数据的过程中，工作站边发送边检测总线，是否自己发送的数据有冲突。<br>若无冲突则继续发送直到发完全部数据；若有冲突，则立即停止发送数据，但是要发送一个加强冲突的信号，以便使网络上所有工作站都知道网上发生了冲突，<br>然后，等待一个预定的随机时间，且在总线为空闲时，再重新发送未发完的数据。</p>
+</blockquote>
+</li>
+<li><p>(ARP)是将IP地址映射成物理地址，而(TCP/IP)的主要目的是把资源名称解析成IP地址。 </p>
+</li>
+<li><p>网络安全的威胁因素有很多，其中人为的威胁因素类型有中断、窃取、更改和伪造。（√） </p>
+</li>
+</ol>
+<ol start="17">
+<li>网络安全的特性。 </li>
+</ol>
+<ul>
+<li>保密性：信息不泄露给非授权用户、实体或过程，或供其利用的特性。</li>
+<li>(数据)完整性：数据未经授权不能进行改变的特性。即信息在存储或传输过程中保持不被修改、不被破坏和丢失的特性。</li>
+<li>可用性：可被授权实体访问并按需求使用的特性。即当需要时能否存取所需的信息。例如网络环境下拒绝服务、破坏网络和有关系统的正常运行等都属于对可用性的攻击；</li>
+<li>可控性：对信息的传播及内容具有控制能力。</li>
+</ul>
+<ol start="17">
+<li><p>计算机网络需要哪几方面的安全性？</p>
+<blockquote>
+<p>答案：<br>(1)保密性：计算机中的信息只能由授予访问权限的用户读取(包括显示、打印等，也包含暴露信息存在的事实)。<br>(2)数据完整性：计算机系统中的信息资源只能被授予权限的用户修改。<br>(3)可利用性：具有访问权限的用户在需要时可以利用计算机系统中的信息资源，得到密文。</p>
+</blockquote>
+</li>
+<li><p>网络上两个进程之间进行通信需要用一个五元组来标识：(本机主机地址,本机端口号,协议,远程主机地址,远程端口号)</p>
+</li>
+<li><p>下列媒体访问协议中没有冲突的协议是(D)<br>A、1-支持CSMA B、ALOHA C、CSMA/CD D、TOKEN RING (令牌环网)</p>
+</li>
+<li><p>试简述主机1（IP地址为192.168.25.1，MAC地址为 E1）向主机2（IP地址为192.168.25.2，MAC地址为E2）发送数据时ARP 协议的工作过程（主机1、主机2在同一个子网内）。</p>
+<blockquote>
+<p>答：<br>（1）当主机1要向主机2发送数据时，必须知道主机2的MAC地址，为此，先根据主机2的IP地址在本机的ARP缓冲表内查找，如找到E2，则把E2填到MAC帧中，并把数据发送给主机2；<br>（2）如果在本机的ARP缓冲表内找不到主机2的MAC地址，则主机1产生一个ARP询问包，其中包含主机1的IP地址，MAC地址E1，主机2的IP地址，并广播到网络上询问有谁知道主机2的MAC地址？<br>（3）主机2收到ARP询问包后，根据询问者的IP和MAC地址E1立即向主机1回送一个ARP响应包，其中包含主机1的IP地址，MAC地址E1，主机2的IP地址和MAC地址E2，从而主机1获得了主机2的MAC地址E2，进而可向主机2发送数据。<br>3、设某网络在某一时刻的结构如下图所示，试用L-S路由算法为节点C计算到各节点的路由表（包括目的地、下一站、最小代价）。</p>
+</blockquote>
+</li>
+<li><p>在某网络应用系统中，计算机A( IP地址为 192.168.25.168 , MAC地址为00：11：22：33：44：55)需要知道目前本网络内有多少台计算机在联网，其IP地址分别为多少，试运用所学的网络原理，说明解决此问题的方案（要求说明所采用的网络原理以及解决该问题的工作过程）。（本题10分）</p>
+<blockquote>
+<p>答：<br>（1）采用ICMP 请求应答报文（echo）；（1分）<br>（2）计算机A从IP地址192.168.25.1 到 192.168.25.254 做以下工作；（2分）<br>（3）构造一个ICMP请求应答报文，分别发给上述IP地址；（3分）<br>（4）如果能收到某IP有响应包，说明该IP对应的计算机已联网。（4分）</p>
+</blockquote>
+</li>
+<li><p>将某C 网 192.168.118.0 划分成4个子网，请计算出每个子网的有效的主机IP地址范围和对应的网络掩码（掩码用2进制表示） 。（10分）（答案只要符合题目需求就可给满分，下面只是参考答案之一。）</p>
+<blockquote>
+<p>解：<br>（1）子网1的有效IP地址范围为： 192.168.118.1 — 192.168.118.63     (2分)</p>
+<pre><code>（00 00 0001-00 11 1110）</code></pre><p>子网1的网络掩码为：11111111.11111111.11111111.11000000          (2分)<br>（2）子网2的有效IP地址范围为： 192.168.118.65 — 192.168.118.126   (2分)</p>
+<pre><code>（01 00 0001-01 11 1110）</code></pre><p>子网2的网络掩码为：11111111.11111111.11111111.11000000<br>（3）子网3的有效IP地址范围为： 192.168.118.129 — 192.168.118.190  (2分)</p>
+<pre><code>（10 00 0001-10 11 1110）</code></pre><p>子网3的网络掩码为：11111111.11111111.11111111.11000000<br>（4）子网4的有效IP地址范围为： 192.168.118.193 — 192.168.118.254  (2分)</p>
+<pre><code>（11 00 0001-11 11 1110）</code></pre><p>子网4的网络掩码为：11111111.11111111.11111111.11000000</p>
+</blockquote>
+</li>
+<li><p>假设要设计一个网络应用程序，用来测试从本机到互联网上任意一台主机是否连通，如果不通，还 要知道在哪个路由器不通，并了解中间需要经过哪些路由器（或网关）及从本机到这些路由器的时延有多长，请你根据所学的网络原理（要求先简述该网络原理）， 简要说明如何实现该应用程序。（15分）</p>
+<blockquote>
+<p>答：<br>（1）根据IP协议的规定，在每一个IP包中有一个TTL字段，标示该IP包剩余的生命周期（如开始时为128），IP包经过某一个路由器时，将IP包中的TTL值减1，当变为0时，该路由器将丢弃该IP包，并通过ICMP协议向发该IP包的源主机报告丢弃的原因（其中包括原因即TTL=0，丢弃的路由器IP，丢弃的时间等信息）；<br>（2）第一次让应用程序向目的主机发送一个TTL=1的ICMP 包，达到第一个路由器后，由于TTL将会变为0，该ICMP包被丢弃，故第一个路由器将源主机报告丢弃的原因，从而得知该路由器的IP地址和时延；<br>（3）同理，第N次让应用程序向目的主机发送一个TTL=N的ICMP 包，达到第N个路由器后，由于TTL将会变为0，该ICMP包被丢弃，故第N个路由器将源主机报告丢弃的原因，从而得知该路由器的IP地址和时延；<br>（4）直到到达目的主机（假如到达目的主机需要经过M个路由器）或无法到达目的主机（通过M个路由器)。</p>
+</blockquote>
+</li>
+<li><p>设有两台主机的IP地址分别：195.248.8.145，195.248.9.220子网掩码都是255.255.255.0。判断这两个主机能否直接通信。如果不能直接通信，可以采用何种方法？并进行详细说明。</p>
+<blockquote>
+<p>（1）根据两主机的IP地址和子网掩码可以判断两主机不在同一个网络，所以不能直接通信。<br>（2）采用的方法：<br>1、用路由连接两个网络。由路由器来实现数据包从一个网络到另一个网络的转发，使这两台主机可以通信。<br>2.、将子网掩码改为255.255.240.0这样两主机就处于同一个网络中，即网络号相同，这样就能直接通信。</p>
+</blockquote>
+</li>
+<li><p>简答分组交换的特点和不足。</p>
+<blockquote>
+<p>答案：（1）节点暂时存储的是一个个分组，而不是整个数据文件（2）分组暂时保存在节点的内存中，保证了较高的交换速率（3）动态分配信道，极大的提高了通信线路的利用率缺点：（4）分组在节点转发时因排队而造成一定的延时（5）分组必须携带一些控制信息而产生额外开销，管理控制比较困难</p>
+</blockquote>
+</li>
+<li><p>简述在数据传输中，防止阻塞产生的办法</p>
+<blockquote>
+<p>答案：（1）通过对点对点的同步控制，使计算机之间的收发数据速率同步（2）控制网络的输入，避免突然大量数据报文提交（3）接收工作站在接收数据报文之前，保留足够的缓冲空间</p>
+</blockquote>
+</li>
+<li><p>什么是路由？简述路由器的主要功能。<br>答：路由指的是从本地到网络的各个地方应该走的路径，由路由器根据目的地址将数据帧转发到不同的路径。选择最佳的转发数据的路径，建立非常灵活的联接，均衡网络负载；利用通信协议本身的流量控制功能来控制数据传输，有效解决拥挤问题；具有判断需要转发的数据分组的功能；把一个大的网络划分成若干个子网。</p>
+</li>
+<li><p>试说明IP地址与物理地址的区别。为什么要使用这两种不同的地址</p>
+<blockquote>
+<p>答：IP地址（Internet Protocol Address） 用于确定因特网上的每台主机，它是每台主机唯一性的标识。联网设备用物理地址标识自己，例如网卡地址。<br>TCP／IP用IP地址来标识源地址和目标地址，但源和目标主机却位于某个网络中，故源地址和目标地址都由网络号和主机号组成，但这种标号只是一种逻辑编号，而不是路由器和计算机网卡的物理地址。对于一台计算机而言，IP地址是可变的，而物理地址是固定的。</p>
+</blockquote>
+</li>
+<li><p>（1）子网掩码为255.255.255.0代表什么意思？<br>（2）某网络的现在掩码为255.255.255.248，问该网络能够连接多少个主机？<br>（3）某A类网络和某B类网络的子网号subnet-id分别为16个1和8个1，问这两个网络的子网掩码有何不同？<br>（4）某A类网络的子网掩码为255.255.0.255，它是否是一个有效的子网掩码？</p>
+<blockquote>
+<p>答：（1）255.255.255.0可代表C类地址对应的子网掩码默认值；也可代表A类或B类地址的掩码，即主机号由最后8bit决定，而路由器寻找网络由前24bit决定。<br>（2）248=（11111000）2，即IP地址中前29位代表网络，后3位代表主机。所以共有主机数=23=8，但由于其中主机号全0代表该网络的网络地址，主机号全1代表该网络的广播地址，均不能分配给连网主机使用，所以网络能够连接的主机数=23-2=6台。<br>（3）这两个网络的子网掩码是一样的，均为255.255.255.0，但子网数不同，子网号为16bit的A类网络的子网数有216-2个，而子网号为8bit的B类网络的子网数有28-2个。<br>（4）有效，因RFC文档中没有规定子网掩码中的一串1必须是连续的，但不建议这样使用。</p>
+</blockquote>
+</li>
+<li><p>与静态路由协议相比，动态路由有哪些优点？ ．（ AB ）<br>A、带宽占用少<br>B、简单<br>C、路由器能自动发现网络拓扑变化<br>D、路由器能自动计算新的路由</p>
+</li>
+<li><p>为什么要把IP地址解析成MAC地址才能实现数据传输？怎样进行地址解析？</p>
+</li>
+</ol>
+<blockquote>
+<p>（1）发送数据时，数据从高层到低层封装，然后才到通信链路上传输，使用IP地址的IP数据报一旦交给了数据链路层，就被封装成MAC帧。MAC帧在传送时使用的源地址和目的地址都是硬件地址（MAC地址），这两个硬件地址都写在MAC帧的首部中。<br>（2）连接在通信链路上的设备（主机或路由器）在接收MAC帧时，根据MAC帧首部中的MAC地址来决定接收或放弃。因此要把IP地址解析成MAC地址才能实现数据在链路层的封装，进而实现数据传输。<br>（3）每个主机或路由器接口都有一个ARP缓存用来完成IP地址到MAC地址的解析，在进行链路层封装时接口会查询该缓存，来实现解析。如果在缓存表中找不到所查询的IP地址对应的MAC地址，接口会向该局域网发送    ARP查询广播包，对应IP地址的接口收到该ARP查询，会向源地址发送ARP应答单播包，从而完成ARP解析。</p>
+</blockquote>
+<ol start="32">
+<li><p>考虑某路由器具有下列路由表项：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">网络前缀	               下一跳</span><br><span class="line"><span class="number">142.150</span><span class="number">.64</span><span class="number">.0</span>/<span class="number">24</span> 	 A</span><br><span class="line"><span class="number">142.150</span><span class="number">.71</span><span class="number">.128</span>/<span class="number">28</span>        B</span><br><span class="line"><span class="number">142.150</span><span class="number">.71</span><span class="number">.128</span>/<span class="number">30</span>	 C</span><br><span class="line"><span class="number">142.150</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">16</span>	         D</span><br></pre></td></tr></table></figure>
+<p>（1）假设路由器接收到一个目的地址为142.150.71.132的IP分组，请确定该路由器为该IP分组选择的下一跳，并解释说明。<br>（2）在上面的路由表中增加一条路由表项，该路由表项使以142.150.71.132为目的地址的IP分组选择“A”作为下一跳，而不影响其他目的地址的IP分组转发。<br>（3）在上面的路由表中增加一条路由表项，使所有目的地址与该路由表中的任何路由表项都不匹配的IP分组被转发到下一跳“E”。<br>(4) 将142.150.64.0/24划分为4个规模尽可能大的等长子网，给出子网掩码及每个子网的可分配地址范围。</p>
+<blockquote>
+<p>(1)下一跳为B，因为该IP地址只和路由 142.150.71.128/28|B匹配。<br>（2）即增加一条主机路由 142.150.71.132/32|A<br>（3）即增加一条默认路由0.0.0.0/0|E<br>（4）255.255.255.192<br>范围:<br><code>142.150.64.1——142.150.64.62</code><br><code>142.150.64.65——142.150.64.126</code><br><code>142.150.64.129——142.150.64.190</code><br><code>142.150.64.193——142.150.64.254</code></p>
+</blockquote>
+</li>
+<li><p>三种计算机分组交换方式比较</p>
+<blockquote>
+<p>a)    电路交换（Circuit Switching）－整个报文的比特流连续地从源点直达终点，好像在一个管道中传输；在通话的全部时间内，通话的两个用户始终占用端到端的通信资源，所以资源利用率低<br>b)    报文交换（Message Switching）－整个报文传送到相邻节点，全部存储下来后查找转发表，转发到下一个节点；通信线路利用率高、出错后纠错效率高等优点，被计算机与通信界广泛采用。存储转发是该技术的核心。<br>c)    分组（包）交换（Packet Switching）－单个分组（只是整个报文的一部分）传送到相邻节点，存储下来后查找转发表，转发到下一个节点；<br>的优点<br>高效    动态分配传输带宽，对通信链路是逐段占用。<br>灵活    以分组为传送单位和查找路由。<br>迅速    不必先建立连接就能向其他主机发送分组。<br>可靠    保证可靠性的网络协议；分布式的路由选择协议使网络有很好的生存性。 </p>
+</blockquote>
+</li>
+<li><p>arp的四种使用情况：</p>
+<blockquote>
+<p>1)发送方是主机，要把IP数据报发送到本网络上的另一个主机。这时用 ARP 找到目的主机的硬件地址。<br>2)发送方是主机，要把 IP 数据报发送到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。<br>3)发送方是路由器，要把 IP 数据报转发到本网络上的一个主机。这时用 ARP 找到目的主机的硬件地址。<br>4)发送方是路由器，要把 IP 数据报转发到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。</p>
+</blockquote>
+</li>
+<li><p>RIP OSPF工作原理的理解与比较区别?</p>
+</li>
+</ol>
+<ul>
+<li>RIP工作原理：路由信息协议 RIP 是内部网关协议 IGP中最先得到广泛使用的协议。<ul>
+<li>RIP 是一种分布式的基于距离向量的路由选择协议。</li>
+<li>RIP 协议要求网络中的每一个路由器都要维护从它自己到其他每一个目的网络的距离记录。</li>
+</ul>
+</li>
+<li>OSPF的特征：最主要的特征是分布式的链路状态协议，而不是距离向量协议。<ul>
+<li>所有的路由器都维护一个链路状态数据库（路由器到子网的链路状态和可以到达的邻居路由器）。 </li>
+<li>当网络中链路状态改变时，通过洪泛法（flooding）方法把更新的本地链路状态信息广播到区域或自治系统中的每个路由器。</li>
+<li>每一个路由器用链路状态数据库中的数据，计算出到每个目的地最短路径。</li>
+</ul>
+</li>
+<li>比较区别：<ul>
+<li>SPF：只有当链路状态发生变化时，路由器才用洪泛法向所有路由器发送此信息。RIP：不管网络拓扑有无发生变化，路由器之间都要定期交换路由表信息</li>
+</ul>
+</li>
+<li>与RIP相比<ul>
+<li>1.OSPF 规定每隔一段时间，如 30分钟，要刷新一次数据库中的链路状态。 </li>
+<li>2.由于一个路由器的链路状态只涉及到与相邻路由器的连通状态，因而与整个互联网的规模并无直接关系。因此当互联网规模很大时，OSPF 协议要比距离向量协议 RIP 好得多。 </li>
+<li>3.OSPF 没有“坏消息传播得慢”的问题，据统计，其响应网络变化的时间小于 100 ms。</li>
+<li>4.指定的路由器:多点接入的局域网采用了指定的路由器的方法，使广播的信息量大大减少。指定的路由器代表该局域网上所有的链路向连接到该网络上的各路由器发送状态信息。</li>
+</ul>
+</li>
+</ul>
+<ol start="36">
+<li>假定在地球和一个新月亮之间建立一条100M 位/秒的链路。从该月亮到地球的距离大约是385000 公里，数据在链路上以光速3×10^8米/秒传输。</li>
+</ol>
+<ul>
+<li>（a） 计算该链路的最小RTT。<br>解：最小RTT 等于2×385000000 米÷（3×10^8米/秒）=2.57 秒</li>
+<li>（b） 使用RTT 作为延迟，计算该链路的“延迟×带宽”值。<br>解：“延迟×带宽”值等于2.57 秒×100M 位/秒=257M 位≈32M 字节</li>
+<li>（c） 在（b）中计算的“延迟×带宽”值的含义是什么？<br>解：它表示发送方在收到一个响应之前能够发送的数据量。</li>
+<li>（d） 在月亮上用一个照相机拍取地球的相片，并把它们以数字形式保存到磁盘上。<br>假定在地球上的任务控制要下载25M 字节的最新图象，那么，从发出数据请求<br>到传送结束最少要化多少时间？<br>解：在图象可以开始到达地面之前，至少需要一个RTT。假定仅有带宽延迟，那么发送需要<br>的时间等于25M 字节÷100M 位/秒=200M 位÷100M 位/秒=2 秒。所以，直到最后一个图象位到达地球，总共化的时间等于2.0+2.57=4.57 秒。</li>
+</ul>
+<ol start="37">
+<li><p>在因特网上的一个B 类网络具有子网掩码255.255.240.0。问每个子网中的最大主<br>机数目是多少？</p>
+<blockquote>
+<p>解答：对于一个B 类网络，高端16 位形成网络号，低端16 位是子网或主机域。在子网掩码的低端16 位<br>中，最高有效4 位是1111，因此剩下12 位（第3 字节低4 位和第4 字节）用于主机号。因此，存在4096<br>个主机地址，但由于全零和全1 是特别地址，因此最大主机数目应该是4094。</p>
+</blockquote>
+</li>
+<li><p>假定TCP 使用两次握手替代三次握手来建立连接。也就是说，不需要第三个报文。那么<br>现在是否可能产生死锁？请给出例子来说明你的答案。<br>解答：我们知道，3 次握手完成两个重要功能，既要双方做好发送数据的准备工作（双方都<br>知道彼此已准备好），也要允许双方就初始序列号进行协商，这个序列号在握手过程中被发<br>送与确认。<br>现在把三次握手改成仅需要两次握手，死锁是可能发生的。作为例子，考虑计算机A<br>和B 之间的通信。假定B 给A 发送一个连接请求分组，A 收到了这个分组，并发送了确认<br>应答分组。按照两次握手的协定，A 认为连接已经成功地建立了，可以开始发送数据分组。<br>可是，B 在A 的应答分组在传输中被丢失的情况下，将不知道A 是否已准备好，不知道A<br>建议什么样的序列号用于A 到B 的交通，也不知道A 是否同意B 所建议的用于B 到A 交<br>通的初始序列号，B 甚至怀疑A 是否收到自己的连接请求分组。在这种情况下，B 认为连<br>接还未建立成功，将忽略A 发来的任何数据分组，只等待接收连接确认应答分组。而A 在<br>发出的分组超时后，重复发送同样的分组。这样就形成了死锁。</p>
+</li>
+<li><p><strong>试简述CSMA/CD协议的工作原理</strong>(重点)</p>
+<blockquote>
+<p>答： CSMA/CD协议即载波监听，多点接入，碰撞检测。（2分）<br>首先，每个站点发送数据之前必须侦听信道的忙、闲状态。如果信道空闲，立即发送数据，同时进行冲突检测；如果信道忙，站点继续侦听总线，直到信道变成空闲。（2分）<br>如果在数据发送过程中检测到冲突，将立即停止发送数据并等待一段随机长的时间，然后重复上述过程。（1分）<br>即：先听后发，边听边发；冲突检测，延时重发。（1分）</p>
+</blockquote>
+</li>
+<li><p>一个Web页面请求全过程？<br>从键入<a href="http://www.google.com到浏览器显示网页经历了一系列的事件" target="_blank" rel="noopener">www.google.com到浏览器显示网页经历了一系列的事件</a></p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>.首先需要利用DNS域名服务知道google服务器的<span class="built_in">IP</span>地址：主机的操作系统生成一个DNS域名查询  报文，采用UDP传输层协议，端口号<span class="number">53</span>，网络层将此报文封装上<span class="built_in">IP</span>头部信息，加上源<span class="built_in">IP</span>地址与目的<span class="built_in">IP</span>地址（即DNS服务器的<span class="built_in">IP</span>地址），数据链路层将数据报封装成链路层数据帧，并将其转发到网关路由器</span><br><span class="line">（通过ARP协议，链路层转发），网关路由器抽取DNS数据报的<span class="built_in">IP</span>地址，查询转发表，将其从某接口转发，最终到达DNS服务器，DNS服务器查询这个域名DNS源记录，并将包含google服务器的地址的DNS应答报文发送给主机，主机接收到后，提取出google服务器的<span class="built_in">IP</span>地址</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.主机得先与google服务器建立TCP连接：传输层得先创建TCP套接字，目的端口<span class="number">80</span>，目的<span class="built_in">IP</span>地址google服务器的地址，建立连接需要三次握手，主机发送SYN连接请求报文，google服务器收到后，分配缓存与变量，回复SYNACK报文，主机收到后，分配缓存与变量资源，回复ACK报文，并可以携带HTTP <span class="meta">GET</span>报文</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>.主机发送HTTP <span class="meta">GET</span>报文：主机应用层生成HTTP <span class="meta">GET</span>报文，传递给TCP传输层，TCP协议给HTTP <span class="meta">GET</span>报文封装TCP头部信息，并交给<span class="built_in">IP</span>层，<span class="built_in">IP</span>层封装<span class="built_in">IP</span>头部信息称为数据报，再交给数据链路层封装成数据帧，通过ARP协议，进行链路层转发到网关路由器，网关路由器提取<span class="built_in">IP</span>地址，查询转发表，再转发到某借口，最终到达google服务器，服务器提取出HTTP <span class="meta">GET</span>报文，生成一个HTTP响应报文，将所请求的WEB页面放入HTTP响应体中，并通过TCP连接将此报文发送回主机，主机收到后，提取出HTTP 响应报文，从HTTP响应体中提取出HTML文件，最终显示出了WEB页面</span><br></pre></td></tr></table></figure></li>
+<li><p>概述MAC地址与ARP协议？</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">每一个网络设备的适配器都有自己的链路层地址，<span class="keyword">MAC</span>地址，这个地址是自生产出来就是唯一的。数据链路层需要通过<span class="keyword">MAC</span>地址来转发数据帧来通过交换机网络</span><br><span class="line"></span><br><span class="line">ARP协议称为地址解析协议，提供了IP地址转换为链路层<span class="keyword">MAC</span>地址的机制</span><br><span class="line">IP地址相当于邮政地址，<span class="keyword">MAC</span>地址相当于身份证号</span><br><span class="line"></span><br><span class="line">ARP工作原理：</span><br><span class="line">每台主机或路由器都保存有一张ARP表，表中包含IP地址与<span class="keyword">MAC</span>地址的映射关系当表中有目的IP地址的信息时，就直接交给链路层进行发送</span><br><span class="line">如果表中还没有相关信息，则在本子网内发送ARP广播查询，若此IP目的节点收到后应回复一个ARP应答报文</span><br><span class="line">所以ARP是自适应的，自动建立的，即插即用的</span><br></pre></td></tr></table></figure></li>
+<li><p>概述MAC协议？</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">MAC</span>协议称为多路访问控制协议</span><br><span class="line">主要能分为三类：信道划分协议，随机接入协议，轮流协议</span><br><span class="line"></span><br><span class="line">信道划分协议</span><br><span class="line">主要分为时分多路复用（TDM），频分多路复用（FDM），码分多址（CDMA）</span><br><span class="line">相当于是为每一个可能使用的人预留了一段资源，每个人在自己分配的那段资源里传输数据，所以一定不会发生碰撞</span><br><span class="line">当某时刻用的人很多时，利用率高当某时刻用的人很少时，利用率低</span><br><span class="line">随机接入协议基本思想是：当用户有数据需要发送时，就直接发送，如果与其他人发生碰撞了，就等一个随机时延，再重新发送，直到没有碰撞发生，发送成功为止</span><br><span class="line">主要有时隙ALOHA，ALOHA，CSMA，CSMA/<span class="keyword">CD</span>协议</span><br><span class="line">时隙ALOHA将时间划分若干时隙，规定所有人只能在某一个时隙的起始点发送数据</span><br><span class="line">ALOHA则没有这个规定，所有人可以在任何时间发送数据时隙ALOHA的效率比ALOHA协议的效率要高一倍左右</span><br><span class="line">CSMA协议称为载波侦听多路访问，即发送数据之前先侦听信道，当没有人发送数据时，才发送数据</span><br><span class="line">CSMA/<span class="keyword">CD</span>协议称为带碰撞检测的载波侦听多路访问协议，在CSMA基础上加了碰撞检测，若检测到碰撞，则都立即停止发送，等一个随机时间后再次发送</span><br><span class="line"></span><br><span class="line">那么既然所有人都侦听了，为什么还会发生碰撞呢？原因是存在传播延迟。随机接入协议，当某时刻用的人少时，效率很高</span><br><span class="line">用的人多时，发生碰撞概率高，效率较低</span><br><span class="line">轮流协议</span><br><span class="line">按照一定的轮流规则，所有需要发送数据的人轮流发送数据，轮到谁就谁发。主要有</span><br><span class="line">轮询协议：主节点轮流通知每个节点，你可以发送数据了，如果你有数据，就发，没数据，就过缺点：带来额外的轮询消耗；如果主节点发生故障，则后果严重</span><br><span class="line">令牌传递：某种称为令牌的特殊帧在节点之间按特定次序传递，令牌传递到的节点才可以发送数据。</span><br><span class="line">缺点：同样带来消耗，某一节点发生故障也可能给整个信道带来奔溃。</span><br></pre></td></tr></table></figure></li>
+<li><p>概述数据链路层的服务？</p>
+<blockquote>
+<p>基本服务：将网络层的数据报封装成数据帧，通过单一通信链路从一个节点传输到另一个节点<br>链路层的主体是在网络适配器上实现的<br>链路层信道主要分为两类，点对点链路（PPP），和广播链路</p>
+</blockquote>
+</li>
+<li><p>概述路由算法？</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">链路状态路由算法（LS）</span><br><span class="line">全局式的路由选择算法</span><br><span class="line">每个节点有本网络所有的网络拓扑以及链路费用的全局信息运用迪杰斯特拉（Dijkstra）算法计算最短路由选择</span><br><span class="line">特点</span><br><span class="line">向网络上所有其他节点广播消息消息仅包括到邻居节点的费用 收敛速度较快</span><br><span class="line">存在震荡现象（当费用与通信量相关时）</span><br><span class="line">距离向量路由算法（DV）</span><br><span class="line">分布式的路由算则算法</span><br><span class="line">每个节点仅保存通往目的地的最短路径的下一跳，通过迭代的方式计算出路径选择</span><br><span class="line">每个节点从直接相连的邻居处获取信息，然后计算，若有变化，则将计算结果分发给直接相连的邻居</span><br><span class="line">每个节点直接检测到链路费用，更新路由信息，若变化，发送给所有直接的邻居</span><br><span class="line">特点</span><br><span class="line">分布式，迭代，异步的路由算法仅向直接相连的邻居交换信息</span><br><span class="line">每个节点仅保存通往目的地最短路径的下一跳收敛速度慢</span><br><span class="line">好消息传播快，坏消息传播慢</span><br><span class="line">存在无穷计数的问题，解决办法为毒性逆转，（如果A通往目的地的最短路径的下一跳是B，则当B 询问B通过A去目的地的最短路径时，A回复无穷大）</span><br><span class="line">层次路由选择</span><br><span class="line">将一个大规模网络分为多个自治系统（AS），每个自治系统内运行相同的路由算法，称为自治系统</span><br><span class="line"></span><br><span class="line">内部路由选择协议（如RIP，OSPF）</span><br><span class="line">两个自治系统AS之间的通信运行自治系统间路由选择协议（如BGP）</span><br><span class="line">RIP</span><br><span class="line">路由选择信息协议（Routing Information Protocol）</span><br><span class="line">基于距离向量路由算法（DV），定义跳数为其链路费用RIP被当做一个应用进程来实现，交换信息使用UDP RIP通常被用于小规模网络，下层ISP及公司网络 OSPF</span><br><span class="line">开放最短路优先协议（Open Shortest Path First） 基于链路状态路由算法（LS）</span><br><span class="line">当一条链路费用变化时，节点向网络中所有节点广播路由选择信息每个节点使用Dijkstra算法计算最低费用路径选择</span><br><span class="line">OSPF更复杂，也有很多优点： 安全</span><br><span class="line">可以有多条相同费用路径，当需要传递大量分组时，有多个选择，充分利用支持单播和多播路由</span><br><span class="line">OSPF支持在AS内部进一步分层</span><br><span class="line">BGP</span><br><span class="line">边界网关协议（Border Gateway Protocol）,自治系统间的路由选择协议eBGP，从邻居子网获取可达信息                           iBGP，向本子网内节点传递子网可达信息</span><br><span class="line">基于可达信息的路径，确定到达外部子网的好的路径</span><br></pre></td></tr></table></figure></li>
+<li><p>概述NAT协议？</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">NAT</span>又称为网络地址转换，为本地私有网络提供合法<span class="built_in">IP</span>地址，连接到外部网络</span><br><span class="line"><span class="symbol">NAT</span>不仅能解决<span class="built_in">IP</span>地址不足的问题，而且能有效避免被攻击，隐藏和保护内部计算机NAT的转换方式主要有三种：</span><br><span class="line">静态转换：将私有网络的某<span class="built_in">IP</span>地址转换成特定的合法<span class="built_in">IP</span>地址，一对一静态转换</span><br><span class="line">动态转换：将私有网络的<span class="built_in">IP</span>地址转换成合法<span class="built_in">IP</span>地址时，是不确定的，可以随机转换成任意指定的合法<span class="built_in">IP</span>地址</span><br><span class="line">端口多路复用：将私有网络的<span class="built_in">IP</span>地址转换成合法<span class="built_in">IP</span>地址时，所有私有网络主机共享一个合法<span class="built_in">IP</span>地址，每个主机转换为端口号，进行外部网络的访问。</span><br></pre></td></tr></table></figure></li>
+<li><p>概述DHCP协议？<br>DHCP协议又称为动态主机配置协议，DHCP允许主机自动获取IP地址<br>DHCP是一种客户端-服务器协议，在应用层实现，采用UDP<br>主机获取IP地址步骤：</p>
+</li>
+</ol>
+<ul>
+<li><ol>
+<li>主机广播DHCP发现报文</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>DHCP服务器回应ACK，并携带分配给它的IP地址，表示提供服务</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>主机广播DHCP请求，表示我打算连接到你分配的IP地址，同时也相当于告诉其他DHCP服务器， 我已经打算连接到这个DHCP服务器的IP地址了，你们分配的IP地址可收回了</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>DHCP服务器最后回复ACK报文</li>
+</ol>
+</li>
+</ul>
+<ol start="47">
+<li>概述TCP协议？<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TCP协议是一种点对点的，面向连接的，全双工的服务的，面向字节流的，可靠的，具有拥塞控制的传输层协议</span><br><span class="line">点对点：TCP连接只能是一对一建立的</span><br><span class="line">面向连接：TCP协议在传输数据之前需要建立连接</span><br><span class="line">全双工服务：TCP连接建立之后，连接双方都可以同时向对方发送数据</span><br><span class="line">面向字节流的：TCP把数据看成无结构的，有序的字节流，TCP的序号是建立在字节流上而不是建立在报文段上</span><br><span class="line">可靠的：TCP采用确认重传机制，序号机制，定时器机制，快速重传，滑动窗口机制，流量控制等 来保证数据传输的可靠性</span><br><span class="line">拥塞控制：TCP采用慢启动，拥塞避免，快速恢复的机制来进行拥塞控制，共避免网络空间陷入拥塞</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>TCP报文头部<ul>
+<li>源端口号：发送方进程端口号目的端口号：接收方进程端口号</li>
+<li>序号：32比特，建立在字节流上的序号机制</li>
+</ul>
+<ul>
+<li>确认号：32比特，确认号表示期望收到的下一字节的序号，与序号共同保证TCP的可靠传输首部长度：TCP首部长度，因为选项字段的存在，一般无选项头部长为20字节       URG：表示报文段中存在被发送方指示为紧急的数据。紧急数据由紧急数据指针指出ACK：确认标志位，表示首部的确认号有效</li>
+<li>PSH：表示接收方应立即将接收的数据交付给上层。因为TCP接收方可能存在接收缓存，接收方可能在忙其他事情，可能等接收缓存满的时候，才会将数据交付给上层，PSH标志位表示接收方应立即将数据交付上层</li>
+<li>RST：表示复位，用来异常的关闭连接，引发RST的原因主要有：提前关闭，请求超时，端口未打开，在一个已关闭的SOCKET接收到数据</li>
+<li>SYN：建立TCP连接时的标志位FIN：关闭TCP连接时的标志位</li>
+<li>接收窗口：表示接收方还有多少缓存供接收，用于控制发送方的发送速率，以免溢出。用于流量控制</li>
+<li>检验和：首部+数据全部的检验和</li>
+<li>紧急数据指针：与URG标志位共同使用，指出数据中的紧急数据字段</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>TCP的可靠数据传输<br>  TCP的可靠数据传输服务保证应用进程从接收缓存中读取的数据是不错，不乱，不丢的数据<ul>
+<li>确认：只发送ACK确认被正确接收的分组，不发NAK，确认号是期望收到的下一字节序号：序号基于无结构，有序的字节流。序号表示该报文段的首字节的字节流编号</li>
+<li>定时器：TCP设置单一定时器</li>
+<li>累计确认：TCP采用累计确认，即接收方发送确认号为x的ACK，表示x之前的报文段都已被正确的接收；但是采用全部重传还是选择重传，TCP没有明确规定</li>
+<li>超时重传：如果报文段的传输时间超时，则重传</li>
+<li>快速重传：当发送方收到三个重复ACK（即共4个ACK），则快速重传该报文段</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>TCP流量控制<br>  因为接收方设置有限的接收缓存，如果发送方发送速率过大的话，接收方缓存可能溢出，导致不必要的分组丢失<br>  所以流量控制是为了限制发送方的发送速率，来保证接收方可以来得及接收到来的报文段<br>  接收方在头部的接收窗口告诉发送方，接收缓存还剩多少，即还能接收多少数据，发送方保证发送的数据量不超过这个量<br>  若接收方告知接收窗口为0了，为避免阻塞，发送方仍发送数据量为1的报文段，接收方接收并回复ACK，并同时告知此时的接收窗口大小<br>  发送方的发送速率由流量控制的接收窗口大小与拥塞控制的拥塞窗口大小共同控制</li>
+<li>TCP的拥塞控制<ul>
+<li>发送方控制自己的发送速率，避免公共网络陷入拥塞，所有TCP发送方共同维护公共网络</li>
+<li>拥塞控制与流量控制的区别：流量控制是考虑端到端之间的问题，是避免发送方发送速率过快导 致接收方来不及接收，考虑的是私人利益；拥塞控制考虑的是公共网络，避免发送方发送速率过快而导致网络陷入拥塞，考虑的是公共网络的问题</li>
+<li>TCP在发送方维护一个CWND的拥塞窗口变量，与接收窗口RWND共同控制发送速率（滑动窗口的大小）</li>
+<li>TCP根据丢包事件来感知网络的拥塞状态，如果发生超时丢包事件，则说明网络已经比较拥塞  了，数据已经传输不到接收方；如果重复ACK丢包事件，则表示网络可能即将陷入拥塞，但是没有那么严重，因为数据还能传输到接收方</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>拥塞控制方法<ul>
+<li>慢启动：TCP启动速度很慢，一般从MSS从1开始，但是希望快速找到可用带宽的数量，发送速率指数增长，知道遇到丢包时间，则设置一个阀值等于丢包时的速率的一般，即ssthresh = CWND/2 拥塞避免：如果是超时事件引起的丢包，则进入拥塞避免状态，拥塞避免状态将阀值设为拥塞窗口值的一半之后，将速率设为MSS = 1，然后开始指数增长，直到达到阀值ssthresh，此时可能即将进入拥塞状态了，所以之后再线性增长，直到遇到丢包事件</li>
+<li>快速恢复：如果是3个重复ACK引起的丢包事件，此时TCP执行快速重传，并进入快速恢复状态， 将阀值设为拥塞窗口值的一般，即ssthresh = CWND/2，然后将发送速率降为阀值ssthresh，之后线性增长，直到遇到丢包事件</li>
+</ul>
+</li>
+</ul>
+<p>能够理解计算机网络协议栈分层设计的方法，每层的名称、主要功能、Internet 对应层的主要协议。<br>48. OSI七层架构</p>
+<table>
+<thead>
+<tr>
+<th align="center">r</th>
+<th align="center">l</th>
+<th align="center">j</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第一层</td>
+<td align="center">物理层（physical）</td>
+<td align="center">（单位类型：比特）    实现比特流的透明传输，物理接口，具有电气特性</td>
+</tr>
+<tr>
+<td align="center">第二层</td>
+<td align="center">数据链路层（date link）（单位类型：帧）</td>
+<td align="center">访问介质；数据在该层封装成帧；用MAC地址作为访问媒介；具有错误检测与修正功能。MAC描述在共享介质环境中如何进行站的调度、发生和接收数据。MAC确保信息跨链路的可靠传输，对数据传输进行同步，识别错误和控制数据的流向。一般地讲，MAC只在共享介质环境中才是重要的，只有在共享介质环境中多个节点才能连接到同一传输介质上</td>
+</tr>
+<tr>
+<td align="center">第三层</td>
+<td align="center">网络层（network）（单位类型：报文）</td>
+<td align="center">数据传输；提供逻辑地址，选择路由数据包，负责在源和终点之间建立连接</td>
+</tr>
+<tr>
+<td align="center">第四层</td>
+<td align="center">传输层（transport）</td>
+<td align="center">实现端到端传输；分可靠与不可靠传输；在传输前实现错误检测与流量控制，定义端口号（标记相应的服务）</td>
+</tr>
+<tr>
+<td align="center">第五层</td>
+<td align="center">会话层（session）</td>
+<td align="center">主机间通信；对应用会话管理，同步</td>
+</tr>
+<tr>
+<td align="center">第六层</td>
+<td align="center">表示层（presention）</td>
+<td align="center">数据表现形式；特定功能的实现-比如加密模式确保原始设备上加密的数据可以在目标设备上正确地解密</td>
+</tr>
+<tr>
+<td align="center">第七层</td>
+<td align="center">应用层（application）</td>
+<td align="center">最接近终端用户的OSI层，这就意味着OSI应用层与用户之间是通过应用软件直接相互作用的。网络进程访问应用层；提供接口服务</td>
+</tr>
+<tr>
+<td align="center">- 2.TCP/IP四层架构</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">r</th>
+<th align="center">l</th>
+<th align="center">j</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第四层</td>
+<td align="center">应用层</td>
+<td align="center">TCP/IP协议的应用层相当于OSI模型的会话层、表示层和应用层，FTP(文件传输协议)，DNS（域名系统），HTTP协议，Telnet（网络远程访问协议）</td>
+</tr>
+<tr>
+<td align="center">第三层</td>
+<td align="center">传输层</td>
+<td align="center">提供TCP(传输控制协议)，UDP（用户数据报协议）两个协议，主要功能是数据格式化、数据确认和丢失重传等。</td>
+</tr>
+<tr>
+<td align="center">第二层</td>
+<td align="center">网络层</td>
+<td align="center">该层负责相同或不同网络中计算机之间的通信主要处理数据包和路由。数据包是网络传输的最小数据单位。通过某条传输路线将数据包传给对方。IP协议,ICMP协议，IGMP协议。在IP层中，ARP协议用于将IP地址转换成物理地址，ICMP协议用于报告差错和传送控制信息。IP协议在TCP/IP协议组中处于核心地位。</td>
+</tr>
+<tr>
+<td align="center">第一层</td>
+<td align="center">网络接口层</td>
+<td align="center">TCP/IP协议的最低一层，对实际的网络媒体的管理，包括操作系统中的设备驱动程序和计算机对应的网络接口卡</td>
+</tr>
+</tbody></table>
+<ul>
+<li>3.TCP/IP五层架构</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">r</th>
+<th align="center">l</th>
+<th align="center">j</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第五层</td>
+<td align="center">应用层 单位:报文(message)</td>
+<td align="center">应用层是网络应用程序及它们的应用层协议存留的地方    面向用户提供端到端的网络服务</td>
+</tr>
+<tr>
+<td align="center">第四层</td>
+<td align="center">运输层 单位:报文段(segment)</td>
+<td align="center">因特网的运输层在应用程序端点之间传送应用层报文.有两种运输层协议TCP和UDP.为应用层提供端到端的数据传输服务。</td>
+</tr>
+<tr>
+<td align="center">第三层</td>
+<td align="center">网络层 单位:数据报(datagram)</td>
+<td align="center">负责将名为数据报的网络层分组从一台主机移动到另一台主机.转发和路由.为数据包找到一条从源地址到目的地址的路径</td>
+</tr>
+<tr>
+<td align="center">第二层</td>
+<td align="center">链路层 单位:帧(frame)</td>
+<td align="center">将整个帧从一个网络元素移动到邻近的网络元素  为共享同一条链路的多个用户分配链路资源,以便把数据包传输到网络层指定的相邻节点上</td>
+</tr>
+<tr>
+<td align="center">第一层</td>
+<td align="center">物理层 单位:比特(bit)</td>
+<td align="center">将帧中的一个个比特从一个节点移动到下一个节点    负责把数字信号转换成模拟信号（光/电等）在物理介质上传输。</td>
+</tr>
+</tbody></table>
+<ol start="49">
+<li><p>C/S模式和P2P模式的区别和优点缺点?</p>
+<blockquote>
+<p>1、C/S工作模式中信息资源的共享是以服务器为中心<br>2、P2P工作模式淡化服务提供者与服务使用者的界限，P2P网络中的每台计算机即可以是网络服务使用者也可以是提供者<br>3、C/S与P2P模式的差别主要在应用层<br>C/S：DNS，SMTP，FTP，Web<br>P2P：支持文件共享类Napster与BitTorrent服务协议、支持多媒体传输类Skype服务的协议<br>P2P网络是在IP网络上构建的一种逻辑的覆盖网，P2P是一种网络的覆盖模式</p>
+</blockquote>
+</li>
+<li><p>DNS<br>(name,value,type,ttl)</p>
+</li>
+</ol>
+<ul>
+<li>type = A<br>  name 是主机名,value是主机名对应的ip<br>  例如(tju.rlj.com,123.124.0.1,A)</li>
+<li>type = NS<br>  name 是个域 如(rlj.com) value是个知道如何获得该域中主机ip地址的权威dns服务器的主机名<br>  例如:(rlj.com,dns.rlj.com,NS)</li>
+<li>type = CNAME<br>  value是别名为name的主机对应的规范主机名<br>  例如:(rlj.com,tju.rlj.com,CNAME)</li>
+<li>type = MX<br>  value 是个别名为name的邮件服务器的规范主机名<br>  (rlj.com,mail.rlj.com,NX)</li>
+</ul>
+<ol start="51">
+<li>NAT在P2P应用又事码问题? 怎么能解决?具体名字是什么?<blockquote>
+<p>：P2P 需要实现两台主机间端到端的对等连接与通信,即参与通信的两台主机都可以是服务器,等待对 方的连接.而使用 NAT 技术后,NAT 设备后面的主机使用的是内部 IP 地址,不能直接被外部的设备访问, 因此部署在 NAT 设备之后的主机不能作为服务器,因而无法实现 P2P 通信.可以通过事先配置 NAT 转换 表来解决这一问题,即在表中增加内部主机的内部 IP,内部端口号和外部 IP,外部端口号的对应表项.这 一技术有 NAT 穿越 技术,UPnP协议</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>第七,八,九章 <ul>
+<li>A通过计算机网络给B发送消息，说其同意签订合同。随后A反悔，不承认发过该消息。为防止这种情况发生，在计算机网络中应采用 D 技术。<br>A、消息认证 B、数据加密 C、防火墙 D、数字签名 </li>
+<li>在公钥密码体制中，不公开的是 B 。<br>A、公钥 B、私钥 C、公钥和加密算法 D、私钥和加密算法</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://blog.csdn.net/u012557765/article/details/81638446" target="_blank" rel="noopener">相关文章:数据交换</a><br><a href="https://blog.csdn.net/qq894040717/article/details/82426965" target="_blank" rel="noopener">CSMA/CA</a></p>
+]]></content>
+      <categories>
+        <category>期末</category>
+      </categories>
+      <tags>
+        <tag>Computer Networking</tag>
       </tags>
   </entry>
   <entry>
@@ -2990,448 +3427,6 @@ world</code>标记之外</p>
       </categories>
       <tags>
         <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络の摘要</title>
-    <url>/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%81%AE%E6%91%98%E8%A6%81/</url>
-    <content><![CDATA[<p>计网马上要考试了,之前从头看了遍网课,整理了点知识点和习题. 挑挑拣拣选一些考纲上的内容也来一个<br><strong>一天一遍,预防失眠</strong>(yjn_语录)</p>
-<a id="more"></a>
-<h3 id="摘要部分"><a href="#摘要部分" class="headerlink" title="摘要部分"></a>摘要部分</h3><ol>
-<li><p>在TCP协议中，某数据包的确认包丢失也不一定导致发送方重传该数据包 √</p>
-</li>
-<li><p>传输层用进程编号（PID）来标示主机间通信的应用进程        × port</p>
-</li>
-<li><p>客户使用SMTP协议既能发送邮件又能接收邮件                × POP3接收邮件</p>
-</li>
-<li><p>某种网络安全威胁是通过非法手段取得对数据的使用权，并对数据进行恶意地添加和修改，这种安全威胁属于<strong>B__</strong><br>A、窃听数据 B、破坏数据完整性<br>C、拒绝服务 D、物理安全威胁</p>
-</li>
-<li><p>如要将138.10.0.0 网络分为6个子网，则子网掩码应设为（D）<br>A、255.0.0.0 B、255.255.0.0<br>C、255.255.128.0 D、255.255.224.0</p>
-<blockquote>
-<p>6个子网需要3个子网位,因为2^3=8 所以子网掩码是255.255.1110.0000,即255.255.224.0</p>
-</blockquote>
-</li>
-<li><ol>
-<li>下面有关网络互连设备说法正确的有（ABCD）<br>A、在物理层实现网络互连的主要设备有中继器和HUB。<br>B、在数据链路层实现网络互联的主要设备有二层交换机和网桥。<br>C、在网络层实现网络互连的主要设备有三层交换机和路由器。<br>D、在传输层（包括传输层）以上实现网络互连的设备有网关。</li>
-</ol>
-</li>
-<li><p>试简述TCP协议在数据传输过程中收发双方是如何保证数据包的可靠性的。</p>
-<blockquote>
-<p>（1）为了保证数据包的可靠传递，发送方必须把已发送的数据包保留在缓冲区； （1分）<br>（2）并为每个已发送的数据包启动一个超时定时器；（1分）<br>（3）如在定时器超时之前收到了对方发来的应答信息（可能是对本包的应答，也可以是对本包后续包的应答），则释放该数据包占用的缓冲区;（1分）<br>（4）否则，重传该数据包，直到收到应答或重传次数超过规定的最大次数为止。（1分）<br>（5）接收方收到数据包后，先进行CRC校验，如果正确则把数据交给上层协议，然后给发送方发送一个累计应答包，表明该数据已收到，如果接收方正好也有数据要发给发送方，应答包也可方在数据包中捎带过去。（1分）</p>
-</blockquote>
-</li>
-<li><p>假设有五个IP地址A：131.107.256.80，B：231.222.0.11，C：126.1.0.0，D：198.121.254.255，E：202.117.34.32，找出不能分配给主机的IP地址，并说明原因。</p>
-<blockquote>
-<p>(1）A的第三个数256大于255是非法值，不能用于主机地址；（1分）<br>（2）B的第一个数231是保留给组播的地址，不能用于主机地址；（1分）<br>（3）C以全0结尾的IP地址是网络地址，不能用于主机地址；（1分）<br>（4）D以全1结尾的IP地址是广播地址，不能用于主机地址。（2分）</p>
-</blockquote>
-</li>
-<li><p>为什么说TCP协议中针对某数据包的应答包丢失也不一定导致该数据包重传？<br>（1）由于TCP协议采用的是面向字符流的累计确认机制；（2分）<br>（2）当某数据包的应答丢失时，只要接收方还有数据发给发送方，在其应答字段中将包含对前面收到的数据包的应答信息，所以发送方不需要重发该数据包。（3分）<br><a href="https://zhidao.baidu.com/question/241652922.html?qbl=relate_question_0&word=TCP%D0%AD%D2%E9%D6%D0%D5%EB%B6%D4%C4%B3%CA%FD%BE%DD%B0%FC%B5%C4%D3%A6%B4%F0%B0%FC%B6%AA%CA%A7%D2%B2%B2%BB%D2%BB%B6%A8%B5%BC%D6%C2%B8%C3%CA%FD%BE%DD%B0%FC%D6%D8%B4%AB" target="_blank" rel="noopener">click</a></p>
-</li>
-<li><p>占据两个山顶的红军1与红军2与驻扎在这两个山之间的白军作战。其力量对比是:红军1或红军2打不赢白军，但红军1和红军2协同作战可战胜白军。红军1拟于次日凌晨6点向白军发起攻击，于是给红军2发送电文，但通信线路很不好，电文出错或丢失的可能性较大，因此要求收到电文的红军2必须送回一个确认电文，但确认电文也可能出错或丢失。试问能否设计出一种协议使得红军能够实现协同作战，因而100%的取得胜利？<br>答：</p>
-<blockquote>
-<p>（1）采用三次握手的方式；（2分）<br>（2）红军1给红军2发送电文，决定次日凌晨6点向白军发起攻击，请求红军2协同作战，并等待红军2的应答，如果在规定时间内没有收到应答，则重发请求；（3分）<br>（3）红军2如果收到红军1的作战报文后，则回送一个响应报文，表明已知道次日凌晨6点向白军发起攻击且愿意协同作战，并等待红军1的确认，如果在规定时间内没有收到确认报文，则重发响应报文；（3分）<br>（4）红军1收到红军2的响应报文，再向红军2发送一个确认报文，并表明已知道红军2将协同作战。（2分）</p>
-</blockquote>
-</li>
-<li><p>学生A希望访问网站<code>www.sina.com</code>，A在其浏览器中输入<a href="http://www.sina.com并按回车，直到新浪的网站首页显示在其浏览器中，请问：在此过程中，按照TCP/IP参考模型，从应用层到网络层都用到了哪些协议？" target="_blank" rel="noopener">http://www.sina.com并按回车，直到新浪的网站首页显示在其浏览器中，请问：在此过程中，按照TCP/IP参考模型，从应用层到网络层都用到了哪些协议？</a><br>答：</p>
-<blockquote>
-<p>（1）应用层：HTTP：WWW访问协议，DNS：域名解析；（3分）<br>（2）传输层：TCP：在客户和服务器之间建立连接，提供可靠的数据传输；（4分）<br>（3）网络层：IP：IP包传输和路由选择，ICMP：提供网络传输中的差错检测，ARP：将本机的缺省网关IP地址映射成物理MAC地址。（4分）</p>
-</blockquote>
-</li>
-<li><p>目前实际存在与使用的广域网基本都采用（D）。<br>A)总线拓扑 B)环状拓扑   C)星状拓扑 D)网状拓扑 </p>
-</li>
-<li><p>下列IP地址中属于B类IP地址的是（B）。<br>A) 200.126.32.50 B) 191.23.56.89 C) 192.168.0.1 D) 126.45.33.9</p>
-<blockquote>
-<p>A类IP地址 地址范围从1.0.0.1到127.255.255.254  子网掩码为255.0.0.0<br>B类IP地址地址范围从128.0.0.1-191.255.255.254   子网掩码为255.255.0.0<br>C类IP地址范围从192.0.0.1-223.255.255.254      子网掩码为255.255.255.0<br>私有地址范围:<br>A类地址：10.0.0.0～10.255.255.255<br>B类地址：172.16.0.0～172.31.255.255<br>C类地址：192.168.0.0～192.168.255.255<br>回送地址：127.0.0.1。 也是本机地址，等效于localhost或本机IP。</p>
-</blockquote>
-</li>
-<li><p>在总线型局域网的介质访问控制方法中，采用“先听后发，边听边发，冲突停止，随机延迟后重发”的是（A）<br>A)CSMA/CD B)TokenBus C)TokenRing D)FDDI</p>
-<blockquote>
-<p>[解析] CSMA/CD的发送流程可以简单地概括为先听后发、边听边发、冲突停止、随机延迟后重发。<br>采用CSMA/CD介质访问控制方法的总线型局域网在发送数据前，先监听总线是否空闲。<br>若总线忙，则不发送：若总线空闲，则把准备好的数据发送到总线上。<br>在发送数据的过程中，工作站边发送边检测总线，是否自己发送的数据有冲突。<br>若无冲突则继续发送直到发完全部数据；若有冲突，则立即停止发送数据，但是要发送一个加强冲突的信号，以便使网络上所有工作站都知道网上发生了冲突，<br>然后，等待一个预定的随机时间，且在总线为空闲时，再重新发送未发完的数据。</p>
-</blockquote>
-</li>
-<li><p>(ARP)是将IP地址映射成物理地址，而(TCP/IP)的主要目的是把资源名称解析成IP地址。 </p>
-</li>
-<li><p>网络安全的威胁因素有很多，其中人为的威胁因素类型有中断、窃取、更改和伪造。（√） </p>
-</li>
-</ol>
-<ol start="17">
-<li>网络安全的特性。 </li>
-</ol>
-<ul>
-<li>保密性：信息不泄露给非授权用户、实体或过程，或供其利用的特性。</li>
-<li>(数据)完整性：数据未经授权不能进行改变的特性。即信息在存储或传输过程中保持不被修改、不被破坏和丢失的特性。</li>
-<li>可用性：可被授权实体访问并按需求使用的特性。即当需要时能否存取所需的信息。例如网络环境下拒绝服务、破坏网络和有关系统的正常运行等都属于对可用性的攻击；</li>
-<li>可控性：对信息的传播及内容具有控制能力。</li>
-</ul>
-<ol start="17">
-<li><p>计算机网络需要哪几方面的安全性？</p>
-<blockquote>
-<p>答案：<br>(1)保密性：计算机中的信息只能由授予访问权限的用户读取(包括显示、打印等，也包含暴露信息存在的事实)。<br>(2)数据完整性：计算机系统中的信息资源只能被授予权限的用户修改。<br>(3)可利用性：具有访问权限的用户在需要时可以利用计算机系统中的信息资源，得到密文。</p>
-</blockquote>
-</li>
-<li><p>网络上两个进程之间进行通信需要用一个五元组来标识：(本机主机地址,本机端口号,协议,远程主机地址,远程端口号)</p>
-</li>
-<li><p>下列媒体访问协议中没有冲突的协议是(D)<br>A、1-支持CSMA B、ALOHA C、CSMA/CD D、TOKEN RING (令牌环网)</p>
-</li>
-<li><p>试简述主机1（IP地址为192.168.25.1，MAC地址为 E1）向主机2（IP地址为192.168.25.2，MAC地址为E2）发送数据时ARP 协议的工作过程（主机1、主机2在同一个子网内）。</p>
-<blockquote>
-<p>答：<br>（1）当主机1要向主机2发送数据时，必须知道主机2的MAC地址，为此，先根据主机2的IP地址在本机的ARP缓冲表内查找，如找到E2，则把E2填到MAC帧中，并把数据发送给主机2；<br>（2）如果在本机的ARP缓冲表内找不到主机2的MAC地址，则主机1产生一个ARP询问包，其中包含主机1的IP地址，MAC地址E1，主机2的IP地址，并广播到网络上询问有谁知道主机2的MAC地址？<br>（3）主机2收到ARP询问包后，根据询问者的IP和MAC地址E1立即向主机1回送一个ARP响应包，其中包含主机1的IP地址，MAC地址E1，主机2的IP地址和MAC地址E2，从而主机1获得了主机2的MAC地址E2，进而可向主机2发送数据。<br>3、设某网络在某一时刻的结构如下图所示，试用L-S路由算法为节点C计算到各节点的路由表（包括目的地、下一站、最小代价）。</p>
-</blockquote>
-</li>
-<li><p>在某网络应用系统中，计算机A( IP地址为 192.168.25.168 , MAC地址为00：11：22：33：44：55)需要知道目前本网络内有多少台计算机在联网，其IP地址分别为多少，试运用所学的网络原理，说明解决此问题的方案（要求说明所采用的网络原理以及解决该问题的工作过程）。（本题10分）</p>
-<blockquote>
-<p>答：<br>（1）采用ICMP 请求应答报文（echo）；（1分）<br>（2）计算机A从IP地址192.168.25.1 到 192.168.25.254 做以下工作；（2分）<br>（3）构造一个ICMP请求应答报文，分别发给上述IP地址；（3分）<br>（4）如果能收到某IP有响应包，说明该IP对应的计算机已联网。（4分）</p>
-</blockquote>
-</li>
-<li><p>将某C 网 192.168.118.0 划分成4个子网，请计算出每个子网的有效的主机IP地址范围和对应的网络掩码（掩码用2进制表示） 。（10分）（答案只要符合题目需求就可给满分，下面只是参考答案之一。）</p>
-<blockquote>
-<p>解：<br>（1）子网1的有效IP地址范围为： 192.168.118.1 — 192.168.118.63     (2分)</p>
-<pre><code>（00 00 0001-00 11 1110）</code></pre><p>子网1的网络掩码为：11111111.11111111.11111111.11000000          (2分)<br>（2）子网2的有效IP地址范围为： 192.168.118.65 — 192.168.118.126   (2分)</p>
-<pre><code>（01 00 0001-01 11 1110）</code></pre><p>子网2的网络掩码为：11111111.11111111.11111111.11000000<br>（3）子网3的有效IP地址范围为： 192.168.118.129 — 192.168.118.190  (2分)</p>
-<pre><code>（10 00 0001-10 11 1110）</code></pre><p>子网3的网络掩码为：11111111.11111111.11111111.11000000<br>（4）子网4的有效IP地址范围为： 192.168.118.193 — 192.168.118.254  (2分)</p>
-<pre><code>（11 00 0001-11 11 1110）</code></pre><p>子网4的网络掩码为：11111111.11111111.11111111.11000000</p>
-</blockquote>
-</li>
-<li><p>假设要设计一个网络应用程序，用来测试从本机到互联网上任意一台主机是否连通，如果不通，还 要知道在哪个路由器不通，并了解中间需要经过哪些路由器（或网关）及从本机到这些路由器的时延有多长，请你根据所学的网络原理（要求先简述该网络原理）， 简要说明如何实现该应用程序。（15分）</p>
-<blockquote>
-<p>答：<br>（1）根据IP协议的规定，在每一个IP包中有一个TTL字段，标示该IP包剩余的生命周期（如开始时为128），IP包经过某一个路由器时，将IP包中的TTL值减1，当变为0时，该路由器将丢弃该IP包，并通过ICMP协议向发该IP包的源主机报告丢弃的原因（其中包括原因即TTL=0，丢弃的路由器IP，丢弃的时间等信息）；<br>（2）第一次让应用程序向目的主机发送一个TTL=1的ICMP 包，达到第一个路由器后，由于TTL将会变为0，该ICMP包被丢弃，故第一个路由器将源主机报告丢弃的原因，从而得知该路由器的IP地址和时延；<br>（3）同理，第N次让应用程序向目的主机发送一个TTL=N的ICMP 包，达到第N个路由器后，由于TTL将会变为0，该ICMP包被丢弃，故第N个路由器将源主机报告丢弃的原因，从而得知该路由器的IP地址和时延；<br>（4）直到到达目的主机（假如到达目的主机需要经过M个路由器）或无法到达目的主机（通过M个路由器)。</p>
-</blockquote>
-</li>
-<li><p>设有两台主机的IP地址分别：195.248.8.145，195.248.9.220子网掩码都是255.255.255.0。判断这两个主机能否直接通信。如果不能直接通信，可以采用何种方法？并进行详细说明。</p>
-<blockquote>
-<p>（1）根据两主机的IP地址和子网掩码可以判断两主机不在同一个网络，所以不能直接通信。<br>（2）采用的方法：<br>1、用路由连接两个网络。由路由器来实现数据包从一个网络到另一个网络的转发，使这两台主机可以通信。<br>2.、将子网掩码改为255.255.240.0这样两主机就处于同一个网络中，即网络号相同，这样就能直接通信。</p>
-</blockquote>
-</li>
-<li><p>简答分组交换的特点和不足。</p>
-<blockquote>
-<p>答案：（1）节点暂时存储的是一个个分组，而不是整个数据文件（2）分组暂时保存在节点的内存中，保证了较高的交换速率（3）动态分配信道，极大的提高了通信线路的利用率缺点：（4）分组在节点转发时因排队而造成一定的延时（5）分组必须携带一些控制信息而产生额外开销，管理控制比较困难</p>
-</blockquote>
-</li>
-<li><p>简述在数据传输中，防止阻塞产生的办法</p>
-<blockquote>
-<p>答案：（1）通过对点对点的同步控制，使计算机之间的收发数据速率同步（2）控制网络的输入，避免突然大量数据报文提交（3）接收工作站在接收数据报文之前，保留足够的缓冲空间</p>
-</blockquote>
-</li>
-<li><p>什么是路由？简述路由器的主要功能。<br>答：路由指的是从本地到网络的各个地方应该走的路径，由路由器根据目的地址将数据帧转发到不同的路径。选择最佳的转发数据的路径，建立非常灵活的联接，均衡网络负载；利用通信协议本身的流量控制功能来控制数据传输，有效解决拥挤问题；具有判断需要转发的数据分组的功能；把一个大的网络划分成若干个子网。</p>
-</li>
-<li><p>试说明IP地址与物理地址的区别。为什么要使用这两种不同的地址</p>
-<blockquote>
-<p>答：IP地址（Internet Protocol Address） 用于确定因特网上的每台主机，它是每台主机唯一性的标识。联网设备用物理地址标识自己，例如网卡地址。<br>TCP／IP用IP地址来标识源地址和目标地址，但源和目标主机却位于某个网络中，故源地址和目标地址都由网络号和主机号组成，但这种标号只是一种逻辑编号，而不是路由器和计算机网卡的物理地址。对于一台计算机而言，IP地址是可变的，而物理地址是固定的。</p>
-</blockquote>
-</li>
-<li><p>（1）子网掩码为255.255.255.0代表什么意思？<br>（2）某网络的现在掩码为255.255.255.248，问该网络能够连接多少个主机？<br>（3）某A类网络和某B类网络的子网号subnet-id分别为16个1和8个1，问这两个网络的子网掩码有何不同？<br>（4）某A类网络的子网掩码为255.255.0.255，它是否是一个有效的子网掩码？</p>
-<blockquote>
-<p>答：（1）255.255.255.0可代表C类地址对应的子网掩码默认值；也可代表A类或B类地址的掩码，即主机号由最后8bit决定，而路由器寻找网络由前24bit决定。<br>（2）248=（11111000）2，即IP地址中前29位代表网络，后3位代表主机。所以共有主机数=23=8，但由于其中主机号全0代表该网络的网络地址，主机号全1代表该网络的广播地址，均不能分配给连网主机使用，所以网络能够连接的主机数=23-2=6台。<br>（3）这两个网络的子网掩码是一样的，均为255.255.255.0，但子网数不同，子网号为16bit的A类网络的子网数有216-2个，而子网号为8bit的B类网络的子网数有28-2个。<br>（4）有效，因RFC文档中没有规定子网掩码中的一串1必须是连续的，但不建议这样使用。</p>
-</blockquote>
-</li>
-<li><p>与静态路由协议相比，动态路由有哪些优点？ ．（ AB ）<br>A、带宽占用少<br>B、简单<br>C、路由器能自动发现网络拓扑变化<br>D、路由器能自动计算新的路由</p>
-</li>
-<li><p>为什么要把IP地址解析成MAC地址才能实现数据传输？怎样进行地址解析？</p>
-</li>
-</ol>
-<blockquote>
-<p>（1）发送数据时，数据从高层到低层封装，然后才到通信链路上传输，使用IP地址的IP数据报一旦交给了数据链路层，就被封装成MAC帧。MAC帧在传送时使用的源地址和目的地址都是硬件地址（MAC地址），这两个硬件地址都写在MAC帧的首部中。<br>（2）连接在通信链路上的设备（主机或路由器）在接收MAC帧时，根据MAC帧首部中的MAC地址来决定接收或放弃。因此要把IP地址解析成MAC地址才能实现数据在链路层的封装，进而实现数据传输。<br>（3）每个主机或路由器接口都有一个ARP缓存用来完成IP地址到MAC地址的解析，在进行链路层封装时接口会查询该缓存，来实现解析。如果在缓存表中找不到所查询的IP地址对应的MAC地址，接口会向该局域网发送    ARP查询广播包，对应IP地址的接口收到该ARP查询，会向源地址发送ARP应答单播包，从而完成ARP解析。</p>
-</blockquote>
-<ol start="32">
-<li><p>考虑某路由器具有下列路由表项：</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">网络前缀	               下一跳</span><br><span class="line"><span class="number">142.150</span><span class="number">.64</span><span class="number">.0</span>/<span class="number">24</span> 	 A</span><br><span class="line"><span class="number">142.150</span><span class="number">.71</span><span class="number">.128</span>/<span class="number">28</span>        B</span><br><span class="line"><span class="number">142.150</span><span class="number">.71</span><span class="number">.128</span>/<span class="number">30</span>	 C</span><br><span class="line"><span class="number">142.150</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">16</span>	         D</span><br></pre></td></tr></table></figure>
-<p>（1）假设路由器接收到一个目的地址为142.150.71.132的IP分组，请确定该路由器为该IP分组选择的下一跳，并解释说明。<br>（2）在上面的路由表中增加一条路由表项，该路由表项使以142.150.71.132为目的地址的IP分组选择“A”作为下一跳，而不影响其他目的地址的IP分组转发。<br>（3）在上面的路由表中增加一条路由表项，使所有目的地址与该路由表中的任何路由表项都不匹配的IP分组被转发到下一跳“E”。<br>(4) 将142.150.64.0/24划分为4个规模尽可能大的等长子网，给出子网掩码及每个子网的可分配地址范围。</p>
-<blockquote>
-<p>(1)下一跳为B，因为该IP地址只和路由 142.150.71.128/28|B匹配。<br>（2）即增加一条主机路由 142.150.71.132/32|A<br>（3）即增加一条默认路由0.0.0.0/0|E<br>（4）255.255.255.192<br>范围:<br><code>142.150.64.1——142.150.64.62</code><br><code>142.150.64.65——142.150.64.126</code><br><code>142.150.64.129——142.150.64.190</code><br><code>142.150.64.193——142.150.64.254</code></p>
-</blockquote>
-</li>
-<li><p>三种计算机分组交换方式比较</p>
-<blockquote>
-<p>a)    电路交换（Circuit Switching）－整个报文的比特流连续地从源点直达终点，好像在一个管道中传输；在通话的全部时间内，通话的两个用户始终占用端到端的通信资源，所以资源利用率低<br>b)    报文交换（Message Switching）－整个报文传送到相邻节点，全部存储下来后查找转发表，转发到下一个节点；通信线路利用率高、出错后纠错效率高等优点，被计算机与通信界广泛采用。存储转发是该技术的核心。<br>c)    分组（包）交换（Packet Switching）－单个分组（只是整个报文的一部分）传送到相邻节点，存储下来后查找转发表，转发到下一个节点；<br>的优点<br>高效    动态分配传输带宽，对通信链路是逐段占用。<br>灵活    以分组为传送单位和查找路由。<br>迅速    不必先建立连接就能向其他主机发送分组。<br>可靠    保证可靠性的网络协议；分布式的路由选择协议使网络有很好的生存性。 </p>
-</blockquote>
-</li>
-<li><p>arp的四种使用情况：</p>
-<blockquote>
-<p>1)发送方是主机，要把IP数据报发送到本网络上的另一个主机。这时用 ARP 找到目的主机的硬件地址。<br>2)发送方是主机，要把 IP 数据报发送到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。<br>3)发送方是路由器，要把 IP 数据报转发到本网络上的一个主机。这时用 ARP 找到目的主机的硬件地址。<br>4)发送方是路由器，要把 IP 数据报转发到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。</p>
-</blockquote>
-</li>
-<li><p>RIP OSPF工作原理的理解与比较区别?</p>
-</li>
-</ol>
-<ul>
-<li>RIP工作原理：路由信息协议 RIP 是内部网关协议 IGP中最先得到广泛使用的协议。<ul>
-<li>RIP 是一种分布式的基于距离向量的路由选择协议。</li>
-<li>RIP 协议要求网络中的每一个路由器都要维护从它自己到其他每一个目的网络的距离记录。</li>
-</ul>
-</li>
-<li>OSPF的特征：最主要的特征是分布式的链路状态协议，而不是距离向量协议。<ul>
-<li>所有的路由器都维护一个链路状态数据库（路由器到子网的链路状态和可以到达的邻居路由器）。 </li>
-<li>当网络中链路状态改变时，通过洪泛法（flooding）方法把更新的本地链路状态信息广播到区域或自治系统中的每个路由器。</li>
-<li>每一个路由器用链路状态数据库中的数据，计算出到每个目的地最短路径。</li>
-</ul>
-</li>
-<li>比较区别：<ul>
-<li>SPF：只有当链路状态发生变化时，路由器才用洪泛法向所有路由器发送此信息。RIP：不管网络拓扑有无发生变化，路由器之间都要定期交换路由表信息</li>
-</ul>
-</li>
-<li>与RIP相比<ul>
-<li>1.OSPF 规定每隔一段时间，如 30分钟，要刷新一次数据库中的链路状态。 </li>
-<li>2.由于一个路由器的链路状态只涉及到与相邻路由器的连通状态，因而与整个互联网的规模并无直接关系。因此当互联网规模很大时，OSPF 协议要比距离向量协议 RIP 好得多。 </li>
-<li>3.OSPF 没有“坏消息传播得慢”的问题，据统计，其响应网络变化的时间小于 100 ms。</li>
-<li>4.指定的路由器:多点接入的局域网采用了指定的路由器的方法，使广播的信息量大大减少。指定的路由器代表该局域网上所有的链路向连接到该网络上的各路由器发送状态信息。</li>
-</ul>
-</li>
-</ul>
-<ol start="36">
-<li>假定在地球和一个新月亮之间建立一条100M 位/秒的链路。从该月亮到地球的距离大约是385000 公里，数据在链路上以光速3×10^8米/秒传输。</li>
-</ol>
-<ul>
-<li>（a） 计算该链路的最小RTT。<br>解：最小RTT 等于2×385000000 米÷（3×10^8米/秒）=2.57 秒</li>
-<li>（b） 使用RTT 作为延迟，计算该链路的“延迟×带宽”值。<br>解：“延迟×带宽”值等于2.57 秒×100M 位/秒=257M 位≈32M 字节</li>
-<li>（c） 在（b）中计算的“延迟×带宽”值的含义是什么？<br>解：它表示发送方在收到一个响应之前能够发送的数据量。</li>
-<li>（d） 在月亮上用一个照相机拍取地球的相片，并把它们以数字形式保存到磁盘上。<br>假定在地球上的任务控制要下载25M 字节的最新图象，那么，从发出数据请求<br>到传送结束最少要化多少时间？<br>解：在图象可以开始到达地面之前，至少需要一个RTT。假定仅有带宽延迟，那么发送需要<br>的时间等于25M 字节÷100M 位/秒=200M 位÷100M 位/秒=2 秒。所以，直到最后一个图象位到达地球，总共化的时间等于2.0+2.57=4.57 秒。</li>
-</ul>
-<ol start="37">
-<li><p>在因特网上的一个B 类网络具有子网掩码255.255.240.0。问每个子网中的最大主<br>机数目是多少？</p>
-<blockquote>
-<p>解答：对于一个B 类网络，高端16 位形成网络号，低端16 位是子网或主机域。在子网掩码的低端16 位<br>中，最高有效4 位是1111，因此剩下12 位（第3 字节低4 位和第4 字节）用于主机号。因此，存在4096<br>个主机地址，但由于全零和全1 是特别地址，因此最大主机数目应该是4094。</p>
-</blockquote>
-</li>
-<li><p>假定TCP 使用两次握手替代三次握手来建立连接。也就是说，不需要第三个报文。那么<br>现在是否可能产生死锁？请给出例子来说明你的答案。<br>解答：我们知道，3 次握手完成两个重要功能，既要双方做好发送数据的准备工作（双方都<br>知道彼此已准备好），也要允许双方就初始序列号进行协商，这个序列号在握手过程中被发<br>送与确认。<br>现在把三次握手改成仅需要两次握手，死锁是可能发生的。作为例子，考虑计算机A<br>和B 之间的通信。假定B 给A 发送一个连接请求分组，A 收到了这个分组，并发送了确认<br>应答分组。按照两次握手的协定，A 认为连接已经成功地建立了，可以开始发送数据分组。<br>可是，B 在A 的应答分组在传输中被丢失的情况下，将不知道A 是否已准备好，不知道A<br>建议什么样的序列号用于A 到B 的交通，也不知道A 是否同意B 所建议的用于B 到A 交<br>通的初始序列号，B 甚至怀疑A 是否收到自己的连接请求分组。在这种情况下，B 认为连<br>接还未建立成功，将忽略A 发来的任何数据分组，只等待接收连接确认应答分组。而A 在<br>发出的分组超时后，重复发送同样的分组。这样就形成了死锁。</p>
-</li>
-<li><p><strong>试简述CSMA/CD协议的工作原理</strong>(重点)</p>
-<blockquote>
-<p>答： CSMA/CD协议即载波监听，多点接入，碰撞检测。（2分）<br>首先，每个站点发送数据之前必须侦听信道的忙、闲状态。如果信道空闲，立即发送数据，同时进行冲突检测；如果信道忙，站点继续侦听总线，直到信道变成空闲。（2分）<br>如果在数据发送过程中检测到冲突，将立即停止发送数据并等待一段随机长的时间，然后重复上述过程。（1分）<br>即：先听后发，边听边发；冲突检测，延时重发。（1分）</p>
-</blockquote>
-</li>
-<li><p>一个Web页面请求全过程？<br>从键入<a href="http://www.google.com到浏览器显示网页经历了一系列的事件" target="_blank" rel="noopener">www.google.com到浏览器显示网页经历了一系列的事件</a></p>
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>.首先需要利用DNS域名服务知道google服务器的<span class="built_in">IP</span>地址：主机的操作系统生成一个DNS域名查询  报文，采用UDP传输层协议，端口号<span class="number">53</span>，网络层将此报文封装上<span class="built_in">IP</span>头部信息，加上源<span class="built_in">IP</span>地址与目的<span class="built_in">IP</span>地址（即DNS服务器的<span class="built_in">IP</span>地址），数据链路层将数据报封装成链路层数据帧，并将其转发到网关路由器</span><br><span class="line">（通过ARP协议，链路层转发），网关路由器抽取DNS数据报的<span class="built_in">IP</span>地址，查询转发表，将其从某接口转发，最终到达DNS服务器，DNS服务器查询这个域名DNS源记录，并将包含google服务器的地址的DNS应答报文发送给主机，主机接收到后，提取出google服务器的<span class="built_in">IP</span>地址</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.主机得先与google服务器建立TCP连接：传输层得先创建TCP套接字，目的端口<span class="number">80</span>，目的<span class="built_in">IP</span>地址google服务器的地址，建立连接需要三次握手，主机发送SYN连接请求报文，google服务器收到后，分配缓存与变量，回复SYNACK报文，主机收到后，分配缓存与变量资源，回复ACK报文，并可以携带HTTP <span class="meta">GET</span>报文</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>.主机发送HTTP <span class="meta">GET</span>报文：主机应用层生成HTTP <span class="meta">GET</span>报文，传递给TCP传输层，TCP协议给HTTP <span class="meta">GET</span>报文封装TCP头部信息，并交给<span class="built_in">IP</span>层，<span class="built_in">IP</span>层封装<span class="built_in">IP</span>头部信息称为数据报，再交给数据链路层封装成数据帧，通过ARP协议，进行链路层转发到网关路由器，网关路由器提取<span class="built_in">IP</span>地址，查询转发表，再转发到某借口，最终到达google服务器，服务器提取出HTTP <span class="meta">GET</span>报文，生成一个HTTP响应报文，将所请求的WEB页面放入HTTP响应体中，并通过TCP连接将此报文发送回主机，主机收到后，提取出HTTP 响应报文，从HTTP响应体中提取出HTML文件，最终显示出了WEB页面</span><br></pre></td></tr></table></figure></li>
-<li><p>概述MAC地址与ARP协议？</p>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">每一个网络设备的适配器都有自己的链路层地址，<span class="keyword">MAC</span>地址，这个地址是自生产出来就是唯一的。数据链路层需要通过<span class="keyword">MAC</span>地址来转发数据帧来通过交换机网络</span><br><span class="line"></span><br><span class="line">ARP协议称为地址解析协议，提供了IP地址转换为链路层<span class="keyword">MAC</span>地址的机制</span><br><span class="line">IP地址相当于邮政地址，<span class="keyword">MAC</span>地址相当于身份证号</span><br><span class="line"></span><br><span class="line">ARP工作原理：</span><br><span class="line">每台主机或路由器都保存有一张ARP表，表中包含IP地址与<span class="keyword">MAC</span>地址的映射关系当表中有目的IP地址的信息时，就直接交给链路层进行发送</span><br><span class="line">如果表中还没有相关信息，则在本子网内发送ARP广播查询，若此IP目的节点收到后应回复一个ARP应答报文</span><br><span class="line">所以ARP是自适应的，自动建立的，即插即用的</span><br></pre></td></tr></table></figure></li>
-<li><p>概述MAC协议？</p>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">MAC</span>协议称为多路访问控制协议</span><br><span class="line">主要能分为三类：信道划分协议，随机接入协议，轮流协议</span><br><span class="line"></span><br><span class="line">信道划分协议</span><br><span class="line">主要分为时分多路复用（TDM），频分多路复用（FDM），码分多址（CDMA）</span><br><span class="line">相当于是为每一个可能使用的人预留了一段资源，每个人在自己分配的那段资源里传输数据，所以一定不会发生碰撞</span><br><span class="line">当某时刻用的人很多时，利用率高当某时刻用的人很少时，利用率低</span><br><span class="line">随机接入协议基本思想是：当用户有数据需要发送时，就直接发送，如果与其他人发生碰撞了，就等一个随机时延，再重新发送，直到没有碰撞发生，发送成功为止</span><br><span class="line">主要有时隙ALOHA，ALOHA，CSMA，CSMA/<span class="keyword">CD</span>协议</span><br><span class="line">时隙ALOHA将时间划分若干时隙，规定所有人只能在某一个时隙的起始点发送数据</span><br><span class="line">ALOHA则没有这个规定，所有人可以在任何时间发送数据时隙ALOHA的效率比ALOHA协议的效率要高一倍左右</span><br><span class="line">CSMA协议称为载波侦听多路访问，即发送数据之前先侦听信道，当没有人发送数据时，才发送数据</span><br><span class="line">CSMA/<span class="keyword">CD</span>协议称为带碰撞检测的载波侦听多路访问协议，在CSMA基础上加了碰撞检测，若检测到碰撞，则都立即停止发送，等一个随机时间后再次发送</span><br><span class="line"></span><br><span class="line">那么既然所有人都侦听了，为什么还会发生碰撞呢？原因是存在传播延迟。随机接入协议，当某时刻用的人少时，效率很高</span><br><span class="line">用的人多时，发生碰撞概率高，效率较低</span><br><span class="line">轮流协议</span><br><span class="line">按照一定的轮流规则，所有需要发送数据的人轮流发送数据，轮到谁就谁发。主要有</span><br><span class="line">轮询协议：主节点轮流通知每个节点，你可以发送数据了，如果你有数据，就发，没数据，就过缺点：带来额外的轮询消耗；如果主节点发生故障，则后果严重</span><br><span class="line">令牌传递：某种称为令牌的特殊帧在节点之间按特定次序传递，令牌传递到的节点才可以发送数据。</span><br><span class="line">缺点：同样带来消耗，某一节点发生故障也可能给整个信道带来奔溃。</span><br></pre></td></tr></table></figure></li>
-<li><p>概述数据链路层的服务？</p>
-<blockquote>
-<p>基本服务：将网络层的数据报封装成数据帧，通过单一通信链路从一个节点传输到另一个节点<br>链路层的主体是在网络适配器上实现的<br>链路层信道主要分为两类，点对点链路（PPP），和广播链路</p>
-</blockquote>
-</li>
-<li><p>概述路由算法？</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">链路状态路由算法（LS）</span><br><span class="line">全局式的路由选择算法</span><br><span class="line">每个节点有本网络所有的网络拓扑以及链路费用的全局信息运用迪杰斯特拉（Dijkstra）算法计算最短路由选择</span><br><span class="line">特点</span><br><span class="line">向网络上所有其他节点广播消息消息仅包括到邻居节点的费用 收敛速度较快</span><br><span class="line">存在震荡现象（当费用与通信量相关时）</span><br><span class="line">距离向量路由算法（DV）</span><br><span class="line">分布式的路由算则算法</span><br><span class="line">每个节点仅保存通往目的地的最短路径的下一跳，通过迭代的方式计算出路径选择</span><br><span class="line">每个节点从直接相连的邻居处获取信息，然后计算，若有变化，则将计算结果分发给直接相连的邻居</span><br><span class="line">每个节点直接检测到链路费用，更新路由信息，若变化，发送给所有直接的邻居</span><br><span class="line">特点</span><br><span class="line">分布式，迭代，异步的路由算法仅向直接相连的邻居交换信息</span><br><span class="line">每个节点仅保存通往目的地最短路径的下一跳收敛速度慢</span><br><span class="line">好消息传播快，坏消息传播慢</span><br><span class="line">存在无穷计数的问题，解决办法为毒性逆转，（如果A通往目的地的最短路径的下一跳是B，则当B 询问B通过A去目的地的最短路径时，A回复无穷大）</span><br><span class="line">层次路由选择</span><br><span class="line">将一个大规模网络分为多个自治系统（AS），每个自治系统内运行相同的路由算法，称为自治系统</span><br><span class="line"></span><br><span class="line">内部路由选择协议（如RIP，OSPF）</span><br><span class="line">两个自治系统AS之间的通信运行自治系统间路由选择协议（如BGP）</span><br><span class="line">RIP</span><br><span class="line">路由选择信息协议（Routing Information Protocol）</span><br><span class="line">基于距离向量路由算法（DV），定义跳数为其链路费用RIP被当做一个应用进程来实现，交换信息使用UDP RIP通常被用于小规模网络，下层ISP及公司网络 OSPF</span><br><span class="line">开放最短路优先协议（Open Shortest Path First） 基于链路状态路由算法（LS）</span><br><span class="line">当一条链路费用变化时，节点向网络中所有节点广播路由选择信息每个节点使用Dijkstra算法计算最低费用路径选择</span><br><span class="line">OSPF更复杂，也有很多优点： 安全</span><br><span class="line">可以有多条相同费用路径，当需要传递大量分组时，有多个选择，充分利用支持单播和多播路由</span><br><span class="line">OSPF支持在AS内部进一步分层</span><br><span class="line">BGP</span><br><span class="line">边界网关协议（Border Gateway Protocol）,自治系统间的路由选择协议eBGP，从邻居子网获取可达信息                           iBGP，向本子网内节点传递子网可达信息</span><br><span class="line">基于可达信息的路径，确定到达外部子网的好的路径</span><br></pre></td></tr></table></figure></li>
-<li><p>概述NAT协议？</p>
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">NAT</span>又称为网络地址转换，为本地私有网络提供合法<span class="built_in">IP</span>地址，连接到外部网络</span><br><span class="line"><span class="symbol">NAT</span>不仅能解决<span class="built_in">IP</span>地址不足的问题，而且能有效避免被攻击，隐藏和保护内部计算机NAT的转换方式主要有三种：</span><br><span class="line">静态转换：将私有网络的某<span class="built_in">IP</span>地址转换成特定的合法<span class="built_in">IP</span>地址，一对一静态转换</span><br><span class="line">动态转换：将私有网络的<span class="built_in">IP</span>地址转换成合法<span class="built_in">IP</span>地址时，是不确定的，可以随机转换成任意指定的合法<span class="built_in">IP</span>地址</span><br><span class="line">端口多路复用：将私有网络的<span class="built_in">IP</span>地址转换成合法<span class="built_in">IP</span>地址时，所有私有网络主机共享一个合法<span class="built_in">IP</span>地址，每个主机转换为端口号，进行外部网络的访问。</span><br></pre></td></tr></table></figure></li>
-<li><p>概述DHCP协议？<br>DHCP协议又称为动态主机配置协议，DHCP允许主机自动获取IP地址<br>DHCP是一种客户端-服务器协议，在应用层实现，采用UDP<br>主机获取IP地址步骤：</p>
-</li>
-</ol>
-<ul>
-<li><ol>
-<li>主机广播DHCP发现报文</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>DHCP服务器回应ACK，并携带分配给它的IP地址，表示提供服务</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>主机广播DHCP请求，表示我打算连接到你分配的IP地址，同时也相当于告诉其他DHCP服务器， 我已经打算连接到这个DHCP服务器的IP地址了，你们分配的IP地址可收回了</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>DHCP服务器最后回复ACK报文</li>
-</ol>
-</li>
-</ul>
-<ol start="47">
-<li>概述TCP协议？<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TCP协议是一种点对点的，面向连接的，全双工的服务的，面向字节流的，可靠的，具有拥塞控制的传输层协议</span><br><span class="line">点对点：TCP连接只能是一对一建立的</span><br><span class="line">面向连接：TCP协议在传输数据之前需要建立连接</span><br><span class="line">全双工服务：TCP连接建立之后，连接双方都可以同时向对方发送数据</span><br><span class="line">面向字节流的：TCP把数据看成无结构的，有序的字节流，TCP的序号是建立在字节流上而不是建立在报文段上</span><br><span class="line">可靠的：TCP采用确认重传机制，序号机制，定时器机制，快速重传，滑动窗口机制，流量控制等 来保证数据传输的可靠性</span><br><span class="line">拥塞控制：TCP采用慢启动，拥塞避免，快速恢复的机制来进行拥塞控制，共避免网络空间陷入拥塞</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li>TCP报文头部<ul>
-<li>源端口号：发送方进程端口号目的端口号：接收方进程端口号</li>
-<li>序号：32比特，建立在字节流上的序号机制</li>
-</ul>
-<ul>
-<li>确认号：32比特，确认号表示期望收到的下一字节的序号，与序号共同保证TCP的可靠传输首部长度：TCP首部长度，因为选项字段的存在，一般无选项头部长为20字节       URG：表示报文段中存在被发送方指示为紧急的数据。紧急数据由紧急数据指针指出ACK：确认标志位，表示首部的确认号有效</li>
-<li>PSH：表示接收方应立即将接收的数据交付给上层。因为TCP接收方可能存在接收缓存，接收方可能在忙其他事情，可能等接收缓存满的时候，才会将数据交付给上层，PSH标志位表示接收方应立即将数据交付上层</li>
-<li>RST：表示复位，用来异常的关闭连接，引发RST的原因主要有：提前关闭，请求超时，端口未打开，在一个已关闭的SOCKET接收到数据</li>
-<li>SYN：建立TCP连接时的标志位FIN：关闭TCP连接时的标志位</li>
-<li>接收窗口：表示接收方还有多少缓存供接收，用于控制发送方的发送速率，以免溢出。用于流量控制</li>
-<li>检验和：首部+数据全部的检验和</li>
-<li>紧急数据指针：与URG标志位共同使用，指出数据中的紧急数据字段</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>TCP的可靠数据传输<br>  TCP的可靠数据传输服务保证应用进程从接收缓存中读取的数据是不错，不乱，不丢的数据<ul>
-<li>确认：只发送ACK确认被正确接收的分组，不发NAK，确认号是期望收到的下一字节序号：序号基于无结构，有序的字节流。序号表示该报文段的首字节的字节流编号</li>
-<li>定时器：TCP设置单一定时器</li>
-<li>累计确认：TCP采用累计确认，即接收方发送确认号为x的ACK，表示x之前的报文段都已被正确的接收；但是采用全部重传还是选择重传，TCP没有明确规定</li>
-<li>超时重传：如果报文段的传输时间超时，则重传</li>
-<li>快速重传：当发送方收到三个重复ACK（即共4个ACK），则快速重传该报文段</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>TCP流量控制<br>  因为接收方设置有限的接收缓存，如果发送方发送速率过大的话，接收方缓存可能溢出，导致不必要的分组丢失<br>  所以流量控制是为了限制发送方的发送速率，来保证接收方可以来得及接收到来的报文段<br>  接收方在头部的接收窗口告诉发送方，接收缓存还剩多少，即还能接收多少数据，发送方保证发送的数据量不超过这个量<br>  若接收方告知接收窗口为0了，为避免阻塞，发送方仍发送数据量为1的报文段，接收方接收并回复ACK，并同时告知此时的接收窗口大小<br>  发送方的发送速率由流量控制的接收窗口大小与拥塞控制的拥塞窗口大小共同控制</li>
-<li>TCP的拥塞控制<ul>
-<li>发送方控制自己的发送速率，避免公共网络陷入拥塞，所有TCP发送方共同维护公共网络</li>
-<li>拥塞控制与流量控制的区别：流量控制是考虑端到端之间的问题，是避免发送方发送速率过快导 致接收方来不及接收，考虑的是私人利益；拥塞控制考虑的是公共网络，避免发送方发送速率过快而导致网络陷入拥塞，考虑的是公共网络的问题</li>
-<li>TCP在发送方维护一个CWND的拥塞窗口变量，与接收窗口RWND共同控制发送速率（滑动窗口的大小）</li>
-<li>TCP根据丢包事件来感知网络的拥塞状态，如果发生超时丢包事件，则说明网络已经比较拥塞  了，数据已经传输不到接收方；如果重复ACK丢包事件，则表示网络可能即将陷入拥塞，但是没有那么严重，因为数据还能传输到接收方</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>拥塞控制方法<ul>
-<li>慢启动：TCP启动速度很慢，一般从MSS从1开始，但是希望快速找到可用带宽的数量，发送速率指数增长，知道遇到丢包时间，则设置一个阀值等于丢包时的速率的一般，即ssthresh = CWND/2 拥塞避免：如果是超时事件引起的丢包，则进入拥塞避免状态，拥塞避免状态将阀值设为拥塞窗口值的一半之后，将速率设为MSS = 1，然后开始指数增长，直到达到阀值ssthresh，此时可能即将进入拥塞状态了，所以之后再线性增长，直到遇到丢包事件</li>
-<li>快速恢复：如果是3个重复ACK引起的丢包事件，此时TCP执行快速重传，并进入快速恢复状态， 将阀值设为拥塞窗口值的一般，即ssthresh = CWND/2，然后将发送速率降为阀值ssthresh，之后线性增长，直到遇到丢包事件</li>
-</ul>
-</li>
-</ul>
-<p>能够理解计算机网络协议栈分层设计的方法，每层的名称、主要功能、Internet 对应层的主要协议。<br>48. OSI七层架构</p>
-<table>
-<thead>
-<tr>
-<th align="center">r</th>
-<th align="center">l</th>
-<th align="center">j</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">第一层</td>
-<td align="center">物理层（physical）</td>
-<td align="center">（单位类型：比特）    实现比特流的透明传输，物理接口，具有电气特性</td>
-</tr>
-<tr>
-<td align="center">第二层</td>
-<td align="center">数据链路层（date link）（单位类型：帧）</td>
-<td align="center">访问介质；数据在该层封装成帧；用MAC地址作为访问媒介；具有错误检测与修正功能。MAC描述在共享介质环境中如何进行站的调度、发生和接收数据。MAC确保信息跨链路的可靠传输，对数据传输进行同步，识别错误和控制数据的流向。一般地讲，MAC只在共享介质环境中才是重要的，只有在共享介质环境中多个节点才能连接到同一传输介质上</td>
-</tr>
-<tr>
-<td align="center">第三层</td>
-<td align="center">网络层（network）（单位类型：报文）</td>
-<td align="center">数据传输；提供逻辑地址，选择路由数据包，负责在源和终点之间建立连接</td>
-</tr>
-<tr>
-<td align="center">第四层</td>
-<td align="center">传输层（transport）</td>
-<td align="center">实现端到端传输；分可靠与不可靠传输；在传输前实现错误检测与流量控制，定义端口号（标记相应的服务）</td>
-</tr>
-<tr>
-<td align="center">第五层</td>
-<td align="center">会话层（session）</td>
-<td align="center">主机间通信；对应用会话管理，同步</td>
-</tr>
-<tr>
-<td align="center">第六层</td>
-<td align="center">表示层（presention）</td>
-<td align="center">数据表现形式；特定功能的实现-比如加密模式确保原始设备上加密的数据可以在目标设备上正确地解密</td>
-</tr>
-<tr>
-<td align="center">第七层</td>
-<td align="center">应用层（application）</td>
-<td align="center">最接近终端用户的OSI层，这就意味着OSI应用层与用户之间是通过应用软件直接相互作用的。网络进程访问应用层；提供接口服务</td>
-</tr>
-<tr>
-<td align="center">- 2.TCP/IP四层架构</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">r</th>
-<th align="center">l</th>
-<th align="center">j</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">第四层</td>
-<td align="center">应用层</td>
-<td align="center">TCP/IP协议的应用层相当于OSI模型的会话层、表示层和应用层，FTP(文件传输协议)，DNS（域名系统），HTTP协议，Telnet（网络远程访问协议）</td>
-</tr>
-<tr>
-<td align="center">第三层</td>
-<td align="center">传输层</td>
-<td align="center">提供TCP(传输控制协议)，UDP（用户数据报协议）两个协议，主要功能是数据格式化、数据确认和丢失重传等。</td>
-</tr>
-<tr>
-<td align="center">第二层</td>
-<td align="center">网络层</td>
-<td align="center">该层负责相同或不同网络中计算机之间的通信主要处理数据包和路由。数据包是网络传输的最小数据单位。通过某条传输路线将数据包传给对方。IP协议,ICMP协议，IGMP协议。在IP层中，ARP协议用于将IP地址转换成物理地址，ICMP协议用于报告差错和传送控制信息。IP协议在TCP/IP协议组中处于核心地位。</td>
-</tr>
-<tr>
-<td align="center">第一层</td>
-<td align="center">网络接口层</td>
-<td align="center">TCP/IP协议的最低一层，对实际的网络媒体的管理，包括操作系统中的设备驱动程序和计算机对应的网络接口卡</td>
-</tr>
-</tbody></table>
-<ul>
-<li>3.TCP/IP五层架构</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">r</th>
-<th align="center">l</th>
-<th align="center">j</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">第五层</td>
-<td align="center">应用层 单位:报文(message)</td>
-<td align="center">应用层是网络应用程序及它们的应用层协议存留的地方    面向用户提供端到端的网络服务</td>
-</tr>
-<tr>
-<td align="center">第四层</td>
-<td align="center">运输层 单位:报文段(segment)</td>
-<td align="center">因特网的运输层在应用程序端点之间传送应用层报文.有两种运输层协议TCP和UDP.为应用层提供端到端的数据传输服务。</td>
-</tr>
-<tr>
-<td align="center">第三层</td>
-<td align="center">网络层 单位:数据报(datagram)</td>
-<td align="center">负责将名为数据报的网络层分组从一台主机移动到另一台主机.转发和路由.为数据包找到一条从源地址到目的地址的路径</td>
-</tr>
-<tr>
-<td align="center">第二层</td>
-<td align="center">链路层 单位:帧(frame)</td>
-<td align="center">将整个帧从一个网络元素移动到邻近的网络元素  为共享同一条链路的多个用户分配链路资源,以便把数据包传输到网络层指定的相邻节点上</td>
-</tr>
-<tr>
-<td align="center">第一层</td>
-<td align="center">物理层 单位:比特(bit)</td>
-<td align="center">将帧中的一个个比特从一个节点移动到下一个节点    负责把数字信号转换成模拟信号（光/电等）在物理介质上传输。</td>
-</tr>
-</tbody></table>
-<ol start="49">
-<li><p>C/S模式和P2P模式的区别和优点缺点?</p>
-<blockquote>
-<p>1、C/S工作模式中信息资源的共享是以服务器为中心<br>2、P2P工作模式淡化服务提供者与服务使用者的界限，P2P网络中的每台计算机即可以是网络服务使用者也可以是提供者<br>3、C/S与P2P模式的差别主要在应用层<br>C/S：DNS，SMTP，FTP，Web<br>P2P：支持文件共享类Napster与BitTorrent服务协议、支持多媒体传输类Skype服务的协议<br>P2P网络是在IP网络上构建的一种逻辑的覆盖网，P2P是一种网络的覆盖模式</p>
-</blockquote>
-</li>
-<li><p>DNS<br>(name,value,type,ttl)</p>
-</li>
-</ol>
-<ul>
-<li>type = A<br>  name 是主机名,value是主机名对应的ip<br>  例如(tju.rlj.com,123.124.0.1,A)</li>
-<li>type = NS<br>  name 是个域 如(rlj.com) value是个知道如何获得该域中主机ip地址的权威dns服务器的主机名<br>  例如:(rlj.com,dns.rlj.com,NS)</li>
-<li>type = CNAME<br>  value是别名为name的主机对应的规范主机名<br>  例如:(rlj.com,tju.rlj.com,CNAME)</li>
-<li>type = MX<br>  value 是个别名为name的邮件服务器的规范主机名<br>  (rlj.com,mail.rlj.com,NX)</li>
-</ul>
-<ol start="51">
-<li>NAT在P2P应用又事码问题? 怎么能解决?具体名字是什么?<blockquote>
-<p>：P2P 需要实现两台主机间端到端的对等连接与通信,即参与通信的两台主机都可以是服务器,等待对 方的连接.而使用 NAT 技术后,NAT 设备后面的主机使用的是内部 IP 地址,不能直接被外部的设备访问, 因此部署在 NAT 设备之后的主机不能作为服务器,因而无法实现 P2P 通信.可以通过事先配置 NAT 转换 表来解决这一问题,即在表中增加内部主机的内部 IP,内部端口号和外部 IP,外部端口号的对应表项.这 一技术有 NAT 穿越 技术,UPnP协议</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>第七,八,九章 <ul>
-<li>A通过计算机网络给B发送消息，说其同意签订合同。随后A反悔，不承认发过该消息。为防止这种情况发生，在计算机网络中应采用 D 技术。<br>A、消息认证 B、数据加密 C、防火墙 D、数字签名 </li>
-<li>在公钥密码体制中，不公开的是 B 。<br>A、公钥 B、私钥 C、公钥和加密算法 D、私钥和加密算法</li>
-</ul>
-</li>
-</ul>
-<p><a href="https://blog.csdn.net/u012557765/article/details/81638446" target="_blank" rel="noopener">相关文章:数据交换</a><br><a href="https://blog.csdn.net/qq894040717/article/details/82426965" target="_blank" rel="noopener">CSMA/CA</a></p>
-]]></content>
-      <categories>
-        <category>期末</category>
-      </categories>
-      <tags>
-        <tag>Computer Networking</tag>
       </tags>
   </entry>
   <entry>
