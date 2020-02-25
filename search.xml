@@ -176,7 +176,7 @@ world</code>标记之外</p>
 <p>Markdown<br>  : 轻量级文本标记语言，可以转换成html，pdf等格式  //  开头一个<code>:</code> + <code>Tab</code> 或 四个空格</p>
 <h3 id="3-2自动邮箱链接"><a href="#3-2自动邮箱链接" class="headerlink" title="3.2自动邮箱链接"></a>3.2自动邮箱链接</h3><p>代码:</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">xxx</span>@<span class="keyword">outlook</span>.<span class="keyword">com</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>演示<br>    <a href="mailto:&#49;&#x35;&#x33;&#x35;&#x30;&#x34;&#53;&#x38;&#x38;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;" target="_blank" rel="noopener">&#49;&#x35;&#x33;&#x35;&#x30;&#x34;&#53;&#x38;&#x38;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;</a></p>
+<p>演示<br>    <a href="mailto:&#49;&#53;&#51;&#x35;&#x30;&#52;&#53;&#x38;&#56;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#49;&#53;&#51;&#x35;&#x30;&#52;&#53;&#x38;&#56;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;</a></p>
 <h3 id="3-3字体-字号与颜色"><a href="#3-3字体-字号与颜色" class="headerlink" title="3.3字体,字号与颜色"></a>3.3字体,字号与颜色</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;font <span class="attribute">face</span>=<span class="string">"STCAIYUN"</span>&gt;我是华文彩云&lt;/font&gt;</span><br><span class="line">&lt;font <span class="attribute">color</span>=gray <span class="attribute">size</span>=5&gt;color=gray&lt;/font&gt;</span><br><span class="line">&lt;font color=  #0099ff <span class="attribute">size</span>=5 <span class="attribute">face</span>=<span class="string">"黑体"</span>&gt;color=#0099ff <span class="attribute">size</span>=5 <span class="attribute">face</span>=<span class="string">"黑体"</span>&lt;/font&gt;</span><br></pre></td></tr></table></figure>
 <p><font face="STCAIYUN">我是华文彩云</font><br><font color=gray size=5>color=gray</font><br><font color=#0099ff size=5 face="黑体">color=#0099ff size=5 face=”黑体”</font><br><font face = "楷体"><br>Size：规定文本的尺寸大小。可能的值：从 1 到 7 的数字。浏览器默认值是 3。</font><br>##4. 数学和LaTeX<br>$ 表示行内公式：</p>
 <p>质能守恒方程可以用一个很简洁的方程式 E=mc^2 来表达。</p>
@@ -220,54 +220,6 @@ world</code>标记之外</p>
 <h3 id="5-3mermaid-甘特图"><a href="#5-3mermaid-甘特图" class="headerlink" title="5.3mermaid 甘特图"></a>5.3mermaid 甘特图</h3><h3 id="5-4-puml-序列图"><a href="#5-4-puml-序列图" class="headerlink" title="5.4 puml 序列图"></a>5.4 puml 序列图</h3><h3 id="5-5-dot"><a href="#5-5-dot" class="headerlink" title="5.5 dot"></a>5.5 dot</h3>]]></content>
       <tags>
         <tag>VsCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ping 本质（ ICMP ）</title>
-    <url>/2020/01/01/Ping%20%E6%9C%AC%E8%B4%A8/</url>
-    <content><![CDATA[<h2 id="1、什么是-Ping"><a href="#1、什么是-Ping" class="headerlink" title="1、什么是 Ping"></a>1、什么是 Ping</h2><a id="more"></a>
-<blockquote>
-<p>ping是一种计算机网络工具，用来测试数据包能否透过IP协议到达特定主机。ping的运作原理是向目标主机传出一个ICMP echo@要求数据包，并等待接收echo回应数据包。程序会按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延，Round-trip delay time）。———— 维基百科<br> 我们在网络通信的过程中，常常使用 ping 某一个 IP 地址或者某个域名看下基本连接是否正常；是否有丢包；是否有网络延迟。ping 就是我们经常用来作为网络连接通信的测试“指令”。</p>
-</blockquote>
-<p>我记得我们以前调侃说只要会 Ping 就可以去当网吧网管了（其实网管的工作肯定比这个复杂的多）。</p>
-<p>Windows 10 下的 Ping</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">C:\&gt;ping www.baidu.com</span><br><span class="line"></span><br><span class="line">正在 Ping www.a.shifen.com [<span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span>] 具有 <span class="number">32</span> 字节的数据:</span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line"></span><br><span class="line"><span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = <span class="number">4</span>，已接收 = <span class="number">4</span>，丢失 = <span class="number">0</span> (<span class="number">0</span>% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = <span class="number">42</span>ms，最长 = <span class="number">42</span>ms，平均 = <span class="number">42</span>ms</span><br></pre></td></tr></table></figure>
-<h2 id="Ping-的工作原理"><a href="#Ping-的工作原理" class="headerlink" title="Ping 的工作原理"></a>Ping 的工作原理</h2><p>在维基百科中解释有说明， Ping 的原理是 ICMP 协议.</p>
-<h2 id="什么是-ICMP-协议"><a href="#什么是-ICMP-协议" class="headerlink" title="什么是 ICMP 协议"></a>什么是 ICMP 协议</h2><blockquote>
-<p>ICMP 的全称是 Intent Control Message Protocol, 中文过来就是 互联网控制报文协议</p>
-</blockquote>
-<p>网络数据包在庞大的网络中会很多各种不同情况。如果一定需要举一个例子来比如的话，用相当于兵种的侦察兵。时刻给大部队探测前方的情况。以便后方的大部队能够根据不同情况做出不同的调整。所以 ICMP 经常用于网络环境的测试。</p>
-<blockquote>
-<p>互联网控制消息协议（英语：Internet Control Message Protocol，缩写：ICMP）是互联网协议族的核心协议之一。它用于TCP/IP网络中发送控制消息，提供可能发生在通信环境中的各种问题反馈，通过这些信息，使管理者可以对所发生的问题作出诊断，然后采取适当的措施解决。 —— 维基百科</p>
-</blockquote>
-<h2 id="ICMP-协议的格式"><a href="#ICMP-协议的格式" class="headerlink" title="ICMP 协议的格式"></a>ICMP 协议的格式</h2><p>用图文表示：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-200da5d8944c012d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp" alt="ICMP 协议格式"><br>ICMP 报文封装在 IP 包里面。ICMP 的报文类型根据类型和代码有很多，文章后面有来自维基百科的完整的表格。但是主要分为两类：</p>
-<blockquote>
-<p>A、查询报文<br>B、差错报文</p>
-</blockquote>
-<h2 id="查询报文-（Echo-Request与-Echo-Reply）"><a href="#查询报文-（Echo-Request与-Echo-Reply）" class="headerlink" title="查询报文 （Echo Request与 Echo Reply）"></a>查询报文 （Echo Request与 Echo Reply）</h2><p>定义：发送端主动发起请求，并且获取到应答。</p>
-<p>常见应用：Ping</p>
-<p>Ping 就是主动请求，获取到主动应答。但是 Ping 是在原生的 ICMP 中添加了自定义格式区域。例如 Ping 中放了发送的请求时间，以此计算出路程。所以，其实在 Ping 的报文中会加入序号，以用来区分数据包，从而提高计算时间或者路程的准确性。</p>
-<h2 id="差错报文"><a href="#差错报文" class="headerlink" title="差错报文"></a>差错报文</h2><p>主要有以下几种：</p>
-<ol>
-<li><p>源抑制<br>发送端发送大量数据时，可能会导致网络( 路由器 )过载，此时过载处可以向发送端发送源抑制的消息，让他降低发送速度。</p>
-</li>
-<li><p>终点不可到达<br>网络信息不能到达终点，就会给发送端发送一个目的不可到达的信息。告诉发送端可能是设备故障而引起关闭（情况之一）。然后这种又可以再次细分：<br>A、网络不可达 — 代码为 0，<br>B、主机不可达 — 代码为 1.<br>C、协议不可达 — 代码为 2.<br>D、端口不可达 — 代码为 3.<br>E、需要分段 - 代码为 4.（ 必须把数据分段才能去到终点 ）</p>
-</li>
-<li><p>超时<br>网络包超过设置的在网络中的生存时间，还没有达到。</p>
-</li>
-<li><p>路由重定向<br>定义数据包的路由股则。因为大部分的时候，路由规则是通过相关协议算法生成的，有些时候重新定义过之后，会让这个数据包绕的更远。</p>
-</li>
-</ol>
-<blockquote>
-<p>常见应用：Traceroute<br>Traceoute 有点像是在不断试错的意思。是用来侦测主机到目的主机之间所经路由情况的重要工具。Ping 我们知道是可以知道这条大路通不通的，Traceoute 通过设置 TTL 知道到底是哪个路由器不通。<br>TTL : 数据包在网络中生存时间，也就是通过数据被路由器转发的次数，没转发一次就减一。知道为 0 的时候就抛弃。<br>Traceroute 的原理：它收到目的主机的 IP 后，首先给目的主机发送一个 TTL=1 的 UDP 数据包，而经过的第一个路由器收到这个数据包以后，就自动把 TTL 减 1，而 TTL 变为 0 以后，路由器就把这个包给抛弃了，并同时产生 一个主机不可达的 ICMP 数据报给主机。如此循环就可以知道所有的路由 IP 了。（ ICMP 出错了就会回错误包 ）</p>
-</blockquote>
-<p>通常 Traceoute 的目的端口设置的是一个大于 30000 的值（ 一般的应用端口号远小于这个数 ）。所以如果回复的是 “端口不可达”，那就说明到达终点，否则这个信息就会超时。以此确保 消息是否到达终点。</p>
-<p>Traceoute 还有一个有意思的功能，就是确定 MTU（数据最大传输单元），Traceoute 通常对数据不分段，就直接发送，如果如果遇到过程中某个路由转发，出现返回 ICMP 需要分段的错误，就把数据进行拆分，直到最后到达终点。就验证出 MTU。</p>
-<p>ICMP 其实还有很多意思的地方，这边就简单的介绍到这里。<br>附表：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-660f2b1948e6e6c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1006/format/webp" alt="ICMP"></p>
-<p>作者：FutureEye<br>链接：<a href="https://www.jianshu.com/p/e1795962ad76" target="_blank" rel="noopener">https://www.jianshu.com/p/e1795962ad76</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-]]></content>
-      <tags>
-        <tag>Computer Networking</tag>
       </tags>
   </entry>
   <entry>
@@ -316,6 +268,54 @@ world</code>标记之外</p>
 ]]></content>
       <tags>
         <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ping 本质（ ICMP ）</title>
+    <url>/2020/01/01/Ping%20%E6%9C%AC%E8%B4%A8/</url>
+    <content><![CDATA[<h2 id="1、什么是-Ping"><a href="#1、什么是-Ping" class="headerlink" title="1、什么是 Ping"></a>1、什么是 Ping</h2><a id="more"></a>
+<blockquote>
+<p>ping是一种计算机网络工具，用来测试数据包能否透过IP协议到达特定主机。ping的运作原理是向目标主机传出一个ICMP echo@要求数据包，并等待接收echo回应数据包。程序会按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延，Round-trip delay time）。———— 维基百科<br> 我们在网络通信的过程中，常常使用 ping 某一个 IP 地址或者某个域名看下基本连接是否正常；是否有丢包；是否有网络延迟。ping 就是我们经常用来作为网络连接通信的测试“指令”。</p>
+</blockquote>
+<p>我记得我们以前调侃说只要会 Ping 就可以去当网吧网管了（其实网管的工作肯定比这个复杂的多）。</p>
+<p>Windows 10 下的 Ping</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">C:\&gt;ping www.baidu.com</span><br><span class="line"></span><br><span class="line">正在 Ping www.a.shifen.com [<span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span>] 具有 <span class="number">32</span> 字节的数据:</span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line"></span><br><span class="line"><span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = <span class="number">4</span>，已接收 = <span class="number">4</span>，丢失 = <span class="number">0</span> (<span class="number">0</span>% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = <span class="number">42</span>ms，最长 = <span class="number">42</span>ms，平均 = <span class="number">42</span>ms</span><br></pre></td></tr></table></figure>
+<h2 id="Ping-的工作原理"><a href="#Ping-的工作原理" class="headerlink" title="Ping 的工作原理"></a>Ping 的工作原理</h2><p>在维基百科中解释有说明， Ping 的原理是 ICMP 协议.</p>
+<h2 id="什么是-ICMP-协议"><a href="#什么是-ICMP-协议" class="headerlink" title="什么是 ICMP 协议"></a>什么是 ICMP 协议</h2><blockquote>
+<p>ICMP 的全称是 Intent Control Message Protocol, 中文过来就是 互联网控制报文协议</p>
+</blockquote>
+<p>网络数据包在庞大的网络中会很多各种不同情况。如果一定需要举一个例子来比如的话，用相当于兵种的侦察兵。时刻给大部队探测前方的情况。以便后方的大部队能够根据不同情况做出不同的调整。所以 ICMP 经常用于网络环境的测试。</p>
+<blockquote>
+<p>互联网控制消息协议（英语：Internet Control Message Protocol，缩写：ICMP）是互联网协议族的核心协议之一。它用于TCP/IP网络中发送控制消息，提供可能发生在通信环境中的各种问题反馈，通过这些信息，使管理者可以对所发生的问题作出诊断，然后采取适当的措施解决。 —— 维基百科</p>
+</blockquote>
+<h2 id="ICMP-协议的格式"><a href="#ICMP-协议的格式" class="headerlink" title="ICMP 协议的格式"></a>ICMP 协议的格式</h2><p>用图文表示：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-200da5d8944c012d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp" alt="ICMP 协议格式"><br>ICMP 报文封装在 IP 包里面。ICMP 的报文类型根据类型和代码有很多，文章后面有来自维基百科的完整的表格。但是主要分为两类：</p>
+<blockquote>
+<p>A、查询报文<br>B、差错报文</p>
+</blockquote>
+<h2 id="查询报文-（Echo-Request与-Echo-Reply）"><a href="#查询报文-（Echo-Request与-Echo-Reply）" class="headerlink" title="查询报文 （Echo Request与 Echo Reply）"></a>查询报文 （Echo Request与 Echo Reply）</h2><p>定义：发送端主动发起请求，并且获取到应答。</p>
+<p>常见应用：Ping</p>
+<p>Ping 就是主动请求，获取到主动应答。但是 Ping 是在原生的 ICMP 中添加了自定义格式区域。例如 Ping 中放了发送的请求时间，以此计算出路程。所以，其实在 Ping 的报文中会加入序号，以用来区分数据包，从而提高计算时间或者路程的准确性。</p>
+<h2 id="差错报文"><a href="#差错报文" class="headerlink" title="差错报文"></a>差错报文</h2><p>主要有以下几种：</p>
+<ol>
+<li><p>源抑制<br>发送端发送大量数据时，可能会导致网络( 路由器 )过载，此时过载处可以向发送端发送源抑制的消息，让他降低发送速度。</p>
+</li>
+<li><p>终点不可到达<br>网络信息不能到达终点，就会给发送端发送一个目的不可到达的信息。告诉发送端可能是设备故障而引起关闭（情况之一）。然后这种又可以再次细分：<br>A、网络不可达 — 代码为 0，<br>B、主机不可达 — 代码为 1.<br>C、协议不可达 — 代码为 2.<br>D、端口不可达 — 代码为 3.<br>E、需要分段 - 代码为 4.（ 必须把数据分段才能去到终点 ）</p>
+</li>
+<li><p>超时<br>网络包超过设置的在网络中的生存时间，还没有达到。</p>
+</li>
+<li><p>路由重定向<br>定义数据包的路由股则。因为大部分的时候，路由规则是通过相关协议算法生成的，有些时候重新定义过之后，会让这个数据包绕的更远。</p>
+</li>
+</ol>
+<blockquote>
+<p>常见应用：Traceroute<br>Traceoute 有点像是在不断试错的意思。是用来侦测主机到目的主机之间所经路由情况的重要工具。Ping 我们知道是可以知道这条大路通不通的，Traceoute 通过设置 TTL 知道到底是哪个路由器不通。<br>TTL : 数据包在网络中生存时间，也就是通过数据被路由器转发的次数，没转发一次就减一。知道为 0 的时候就抛弃。<br>Traceroute 的原理：它收到目的主机的 IP 后，首先给目的主机发送一个 TTL=1 的 UDP 数据包，而经过的第一个路由器收到这个数据包以后，就自动把 TTL 减 1，而 TTL 变为 0 以后，路由器就把这个包给抛弃了，并同时产生 一个主机不可达的 ICMP 数据报给主机。如此循环就可以知道所有的路由 IP 了。（ ICMP 出错了就会回错误包 ）</p>
+</blockquote>
+<p>通常 Traceoute 的目的端口设置的是一个大于 30000 的值（ 一般的应用端口号远小于这个数 ）。所以如果回复的是 “端口不可达”，那就说明到达终点，否则这个信息就会超时。以此确保 消息是否到达终点。</p>
+<p>Traceoute 还有一个有意思的功能，就是确定 MTU（数据最大传输单元），Traceoute 通常对数据不分段，就直接发送，如果如果遇到过程中某个路由转发，出现返回 ICMP 需要分段的错误，就把数据进行拆分，直到最后到达终点。就验证出 MTU。</p>
+<p>ICMP 其实还有很多意思的地方，这边就简单的介绍到这里。<br>附表：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-660f2b1948e6e6c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1006/format/webp" alt="ICMP"></p>
+<p>作者：FutureEye<br>链接：<a href="https://www.jianshu.com/p/e1795962ad76" target="_blank" rel="noopener">https://www.jianshu.com/p/e1795962ad76</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+]]></content>
+      <tags>
+        <tag>Computer Networking</tag>
       </tags>
   </entry>
   <entry>
@@ -819,6 +819,1095 @@ world</code>标记之外</p>
       </categories>
       <tags>
         <tag>Computer Networking</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统习题整理</title>
+    <url>/2020/01/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%A0%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h2 id="操作系统习题"><a href="#操作系统习题" class="headerlink" title="操作系统习题"></a>操作系统习题</h2><h3 id="虎哥语录"><a href="#虎哥语录" class="headerlink" title="虎哥语录"></a>虎哥语录</h3><p>本次考试题型: 选择题(30道,60分)+ 计算题 +<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os7.png" alt=""></p>
+<a id="more"></a>
+<ul>
+<li><p>四个状态的转移过程</p>
+<ul>
+<li>running到blocked状态由进程自己进入。</li>
+<li>running到ready状态是由调度程序进行的。</li>
+<li>ready到running状态是由调度程序进行的。</li>
+<li>blocked到ready状态是靠中断进行。<br>Running,Ready,Block,是怎么转化的,为什么可以转换,为什么不能转换?</li>
+</ul>
+</li>
+<li><p>Ready状态是暂时没有CPU分配给他</p>
+</li>
+<li><p>进程执行一个系统调用调用进入阻塞态</p>
+</li>
+<li><p>当进程等待的一个外部事件发生时(如一些输入到达),则 block转换为ready,如果此时没有其他进程运行,立即又转换为了running</p>
+<ul>
+<li>A 运行状态 进程占用着CPU，并且在CPU上运行。显然处于这种状态的进程数量&lt;=CPU的数目。若只有一个CPU那么任何时刻最多只能有一个进程处于运行状态。</li>
+<li>B 就绪状态 进程已经具备了运行的条件，但由于CPU正忙着运行其他的进程，所以暂时不能运行。不过只要把CPU分给它，它就立刻可以运行。正所谓万事俱备只欠东风。 </li>
+<li>C 阻塞状态 进程因为某种事件的发生暂时不能运行的状态。例如它正等待某个输入输出的操作完成，或者它与其他线程之间存在同步关系，需要等待其他进程给它输入数据。这种情况下即使CPU已经空闲下来，这个进程还是不能运行。 </li>
+<li>D 状态切换 运行可转化为阻塞、就绪。 阻塞可转化为就绪。 就绪可转化为运行。</li>
+</ul>
+</li>
+<li><p>线程:</p>
+<ul>
+<li>引入了多线程机制之后，进程的职责发生了变化，进程只负责资源的管理，线程负责运行。(调度分派的最小单位吗???)</li>
+<li>同一个进程里的多个线程会共享资源，每个线程都有自己的栈，局部变量在计算机真正执行的时候不存在，局部变量都是栈。</li>
+</ul>
+</li>
+<li><p>线程实现的机制:</p>
+<ul>
+<li>内核空间:调度的颗粒度更细了，但是每一次调度都在内核调度，所以时间开销很大。内核的调度策略是固定的，不够灵活。</li>
+<li>用户空间:调度灵活，可以定制自己的调度策略，不需要切换到内核态，时间开销很小，但调度颗粒度大。</li>
+</ul>
+</li>
+<li><p>调度:</p>
+<ul>
+<li>FCFS 先来先服务</li>
+<li>SJF (shortest job first) 最短作业优先</li>
+<li>HRF (high response-radio first.) 最高相应比优先</li>
+<li>SRF (shortest remaining-time first) 最短剩余时间优先</li>
+</ul>
+</li>
+<li><p>实时系统的调度算法重要的思想：</p>
+<ul>
+<li>round robin：时间片轮转，体现公平性，但无法体现出优先级，新来的永远放在队列尾，时间片定多大合适没有准确值。</li>
+<li>priority：优先级调度算法，有可能出现“饥饿”现象，在一般执行过程中优先级会有动态调整。(饥饿现象就是 长时间没有获得资源,类似很长时间没吃饭就饿了)</li>
+</ul>
+</li>
+<li><p>race condition：</p>
+<ul>
+<li>四个标准: 最重要的两个: 互斥,progress(简称)</li>
+<li>progress: 不在临界区的进程不能阻止其他想进入的进程进入。</li>
+<li>critical regions(临界区)：访问共享资源的一段代码。</li>
+</ul>
+</li>
+<li><p>解决互斥问题(软件):</p>
+<ul>
+<li>严格轮转法（strict alternation）：理解思想。可以解决互斥，但无法保证progress</li>
+<li>Peterson方法：都可以解决，但只能解决两个进程之间的问题。可以有解决多个进程之间的问题，但我们没有学。</li>
+</ul>
+</li>
+<li><p>解决互斥问题(硬件)</p>
+<ul>
+<li>TSL（TEST AND LOCK）机器指令级的原子操作（？好像是这么说的）<br>我记得罡哥说:<strong>TSL</strong>指令 (背下来)<br>附上代码<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>信号量(PV题):</p>
+<ul>
+<li>忙等待(无法保证谁先进去)和睡眠与唤醒</li>
+<li>信号量只能通过PV操作进行改变</li>
+</ul>
+</li>
+<li><p>死锁:</p>
+<ul>
+<li>四个必要条件<ul>
+<li>(1)互斥使用(资源独占)：一个资源每次只能给一个进程使用</li>
+<li>(2)占有且等待(请求和保持，部分分配)：进程在申请新的资源的同时保持对原有资源的占有</li>
+<li>(3)不可抢占(不可剥夺)：资源申请者不能强行的从资源占有者手中夺取资源，资源只能由占有者自愿释放</li>
+<li>(4)循环等待：存在一个进程等待队列 {P1 , P2 , … , Pn}，其中P1等待P2占有的资源，P2等待P3占有的资源，…，Pn等待P1占有的资源，形成一个进程等待环路。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>解决死锁的方法:</p>
+<ul>
+<li>检测与恢复<ul>
+<li>检测算法:<ul>
+<li>（1）利用图，如果出现环，则有可能出现死锁。</li>
+<li>（2）利用资源分配矩阵。</li>
+</ul>
+</li>
+<li>恢复:<ul>
+<li>抢占</li>
+<li>回滚</li>
+<li>杀死 (杀死年轻的进程,或者优先级低的)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>死锁避免<ul>
+<li>银行家算法</li>
+</ul>
+</li>
+<li>死锁预防<ul>
+<li>（1）如何解决互斥：Spooling.</li>
+<li>（2）如何解决部分持有并等待：要么全部分配，要么不分配，即不会出现部分持有但是该方法实际上不可行，因为必须事先知道需要用到哪些资源。</li>
+<li>（3）如何解决循环等待：对所有资源编号，然后按序分配。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>存储模型:<br>金字塔模型,从上到下规律<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os8.png" alt=""></p>
+</li>
+<li><p>固定分区:启动时把内存分为不等的固定大小，然后采用best fit算法决定要把进程放到哪里，解决外碎片的利用问题。固定分区没有外碎片，所以需要解决的是内碎片问题，内碎片无法被再利用。</p>
+</li>
+<li><p>可变分区：有各种fit算法，需要了解。</p>
+<ul>
+<li>BF</li>
+<li>WF</li>
+</ul>
+</li>
+<li><p>Swap（交换）：为了让内存容纳更多的进程（透明）。</p>
+</li>
+<li><p>Overlay（部分交换）：需要自己写代码实现Overlay（不透明）。</p>
+</li>
+<li><p>虚拟内存:</p>
+<ul>
+<li>分页:页号，页帧号，需要会算页号，物理地址。</li>
+<li>TLB:时间计算</li>
+<li>多级页表：需要会算需要几级页表。</li>
+<li>倒排页表：根据内容查下标，提速方法：哈希。</li>
+<li>页面置换算法<ul>
+<li>最优页面置换算法(OPT)<br>  置换以后不再被访问，或者在将来最迟才会被访问的页面，缺页中断率最低，但是该算法需要知道后面各页面的使用情况，而现实中一个进程正在运行时，很难知道后面的过程，所以该算法无法被实现。</li>
+<li>最近未使用页面置换(NRU)算法<br>  系统为每一个页面设置两个标志位：当页面被访问时设置R位，当页面被修改时设置M位。当发生缺页中断时，系统会检查所有的页面，并根据当前的R位和M位的值分为四类：（0）未被访问也未被修改（1）未被访问但被修改（2）被访问但未被修改（3）已被访问且已被修改</li>
+<li>FIFO算法<br>  置换最先调入内存的页面，即置换在内存中驻留时间最长的页面。</li>
+<li>second chance算法<br>  这是FIFO算法的一种改进方法，第二次机会算法给每个界面增加一个R位，每次先从链表头部开始查找，如果R置位，则清除R位并且把该页面的节点放到链表结尾；如果R是0，那么就直接替换掉。</li>
+<li>clock算法<br>  这种算法是一个环形链表的第二次机会算法，指针指向最老的页面，缺页中断时，检查表针指向的页面，如果R位为0，淘汰页面，如果R位为1，则清除R位并向前移动表针。</li>
+<li>LRU算法<ul>
+<li>在缺页中断时，置换未使用时间最长的页面。但是完全实现LRU的代价很高。</li>
+<li>下面介绍一个使用软件实现的解决方案<br>将每一个页面与一个计数器关联，每次时钟终端，扫描所有页面，把每个页面的R位加到计数器上，这样就跟踪了每个页面的使用情况。这种算法被称为最不常用（NFU）算法。<br>但这样还是存在一个问题，即很久之前的使用与最近的使用权重相等。<br>所以再次进行改进，将计数器在每次时钟滴答时，右移一位，并把R位加在最高位上，这种算法被称为老化（Aging）算法，增加了最近使用的权重。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缺页中断:<ul>
+<li>与普通中断的区别:<ul>
+<li>在指令执行期间产生和处理中断信号</li>
+<li>一条指令在执行期间，可能会产生多次缺页中断</li>
+<li>缺页中断返回时，会重新执行产生中断的那一条指令</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>硬链接和符号链接的区别:</p>
+<ul>
+<li>硬链接（Hard Link）：文件A是文件B的硬链接，则A的目录项中的inode节点号与B的目录项中的inode节点号相同，即一个inode节点对应两个不同的文件名，两个文件名指向同一个文件，A和B对文件系统来说完全平等。删除其中一个对另外一个没有影响。只是inode节点上的链接数变化而已。           </li>
+<li>符号链接（Symbolic Link）：A是B的符号链接，A的目录项中的inode节点号与B的目录项中的inode节点号不相同，A和B指向的是两个不同的inode，继而指向两块不同的数据块。但是A的数据块中存放的只是B的路径名。A和B之间是“主从“关系，如果B被删除了，A仍然存在，但指向的是一个无效的链接。</li>
+</ul>
+</li>
+<li><p>文件的权限</p>
+<ul>
+<li>r:read</li>
+<li>w:write</li>
+<li>x:execute<br>第一部分属于用户，第二部分属于用户组，第三部分属于其他<br>例如 -rw-r-r– 644</li>
+</ul>
+</li>
+<li><p>多级索引:<br>  会算能够支持的最大文件</p>
+</li>
+<li><p>调度</p>
+<ul>
+<li>FIFO调度</li>
+<li>最短寻道优先</li>
+<li>SCAN调度</li>
+<li>CSCAN调度<br>类似于SCAN调度，C-SCAN调度移动磁头从磁盘一端到磁盘另一端，并且处理行程上的请求，但是当磁头到达另一端时，它立即返回到磁盘的开头，不处理任何回程上的请求。<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3></li>
+</ul>
+</li>
+</ul>
+<h4 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h4><ol>
+<li><p>若磁盘转速为7200转/分，平均寻道时间为8ms,每个磁道包含1000个扇区，则访问一个扇区<br>的平均存取时间大约是(B)<br>A．8.1ms B．12.2ms C．16.3ms D．20.5ms</p>
+<blockquote>
+<p>这题跟扇区没啥关系,大骗子</p>
+</blockquote>
+</li>
+<li><p>设某文件为索引顺序文件，由 5 个逻辑记录组成，每个逻辑记录的大小与磁盘块的大小相等， 均为 512B，并依次存放在 50、121、75、80、63 号磁盘块上。若要存取文件的第 1569 逻辑字节处的信息，则要访问的磁盘块号是<br>A. 3    B. 75    C. 80    D. 63</p>
+</li>
+<li><p>某磁盘的转速为10000转/分，平均寻道时间是6 ms，磁盘传输速率是20 MB/s，磁盘控制器延迟为0.2 ms，读取一个4 KB的扇区所需的平均时间约为 B<br>A. 9 ms    B. 9.4 ms    C. 12 ms    D. 12.4 ms</p>
+<blockquote>
+<p>第一部分 找到磁道的时间 = 平均寻道时间 = 6ms<br>第二部分 找到扇区的时间 = 磁盘转一圈的时间÷2（因为不知道扇区具体在哪按半圈算）=（60秒）/（2*10000转/分）=3ms<br>第三部分 磁盘控制器延迟时间 = 0.2ms<br>第四部分 数据传输时间 = 传输字节数 / 磁盘传输速度 = 4K / 20M = 0.2ms（1K≈10的3次方）<br>综上 6ms+3ms+0.2ms+0.2ms=9.4ms。</p>
+</blockquote>
+</li>
+<li><p>若某文件系统索引结点（inode）中有直接地址项和间接地址项，则下列选项中，与单个文件长度无关的因素是 A<br>A.索引结点的总数    B.间接地址索引的级数    C.地址项的个数    D.文件块大小</p>
+<blockquote>
+<blockquote>
+<p>A<br>Linux使用索引节点来记录文件信息，作用类似于Windows下的文件分配表。索引节点是一个结构，它包含了一个文件的长度、创建及修改时间、权限、所属关系、磁盘中的位置等信息。</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>一个磁盘的转速为 7200 转/分，每个磁道有 160 个扇区，每个扇区为 512B， 那么理想情况下，其数据传输率为<br>A. 576000KB/s B. 7200KB/s C. 9600KB/s D. 19200KB/s</p>
+<blockquote>
+<p>C<br>[解析] 磁盘的转速为7200r/min=120r/s，转一圈经过160个扇区，每个扇区有512B所以数据传输率为120×160×512/1024=9600KB/s。<br>[归纳总结] 磁盘的数据传输率=每一道的容量/旋转一圈的时间=每一道的容量×转速</p>
+</blockquote>
+</li>
+<li><p>现有容量为10GB的磁盘分区，磁盘空间以簇（cluster）为单位进行分配， 簇的大小为4KB。若采用位图法管理该分区的空闲空间，即用一位（bit）标识一个簇是否被分配，则存放该位图所需要簇的个数为：<br>A. 80 B. 320 C. 80K D. 320K</p>
+<blockquote>
+<p>方法一：设磁盘容量为A,则<br>A=10G=10 * 1024 M<br>=10 * 1024 * 1024 K<br>=10 * 1024 * 1024 * 1024 byte<br>=10 * 1024 * 1024 * 1024 * 8 bit<br>设簇大小为B,则<br>B=4K<br>=4 * 1024byte<br>=4 * 1024*8bit<br>设C为10G所需标识的位数，则<br>C=A/B<br>=320K<br>320K/4K=80个<br>方法二：<br>磁盘簇个数：10 * 1024 * 1024KB/4KB=2621440bit，<br>一个簇能容纳的bit数：4 * 1024 * 8= 32768bit<br>则存放该位图所需簇的个数 2621440/ 32768=80个簇</p>
+</blockquote>
+</li>
+<li><p>在文件的索引节点中存放直接索引指针10个，一级二级索引指针各1 个，磁盘块大小为1KB。每个索引指针占4个字节。若某个文件的索引节点已在内存中，到把该文件的偏移量（按字节编址）为1234和307400处所在的磁盘块读入内存。需访问的磁盘块个数分别是（B）<br>A．1，2    B．1，3    C．2，3    D．2，4<br>已知在UNIX文件系统中,</p>
+</li>
+<li><p>执行命令touch file1新建一个文件，然后执行命令ln -s file1 link1为file1创建一个符号链接link1，再 执行ln link1 link2为link1创建一个（硬）链接，则此时file1的link counter为<strong>B_</strong>。<br>A．0 B．1 C．2 D．3</p>
+</li>
+<li><p>执行命令rm link1删除link1成功，则此时尝试显示link2的内容，执行cat link2，结果为 _B__。<br>A．提示文件不存在 B．打开文件file1 C．打开一个空文件 D．link2被删除</p>
+<h4 id="计算题"><a href="#计算题" class="headerlink" title="计算题"></a>计算题</h4></li>
+<li><p>UNIX操作系统中，给文件分配外存空间采用的是混合索引分配方式。索引节点（inode）中包含10个直接块指针、1个一级间接块指针、1个二级间接块指针和1个三级间接块指针，间接块指向的是一个索引块，每个索引块和数据块的大小均为4KB，地址指针所占空间为4B。假设该索引节点已经被加载进内存中，则：<br>（1）该文件能支持的最大容量是多少。<br>（2）若要读取文件的第1000B的内容，需要访问磁盘多少次。<br>（3）若要读取文件的第10MB的内容，需要访问磁盘多少次。</p>
+<blockquote>
+<p>解：（1）一个指针块有 4KB/4B=1K 个指针，故最大支持的文件大小为：<br>[10+2^10 +(2^10) ^2+ (2^10) ^3]  * 4KB 约等于 4TB 即可 （2 分）<br>（2）1000B &lt; 4KB ，直接指针，一个数据块即可访问到，1 次。（2 分）<br>（3）(10+2^10)*4KB &lt; 1000MB &lt; [10+ 2^10 +(2^10) ^2] * 4KB，需要使用二级间接指针，访问两次间接索引块和一个数据块，共 3 次。（2 分</p>
+</blockquote>
+</li>
+<li><p>、当前磁盘读写位于柱面号20，并向柱面号增大方向运动。此时有以下磁盘请求序列：10、22、2、40、6、38。寻道时移动一个柱面需要1ms，则按照先来先服务（FCFS）算法的总寻道时间为多少，电梯算法（优化SCAN）的总寻道时间为多少</p>
+<blockquote>
+<p>解：(1) FCFS = |20-10| + |10-22| + |22-2| + |2-40| + |40-6| + |6-38| = 10+12+20+38+34+32=146 寻道时间<br>146<em>1ms = 146ms（3 分）<br>(2) SCAN 算法，访问顺序：20-&gt;22-&gt;38-&gt;40-&gt;10-&gt;6-&gt;2，磁道数 = 2+16+2+30+4+4=58，寻道时间<br>58</em>1ms=58ms（3 分）</p>
+</blockquote>
+</li>
+<li><p>xv6操作系统中，给文件分配外存空间采用的是混合索引分配方式。索引节点（inode）中包含12 个直接块指针和1个一级间接块指针，间接块指向的是一个索引块，每个索引块和数据块的大小均为一个扇区，即512B，地址指针所占空间为4B。<br>1）该文件系统能支持的文件最大容量是 (1) 70KB    。<br>2）为了支持更大的文件，在不增加 inode 中的指针个数的前提下，取消一个直接块指针，增加一个二级间接块指针，则能支持的文件最大容量是     (2)(11+128+128<em>128) * 512B 。<br>3）在上一问的基础上，若将数据块的大小修改为 1KB，则该文件系统能支持的文件最大容量是 (3)(11+256+256</em>256) * 1KB    。<br>4）在上一问的基础上，假设该索引节点已经被加载进内存中，则若要读取文件的第 10MB 的内容，需要访问磁盘     (4) 3次。<br>5）若 inode 的大小为 128B，NBPI (Number of Bytes Per Inode) 为 2048，则一个 32GB 大小的文件系统中，用于存放数据和间接指针的数据块总大小约为     (5) 30GB。</p>
+<blockquote>
+<p>答：<br>(1) (12+128)<em>512B = 71680B = 70KB<br>(2) (11+128+128</em>128) * 512B = 8459776B = 8261.5KB =8.068MB<br>(3) (11+256+256<em>256) * 1KB = 65803KB = 64.261MB<br>(4)3次。由上一问知，10MB需要通过二级间接索引访问，故需要访问二个索引块和一个数据块。<br>(5)30GB。inode大小:NBPI = 1:16，故1/16空间存放inode，15/16空间存放数据块。32</em>15/16=30GB。</p>
+</blockquote>
+</li>
+<li><p>在某UNIX操作系统中，文件系统给文件分配外存空间采用的是混合索引分配方式。索引节点（inode）中包含13个直接块指针、1个一级间接块指针和1个二级间接块指针，间接块指向的是一个索引块，每个索引块和数据块的大小一致， 均为1KB，地址指针所占空间为4B。<br>13 * 1 + 256 * 1 +256 * 256 * 1<br>(1) 若某inode共有2个硬链接（hard link），分别为a和b，另有1个符号链接<br>（symbolic link）x-&gt;a，则该inode的link counter为 C。<br>A．0    B．1    C．2    D．3</p>
+</li>
+</ol>
+<p>(2)将a删除后，访问x，结果为 A。<br>A．提示文件不存在    B．打开文件b C．打开一个空文件    D．x已被删除<br><a href="https://blog.csdn.net/kang19970201/article/details/88931745" target="_blank" rel="noopener">软连接和硬链接</a></p>
+<p>(3)    假设该索引节点已经被加载进内存中，则若要读取文件的第1MB的内容，需要访问磁盘 C 次。<br>A．1    B．2    C．3    D．4<br> 1级 一个间接块 == 256个指针  256KB  269KB<br>需要访问二级间接  然后再访问数据 3次</p>
+<p>(3)    该文件系统能支持的文件最大容量约为     。<br>A．64KB    B．64MB    C．4GB    D．16GB</p>
+<blockquote>
+<p>B<br>13 * 1 + 256 * 1 +256 * 256 * 1 </p>
+</blockquote>
+<p>(4)  若将数据块的大小修改为4KB，则该文件系统能支持的文件最大容量约为     。<br>A．64KB    B．64MB    C．4GB    D．16GB</p>
+<blockquote>
+<p>C<br>13 * 4+1024 * 4 +1024 * 1024 * 4 =4GB </p>
+</blockquote>
+<p>(5)    若保持数据块大小1KB不变，在不增加inode中的指针个数的前提下，取<br>消一个直接块指针，增加一个三级间接块指针，则能支持的文件最大容量约为     。<br>A．64KB    B．64MB    C．4GB    D．16GB</p>
+<blockquote>
+<p>D<br>主要看三级指针 256 * 256 * 256 * 1 KB = 2 ^ 24 = 16GB</p>
+</blockquote>
+<p>(6)    若inode的大小为128B，NBPI (Number of Bytes Per Inode) 为1024，则一个32GB大小的文件系统中，用于存放数据和间接指针的数据块总大小约为         。<br>A．4GB    B．8GB    C．24GB    D．28GB</p>
+<blockquote>
+<p>D<br>1024/128 = 8  1/8放 inode 7/8 放数据<br>7/8 * 32 = 28GB</p>
+</blockquote>
+<h4 id="解答题"><a href="#解答题" class="headerlink" title="解答题"></a>解答题</h4><p>关于四种磁盘调度策略的统一说明：</p>
+<ul>
+<li>1．SCAN算法，磁臂从磁盘的一端向另一端移动，当磁头移过每一个柱面时，处理位于该柱面上的请求服务。当到达另一端时，改变方向继续处理。（每次都运动到顶端）</li>
+<li>2．C-SCAN算法，C-SCAN也是将磁头从磁盘一端移到另一端，随着移动不断的处理请求。但是，当磁头移到另一端时，会马上返回到磁盘开始，返回时不处理请求. （每次都运动到顶端）</li>
+<li>3．LOOK算法：是改进的SCAN算法，与SCAN相似，只是每次都不运动到顶端，在最大磁道号和最小磁道号之间移动。</li>
+<li>4．C-LOOK算法：是改进的C-SCAN算法，与C-SCAN相似，只是每次都不运动到顶端，在最大磁道号和最小磁道号之间移动。</li>
+</ul>
+<ol>
+<li><p>在使用 Linux 操作系统管理文件时，你有一个 2TB 的大数据文件要存放到硬盘上，但是现在只有<br>二个 1TB 大小的硬盘。如果不考虑硬件上购买 RAID 等设备，请问你有什么办法来操作系统软件<br>层面上解决这个问题吗？</p>
+<blockquote>
+<p>答：使用 LVM 逻辑卷管理。（2 分）将两个硬盘设置成两个物理卷 VG（PV），再加入一个卷组（VG）<br>中，在卷组中创建一个 2TB 的逻辑卷，此时就可以将大数据文件放入此逻辑卷内的文件系统中。（3分）</p>
+</blockquote>
+</li>
+<li><p>假如你刚刚成为一台服务器的管理员，这台服务器安装的是 Linux操作系统。<br>服务器上只有一块容量为 250GB 的硬盘，系统只划分了一个文件系统，所有<br>的数据都在根文件系统中。根据规划，这台服务器将要满足以下的需求：<br>（1） 开放给多个用户使用，限制每个用户在自己的主目录下最多只能存放<br>500MB 数据。另外，每个用户的邮箱限制只能容纳 200MB 的邮件。<br>（2） 目前计划支持的用户数 300 人，但是日后可能扩大，希望空间可以很<br>方便的扩充，但不能影响数据的正常使用。<br>（3） 服务器上安装数据库软件，需要一个很大的文件系统存放数据文件，<br>一个单独的数据文件甚至可能达到 2TB，文件系统则需要随时增长。<br>可以适当购买一些新硬盘，但是市场上能购买到的硬盘最大只有容量<br>为 1TB 的。<br>（4） 因节约成本，服务器没有安装硬件 RAID 支持，也没有购买 SAN 存储<br>阵列的。在这方面近期也没有新的预算。<br>请问你应该如何规划存储方案，满足上述要求？</p>
+<blockquote>
+<p>答：<br>（1）应该分别新建二个文件系统，一个用于用户主目录，挂载到/home 下，一个用于用<br>户邮箱，挂载到/var 下。使用用户磁盘配额设置，/home 设置每用户 500MB 配额，/var<br>设置每用户 200MB 配额。<br>（2）由于最大的文件系统可能要大于所有的硬盘，并且要满足文件系统可扩充的需求，<br>可以采用逻辑卷管理（LVM）技术。<br>在逻辑卷管理中，硬盘作为物理卷，组成卷组，在卷组中划分逻辑卷，逻辑卷中可以存<br>放文件系统。由于逻辑卷可以跨物理卷，并且可以动态调整大小，所以其中的文件系统<br>也可以具备这些好处</p>
+</blockquote>
+</li>
+<li><p>在 inode 的多级索引指针中，为什么保留了直接指向数据块的指针，而不是<br>设计成只使用一个指向多级间接索引块的指针，就可以访问到所有的数据块？<br>数据块的大小可以影响文件系统能支持的最大文件的大小，但是数据块的大<br>小对文件系统的性能和空间利用率之间有什么关系？为什么？</p>
+<blockquote>
+<p>答：虽然只使用一个指向三级间接索引块的指针就可以访问到所有的数据块，但是小文<br>件也需要多级寻址，多次访问硬盘，影响速度。保留直接指向数据块的指针后，小文件<br>可以直接定位数据块，节约了访问硬盘的时间，ᨀ高了存取效率。</p>
+</blockquote>
+</li>
+<li><p>、假设计算机系统采用 CSCAN(循环扫描)磁盘调度策略,使用 2KB 的内存空间<br>记录 16384 个磁盘块的空闲状态。<br>6<br>(1) 请说明在上述条件下如何进行磁盘块空闲状态的管理。<br>(2) 设某单面磁盘旋转速度为每分钟6000 转,每个磁道有100 个扇区,相邻磁<br>道间的平均移动时间为1ms。若在某时刻,磁头位于100 号磁道处,并沿着<br>磁道号增大的方向移动(如下图所示),磁道号请求队列为50,90,30,120,对<br>请求队列中的每个磁道需读取1 个随机分布的扇区,则读完这4 个扇区<br>点共需要多少时间?要求给出计算过程。<br>(3) 如果将磁盘替换为随机访问的Flash 半导体存储器(如U 盘、SSD 等),是<br>否有比CSCAN 更高效的磁盘调度策略?若有,给出磁盘调度策略的名称<br>并说明理由;若无,说明理由<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os3.png" alt=""></p>
+<blockquote>
+<p>(1)位矢图法<br>(2)CSCAN:190.4ms<br>寻道时间: 20+90+20+40 = 170ms<br>旋转时间: 10ms /2 *4 =20ms<br>读数据: 10ms/100 *4 = 0.4ms<br>(3)FCFS</p>
+</blockquote>
+</li>
+<li><p>在磁盘臂调度算法中，循环扫᧿算法（或称为循环电梯算法）（C-SCAN）对扫᧿算法（或称 为电梯算法）（SCAN）有什么改进之处？</p>
+<blockquote>
+<p>SCAN算法对两端磁道的响应时间过长，相对中间磁道而言不公平，而C-SCAN公平处理各磁道的请求</p>
+</blockquote>
+</li>
+<li><p>Linux 中的为安全起见，一个用户不能进入另一个用户的主目录。现有一个文件需要<br>共享给二个用户，放在各自主目录下共同使用。如何实现？</p>
+<blockquote>
+<p>答：<br>方法 1：为这个文件设置两个（硬）连接，分别放在两个用户的主目录下即可。<br>方法 2：将这个文件放在两个用户均可访问的目录中，然后做两个（硬）连接或符号连<br>接，分别入在两个用户的主目录下即可。</p>
+</blockquote>
+</li>
+<li><p>产生死锁的必要条件中，在实际操作系统里，哪个条件最有可能被破坏？如何做到<br>这一点？举例说明。</p>
+<blockquote>
+<p>答：最容易破坏的条件是：资源互斥使用。部分资源，如打印机，可以通过 SPOOLing<br>机制，为此类资源配备一个等待队列，即可破坏资源互斥使用。</p>
+</blockquote>
+<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3></li>
+</ol>
+<ul>
+<li>进程与程序的区别?<br>操作系统中最核心的概念是进程,对正在运行程序的一个抽象.<br>进程是程序的 一次执行 过程，程序是进程 赖以存在 的基础。</li>
+<li>多道程序 (伪并行):<br>在1秒钟期间,它可能运行多道程序,给人一种同时并行的错觉<br>拥有1个CPU实现多任务同时进行</li>
+<li>在一个单CPU系统中，若有5个用户进程。假设当前系统为用户态，则处于就绪状态的用户进程最多有 4 个，最少有 0 个。<blockquote>
+<p>注意，题目里给出的是假设当前系统为用户态，这表明现在有一个进程处于运行状态，因此最多有4个进程处于就绪态。也可能除一个在运行外，其他4个都处于阻塞。这时，处于就绪的进程一个也没有。</p>
+</blockquote>
+</li>
+<li>可以把CPU的指令分为两类，一类是操作系统和用户都能使用的指令，一类是只能由操作系统使用的指令。前者称为“非特权”指令，后者称为“特权”指令。<h4 id="选择题-1"><a href="#选择题-1" class="headerlink" title="选择题"></a>选择题</h4></li>
+</ul>
+<ol>
+<li><p>下列选项中，降低进程优先级的合理时机是<strong>A_</strong>。<br>A. 进程的时间片用完 B. 进程刚完成 I/O ,进入就绪队列<br>C. 进程长期处于就绪队列中 D. 进程从就绪态转为运行态</p>
+</li>
+<li><p>用户程序发出磁盘I/O请求后，系统的正确处理流程是（B）<br>A. 用户程序-&gt;系统调用处理程序-&gt;中断处理程序-&gt;设备驱动程序<br>B. 用户程序-&gt;系统调用处理程序-&gt;设备驱动程序-&gt;中断处理程序<br>C. 用户程序-&gt;设备驱动程序-&gt;系统调用处理程序-&gt;中断处理程序<br>D. 用户程序-&gt;设备驱动程序-&gt;中断处理程序-&gt;系统调用处理程序</p>
+</li>
+<li><p>在缺页处理过程中，操作系统执行的操作可能是（D）<br>I. 修改页表 II. 磁盘 I/O III. 分配页框<br>A. 仅 I, II B. 仅 II C. 仅 III D. I, II 和 III</p>
+<blockquote>
+<p>为什么?</p>
+</blockquote>
+</li>
+<li><p>当系统发生抖动（trashing）时，可以采取的有效措施是（A）<br>I. 撤销部分进程 II. 增加磁盘交换区的容量 III. ᨀ高用户进程的优先级<br>A. 仅 I B. 仅 II C. 仅 III D. 仅 I, II</p>
+</li>
+</ol>
+<ul>
+<li>系统抖动，解释为在请求分页存储管理中，从主存（DRAM）中刚刚换出（Swap Out）某一页面后（换出到Disk），根据请求马上又换入（Swap In）该页，这种反复换出换入的现象。</li>
+<li>产生该现象的主要原因是置换算法选择不当。<ul>
+<li>1.如果分配给进程的存储块数量小于进程所需要的最小值，进程的运行将很频繁地产生缺页中断，这种频率非常高的页面置换现象称为抖动。解决方案优化置换算法。</li>
+<li>2.在请求分页存储管理中，可能出现这种情况，即对刚被替换出去的页，立即又要被访问。需要将它调入，因无空闲内存又要替换另一页，而后者又是即将被访问的页，于是造成了系统需花费大量的时间忙于进行这种频繁的页面交换，致使系统的实际效率很低，严重导致系统瘫痪，这种现象称为抖动现象。解决方案运用局部性原理优化置换算法。</li>
+</ul>
+</li>
+<li>危害：系统时间消耗在低速的I/O上，大大降低系统效率。进程对当前换出页的每一次访问，与对RAM中页的访问相比，要慢几个数量级。</li>
+</ul>
+<ol start="5">
+<li><p>若系统S1 采用死锁避免方法，S2采用死锁检测方法，下列叙述中正确的是（）<br>Ⅰ. S1 会限制用户申请资源的顺序<br>Ⅱ．S1 需要进行所需资源总量信息，而 S2 不需要<br>Ⅲ．S1 不会给可能导致死锁的进程分配资源，S2 会<br>A．仅Ⅰ Ⅱ B．仅Ⅱ Ⅲ C．仅Ⅰ Ⅲ D．Ⅰ Ⅱ Ⅲ</p>
+</li>
+<li><p>两个进程合作完成一个任务。在并发执行中，一个进程要等待其合作伙伴发来消息，或者<br>建立某个条件后再向前执行，这种制约性合作关系被称为进程的（ ）。<br>A．同步 B．互斥 C．调度 D．执行</p>
+</li>
+<li><p>当一个进程处于(B)状态时,称其为等待(或阻塞)状态.<br>A. 它正等待中央处理机        B.它正等待合作进程的一个消息<br>C. 它正等待分给它一个时间片   D.它正在进入内存</p>
+</li>
+<li><p>下面关于线程的叙述中,正确的是(C)<br>A.不论是系统支持线程还是用户级线程,其切换都需要内核的支持.<br>B.线程是资源管理的分配单位,进程是调度和分配的单位<br>C.不管系统中是否有线程,进程都是拥有资源的独立单位.<br>D.在引入线程的系统中,进程仍是资源分配和调度分配的基本单位.</p>
+</li>
+<li><p>段页式存储管理汲取了页式管理和段式管理的长处,其实现原理结合了页式和段式管理的基本思想,即用分段式方法分配和管理用户地址空间,用分页方法管理物理存储空间.</p>
+</li>
+<li><p>下列调度算法中，不可能导致饥饿现象的是：A<br>A.时间片轮转    B.静态优先级调度    C.非抢占式作业优先    D.抢占式短作业优先</p>
+</li>
+<li><p>一个进程调用了阻塞式系统调用read()进行读磁盘操作，操作完成后，操作系统针对该进程必须做的是： A<br>A.修改进程状态为就绪态    B.降低进程优先级<br>C.进程分配用户内存空间    D.增加进程的时间片大小  </p>
+</li>
+<li><p>设m为同类资源数，n为系统中并发线程数。当n个进程共享m个互斥资源时，每个进程的最大需求是w；则下列情况会出现系统死锁的是：D<br>A. m=2,n=1,w=2    B. m=2,n=2,w=1    C. m=4,n=3,w=2    D. m=4,n=2,w=3</p>
+</li>
+<li><p>下列关于银行家算法的叙述中，正确的是 B<br>A.银行家算法可以预防死锁<br>B.当系统处于安全状态时，系统中一定无死锁进程<br>C.当系统处于不安全状态时，系统中一定会出现死锁进程<br>D.银行家算法破坏了死锁必要条件中的“请求和保持”条件</p>
+</li>
+<li><p>在多进程的系统中，为了保证公共变量的完整性，各进程应互斥进入临界区。所<br>谓临界区是指<strong><em>D</em></strong>。<br>A．一个缓冲区 B．一段数据区 C．同步机制 D．一段程序</p>
+</li>
+<li><p>某单CPU系统中有输入和输出设备各1台，现有3个并发执行的作业，每个作业的<br>输入、计算和输出时间均分别为2ms、3ms和4ms，且都按输入、计算和输出的顺序执<br>行，则执行完3个作业需要的时间最少是<strong>B</strong>。<br>A. 15ms B. 17ms C. 22ms D.27ms</p>
+</li>
+<li><p>下面对进程的描述中，错误的是 D 。<br>A．进程是动态的概念 B．进程的执行需要CPU<br>C．进程具有生命周期 D．进程是指令的集合</p>
+</li>
+<li><p>既考虑作业等待时间，又考虑作业执行时间的作业调度算法是 A 。<br>A．响应比高者优先 B．短作业优先<br>C．优先级调度 D．先来先服务</p>
+<h4 id="计算题-1"><a href="#计算题-1" class="headerlink" title="计算题"></a>计算题</h4></li>
+<li><p>有3个CPU密集型批处理作业，按照A、B和C的顺序间隔4分钟依次ᨀ交。预计运行时间分别为12， 8和4分钟。对于下列每种调度算法，忽略进程切换的开销，计算其平均进程周转时间。<br>(1) 采用先来先服务调度算法，平均进程周转时间为多少。 (2) 采用最短作业优先调度算法，平均进程周转时间为多少。</p>
+</li>
+</ol>
+<p>FCFS，作业调度顺序：A-&gt;B-&gt;C</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">到达日期</th>
+<th align="center">运行时间</th>
+<th align="center">等待时间</th>
+<th align="center">结束时间</th>
+<th align="center">周转时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">0</td>
+<td align="center">12</td>
+<td align="center">0</td>
+<td align="center">12</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center">8</td>
+<td align="center">20</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">8</td>
+<td align="center">4</td>
+<td align="center">12</td>
+<td align="center">24</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td align="center">故平远周转时间：(12+16+16)/3 = 14.67 min（3 分）</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2）SJF，作业调度顺序：A -&gt;C-&gt;B</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">到达日期</td>
+<td align="center">运行时间</td>
+<td align="center">等待时间</td>
+<td align="center">结束时间</td>
+<td align="center">周转时间</td>
+</tr>
+<tr>
+<td align="center">:-:</td>
+<td align="center">:-:</td>
+<td align="center">:-:</td>
+<td align="center">:-:</td>
+<td align="center">:-:</td>
+<td align="center">:-:</td>
+</tr>
+<tr>
+<td align="center">A</td>
+<td align="center">0</td>
+<td align="center">12</td>
+<td align="center">0</td>
+<td align="center">12</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center">12</td>
+<td align="center">24</td>
+<td align="center">20</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">8</td>
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">16</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">故平远周转时间：(12+20+8)/3 = 13.33 min（3 分）</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2. 银行家算法问题</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h4 id="解答题-1"><a href="#解答题-1" class="headerlink" title="解答题"></a>解答题</h4><ol>
+<li><p>你需要在一个很古老的 UNIX 上编写支持多线程的程序，它的内核不支持线程，内核代码也未公开，所以很难改造内核。请问如何解决这个问题？</p>
+<blockquote>
+<p>答:应该使用用户态线程。<br>在进程中设计运行时环境，由运行时控制多个线程的调度运行。内核不感知线程的<br>存在，只调度进程。资源分配给进程使用。</p>
+</blockquote>
+</li>
+<li><p>在 UNIX 中父进程通过 fork()产生与自己一模一样的子进程，请问执行什么系统调用后，子进程才拥有自己独立的新代码段。这个系统调用的返回值是如何规定的？</p>
+<blockquote>
+<p>答:exec    系列函数，如 execlp()等。该系统调用替换进程的正文段，如果成功，没<br>有返回值，如果失败，返回值为-1。</p>
+</blockquote>
+</li>
+<li><p>当检测到死锁发生时，如果必须杀死一个进程以解除死锁，请问以什么标准来选择被杀死的进程比较合理？</p>
+<blockquote>
+<p>答:一般选择运行时间较短的进程，因为这样重新运行的代价较小，另外，程序<br>需要可以多次运行不影响执行结果。还要考虑杀死优先级较低的进程等</p>
+</blockquote>
+</li>
+<li><p>有三个批处理作业，第一个作业 10:00 到达，需要执行 2 小时;第二个作业在 10:10<br>到 达，需要执行 1 小时;第三个作业在 10:25 到达，需要执行 25 分钟。分别采用<br>先来先服务，短作业优先和最高响应比优先三种调度算法，各自的平均周转时间是多<br>少?</p>
+<blockquote>
+<p>解：<br>FCFS：执行顺序1-&gt;2-&gt;3，平均周转时间为(120+170+180)/3=156.7分=2.61小时<br>SJF：执行顺序1-&gt;3-&gt;2，平均周转时间为(120+195+120)/3=145分=2.42小时<br>HRF：执行顺序 1-&gt;3-&gt;2，平均周转时间为(120+195+120)/3=145 分=2.42 小时<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os4.png" alt=""></p>
+</blockquote>
+</li>
+<li><p>某系统有三个作业：<br><img src="https://img-blog.csdn.net/20180920030652549?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NDMzNzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""><br>系统确定在它们全部到达后，开始采用响应比高者优先调度算法，并忽略系统调度时间。试问对它们的调度顺序是什么？各自的周转时间是多少？</p>
+</li>
+</ol>
+<p>响应比= 等待时间/所需cpu时间；响应比最高开始运行</p>
+<p>解：三个作业是在9.5时全部到达的。这时它们各自的响应比如下：<br>作业1的响应比 =（9.5 – 8.8）/ 1.5 = 0.46<br>作业2的响应比 =（9.5 – 9.0）/ 0.4 = 1.25<br>作业3的响应比 =（9.5 – 9.5）/ 1.0 = 0<br>因此，最先应该调度作业2运行，因为它的响应比最高。它运行了0.4后完成，这时的时间是9.9。再计算作业1和3此时的响应比：<br>作业1的响应比 =（9.9 – 8.8）/ 1.5 = 0.73<br>作业3的响应比 =（9.9 – 9.5）/ 1.0 = 0.40<br>因此，第二个应该调度作业1运行，因为它的响应比最高。它运行了1.5后完成，这时的时间是11.4。第三个调度的是作业3，它运行了1.0后完成，这时的时间是12.4。整个实施过程如下。<br><img src="https://img-blog.csdn.net/20180920031138869?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NDMzNzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<ol start="6">
+<li><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os5.png" alt=""><br> ① 系统中资源总量为某时刻系统中可用资源量与各进程已分配资源量之和，所以各种资源总<br>数为(9,3,6)。各进程对资源的需求量为各进程对资源的最大需求量与进程已分配资源量之差，<br> <img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os6.png" alt=""></p>
+</li>
+<li><p>死锁是一种对操作系统正常运行危害很大的现象，但是大多数死锁的解决方法只<br>停留在理论探讨中，无法应用于实际的操作系统系统。请列举中哪些方法是实际操作<br>系统中采用的应对死锁的可行方法。如果操作系统发现死锁已经发生，应如何应对使<br>造成的损失较小？</p>
+<blockquote>
+<p>答:实际常采用的方法:    1、鸵鸟算法。因为处理死锁成本太高，而死锁出现的频<br>率较低，故可以忽略死锁的发生。 2、Spooling 技术。假脱机技术。为临界资源增<br>加一个等待队列，使其好像可以被共享使用，如打印机。 当死锁发生时，杀死运<br>行时间较短的进程，损失较小，因为容易恢复。</p>
+</blockquote>
+</li>
+<li><p>在多道程序设计系统中，如何理解“内存中的多个程序的执行过程交织在一起，大家都在走走停停”这样一个现象？</p>
+<blockquote>
+<p>答：在多道程序设计系统中，内存中存放多个程序，它们以交替的方式使用CPU。因此，从宏观上看，这些程序都开始了自己的工作。但由于CPU只有一个，在任何时刻CPU只能执行一个进程程序。所以这些进程程序的执行过程是交织在一起的。也就是说，从微观上看，每一个进程一会儿在向前走，一会儿又停步不前，处于一种“走走停停”的状态之中。</p>
+</blockquote>
+</li>
+<li><p>作业调度与进程调度有什么区别？</p>
+<blockquote>
+<p>答：作业调度和进程调度（即CPU调度）都涉及到CPU的分配。<br>但作业调度只是选择参加CPU竞争的作业，它并不具体分配CPU。<br>而进程调度是在作业调度完成选择后的基础上，把CPU真正分配给某一个具体的进程使用。</p>
+</blockquote>
+</li>
+<li><p>为什么说响应比高者优先作业调度算法是对先来先服务以及短作业优先这两种调度算法的折中？</p>
+<blockquote>
+<p>答：先来先服务的作业调度算法，重点考虑的是作业在后备作业队列里的等待时间，因此对短作业不利；<br>短作业优先的作业调度算法，重点考虑的是作业所需的CPU时间（当然，这个时间是用户自己估计的），因此对长作业不利。<br>“响应比高者优先”作业调度算法，总是在需要调度时，考虑作业已经等待的时间和所需运行时间之比，即：<br>该作业已等待时间 / 该作业所需CPU时间</p>
+</blockquote>
+</li>
+<li><p>进程可以在运行、就绪和阻塞三个状态之间转换，试分析各种转换的发生时机和引发者</p>
+<blockquote>
+<p>答：运行-&gt;就绪：运行态进程时间片用完，由scheduler剥夺处理器进行调度。 就绪-&gt;运行：处理器空闲时，由scheduler挑选一个就绪进程，分配其处理器开始运行。 运行-&gt;阻塞：正在运行的进程，发现缺少资源或等待特定事件发生时，主动放弃处理器。 阻塞-&gt;就绪：阻塞态进程，阻塞其运行的条件消失，如缺少的资源可用，或特定的事件发生， 这时该进程被释放该资源或引发该事件的进程唤醒被阻塞的进程，被阻塞的进程转入就绪状态，等待 被调度运行。</p>
+</blockquote>
+</li>
+<li><p>什么是系统调用（System call或称为System API）？简述一下系统调用的使用方法和执行过程。在Shell中执行一个命令，从输入命令开始到命令结束，至少可能会涉及到哪些系统调用，这些系统调用的功能分别是什么？</p>
+<blockquote>
+<p>答：系统调用是由操作系统内核提供的服务例程。用户程序通过软中断的形式调用系统调用，执行过<br>程与中断相似。在shell中执行的命令，至少要涉及到以下系统调用：<br>fork() 创建一个子进程<br>exec() 替换进程代码段<br>wait() 等待其他进程结束<br>exit() 结束当前进程</p>
+</blockquote>
+</li>
+<li><p>分时操作系统中进程调度算法中对普通进程常常采用的是优先级轮转法，请问如何保证不会有进程因为优先级太低而饥饿？</p>
+<blockquote>
+<p>答：采用动态调整进程优先级的方法。动态降低长时间占用CPU进程的优先级，低优先级的进程的优先级则相对升高，最终得到运行。</p>
+</blockquote>
+</li>
+<li><p>死锁是一种对操作系统正常运行危害很大的现象，但是大多数死锁的解决方法只停留在理论探讨中，无法应用于实际的操作系统系统。请列举中哪些方法是实际操作系统中采用的应对死锁的可行方法。如果操作系统发现死锁已经发生，应如何应对使造成的损失较小？</p>
+<blockquote>
+<p>答：实际常采用的方法：<br>1、鸵鸟算法。因为处理死锁成本太高，而死锁出现的频率较低，故可以忽略死锁的发生。<br>2、Spooling技术。假脱机技术。为临界资源增加一个等待队列，使其好像可以被共享使用，如打印机。<br>当死锁发生时，杀死运行时间较短的进程，损失较小，因为容易恢复。</p>
+</blockquote>
+</li>
+<li><p>简述进程与线程的区别与联系。进程间通信和线程间通信有什么异同？<br>答：</p>
+<blockquote>
+<p>线程是进程中的执行序列，进程是资源分配的单位，进程和线程都可以被调度。进程间一般不共享资源，所以进程间通信需要操作系统内核支持，使用信号、管道、SysV IPC或sockets等技术实现共享信号、信号量、共享内存、队列等信息。同一个进程内的线程间共享进程的所有资源，所以很容易实现通信。进程间与线程间通信都面临互斥和同步问题，也都需要加锁、信号量等方法来解决。</p>
+</blockquote>
+</li>
+<li><p>在引入线程概念的操作系统中，操作系统将资源分配给线程还是进程？为什么？在线程实现<br>的二种方案中，线程实现在用户级与实现在内核级相比，有什么缺点？</p>
+<blockquote>
+<p>答：资源分配给进程，因为进程是资源分配的最小单位，线程是在进程内，共享使用进程的资<br>源。线程实现在用户级，当一个线程阻塞时，内核会阻塞这个线程所在进程，导致这个进程中<br>其他可以运行的线程也被阻塞。</p>
+</blockquote>
+</li>
+<li><p>什么是 SPOOLing 技术？它是如何在解决死锁问题中得到应用的？</p>
+<blockquote>
+<p>SPOOLing 技术又称为“假脱机技术“。它可以破坏”独占使用“条件。例如打印机为临界资<br>源，可以在硬盘上开辟一个目录，所有的打印任务都ᨀ交的这个目录下的队列中，由一个打印<br>队列监控程序（daemon）负责将任务送到打印机上打印。</p>
+</blockquote>
+</li>
+<li><p>为什么要使用倒排页表？倒排页表面临的最大的问题是什么？如何解决？</p>
+<blockquote>
+<p>答：在 64 位系统中，由于虚拟地址太大，普通页表会非常大，无法存储。另一方面，实际内存<br>相对较小，所以建立一张从物理地址索引得到相对地址的倒排页表。<br>最大的问题的难于从相对地址查找到绝对地址。可以采用 hash 表ᨀ高查找效率，并使用 TLB<br>加速查找。</p>
+</blockquote>
+</li>
+<li><h4 id="PV题"><a href="#PV题" class="headerlink" title="PV题"></a>PV题</h4></li>
+</ol>
+<ul>
+<li>“虚拟化与云计算”课程安排上机，假设机房共有 2m 台机器，有 2n 名学生选该课，<br>其中 m,n 为正整数且 m&lt;n。规定：<br>（1） 按到达顺序，两个学生组成一组，每人占一台机器，协同完成上机实习；<br>（2） 两个学生到齐，并且此时机房有空闲机器时，方可进入机房；<br>试用类 C 语言，使用 PV 操作实现上述要求。<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore computer=<span class="number">2</span>m; <span class="comment">//控制对机器使用的信号量</span></span><br><span class="line">semaphore pair=<span class="number">0</span>; <span class="comment">//保证学生成对进入的信号量</span></span><br><span class="line">semaphore mutex=<span class="number">1</span>; <span class="comment">//保证变量互斥访问的信号量</span></span><br><span class="line"><span class="keyword">int</span> sc=<span class="number">0</span>; <span class="comment">//到达学生的个数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">student</span><span class="params">()</span></span>&#123;</span><br><span class="line">P(mutex); <span class="comment">//加锁，保证变量 sc 互斥使用</span></span><br><span class="line">sc=sc+<span class="number">1</span>; <span class="comment">//学生以到达顺序编号</span></span><br><span class="line"><span class="keyword">if</span> (sc%<span class="number">2</span>==<span class="number">1</span>) &#123; <span class="comment">//奇数编号的学生到达</span></span><br><span class="line"> V(mutex); <span class="comment">//解锁</span></span><br><span class="line"> P(pair); <span class="comment">//申请结对进入</span></span><br><span class="line">&#125; <span class="keyword">else</span> ( <span class="comment">//偶数编号的学生到达</span></span><br><span class="line"> V(mutex); <span class="comment">//解锁</span></span><br><span class="line"> V(pair); <span class="comment">//完成结对</span></span><br><span class="line">&#125;</span><br><span class="line">P(computer); <span class="comment">//申请计算机</span></span><br><span class="line">上机实习…</span><br><span class="line">V(computer); <span class="comment">//释放计算机</span></span><br><span class="line">&#125;</span><br><span class="line">评分标准：</span><br><span class="line">（<span class="number">1</span>） 正确定义信号量和共享变量，并赋初值。（<span class="number">2</span> 分）</span><br><span class="line">（<span class="number">2</span>） 正确使用信号量（mutex），保证共享变量（sc）被互斥使用。（<span class="number">2</span> 分）如存在死锁</span><br><span class="line">可能，如在 V(mutex)前就做 P(pair)，则此处只得 <span class="number">1</span> 分。</span><br><span class="line">（<span class="number">3</span>） 正确使用信号量（pair），保证学生结对。（<span class="number">2</span> 分）</span><br><span class="line">（<span class="number">4</span>） 正确使用共享变量（sc），实现对学生编号的判断。（<span class="number">2</span> 分）</span><br><span class="line">（<span class="number">5</span>） 正确使用信号量（computer），实现对计算机资源的控制。（<span class="number">2</span> 分）</span><br><span class="line">解法不唯一，如有其他解题思想，酌情给分。</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li>某停车场有 M 个大型车车位和 N 个小型车车位，大型车必须停大型车车位内，小型车优先停小型<br>车车位，在小型车车位全满的情况下，也可以停入大型车车位。大型车与小型车分别从两个入口<br>进入停车场。当车位已满时，车辆在停车场外排队等候。为实现上述控制，请用 PV 原语和信号<br>量，分别描述大型车和小型车使用停车场的过程。<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore big=M; <span class="comment">//大型车车位</span></span><br><span class="line">Semaphore all=M+N; <span class="comment">//总车位</span></span><br><span class="line">BigCar()&#123;</span><br><span class="line">P(big); <span class="comment">//如果有大型车车位，则占大型车车位</span></span><br><span class="line">P(all); <span class="comment">//占一个总车位</span></span><br><span class="line">大型车进车位</span><br><span class="line">V(big); <span class="comment">//释放一个大型车车位</span></span><br><span class="line">V(all); <span class="comment">//释放一个总车位</span></span><br><span class="line">&#125;</span><br><span class="line">SmallCar() &#123;</span><br><span class="line">P(all); <span class="comment">//占一个总车位</span></span><br><span class="line">小型车进车位</span><br><span class="line">V(all); <span class="comment">//释放一个总车位</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>设有两个优先级相同的进程 P1 和 P2，共享 x、y、z 三个变量，执行代码见下表。信号量 s1 和s2 的初值均为 0。试问 P1、P2 并发执行后，x、y、z 的值各是多少？给出解题过程。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">进程 P1</th>
+<th align="left">进程 P2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">y=1;</td>
+<td align="left">x=1;</td>
+</tr>
+<tr>
+<td align="left">y=y+2;</td>
+<td align="left">x=x+2;</td>
+</tr>
+<tr>
+<td align="left">V(s1);</td>
+<td align="left">P(s1);</td>
+</tr>
+<tr>
+<td align="left">z=y+1;</td>
+<td align="left">x=x+y;</td>
+</tr>
+<tr>
+<td align="left">P(s2);</td>
+<td align="left">V(s2);</td>
+</tr>
+<tr>
+<td align="left">y=z+y;</td>
+<td align="left">z=x+z;</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>答：<br>P1 的 6 条语句，分别用 P1-1 ~ P1-6 表示，P2 的 6 条语句，分别用 P2-1 ~ P2-6 表示。<br>根据信号量的约束，P1-6 一定晚于 P2-5 执行，而 P2-4 一定晚于 P1-3，而其他顺序不受<br>限制。执行顺序不同后导致结果不同的语句有：P1-6, P2-4, P2-6<br>(1) 由于 P2-4 一定晚于 P1-3，但一定早于 P1-6，而 P1-3~P1-6 期间 y=3，所以最终 x=6<br>(2) 如果 P2-6 早于 P1-4 执行，则 P2-6 使 z=6，然后 P1-4 使 z=4，P1-6 使 y=7<br>(3) 如果 P2-6 晚于 P1-4，但早于 P1-6 执行，则 P1-4 使 z=4，P2-6 使 z=10，P1-6 使 y=13<br>(4) 如果 P2-6 晚于 P1-6 执行，则 P1-4 使 z=4，P1-6 使 y=7，P2-6 使 z=10<br>综上所述：<br>如果 P2-6 早于 P1-4 执行，则 x=6, y=7, z=4<br>如果 P2-6 晚于 P1-4，但早于 P1-6 执行，则 x=6, y=13, z=10<br>如果 P2-6 晚于 P1-6 执行，则 x=6, y=7, z=10</p>
+</blockquote>
+<p>2.理发师问题</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore mutex = <span class="number">1</span>;    <span class="comment">//互斥信号量，初值为1.</span></span><br><span class="line">Semaphore  Wait = <span class="number">0</span>;     <span class="comment">//等待服务的顾客数 </span></span><br><span class="line">Semaphore  barbers= <span class="number">0</span>;    <span class="comment">//等待顾客的理发师数</span></span><br><span class="line">Int custNum = <span class="number">0</span>;    <span class="comment">//等待的顾客(还没理发的)  </span></span><br><span class="line"></span><br><span class="line">Costumer()</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">　　&#123;</span><br><span class="line">        P(mutex);            <span class="comment">//申请理发</span></span><br><span class="line">        <span class="keyword">if</span>(custNum&gt;<span class="number">0</span>)         </span><br><span class="line">　　　　　&#123;</span><br><span class="line">            <span class="keyword">if</span>(custNum&lt;N)   <span class="comment">//若等待人数小于N</span></span><br><span class="line">　　　　　　　&#123;</span><br><span class="line">                V(mutex);     <span class="comment">//释放进程等待</span></span><br><span class="line">                CustNum++；     <span class="comment">//增加等待人数</span></span><br><span class="line">            &#125;</span><br><span class="line">　　　　　　　<span class="keyword">else</span>            <span class="comment">//若等待人数超过N</span></span><br><span class="line">　　　　　　　　&#123;</span><br><span class="line">                V(mutex);   <span class="comment">//释放进程等待</span></span><br><span class="line">                离开；</span><br><span class="line">             &#125;</span><br><span class="line">　　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">else</span>                <span class="comment">//若目前无人等待</span></span><br><span class="line">　　　　&#123;</span><br><span class="line">            V(mutex);        <span class="comment">//释放进程等待</span></span><br><span class="line">            V(barbers)；     <span class="comment">//如果必要的话，唤醒理发师</span></span><br><span class="line">            理发；</span><br><span class="line">            离开；</span><br><span class="line">            P(mutex);        <span class="comment">//要求进程等待</span></span><br><span class="line">            custNum--；        <span class="comment">//顾客人数减1</span></span><br><span class="line">            V(mutex);       <span class="comment">//释放进程等待</span></span><br><span class="line">            V(wait);        <span class="comment">//等待人数减1</span></span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Barber()</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">　　&#123;</span><br><span class="line">        P(mutex);            <span class="comment">//要求进程等待</span></span><br><span class="line">        <span class="keyword">if</span>(custNum ==<span class="number">0</span>)    <span class="comment">//目前无顾客</span></span><br><span class="line">　　　　 &#123;</span><br><span class="line">            V(mutex);        <span class="comment">//释放进程等待</span></span><br><span class="line">            P(barbers);        <span class="comment">//理发师睡觉</span></span><br><span class="line">　　     &#125;</span><br><span class="line">　　　　<span class="keyword">else</span></span><br><span class="line">　　　　&#123;</span><br><span class="line">            V(mutex);        <span class="comment">//释放进程等待</span></span><br><span class="line">            理发;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、烟—吸烟者问题。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore S = <span class="number">1</span>;                <span class="comment">//供应者</span></span><br><span class="line">Semaphore S1,S2,S3;                <span class="comment">//三个吸烟者</span></span><br><span class="line">S1 = S2 = S3 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">bool</span> flag1,flag2,fiag3;            <span class="comment">//三种吸烟原料</span></span><br><span class="line">fiag1=flag2=flag3=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">Apply()                            <span class="comment">//供应者</span></span><br><span class="line">&#123;</span><br><span class="line">　　While(<span class="literal">true</span>)</span><br><span class="line">　　&#123;</span><br><span class="line">          P(S);</span><br><span class="line">　　   　　 取两样香烟原料放桌上，由flagi标记；</span><br><span class="line">　　　     <span class="keyword">if</span> (flag2 &amp;&amp; flag3) <span class="comment">//供纸和火柴</span></span><br><span class="line">　　　　　　&#123;</span><br><span class="line">　　　        V(S1);          <span class="comment">//唤醒吸烟者一</span></span><br><span class="line">　　　       &#125;</span><br><span class="line">　　       <span class="keyword">else</span> <span class="keyword">if</span>(flag1 &amp;&amp; fiag3) <span class="comment">//供烟草和火柴</span></span><br><span class="line">　　　　　　&#123;</span><br><span class="line">　　　        V(S2);                <span class="comment">//唤醒吸烟者二</span></span><br><span class="line">　　　       &#125;</span><br><span class="line">　　   　　<span class="keyword">else</span>                      <span class="comment">//供烟草和纸</span></span><br><span class="line">　　　　　　&#123;</span><br><span class="line">　　　        V(S3);                <span class="comment">//唤醒吸烟者三</span></span><br><span class="line">           &#125;</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Smoker1()                         <span class="comment">//吸烟者一</span></span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　 &#123;</span><br><span class="line">　　　    P(S1);</span><br><span class="line">　　　    取原料；</span><br><span class="line">　　　    做香烟；</span><br><span class="line">　　　    V(S);                    <span class="comment">//唤醒供应者</span></span><br><span class="line">　　　    吸香烟；</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">smoker2()                        <span class="comment">//吸烟者二</span></span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　    P(S2);</span><br><span class="line">　　　    取原料；</span><br><span class="line">　　　    做香烟；</span><br><span class="line">　　　    V(S);                    <span class="comment">//唤醒供应者</span></span><br><span class="line">　　　    吸香烟;</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;　　</span><br><span class="line"></span><br><span class="line">Smoker3()                        <span class="comment">//吸烟者三</span></span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">　　　    P(S3);</span><br><span class="line">　　     取原料；</span><br><span class="line">　　     做香烟；</span><br><span class="line">　　　    V(S);                    <span class="comment">//唤醒供应者</span></span><br><span class="line">　　　   吸香烟;</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.面包师问题</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore buyer= <span class="number">0</span>;                <span class="comment">//顾客人数</span></span><br><span class="line">Semaphore seller = n;            <span class="comment">//销售人员数</span></span><br><span class="line">Semaphore mutex_s = <span class="number">1</span>;            <span class="comment">//用于销售人员的互斥信号量</span></span><br><span class="line">Semaphore mutex_b = <span class="number">1</span>;            <span class="comment">//用于顾客的互斥信号量</span></span><br><span class="line"><span class="keyword">int</span> count_s = <span class="number">0</span>;                <span class="comment">//记录取号的值</span></span><br><span class="line"><span class="keyword">int</span> count_b = <span class="number">0</span>;                <span class="comment">//记录叫号的值 </span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Buy</span><span class="params">()</span>                    <span class="comment">//顾客进程</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     进店；</span><br><span class="line">    P(mutex_b);          <span class="comment">//取号</span></span><br><span class="line">    count_b++; </span><br><span class="line">　　 V(mutex_b);</span><br><span class="line">　　 V(buyer);</span><br><span class="line"> 　　P(seller);            <span class="comment">//等待叫号</span></span><br><span class="line">    买面包；</span><br><span class="line">    离开             </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sell</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">         P(buyer);</span><br><span class="line">         P(mutex_s);   <span class="comment">//叫号</span></span><br><span class="line">        </span><br><span class="line">         count_s++;</span><br><span class="line">         </span><br><span class="line">         叫编号为count_s的顾客；</span><br><span class="line">         V(mutex_s);</span><br><span class="line">         V(seller)；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.</p>
+<blockquote>
+<p>桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘<br>子放苹果（ apple），妈妈专向盘子中放桔子（ orange）；两个儿子专等吃盘子中的桔子，<br>两个女儿专等吃盘子中的苹果。请用 P、 V 操作来实现爸爸、妈妈、儿子、女儿之间的<br>同步与互斥关系。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore mutex = <span class="number">1</span>;      <span class="comment">//互斥信号量, 其初值为1</span></span><br><span class="line">Semaphore empty = <span class="number">2</span>;       <span class="comment">//记录允许向盘子中放入水果的个数，初值为2</span></span><br><span class="line">Semaphore orange = <span class="number">0</span>;      <span class="comment">//盘子中已放入的苹果的个数，初值为0</span></span><br><span class="line">Semaphore apple = <span class="number">0</span>;      <span class="comment">//盘子中已放入的桔子的个数，初值为0</span></span><br><span class="line">main()  </span><br><span class="line">&#123;   </span><br><span class="line">Cobegin  </span><br><span class="line">&#123;   </span><br><span class="line">　 father                    <span class="comment">//父亲进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　　　  P(empty);           <span class="comment">//减少盘中可放入的水果数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                向盘中放苹果;  </span><br><span class="line">                V(mutex);           <span class="comment">//允许向盘中取、放水果  </span></span><br><span class="line">                V(apple);           <span class="comment">//递增盘中的苹果数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">    mother                    <span class="comment">//母亲进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　　　　 P(empty);           <span class="comment">//减少盘中可放入的水果数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                向盘中放桔子;  </span><br><span class="line">                V(mutex);           <span class="comment">//允许向盘中取、放水果  </span></span><br><span class="line">                V(orange);          <span class="comment">//递增盘中的桔子数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    daughteri（i=<span class="number">1</span>,<span class="number">2</span>）      <span class="comment">//两女儿进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　      P(apple);           <span class="comment">//减少盘中苹果数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                取盘中苹果;  </span><br><span class="line">                V(mutex);           <span class="comment">//允许向盘中取、放水果  </span></span><br><span class="line">                V(empty);           <span class="comment">//递增盘中可放入的水果数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">    sonj（j=<span class="number">1</span>,<span class="number">2</span>）           <span class="comment">//两儿子进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　　　  P(orange);          <span class="comment">//减少盘中桔子数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                取盘中桔子;  </span><br><span class="line">                V(mutex);           ／/允许向盘中取、放水果  </span><br><span class="line">                V(empty);           <span class="comment">//递增盘中可放入的水果数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">   &#125;  </span><br><span class="line">    Coend  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6.有一个仓库，可以存放 A 和 B 两种产品，仓库的存储空间足够大，但要求：<br>（ 1）一次只能存入一种产品（ A 或 B）；<br>（ 2） -N &lt; (A 产品数量-B 产品数量) &lt; M。<br>其中， N 和 M 是正整数。试用“存放 A”和“存放 B”以及 P、 V 操作描述产品 A 与<br>产品 B 的入库过程。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore mutex = <span class="number">1</span>;   <span class="comment">//互斥信号量</span></span><br><span class="line">Semaphore a = M<span class="number">-1</span> ;   <span class="comment">//存放A的资源信号量，初值为M-1</span></span><br><span class="line">Semaphore b = N<span class="number">-1</span>;      <span class="comment">//存放B的资源信号量，初值为N-1</span></span><br><span class="line">存放 A:</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">        Get A；</span><br><span class="line">        P(&amp;a); </span><br><span class="line">         P(&amp;mutex); </span><br><span class="line">Put A；  </span><br><span class="line">V(&amp;mutex);  </span><br><span class="line">V(&amp;b);</span><br><span class="line">&#125;  </span><br><span class="line">&#125; </span><br><span class="line">存放B:</span><br><span class="line">&#123; </span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">&#123; </span><br><span class="line">        Get B；</span><br><span class="line">        P(&amp;b);</span><br><span class="line">        P(&amp;mutex);</span><br><span class="line">        Put B；</span><br><span class="line">        V(&amp;mutex);</span><br><span class="line">        V(&amp;a);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>三个进程 P1、 P2、 P3 互斥使用一个包含 N(N&gt;0)个单元的缓冲区。 P1 每次用 produce()<br>生成一个正整数并用 put()送入缓冲区某一空单元中;P2 每次用 getodd()从该缓冲区中<br>取出一个奇数并用 countodd()统计奇数个数;P3 每次用 geteven()从该缓冲区中取出一<br>个偶数并用 counteven()统计偶数个数。请用信号量机制实现这三个进程的同步与互斥活<br>动,并说明所定义信号量的含义。要求用伪代码描述。<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">P1()</span><br><span class="line">&#123;  </span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　    X = produce();      <span class="comment">//生成一个数</span></span><br><span class="line">　　　 　 P(empty);     <span class="comment">//是否有空单元格</span></span><br><span class="line">　　　    P(mutex);    <span class="comment">//进入临界区</span></span><br><span class="line">　　　    Put();  </span><br><span class="line">　　　    <span class="keyword">if</span>(X%<span class="number">2</span> == <span class="number">0</span>)  </span><br><span class="line">　　　         V(s2);   <span class="comment">//如果是偶数，向P3发出信号 </span></span><br><span class="line">　　　    <span class="keyword">else</span>  </span><br><span class="line">　　　          V(s1);   <span class="comment">//如果是奇数，向P2发出信号 </span></span><br><span class="line">　　　    V(mutex);         <span class="comment">//离开临界区，释放互斥信号量  </span></span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">P2()</span><br><span class="line">&#123;  </span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　    P(s1);     <span class="comment">//收到P1发送来的信号，已产生奇数</span></span><br><span class="line">　　　 　 P(mutex);         <span class="comment">//进入临界区     </span></span><br><span class="line">　　　    getodd();  </span><br><span class="line">　　　    countodd():=countodd()+<span class="number">1</span>; </span><br><span class="line">　　　    V(mutex);    </span><br><span class="line">　　　    V(empty);         <span class="comment">//离开临界区，释放互斥信号量   </span></span><br><span class="line">　　　&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">P3()</span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　 　 P(s2)        <span class="comment">//收到P1发送来的信号，已产生偶数   </span></span><br><span class="line">　　　   P(mutex);         <span class="comment">//进入临界区  </span></span><br><span class="line">　　　   geteven();  </span><br><span class="line">　　　   counteven():=counteven()+<span class="number">1</span>;  </span><br><span class="line">　　　   V(mutex);    </span><br><span class="line">　　　   V(empty);         <span class="comment">//离开临界区，释放互斥信号量   </span></span><br><span class="line">　　　&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>8.在天津大学与南开大学之间有一条弯曲的小路，这条路上每次每个方向上只允许一辆自<br>行车通过。但其中有一个小的安全岛 M，同时允许两辆自行车停留，可供两辆自行车已<br>从两端进入小路的情况下错车使用。如图所示。<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/pv.png" alt=""><br>下面的算法可以使来往的自行车均可顺利通过。其中使用了 4 个信号量， T 代表天大路<br>口资源， S 代表南开路口资源， L 代表从天大到安全岛一段路的资源， K 代表从南开到<br>安全岛一段路的资源。程序如下，请在空白位置处填写适当的 PV 操作语句，每处空白<br>可能包含若干个 PV 操作语句。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">begin</span><br><span class="line">    t:=<span class="number">1</span>;s:=<span class="number">1</span>;l:=<span class="number">1</span>;k:=<span class="number">1</span>;</span><br><span class="line">    cobegin</span><br><span class="line">    从天大到南开的进程</span><br><span class="line">        begin</span><br><span class="line">            ______(<span class="number">1</span>)______</span><br><span class="line">           通过 L 路段;</span><br><span class="line">           进入安全岛 M；</span><br><span class="line">           ______(<span class="number">2</span>)______</span><br><span class="line">           通过 K 路段</span><br><span class="line">           ______(<span class="number">3</span>)______</span><br><span class="line">        end</span><br><span class="line">   从南开到天大的进程</span><br><span class="line">       begin</span><br><span class="line">          略，与“从天大到南开的进程”相反。</span><br><span class="line">       end</span><br><span class="line">    coend</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>9.有桥如下图所示，车流如箭头所示，桥上不允许两车交汇，但允许同方向多辆车依次<br>通过（即桥上可以有多个同方向的车）。用P、V操作实现交通管理以防止桥上堵塞。<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/pv2.png" alt=""></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这题和读者写者问题类似</span></span><br><span class="line">semaphore fmutex=<span class="number">1</span>, normutex=<span class="number">1</span>, sormutex=<span class="number">1</span>,<span class="built_in">queue</span> = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> sou_count = <span class="number">0</span>, nor_count = <span class="number">0</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tonorth</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>)</span><br><span class="line">P(normutex); </span><br><span class="line"><span class="keyword">if</span>( nor_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">nor_count = nor_count + <span class="number">1</span>; </span><br><span class="line">V(normutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//过去了 ... </span></span><br><span class="line">P(normutex); </span><br><span class="line">nor_count = nor_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( nor_count == <span class="number">0</span> ) &#123; V(fmutex); &#125; </span><br><span class="line">V(normutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tosouth</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(sormutex);</span><br><span class="line"><span class="keyword">if</span>(sor_count==<span class="number">0</span>) &#123;P(fmutex);&#125;</span><br><span class="line">sor_count = sor_count++;</span><br><span class="line">V(sormutex);</span><br><span class="line">V(<span class="built_in">queue</span>);</span><br><span class="line"><span class="comment">// ... </span></span><br><span class="line">P(sormutex)</span><br><span class="line">sor_count = sor_count + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(sorcount==<span class="number">0</span>)&#123;V(fmutexl)&#125;</span><br><span class="line">V(sormutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>10.用 P、V 操作和信号量实现下图中的前趋关系。其中 S1~S5 是 5 个具有同步关系的<br>进程。<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/pv1.png" alt=""></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore s1 =<span class="number">0</span>,s2=<span class="number">0</span>,s3=<span class="number">0</span>,s4=<span class="number">0</span>,s5=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//s1....</span></span><br><span class="line">    V(s1);</span><br><span class="line">    V(s1);</span><br><span class="line">    V(s1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s1);</span><br><span class="line">    <span class="comment">//s2...</span></span><br><span class="line">    V(s2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s1);</span><br><span class="line">    <span class="comment">//s3...</span></span><br><span class="line">    V(s3);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p4</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s2);</span><br><span class="line">    <span class="comment">//s4....</span></span><br><span class="line">    V(s4);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p5</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s1);</span><br><span class="line">    P(s3);</span><br><span class="line">    P(s4);</span><br><span class="line">    <span class="comment">//s5...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="11">
+<li>2010 世博会在上海成功举行，很多场馆都给人留下了深刻的印象。中国馆有很多<br>观众参观。为保持场内卫生，需要不定期的清馆打扫卫生。为保证秩序，相关部门做出了以下的管理规定：<br>1) 同时进入场馆的人数上限为 N；如果场内观众人数达到上限，新观众在场外排队等候。<br>2) 为保证打扫卫生工作的正常开始，保洁人员首先会暂停新观众进场，新观众在场外排队等候；<br>3) 如果场内无观众，则打扫卫生立即开始，如还有剩余观众，则待场内观众全部离开后，即开始打扫卫生；<br>4) 完成后重新开放。</li>
+</ol>
+<p>为实现上述控制，请用 PV 原语和信号量，分别描述观众和保洁人员的行为。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore mutex=<span class="number">1</span>(人数加减的锁),r=N,w=<span class="number">1</span>,s=<span class="number">1</span>; (w是保持场馆状态)</span><br><span class="line"><span class="keyword">int</span> rc=<span class="number">0</span>;</span><br><span class="line">reader()</span><br><span class="line">&#123;</span><br><span class="line">P(s);<span class="comment">//给别人(特别是writer)看</span></span><br><span class="line">P(mutex);</span><br><span class="line">rc++;</span><br><span class="line"><span class="keyword">if</span> (rc==<span class="number">1</span>) P(w);</span><br><span class="line">P(r);</span><br><span class="line">V(mutex);</span><br><span class="line">V(s);</span><br><span class="line">读文件;</span><br><span class="line">P(mutex);</span><br><span class="line">rc--;</span><br><span class="line"><span class="keyword">if</span> (rc==<span class="number">0</span>) V(w);</span><br><span class="line">V(r);</span><br><span class="line">V(mutex);</span><br><span class="line">&#125;</span><br><span class="line">writer()<span class="comment">//w给别人看</span></span><br><span class="line">&#123;</span><br><span class="line">P(s);</span><br><span class="line">P(w);</span><br><span class="line">写文件;</span><br><span class="line">V(w);</span><br><span class="line">V(s);</span><br><span class="line">&#125;</span><br><span class="line">只有reader 会拿着 w</span><br><span class="line">只有写者 会拿着 s</span><br><span class="line">s 保证了门口只能站着一个人在等着进去</span><br></pre></td></tr></table></figure>
+<ol start="12">
+<li>某火车订票系统，可共多个用户同时共享一个订票数据库。规定允许多个用户同时查询该数据库，有查询者时，用户不能订票；有用户订票而需要更新数据库时，不可以有其他用户使用数据库。当有用户申请订票时，后续的查询者的请求会被暂时挂起直到订票操作完成。请在下面程序的空格处填入 P、 V 操作写出查询者和订票者的同步执行程序，一个空格处可能会有一条或多条 P、V 操作<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">答：程序中没有出现对信号量直接读写的语句，且 P、V 操作中没有出现非信号</span><br><span class="line">量作为参数。（<span class="number">1</span> 分）（程序中的给分项必须 P、V 操作成对完整且位置正确方可</span><br><span class="line">得分，分值标在相应的 P 操作上）</span><br><span class="line">semaphore mutex=<span class="number">1</span>（<span class="number">1</span> 分）,db=<span class="number">1</span>（<span class="number">1</span> 分）,w=<span class="number">1</span>（<span class="number">1</span> 分）; <span class="comment">//此处为信号量初始</span></span><br><span class="line">化</span><br><span class="line"><span class="keyword">int</span> count=<span class="number">0</span>; <span class="comment">//共享变量，查询用户的个数</span></span><br><span class="line">query() <span class="comment">//查询过程</span></span><br><span class="line">&#123;</span><br><span class="line">P(mutex) （<span class="number">1</span> 分）;P(w) （<span class="number">1</span> 分）;</span><br><span class="line">count=count+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (count==<span class="number">1</span>) &#123; <span class="comment">//是第一个查询者</span></span><br><span class="line">P(db) （<span class="number">1</span> 分）; &#125;</span><br><span class="line">V(w);V(mutex);</span><br><span class="line">查询余票; P(mutex) （<span class="number">1</span> 分）;</span><br><span class="line">count=count<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">if</span> (count==<span class="number">0</span>)&#123; <span class="comment">//是最后一个查询者</span></span><br><span class="line">V(db);</span><br><span class="line">&#125;</span><br><span class="line">V(mutex);</span><br><span class="line">&#125;</span><br><span class="line">book() <span class="comment">//订票过程</span></span><br><span class="line">&#123;</span><br><span class="line">P(w) （<span class="number">1</span> 分）;P(db) （<span class="number">1</span> 分）;</span><br><span class="line">订票;</span><br><span class="line">V(db);V(w);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>(1)读者优先(考试重点)</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore fmutex=<span class="number">1</span> <span class="comment">//fmutex --&gt; access to file; </span></span><br><span class="line">sepaphore rdcntmutex=<span class="number">1</span>; <span class="comment">// rdcntmutex --&gt; access to reader_count </span></span><br><span class="line"><span class="keyword">int</span> reader_count = <span class="number">0</span>; <span class="comment">// reader_count --&gt; the number of readers </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span> ( TRUE )&#123; </span><br><span class="line">P(rdcntmutex); </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">reader_count = reader_count + <span class="number">1</span>; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line"><span class="comment">//Do read operation ... </span></span><br><span class="line">P(rdcntmutex); </span><br><span class="line">reader_count = reader_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span>) &#123; V(fmutex); &#125; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span> ( TRUE )&#123; </span><br><span class="line">P(fmutex); </span><br><span class="line"><span class="comment">//Do write operation ... </span></span><br><span class="line">V(fmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(2)写者优先</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore fmutex=<span class="number">1</span>, rdcntmutex=<span class="number">1</span>, wtcntmutex=<span class="number">1</span>, <span class="built_in">queue</span>=<span class="number">1</span>; </span><br><span class="line"><span class="keyword">int</span> reader_count = <span class="number">0</span>, writer_count = <span class="number">0</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(rdcntmutex); </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">reader_count = reader_count + <span class="number">1</span>; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//Do read operation ... </span></span><br><span class="line">P(rdcntmutex); </span><br><span class="line">reader_count = reader_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; V(fmutex); &#125; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(wtcntmutex); </span><br><span class="line"><span class="keyword">if</span>( writer_count == <span class="number">0</span> ) &#123; P(<span class="built_in">queue</span>); &#125; </span><br><span class="line">writer_count = writer_count + <span class="number">1</span>; </span><br><span class="line">V(wtcntmutex); </span><br><span class="line">P(fmutex); </span><br><span class="line"><span class="comment">//Do write operation ... </span></span><br><span class="line">V(fmutex); </span><br><span class="line">P(wtcntmutex); </span><br><span class="line">writer_count = writer_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( writer_count == <span class="number">0</span> ) &#123; V(<span class="built_in">queue</span>); &#125; </span><br><span class="line">V(wtcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(3)公平竞争</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore fmutex=<span class="number">1</span>, rdcntmutex=<span class="number">1</span>, wtcntmutex=<span class="number">1</span>, <span class="built_in">queue</span>=<span class="number">1</span>; </span><br><span class="line"><span class="keyword">int</span> reader_count = <span class="number">0</span>, writer_count = <span class="number">0</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(rdcntmutex); </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">reader_count = reader_count + <span class="number">1</span>; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//Do read operation ... </span></span><br><span class="line">P(rdcntmutex); </span><br><span class="line">reader_count = reader_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; V(fmutex); &#125; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(fmutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//Do write operation ... </span></span><br><span class="line">V(fmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="解答题-2"><a href="#解答题-2" class="headerlink" title="解答题"></a>解答题</h4><ol>
+<li><p>当操作系统发现死锁已经发生时，通常采用哪些方法来解决这个问题？哪种方法的代价相对比较小？</p>
+<blockquote>
+<p>答：可以重启操作系统、或结束死锁状态的一个或多个进程。回答剥夺死锁进程的部分资源也可以给分。<br>选择结束死锁状态中最年轻的进程的生命，代价较小，因为重新运行到这个状态相对比较容易。 </p>
+</blockquote>
+</li>
+<li><p>请讨论一下使用 TSL 语句实现加锁的方法和原理。如果在不支持 TSL 的 x86 系列 CPU 上，如何使<br>用 XCHG 语句来代替 TSL 语句实现同样的功能？</p>
+<blockquote>
+<p>答：设置一个变量 LOCK，约定其值为 0 代表资源空闲，为 1 代表资源占用。(1 分)<br>进入临界区前执行下面的判断<br>(1) TSL 指令将变量 LOCK 的值存入寄存器 REGISTER 中，并将 LOCK 的值设置为 1。由于这是在一条指<br>令中完成，这两件事是原子性的，即“同时、不可被打断”。<br>(2) 判断寄存器 REGISTER 的值是 1 吗？是，重新执行第（1）步。<br>离开临界区前，将变量 LOCK 的值设为 0。（2 分）<br>如果使用 XCHG 替代 TSL 语句，可以改为：<br>进入临界区前执行下面的判断<br>(1) 将寄存器 REGISTER 的值设置为 1。<br>(3) 使用 XCHG 交换变量 LOCK 的值和寄存器 REGISTER 的值。由于这是在一条指令中完成，这个交换<br>是原子性的，即“同时、不可被打断”。<br>(4) 判断寄存器 REGISTER 的值是 1 吗？是，重新执行第（1）步。<br>离开临界区前，将变量 LOCK 的值设为 0。（2 分）</p>
+</blockquote>
+</li>
+</ol>
+<p>代码:?</p>
+<ol start="3">
+<li><p>根据你了解的 Linux 对于进程的管理机制，回答下面的问题：<br>（1）Linux 中各个进程是彼此平等的，还是存在父子族亲关系？<br>（2）内核创建的第一个进程叫什么名字？<br>（3）如果一个进程即将结束，而它尚有活动的子进程，该进程会正常结束，从而形成孤儿进程吗？<br>（4）使用什么命令，可以起动一个进程，在其父 shell 退出后，可以继续在后台运行？</p>
+<blockquote>
+<p>答：(1) 存在父子族亲关系（1 分）<br>(2) 第一个进程叫 init（1 分）<br>(3) 不会形成孤儿进程。（1 分）一般情况下有两种处理方法，一是先将它的子进程杀死后再结束自己，另一种是将子进程的父进程变更为 init 后再结束自己。（1 分）<br>(4) 使用 nohup 语句（1 分）</p>
+</blockquote>
+</li>
+<li><p>操作系统通过系统调用向用户程序提供服务,讨论一下问题<br>1)以fork()为例,说明用户程序如何调用系统调用.<br>2)以xv6系统为例,说明设计并实现一个系统调用需要哪些步骤.</p>
+<blockquote>
+<p>答:1)用户调用fork(),如果进程分裂成功,当前进程为父进程,fork()的返回值为子进程的PID,子进程中fork()的返回值为0.如果分裂失败,返回值为-1.<br>2)要点,需要修改一下文件:</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>syscall.h 增加系统调用编号</li>
+<li>syscall.c 增加系统调用声明</li>
+<li>sysproc.c 实现系统调用</li>
+<li>user.h 增加系统调用的声明</li>
+<li>usys.S 增加系统调用相关的宏</li>
+</ul>
+<h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><h5 id="选择题-2"><a href="#选择题-2" class="headerlink" title="选择题"></a>选择题</h5><ol>
+<li><p>下列措施中，能加快虚实地址转换的是：C<br>I. 增大快表（TLB）    II. 让页表常驻内存    III. 增加交换区<br>A.  仅 I    B. 仅 II    C. 仅 I,II    D. 仅 II,III</p>
+</li>
+<li><p>下列选项中，属于多级页表优点的是：D<br>A.加快地址变换速度            B.减少缺页中断次数<br>C. 减少一个页表项所占字节数     D.减少页表所占的内存空间</p>
+</li>
+<li><p>若用户进程访问内存时产生缺页，则下列选项中，操作系统可能执行的操作是 B<br>I.处理越界错    II.置换页    III.分配内存<br>A.仅I、II    B.仅II、III    C. 仅I、III    D. I、II和III</p>
+<blockquote>
+<p>增大TLB，是为了避免去内存中匹配页表。TLB本身就在***里，而且能并行计算。把页表都放在内存里，也是可以的，但一般页表很大，可以经过多级页表和反置页表处理后再放在内存里。交换区是内存不够用时的解决手段，增大交换区能腾出更多地方。</p>
+</blockquote>
+</li>
+<li><p>在⼀个请求分页系统中，采⽤ LRU 页⾯转换算法时，加⼊⼀个作业的页⾯⾛向为：<br>1，3，2，1，1，3，5，1，3，2，1，5.当分配给该作业的物理块数分别为 3 和 4 时，在访问过程中所发⽣的缺页率为  C<br>A. 25%，33%    B. 50%，25%    C.50%,33%    D. 50%，75%</p>
+<blockquote>
+<p>M=3<br>1 3 2<br>请求5 缺页 1 3 5<br>请求2 缺页 1 3 2<br>请求5 缺页 1 5 2<br>6/12 = 25%<br>M=4<br>1 3 2 5<br>4 / 12 = 33%</p>
+</blockquote>
+</li>
+<li><p>某作业的逻辑地址空间为4页，页⾯⼤⼩为2048，已知页表如下所⽰，则逻辑地址<br>4865（⼗进制）对应的物理地址为（<strong>C</strong>）。<br>页号    0    1    2    3<br>块号    2    4    6    8<br>A、4865    B、8961    C、13057    D、6865</p>
+<blockquote>
+<p>4865 = 1301H = ‭0001001100000001‬<br>2对应6<br>11001100000001‬ = 13057<br>ok</p>
+</blockquote>
+</li>
+<li><p>若⽤户进程访问内存时产⽣缺页，则下列选项中，操作系统可能执⾏的操作是 B<br>I.处理越界错    II.置换页    III.分配内存<br>A.仅I、II    B.仅II、III    C.  仅I、III    D. I、II和III</p>
+<blockquote>
+<p>用户进程访问内存时缺页会发生缺页中断。发生缺页中断，系统会执行的操作可能是置换页面或分配内存。系统内没有越界的错误，不会进行越界出错处理</p>
+</blockquote>
+</li>
+<li><p>考虑页⾯置换算法，系统有 m 个物理块供调度，初始时全空，页⾯引⽤串长度为p，包含了 n 个不同的页号，⽆论⽤什么算法，缺页次数不会少于（<strong>C</strong>）<br>A、m<br>B.p<br>C. n<br>D. min(m,n)</p>
+<blockquote>
+<p>无论采用什么置换算法,每种页面第一次访问时不可能在内存中.必然发生缺页.</p>
+</blockquote>
+</li>
+<li><p>把进程地址空间中使⽤的逻辑地址变成内存中物理地址的过程称为：<strong>A</strong><br>A、重定位    B、物理化    C、逻辑化    D、加载</p>
+<blockquote>
+<p>由程序中逻辑地址组成的地址范围叫做逻辑地址空间，或简称为地址空间。而由内存中的一系列存储单元所限定的地址范围称为内存空间，也称为物理空间或者绝对空间。<br>程序和数据装入内存时需对目标程序中的地址进行修改。这种把逻辑地址转变为内存的物理地址的过程叫重定位。<br>对程序进行重定位的技术按重定位的时机可分为两种：静态重定位和动态重定位。</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="计算题-2"><a href="#计算题-2" class="headerlink" title="计算题"></a>计算题</h5><ol>
+<li>某操作系统的内存管理器采用请求式分页，页面大小为 4KB，某计算机主存按字节编址，逻辑地<br>址和物理地址都是 32 位，页表项大小为 4 字节。若使用二级页表的分页存储管理方式，逻辑地<br>址结构为</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">页目录号(10位)</th>
+<th align="center">页表索引(10位)</th>
+<th align="center">页内偏移量(12位)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">TLB（快表）采用全相联映射，有 4 个页表项，内容如下表所示。</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">有效位</td>
+<td align="center">页号</td>
+<td align="center">页框号</td>
+</tr>
+<tr>
+<td align="center">:-</td>
+<td align="center">:-</td>
+<td align="center">:-</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">FF180H</td>
+<td align="center">——</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">3FFF1H</td>
+<td align="center">0F035H</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">FFFC6H</td>
+<td align="center">3054CH</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">03FFFH</td>
+<td align="center">0C153H</td>
+</tr>
+<tr>
+<td align="center">(1) 该系统的页表项中,最多可以保存多少位标志位.</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">(2) 若该进程共用到了3072个页,则此时此二级页表占用的总空间最小为多少.</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">(3) 对逻辑地址3FFF1880H转换为物理地址的结果是什么.</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>解：(1) 页面大小为 4KB =&gt; 页内偏移量 12 位<br>物理地址 32 位 =&gt; 页框号 20 位<br>页表项大小为 4 字节（即，32 位）=&gt; 标志位最多 = 页表项长度 32 – 页框号 20 = 12 位（2 分）<br>(2) 一个页表索引 10 位 =&gt; 一个小页表有 2^10=1024 个页表项<br>逻辑地址空间 3072 个页 =&gt; 需要 3072/1024=3 个小页表，加上一个页目录表，共 4 个页表 =&gt; 页<br>表最小 4*4KB=16KB（2 分）<br>(3) 页内偏移量 12 位 =&gt; 逻辑地址 3FFF1880H 的页号是 3FFF1H，查快表可知，对应页框号为<br>0F035H =&gt; 物理地址是 0F035880H（2 分）</p>
+</blockquote>
+<ol start="2">
+<li>某操作系统的内存管理器采⽤请求式分页，页⾯⼤⼩为 4KB，逻辑地址空间为 32 位， 物理地址空间为 36 位，⼀个页表项⼤⼩为 4B。⼀次快表（TLB）的访问时间是 10ns，⼀次内存的访问时间是 100ns，处理⼀次缺页的平均时间 10^8 ns（已含更新 TLB 和页表的时间）。进程的驻留集⼤⼩固定为 2,采⽤最近未使⽤置换算法(NRU)和局部淘汰策略。假设（1） TLB 初始为空;（2）地址转换时先访问 TLB,若 TLB 未命中,再访问页表(忽略访问页表之后的 TLB  更新时间);（3）有效位为  0  表⽰页⾯不在内存,产⽣缺页中断,缺页中断处理后,返回到产⽣缺页中断的指令处重新执⾏。进程的部分页表如下所⽰：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">页号</th>
+<th align="left">页框(Page Frame)号</th>
+<th align="left">P存在位</th>
+<th align="left">R访问位</th>
+<th align="left">M修改位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">00000H</td>
+<td align="left">——</td>
+<td align="left">0</td>
+<td align="left">-</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">00001H</td>
+<td align="left">007F61H</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">00002H</td>
+<td align="left">101254H</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">00003H</td>
+<td align="left">——</td>
+<td align="left">0</td>
+<td align="left">-</td>
+<td align="left">-</td>
+</tr>
+</tbody></table>
+<p>(1)该系统的页表项中，最多可以保存 <strong>B</strong>位标志位。<br>A．4    B．8    C．12    D．16</p>
+<blockquote>
+<p>页表项32位, (36-12)算出页框号<br>所以32 - (36- 12) = 8<br>41、若采⽤多级页表，要求每级页表均可以装⼊⼀个页⾯内，则应该采⽤  <strong>C</strong>级页表较合适。<br>A．0    B．1    C．2    D．3<br>ok</p>
+</blockquote>
+<p>(2)如果不考虑缺页的情况，对于已经载⼊内存的页⾯，快表命中率为90%，则访问内存中数据的平均有效访问时间是  <strong>A</strong>。<br>A．20ns    B．110ns    C．120ns    D．320ns</p>
+<blockquote>
+<p>10<em>0.9+110</em>0.1=20ns +不+100呢?</p>
+</blockquote>
+<p>(3)⾸先，访问逻辑地址00001618H，则读⼊所需数据需要的总时间是 <strong>D</strong>。<br>A．约 10^8ns    B．110ns    C．200ns    D．210ns</p>
+<blockquote>
+<p>内存是P位<br>10 + 100 +100</p>
+</blockquote>
+<p>(4)然后，访问逻辑地址00000FA6H，则读⼊所需数据需要的总时间是 <strong>A</strong>    。<br>A．约 10^8ns    B．110ns    C．200ns    D．210ns</p>
+<blockquote>
+<p>缺页中断了.</p>
+</blockquote>
+<p>(5)最后，访问逻辑地址0000126CH，则读⼊所需数据需要的总时间是 <strong>B</strong>    。<br>A．约 10^8ns    B．110ns    C．200ns    D．210ns</p>
+<blockquote>
+<p>页表1 在快表中了</p>
+</blockquote>
+<p>(6)在依次访问完上述三个逻辑地址后，页框101254H对应的页号为 <strong>A</strong>。<br>A．00000H    B．00001H    C．00002H    D．00003H</p>
+<blockquote>
+<p>(这题我也没太理解)是不是访问00000FA6H时候缺页中断 置换了页表2</p>
+</blockquote>
+<ol start="3">
+<li><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%861.png" alt=""></p>
+<blockquote>
+<p>答案:(1) 4KB (2) 4MB (3) (LA&gt;&gt;22)&amp;0x000003FF (4) (LA&gt;&gt;12)&amp;0x000003FF (5)  4×4K<br>(6) 00200020H (7) 00200040H (8) 00900H (9) 00901H (10)00901000H</p>
+</blockquote>
+</li>
+<li><p>已知某系统页⾯长 4KB，页表项 4B，虚拟地址空间为 64 位。<br>（1）如采⽤多层分页策略，限定各分层页表最多占 1 页⼤⼩，请问可以采⽤⼏层分页<br>策略？<br>（2）如采⽤倒排页表⽅式，请问倒排页表的⼤⼩？是每个进程⼀张倒排页表还是系统<br>维护⼀张倒排页表？如何解决倒排页表不便于逻辑地址向物理地址转换的问题？</p>
+<blockquote>
+<p>(1)页面长 4KB，说明页内偏移地址占 12 位，虚拟地址空间 64 位，说明页号总长<br>为 64-12=52 位。页面长 4KB，页表项 4B，故每张页表不超过<br>4K/4=1K=2^10    项，即每级 页表地址长度不应该超过 10 位。页号总长 52 位/<br>每页表最长 10 位=5.2，向上取整为 6。 即采用六层分页策略。<br>(2)如采用倒排页表，因为物理地址空间 4GB，故倒排页表应该有 4GB/4KB=1M个页 表项，每页表项大小为 4B，倒排页表大小为 1M*4B=4MB。系统维护一张倒排页表。可以使用 Hash 散列，解决倒排页表不便于逻辑地址向物理地址转换的问题。</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="解答题-3"><a href="#解答题-3" class="headerlink" title="解答题"></a>解答题</h5><ol>
+<li>缺页中断产生后，被中断的进程应该转入什么运行状态？讨论一下缺页中断的执行过程，并说明<br>中断处理完毕后返回被中断的进程时应该执行哪条语句。<blockquote>
+<p>（1）转入阻塞态（或者说 blocked 态、睡眠态、sleep 态都可以）(1 分)<br>（2）保护现场、陷入内核态、如果内存空间不足则选择页面淘汰(1 分)；调需要的页面进内存、更新页表和快表(1 分)；返回用户态，恢复现场、重新执行 被中断的语句(1 分)。<br>（3）执行被中断的语句(1 分)</p>
+</blockquote>
+</li>
+<li>某系统的页面淘汰算法采用老化(Aging)算法，每个页面分配一个 8 位二进制数的计数器。某进程共有 6 个页面，在时刻 0 之前所有页面均未被引用过。下表是前 5 个 clock tick 中各页面的被引用情况，被引用者标 1，未被引用者标 0。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">Clock tick</th>
+<th align="center">Page 0</th>
+<th align="center">Page 1</th>
+<th align="center">Page 2</th>
+<th align="center">Page 3</th>
+<th align="center">Page 4</th>
+<th align="center">Page 5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1） 在 clock tick 4 过后，需要淘汰一个页面，应选择哪个页面进行淘汰？为什么？</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2） 为什么说老化(Aging)算法是一种简单有效的算法，但只是 LRU 的一个近似实现？</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>1)应淘汰 Page 3，因为其访问计数器为 00100，为最小值<br>2)老化算法只有有限位的存储，记录最近若干次页面使用情况，更早的使用情况会丢失。另外，老<br>化算法没有记录在一个时间周期内页面的使用频度和时间等，所以与 LRU 相比只是一个近似实现。</p>
+</blockquote>
+<ol start="3">
+<li><p>在虚拟存储管理中，分段式内存管理⽅式解决了分页式内存管理中的什么问题，又带来了什么问题呢？</p>
+<blockquote>
+<p>解决了分页式机械化的分页(功能可能不同)导致颠簸现象?<br>分段式由内在逻辑来分, 不过段大 类似于动态分区会产生外碎片 导致内存利用率低<br>标答:分段式内存管理解决了分页式内存管理中划分页时仅根据大小划分，这样<br>可能将无关的 内容分到一页中，此页不便设置权限与保护，也不利于共享。<br>也有可能把密切相关的内容分 到不同页中，当页面置换算法设置不当时，内<br>存紧张时容易形成“抖动”现象。 分段式内存管理带来的问题是段往往过大，多<br>次分配释放后可能形成大量“外碎片”，利 用内存效率不高。</p>
+</blockquote>
+</li>
+<li><p>LRU页⾯置换算法是⼀种⽐较优秀的算法但是较难实现，为什么？试给出⼀种可⾏<br>的近似算法作为LRU的取代⽅案。</p>
+<blockquote>
+<p>LRU需求记录所有页面长期运行中被使用的时间和次数，需要大量的快速存<br>储空间，而且比较 pthreadkill()：向线程发送一个信号 算法非常复杂，不容易<br>实现。 <code>z</code>同步函数，用于 mutex    和条件变量替代方案可以采用老化（aging）<br>算法，每个页面有一个长度有限的记数器，记录每个 tick    内pthreadmutexinit()    初始化互斥锁 面使用情况，记录信息的权重逐次递减。这种算法与 LRU    相比，不能记录每个 tick    中内存使用情况，pthreadmutex_destroy()    删除互斥锁 而且记录的位数有限，但是实现方案较易<br>实现。</p>
+</blockquote>
+</li>
+<li><p>单纯的分段式和分页式内存管理各有什么缺点？为什么段页式可以避免这些缺点？<br>为什么段页式内存管理没有被⼴泛采⽤呢？</p>
+<blockquote>
+<p>分页式：逻辑地址空间划分只简单依靠页面大小，缺乏内在逻辑性，导致一方<br>面相关内容被分散 到多页上，页面置换不当时容易造成内存抖动，另一方面<br>不同性质的内容被分到同一页中，使得页面 权限保护设置困难。 分段式：段<br>体积大，在内存中无法不连续存储，易形成内存外碎片，降低内存利用率。<br>段页式：先分段再分页，以段为单位调入调出，以页为单位在内存中不连续存<br>储，既保证了相关内容 同时进出内存，便于设置权限保护，又可以充分利用<br>内存空间。 段页式结构复杂，实现起来效率低，所以没有被广泛采用。</p>
+</blockquote>
+</li>
+<li><p>为什么内存管理⽅式中，可变分区管理中有最差适应（worst fit)分配算法，⽽固定<br>分区管理中没有这个算法？分区管理中的交换技术（swap）和段式管理中的请求式<br>分段技术有什么区别？请求式分段与覆盖技术（overlay）又有什么区别？</p>
+<blockquote>
+<p>最差适应分配最大空间的分区给进程使用,以期剩余外碎片空间较大,再次利用的可能性较大.固定分区无外碎片,故不应采用这种算法.<br>交换技术交换单位是进程,请求式分段技术交换的单位是段<br>请求式分段式操作系统进行段调入调出,对程序员透明,而覆盖技术需要程序员自己完成调入调出.</p>
+</blockquote>
+</li>
+<li><p>页⾯置换（淘汰）的时机是什么？哪种算法最理想同时也不可能实现？为什么说<br>LRU算法很有效但是很难实现？什么是Belady异常？哪种算法存在Belady异常现<br>象?</p>
+<blockquote>
+<p>页面置换应该在内存空余空间小于一个固定的下限阈值时开始，并在达到<br>另一个上限阈值时停止。 OPT 最理想但不可能实现。 LRU 要求比较最近最少<br>使用的页面，条件多，要存储的数据量大，比较的时间长，很难实现。<br>Belady 异常指的时当增加页框时缺页中断发生的数量反而升高的现象。 FIFO<br>存在 Belady 异常</p>
+</blockquote>
+</li>
+<li><p>请讨论⼀下页⾯置换算法中⼯作集（Working Set）置换算法的⼯作原理。</p>
+<blockquote>
+<p>答：进程设置一个虚拟时钟，执行一个时钟周期就加 1，不执行就不增加。<br>（1    分）每个页面被访问时，记录最后访问的虚拟时间，R    位置 1。R    位定期<br>清除。（1 分）如果 R=1,则保留，将当前时间记录下来。（1    分）如果 R=0    对<br>比当前虚拟时间与页面最后访问时间差 age    与阈值 τ，如 age&gt;τ 则淘汰（1<br>分）。如 age    &lt;=    τ，则记录其访问时间，必要时淘汰其中最旧的。（1    分）</p>
+</blockquote>
+</li>
+<li><p>在内存管理的⽅法中，分段式管理⽐分页式管理有什么优势？段页式与其他⽅式相<br>⽐有什么好处？</p>
+<blockquote>
+<p>分段比分页更有逻辑性，将同类的或相关的内容放在一个段内，这样不会<br>由于页面置换算法选择不当而形成“抖动”现象。（1    分）同类内容划分在一个<br>段内，可以实现段的保护，如代码段设置为只读，数据段设置为读写。（1     分）<br>公共代码段可以通过映射共享到多个进程。（1    分）段页式既按照相关性划分<br>段，继承了分段的优势（1    分），又有分页管理可以不连续存储，能够充分利<br>用空间的好处。（1    分）</p>
+</blockquote>
+</li>
+<li><p>为什么要使⽤倒排页表？倒排页表⾯临的最⼤的问题是什么？如何解决？</p>
+<blockquote>
+<p>在 64    位系统中，由于虚拟地址太大，普通页表会非常大，无法存储。另一方<br>面，实际内存 相对较小，所以建立一张从物理地址索引得到相对地址的倒排<br>页表。 最大的问题的难于从相对地址查找到绝对地址。可以采用 hash    表ò高<br>查找效率，并使用 TLB加速查找。</p>
+</blockquote>
+</li>
+<li><p>内存分区管理中的交换技术与请求式分段技术相⽐，有什么相同点和不同点？</p>
+<blockquote>
+<p>答：相同点都是为了在内存不足的情况下装入更多的进程，都是会产生外碎片。<br>不同点为交换 技术交换的对象是整个进程而请求式分段交换的进程中的一个<br>段。</p>
+</blockquote>
+</li>
+<li><p>在页⾯淘汰算法中，为什么说⽼化(Aging)算法只是 LRU 的⼀个近似实现？</p>
+<blockquote>
+<p>老化算法与 LRU    相比，主要有两点区别：<br>(1）老化算法记录使用情况的<br>寄存器只有有限位， 比如 8位，无法记录所有使用情况。<br>（2）同一时间间隔内只使用 0/1区分页面使用情况，无法详 细区别间隔内的具体时间</p>
+</blockquote>
+</li>
+<li><p>单纯的分段式和分页式内存管理各有什么缺点？为什么段页式可以避免这些缺点？为什么段页式内存管理没有被广泛采用呢？</p>
+<blockquote>
+<p>答：分页式：逻辑地址空间划分只简单依靠页面大小，缺乏内在逻辑性，导致一方面相关内容被分散到多页上，页面置换不当时容易造成内存抖动，另一方面不同性质的内容被分到同一页中，使得页面权限保护设置困难。<br>分段式：段体积较大，在内存中无法不连续存储，易形成内存外碎片，降低内存利用率。<br>段页式：先分段再分页，以段为单位调入调出，以页为单位在内存中不连续存储，既保证了相关内容同时进出内存，便于设置权限保护，又可以充分利用内存空间。<br>段页式结构复杂，实现起来效率低，所以没有被广泛采用。</p>
+</blockquote>
+</li>
+<li><p>为什么内存管理方式中，可变分区管理中有最差适应（worst fit)分配算法，而固定分区管理中没有这个算法？分区管理中的交换技术（swap）和段式管理中的请求式分段技术有什么区别？请求式分段与覆盖技术（overlay）又有什么区别？</p>
+<blockquote>
+<p>答：最差适应分配最大空间的分区给进程使用，以期剩余外碎片空间较大，再次利用的可能性较大。<br>固定分区无外碎片，故不应采用这种算法。<br>交换技术交换的单位是进程，请求式分段技术交换的单位是段。<br>请求式分段是操作系统进行段调入调出，对程序员透明，而覆盖技术需要程序员自己完成调入调出。</p>
+</blockquote>
+</li>
+<li><p>页面置换（淘汰）的时机是什么？哪种算法最理想同时也不可能实现？为什么说LRU算法很有效但是很难实现？什么是Belady异常？哪种算法存在Belady异常现象？</p>
+<blockquote>
+<p>答：页面置换应该在内存空余空间小于一个固定的下限阈值时开始，并在达到另一个上限阈值时停止。<br>OPT最理想但不可能实现。<br>LRU要求比较最近最少使用的页面，条件多，要存储的数据量大，比较的时间长，很难实现。<br>Belady异常指的时当增加页框时缺页中断发生的数量反而升高的现象。<br>FIFO存在Belady异常。</p>
+</blockquote>
+</li>
+<li><p>请问缓存（Cache）有什么用，什么地方会用到它？</p>
+<blockquote>
+<p>答：缓存主要用于解决 CPU 和内存之间存在的速度差。一般来说，CPU 中寄存器的速<br>度要远快于内存，将 CPU 要用到的数据预先从内存中读到缓存，这样 CPU 使用时就可<br>以快速得到数据，写回内存的过程也类似。<br>TLB 就是使用缓存的一个典型例子。</p>
+</blockquote>
+</li>
+<li><p>内存管理中，什么是内存的外碎片？哪些种内存管理方式可能出现外碎片？为什么？为了避免出现大量很小的外碎片，在空间申请时可以考虑采用哪种分配策略？</p>
+<blockquote>
+<p>答：外碎片指的是内存中的小的空闲区域，虽然存在理论上被分配出去的可能性，但是<br>实际上由于空间很小，很难被利用。<br>可变式分区管理、分段式管理等内存管理方式均可能出现外碎片。<br>为了避免出现大量小的外碎片，可以使用最差适应（Worst Fit）分配策略。</p>
+</blockquote>
+</li>
+<li><p>已知某系统页面长 4KB，页表项 4B，虚拟地址空间为 64 位，物理地址空间 4GB。 （1）如采用多层分页策略，限定各分层页表最多占 1 页大小，请问可以采用几层分页策<br>略？<br>（2）如采用倒排页表方式，请问倒排页表的大小？是每个进程一张倒排页表还是系统维<br>护一张倒排页表？如何解决倒排页表不便于逻辑地址向物理地址转换的问题？</p>
+<blockquote>
+<p>答：（1）页面长 4KB，说明页内偏移地址占 12 位，虚拟地址空间 64 位，说明页号总长为 64-12=52 位。页面长 4KB，页表项 4B，故每张页表不超过 4K/4=1K=210 项，即每级页表地址长度不应该超过 10 位。页号总长 52 位/每页表最长 10 位=5.2，向上取整为 6。即采用六层分页策略。<br>（2）如采用倒排页表，因为物理地址空间 4GB，故倒排页表应该有 4GB/4KB=1M 个页<br>表项，每页表项大小为 4B，倒排页表大小为 1M*4B=4MB。<br>系统维护一张倒排页表。<br>可以使用 Hash 散列，解决倒排页表不便于逻辑地址向物理地址转换的问题。</p>
+</blockquote>
+</li>
+<li><p>缺页中断产生后，被中断的进程应该转入什么运行状态？讨论一下缺页中断<br>的执行过程，并说明中断处理完毕后返回被中断的进程时应该执行哪条语句。</p>
+<blockquote>
+<p>答：转入阻塞态（1 分）保护现场、陷入内核态、如果内存空间不足则选择淘汰、调需要的页面进内存（1 分）、更新页表和快表（1 分）、返回用户态，恢复现场、（1 分）重新执行被中断的语句。(1分)</p>
+</blockquote>
+</li>
+<li><p>请讨论一下页面置换算法中工作集（Working Set）置换算法的工作原理。</p>
+<blockquote>
+<p>答：进程设置一个虚拟时钟，执行一个时钟周期就加 1，不执行就不增加。<br>（1 分）<br>每个页面被访问时，记录最后访问的虚拟时间，R 位置 1。R 位定期清除。（1<br>分）<br>如果 R=1,则保留，将当前时间记录下来。（1 分）<br>如果 R=0 对比当前虚拟时间与页面最后访问时间差 age 与阈值τ，如 age&gt;<br>τ则淘汰（1 分）。如 age &lt;= τ，则记录其访问时间，必要时淘汰其中最旧的。 （1 分）</p>
+</blockquote>
+<h4 id="设备管理和其他"><a href="#设备管理和其他" class="headerlink" title="设备管理和其他"></a>设备管理和其他</h4></li>
+<li><p>用户程序发出磁盘I/O请求后，计算数据所在磁盘的柱面号、磁头号、扇区号的程序是 C<br>A.用户程序 B.系统调用处理程序 C.设备驱动程序 D.中断处理程序</p>
+</li>
+<li><p>在系统内存中设置磁盘缓冲区的主要目的是(A)<br>A．减少磁盘 I/O 次数 B．减少平均寻道时间 C．ᨀ高磁盘数据可靠性 D．实现设备无关性</p>
+</li>
+<li><p>在一个文件被用户进程首次打开的过程中，操作系统需做的是：B<br>A. 将文件内容读到内存中    B. 将文件控制块读到内存中<br>C. 修改文件控制块中的读写权限    D. 将文件的数据缓冲区首指针返回给用户进程</p>
+</li>
+<li><p>下列选项中，不可能在用户态发生的事件是 C<br>A. 系统调用    B. 外部中断    C. 进程切换    D. 缺页</p>
+</li>
+<li><p>操作系统的I/O子系统通常由四个层次组成，每一层明确定义了与邻近层次的接口，其合理层次组织排列顺序是 A<br>A.用户级 I/O 软件、设备无关软件、设备驱动程序、中断处理程序<br>B.用户级 I/O 软件、设备无关软件、中断处理程序、设备驱动程序<br>C.用户级 I/O 软件、设备驱动程序、设备无关软件、中断处理程序<br>D.用户级 I/O 软件、中断处理程序、设备无关软件、设备驱动程序</p>
+</li>
+<li><p>下列关于虚拟存储器的叙述中，正确的是 B<br>A. 虚拟存储器只能基于连续分配技术    B. 虚拟存储器只能基于非连续分配技术<br>C. 虚拟存储器只受外存容量的限制    D. 虚拟存储器只受内存容量的限制</p>
+</li>
+<li><p>计算机开机后，操作系统最终被加载到 D<br>A. BIOS    B. ROM(只读存储器)    C. EPROM    D. RAM(内存)</p>
+</li>
+<li><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os9.png" alt="os9.png"><br>B</p>
+</li>
+<li><p>若一个用户过程通过read系统调用读取一个磁盘文件中的数据，则下列关于此过程的叙述中，正确的是A<br>Ⅰ. 若该文件的数据不在内存，则该进程进入睡眠等待状态<br>Ⅱ. 请求 read 系统调用会导致 CPU 从用户态切换到核心态<br>Ⅲ. read 系统调用的参数应包含文件的名称<br>A. 仅Ⅰ、Ⅱ B. 仅Ⅰ、Ⅲ C. 仅Ⅱ、Ⅲ D. Ⅰ、Ⅱ和Ⅲ</p>
+</li>
+<li><p>在采用 SPOOLing 技术的系统中，用户的打印数据首先被送到<strong>A_</strong>。<br>A. 磁盘固定区域 B. 内存固定区域 C. 终端 D. 打印机</p>
+</li>
+<li><p>操作系统的I/O子系统通常由四个层次组成，每一层明确定义了与邻近层次的接口，其合理的层次组织排列顺序是: A<br>A. 用户级 I/O 软件、设备无关软件、设备驱动程序、中断处理程序<br>B. 用户级 I/O 软件、设备无关软件、中断处理程序、设备驱动程序<br>C. 用户级 I/O 软件、设备驱动程序、设备无关软件、中断处理程序<br>D. 用户级 I/O 软件、中断处理程序、设备无关软件、设备驱动程序</p>
+</li>
+<li><p>下列选项中，不可能在用户态发生的事件是 C<br>A. 系统调用 B. 外部中断 C. 进程切换 D. 缺页</p>
+</li>
+<li><p>中断处理和子程序调用都需要压栈以保护现场，中断处理一定会保存而子程序调用不需要保存的是 A<br>A. 程序计数器 B. 程序状态字寄存器<br>C. 通用数据寄存器 D. 通用地址寄存器</p>
+</li>
+<li><p>在分时系统中，进程调度的时间片的大小宜选择为（C）<br>A、几十纳秒 B、几十微秒 C、几十毫秒 D、几十秒</p>
+</li>
+<li><p>若当前进程因时间片用完而让出处理机时，该进程应转变为（A）状态。<br>A、就绪 B、等待 C、运行 D、完成</p>
+</li>
+<li><p>能否使用管程，主要取决于（ B）：<br>A、程序员的编程技巧 B、编程语言的编译器支持<br>C、操作系统是否支持线程 D、是否有相应硬件的支持</p>
+</li>
+<li><p>下列选项中,导致创建新进程的操作是<strong><em>C</em></strong>。<br>I 用户登录成功 II 设备分配 III 启动程序执行<br>A.仅 I 和 II B.仅 II 和 III C.仅 I 和 III D.I 、II 和 III</p>
+</li>
+<li><p>下列文件物理结构中,适合随机访问且易于文件扩展的是<strong>B_</strong>。<br>A.连续结构 B.索引结构<br>C.链式结构且磁盘块定长 D.链式结构且磁盘块变长</p>
+</li>
+<li><p>19、设文件 F1 的当前引用计数值为 1,先建立 F1 的符号链接(软链接)文件 F2,再建立F1 的硬链接文件 F3,然后删除 F1。此时,F2 和 F3 的引用计数值分别是<strong>B</strong>。<br>A. 0、1 B.1、1 C.1、2 D.2、1</p>
+</li>
+<li><p>中断扫描机构是（B）扫描一次中断寄存器。<br>A、每隔一个时间片 B、每条指令执行周期内最后时刻<br>C、每当进程释放 CPU D、每产生一次中断</p>
+</li>
+<li><p>弹出式线程的优点在于：A<br>A、没有历史，创建迅速 B、安全性高<br>C、执行效率高 D、不需要操作系统内核支持线程</p>
+</li>
+<li><p>在 Web Server 中使用线程，可以ᨀ高对客户请求的响应效率。请简述图中<br>web page cache 的作用。<br><img src="os1.png" alt=""></p>
+<blockquote>
+<p>答：线程共享进程资源，所有的线程都可以访问进程的 web page cache（1<br>分），cache 在内存中（1 分），被访问过的页面存放在 cache 中，当任何线程再<br>次需要这个页面时就可以从 cache 中得到，而不需要再次读取硬盘。（3 分）</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p><a href="https://blog.csdn.net/qq_28602957/article/details/53744956" target="_blank" rel="noopener">请求分页存储管理方式</a></p>
+<p><a href="https://www.cnblogs.com/edisonchou/p/5090315.html" target="_blank" rel="noopener">内存管理上:基本内存管理</a><br><a href="https://www.cnblogs.com/edisonchou/p/5094066.html" target="_blank" rel="noopener">内存管理中:分页内存管理</a><br><a href="https://www.cnblogs.com/edisonchou/p/5115242.html" target="_blank" rel="noopener">内存管理下:段式内存管理</a></p>
+]]></content>
+      <categories>
+        <category>期末</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -2338,1095 +3427,6 @@ world</code>标记之外</p>
       </categories>
       <tags>
         <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统习题整理</title>
-    <url>/2020/01/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%A0%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h2 id="操作系统习题"><a href="#操作系统习题" class="headerlink" title="操作系统习题"></a>操作系统习题</h2><h3 id="虎哥语录"><a href="#虎哥语录" class="headerlink" title="虎哥语录"></a>虎哥语录</h3><p>本次考试题型: 选择题(30道,60分)+ 计算题 +<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os7.png" alt=""></p>
-<a id="more"></a>
-<ul>
-<li><p>四个状态的转移过程</p>
-<ul>
-<li>running到blocked状态由进程自己进入。</li>
-<li>running到ready状态是由调度程序进行的。</li>
-<li>ready到running状态是由调度程序进行的。</li>
-<li>blocked到ready状态是靠中断进行。<br>Running,Ready,Block,是怎么转化的,为什么可以转换,为什么不能转换?</li>
-</ul>
-</li>
-<li><p>Ready状态是暂时没有CPU分配给他</p>
-</li>
-<li><p>进程执行一个系统调用调用进入阻塞态</p>
-</li>
-<li><p>当进程等待的一个外部事件发生时(如一些输入到达),则 block转换为ready,如果此时没有其他进程运行,立即又转换为了running</p>
-<ul>
-<li>A 运行状态 进程占用着CPU，并且在CPU上运行。显然处于这种状态的进程数量&lt;=CPU的数目。若只有一个CPU那么任何时刻最多只能有一个进程处于运行状态。</li>
-<li>B 就绪状态 进程已经具备了运行的条件，但由于CPU正忙着运行其他的进程，所以暂时不能运行。不过只要把CPU分给它，它就立刻可以运行。正所谓万事俱备只欠东风。 </li>
-<li>C 阻塞状态 进程因为某种事件的发生暂时不能运行的状态。例如它正等待某个输入输出的操作完成，或者它与其他线程之间存在同步关系，需要等待其他进程给它输入数据。这种情况下即使CPU已经空闲下来，这个进程还是不能运行。 </li>
-<li>D 状态切换 运行可转化为阻塞、就绪。 阻塞可转化为就绪。 就绪可转化为运行。</li>
-</ul>
-</li>
-<li><p>线程:</p>
-<ul>
-<li>引入了多线程机制之后，进程的职责发生了变化，进程只负责资源的管理，线程负责运行。(调度分派的最小单位吗???)</li>
-<li>同一个进程里的多个线程会共享资源，每个线程都有自己的栈，局部变量在计算机真正执行的时候不存在，局部变量都是栈。</li>
-</ul>
-</li>
-<li><p>线程实现的机制:</p>
-<ul>
-<li>内核空间:调度的颗粒度更细了，但是每一次调度都在内核调度，所以时间开销很大。内核的调度策略是固定的，不够灵活。</li>
-<li>用户空间:调度灵活，可以定制自己的调度策略，不需要切换到内核态，时间开销很小，但调度颗粒度大。</li>
-</ul>
-</li>
-<li><p>调度:</p>
-<ul>
-<li>FCFS 先来先服务</li>
-<li>SJF (shortest job first) 最短作业优先</li>
-<li>HRF (high response-radio first.) 最高相应比优先</li>
-<li>SRF (shortest remaining-time first) 最短剩余时间优先</li>
-</ul>
-</li>
-<li><p>实时系统的调度算法重要的思想：</p>
-<ul>
-<li>round robin：时间片轮转，体现公平性，但无法体现出优先级，新来的永远放在队列尾，时间片定多大合适没有准确值。</li>
-<li>priority：优先级调度算法，有可能出现“饥饿”现象，在一般执行过程中优先级会有动态调整。(饥饿现象就是 长时间没有获得资源,类似很长时间没吃饭就饿了)</li>
-</ul>
-</li>
-<li><p>race condition：</p>
-<ul>
-<li>四个标准: 最重要的两个: 互斥,progress(简称)</li>
-<li>progress: 不在临界区的进程不能阻止其他想进入的进程进入。</li>
-<li>critical regions(临界区)：访问共享资源的一段代码。</li>
-</ul>
-</li>
-<li><p>解决互斥问题(软件):</p>
-<ul>
-<li>严格轮转法（strict alternation）：理解思想。可以解决互斥，但无法保证progress</li>
-<li>Peterson方法：都可以解决，但只能解决两个进程之间的问题。可以有解决多个进程之间的问题，但我们没有学。</li>
-</ul>
-</li>
-<li><p>解决互斥问题(硬件)</p>
-<ul>
-<li>TSL（TEST AND LOCK）机器指令级的原子操作（？好像是这么说的）<br>我记得罡哥说:<strong>TSL</strong>指令 (背下来)<br>附上代码<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>信号量(PV题):</p>
-<ul>
-<li>忙等待(无法保证谁先进去)和睡眠与唤醒</li>
-<li>信号量只能通过PV操作进行改变</li>
-</ul>
-</li>
-<li><p>死锁:</p>
-<ul>
-<li>四个必要条件<ul>
-<li>(1)互斥使用(资源独占)：一个资源每次只能给一个进程使用</li>
-<li>(2)占有且等待(请求和保持，部分分配)：进程在申请新的资源的同时保持对原有资源的占有</li>
-<li>(3)不可抢占(不可剥夺)：资源申请者不能强行的从资源占有者手中夺取资源，资源只能由占有者自愿释放</li>
-<li>(4)循环等待：存在一个进程等待队列 {P1 , P2 , … , Pn}，其中P1等待P2占有的资源，P2等待P3占有的资源，…，Pn等待P1占有的资源，形成一个进程等待环路。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>解决死锁的方法:</p>
-<ul>
-<li>检测与恢复<ul>
-<li>检测算法:<ul>
-<li>（1）利用图，如果出现环，则有可能出现死锁。</li>
-<li>（2）利用资源分配矩阵。</li>
-</ul>
-</li>
-<li>恢复:<ul>
-<li>抢占</li>
-<li>回滚</li>
-<li>杀死 (杀死年轻的进程,或者优先级低的)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>死锁避免<ul>
-<li>银行家算法</li>
-</ul>
-</li>
-<li>死锁预防<ul>
-<li>（1）如何解决互斥：Spooling.</li>
-<li>（2）如何解决部分持有并等待：要么全部分配，要么不分配，即不会出现部分持有但是该方法实际上不可行，因为必须事先知道需要用到哪些资源。</li>
-<li>（3）如何解决循环等待：对所有资源编号，然后按序分配。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>存储模型:<br>金字塔模型,从上到下规律<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os8.png" alt=""></p>
-</li>
-<li><p>固定分区:启动时把内存分为不等的固定大小，然后采用best fit算法决定要把进程放到哪里，解决外碎片的利用问题。固定分区没有外碎片，所以需要解决的是内碎片问题，内碎片无法被再利用。</p>
-</li>
-<li><p>可变分区：有各种fit算法，需要了解。</p>
-<ul>
-<li>BF</li>
-<li>WF</li>
-</ul>
-</li>
-<li><p>Swap（交换）：为了让内存容纳更多的进程（透明）。</p>
-</li>
-<li><p>Overlay（部分交换）：需要自己写代码实现Overlay（不透明）。</p>
-</li>
-<li><p>虚拟内存:</p>
-<ul>
-<li>分页:页号，页帧号，需要会算页号，物理地址。</li>
-<li>TLB:时间计算</li>
-<li>多级页表：需要会算需要几级页表。</li>
-<li>倒排页表：根据内容查下标，提速方法：哈希。</li>
-<li>页面置换算法<ul>
-<li>最优页面置换算法(OPT)<br>  置换以后不再被访问，或者在将来最迟才会被访问的页面，缺页中断率最低，但是该算法需要知道后面各页面的使用情况，而现实中一个进程正在运行时，很难知道后面的过程，所以该算法无法被实现。</li>
-<li>最近未使用页面置换(NRU)算法<br>  系统为每一个页面设置两个标志位：当页面被访问时设置R位，当页面被修改时设置M位。当发生缺页中断时，系统会检查所有的页面，并根据当前的R位和M位的值分为四类：（0）未被访问也未被修改（1）未被访问但被修改（2）被访问但未被修改（3）已被访问且已被修改</li>
-<li>FIFO算法<br>  置换最先调入内存的页面，即置换在内存中驻留时间最长的页面。</li>
-<li>second chance算法<br>  这是FIFO算法的一种改进方法，第二次机会算法给每个界面增加一个R位，每次先从链表头部开始查找，如果R置位，则清除R位并且把该页面的节点放到链表结尾；如果R是0，那么就直接替换掉。</li>
-<li>clock算法<br>  这种算法是一个环形链表的第二次机会算法，指针指向最老的页面，缺页中断时，检查表针指向的页面，如果R位为0，淘汰页面，如果R位为1，则清除R位并向前移动表针。</li>
-<li>LRU算法<ul>
-<li>在缺页中断时，置换未使用时间最长的页面。但是完全实现LRU的代价很高。</li>
-<li>下面介绍一个使用软件实现的解决方案<br>将每一个页面与一个计数器关联，每次时钟终端，扫描所有页面，把每个页面的R位加到计数器上，这样就跟踪了每个页面的使用情况。这种算法被称为最不常用（NFU）算法。<br>但这样还是存在一个问题，即很久之前的使用与最近的使用权重相等。<br>所以再次进行改进，将计数器在每次时钟滴答时，右移一位，并把R位加在最高位上，这种算法被称为老化（Aging）算法，增加了最近使用的权重。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>缺页中断:<ul>
-<li>与普通中断的区别:<ul>
-<li>在指令执行期间产生和处理中断信号</li>
-<li>一条指令在执行期间，可能会产生多次缺页中断</li>
-<li>缺页中断返回时，会重新执行产生中断的那一条指令</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>硬链接和符号链接的区别:</p>
-<ul>
-<li>硬链接（Hard Link）：文件A是文件B的硬链接，则A的目录项中的inode节点号与B的目录项中的inode节点号相同，即一个inode节点对应两个不同的文件名，两个文件名指向同一个文件，A和B对文件系统来说完全平等。删除其中一个对另外一个没有影响。只是inode节点上的链接数变化而已。           </li>
-<li>符号链接（Symbolic Link）：A是B的符号链接，A的目录项中的inode节点号与B的目录项中的inode节点号不相同，A和B指向的是两个不同的inode，继而指向两块不同的数据块。但是A的数据块中存放的只是B的路径名。A和B之间是“主从“关系，如果B被删除了，A仍然存在，但指向的是一个无效的链接。</li>
-</ul>
-</li>
-<li><p>文件的权限</p>
-<ul>
-<li>r:read</li>
-<li>w:write</li>
-<li>x:execute<br>第一部分属于用户，第二部分属于用户组，第三部分属于其他<br>例如 -rw-r-r– 644</li>
-</ul>
-</li>
-<li><p>多级索引:<br>  会算能够支持的最大文件</p>
-</li>
-<li><p>调度</p>
-<ul>
-<li>FIFO调度</li>
-<li>最短寻道优先</li>
-<li>SCAN调度</li>
-<li>CSCAN调度<br>类似于SCAN调度，C-SCAN调度移动磁头从磁盘一端到磁盘另一端，并且处理行程上的请求，但是当磁头到达另一端时，它立即返回到磁盘的开头，不处理任何回程上的请求。<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3></li>
-</ul>
-</li>
-</ul>
-<h4 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h4><ol>
-<li><p>若磁盘转速为7200转/分，平均寻道时间为8ms,每个磁道包含1000个扇区，则访问一个扇区<br>的平均存取时间大约是(B)<br>A．8.1ms B．12.2ms C．16.3ms D．20.5ms</p>
-<blockquote>
-<p>这题跟扇区没啥关系,大骗子</p>
-</blockquote>
-</li>
-<li><p>设某文件为索引顺序文件，由 5 个逻辑记录组成，每个逻辑记录的大小与磁盘块的大小相等， 均为 512B，并依次存放在 50、121、75、80、63 号磁盘块上。若要存取文件的第 1569 逻辑字节处的信息，则要访问的磁盘块号是<br>A. 3    B. 75    C. 80    D. 63</p>
-</li>
-<li><p>某磁盘的转速为10000转/分，平均寻道时间是6 ms，磁盘传输速率是20 MB/s，磁盘控制器延迟为0.2 ms，读取一个4 KB的扇区所需的平均时间约为 B<br>A. 9 ms    B. 9.4 ms    C. 12 ms    D. 12.4 ms</p>
-<blockquote>
-<p>第一部分 找到磁道的时间 = 平均寻道时间 = 6ms<br>第二部分 找到扇区的时间 = 磁盘转一圈的时间÷2（因为不知道扇区具体在哪按半圈算）=（60秒）/（2*10000转/分）=3ms<br>第三部分 磁盘控制器延迟时间 = 0.2ms<br>第四部分 数据传输时间 = 传输字节数 / 磁盘传输速度 = 4K / 20M = 0.2ms（1K≈10的3次方）<br>综上 6ms+3ms+0.2ms+0.2ms=9.4ms。</p>
-</blockquote>
-</li>
-<li><p>若某文件系统索引结点（inode）中有直接地址项和间接地址项，则下列选项中，与单个文件长度无关的因素是 A<br>A.索引结点的总数    B.间接地址索引的级数    C.地址项的个数    D.文件块大小</p>
-<blockquote>
-<blockquote>
-<p>A<br>Linux使用索引节点来记录文件信息，作用类似于Windows下的文件分配表。索引节点是一个结构，它包含了一个文件的长度、创建及修改时间、权限、所属关系、磁盘中的位置等信息。</p>
-</blockquote>
-</blockquote>
-</li>
-<li><p>一个磁盘的转速为 7200 转/分，每个磁道有 160 个扇区，每个扇区为 512B， 那么理想情况下，其数据传输率为<br>A. 576000KB/s B. 7200KB/s C. 9600KB/s D. 19200KB/s</p>
-<blockquote>
-<p>C<br>[解析] 磁盘的转速为7200r/min=120r/s，转一圈经过160个扇区，每个扇区有512B所以数据传输率为120×160×512/1024=9600KB/s。<br>[归纳总结] 磁盘的数据传输率=每一道的容量/旋转一圈的时间=每一道的容量×转速</p>
-</blockquote>
-</li>
-<li><p>现有容量为10GB的磁盘分区，磁盘空间以簇（cluster）为单位进行分配， 簇的大小为4KB。若采用位图法管理该分区的空闲空间，即用一位（bit）标识一个簇是否被分配，则存放该位图所需要簇的个数为：<br>A. 80 B. 320 C. 80K D. 320K</p>
-<blockquote>
-<p>方法一：设磁盘容量为A,则<br>A=10G=10 * 1024 M<br>=10 * 1024 * 1024 K<br>=10 * 1024 * 1024 * 1024 byte<br>=10 * 1024 * 1024 * 1024 * 8 bit<br>设簇大小为B,则<br>B=4K<br>=4 * 1024byte<br>=4 * 1024*8bit<br>设C为10G所需标识的位数，则<br>C=A/B<br>=320K<br>320K/4K=80个<br>方法二：<br>磁盘簇个数：10 * 1024 * 1024KB/4KB=2621440bit，<br>一个簇能容纳的bit数：4 * 1024 * 8= 32768bit<br>则存放该位图所需簇的个数 2621440/ 32768=80个簇</p>
-</blockquote>
-</li>
-<li><p>在文件的索引节点中存放直接索引指针10个，一级二级索引指针各1 个，磁盘块大小为1KB。每个索引指针占4个字节。若某个文件的索引节点已在内存中，到把该文件的偏移量（按字节编址）为1234和307400处所在的磁盘块读入内存。需访问的磁盘块个数分别是（B）<br>A．1，2    B．1，3    C．2，3    D．2，4<br>已知在UNIX文件系统中,</p>
-</li>
-<li><p>执行命令touch file1新建一个文件，然后执行命令ln -s file1 link1为file1创建一个符号链接link1，再 执行ln link1 link2为link1创建一个（硬）链接，则此时file1的link counter为<strong>B_</strong>。<br>A．0 B．1 C．2 D．3</p>
-</li>
-<li><p>执行命令rm link1删除link1成功，则此时尝试显示link2的内容，执行cat link2，结果为 _B__。<br>A．提示文件不存在 B．打开文件file1 C．打开一个空文件 D．link2被删除</p>
-<h4 id="计算题"><a href="#计算题" class="headerlink" title="计算题"></a>计算题</h4></li>
-<li><p>UNIX操作系统中，给文件分配外存空间采用的是混合索引分配方式。索引节点（inode）中包含10个直接块指针、1个一级间接块指针、1个二级间接块指针和1个三级间接块指针，间接块指向的是一个索引块，每个索引块和数据块的大小均为4KB，地址指针所占空间为4B。假设该索引节点已经被加载进内存中，则：<br>（1）该文件能支持的最大容量是多少。<br>（2）若要读取文件的第1000B的内容，需要访问磁盘多少次。<br>（3）若要读取文件的第10MB的内容，需要访问磁盘多少次。</p>
-<blockquote>
-<p>解：（1）一个指针块有 4KB/4B=1K 个指针，故最大支持的文件大小为：<br>[10+2^10 +(2^10) ^2+ (2^10) ^3]  * 4KB 约等于 4TB 即可 （2 分）<br>（2）1000B &lt; 4KB ，直接指针，一个数据块即可访问到，1 次。（2 分）<br>（3）(10+2^10)*4KB &lt; 1000MB &lt; [10+ 2^10 +(2^10) ^2] * 4KB，需要使用二级间接指针，访问两次间接索引块和一个数据块，共 3 次。（2 分</p>
-</blockquote>
-</li>
-<li><p>、当前磁盘读写位于柱面号20，并向柱面号增大方向运动。此时有以下磁盘请求序列：10、22、2、40、6、38。寻道时移动一个柱面需要1ms，则按照先来先服务（FCFS）算法的总寻道时间为多少，电梯算法（优化SCAN）的总寻道时间为多少</p>
-<blockquote>
-<p>解：(1) FCFS = |20-10| + |10-22| + |22-2| + |2-40| + |40-6| + |6-38| = 10+12+20+38+34+32=146 寻道时间<br>146<em>1ms = 146ms（3 分）<br>(2) SCAN 算法，访问顺序：20-&gt;22-&gt;38-&gt;40-&gt;10-&gt;6-&gt;2，磁道数 = 2+16+2+30+4+4=58，寻道时间<br>58</em>1ms=58ms（3 分）</p>
-</blockquote>
-</li>
-<li><p>xv6操作系统中，给文件分配外存空间采用的是混合索引分配方式。索引节点（inode）中包含12 个直接块指针和1个一级间接块指针，间接块指向的是一个索引块，每个索引块和数据块的大小均为一个扇区，即512B，地址指针所占空间为4B。<br>1）该文件系统能支持的文件最大容量是 (1) 70KB    。<br>2）为了支持更大的文件，在不增加 inode 中的指针个数的前提下，取消一个直接块指针，增加一个二级间接块指针，则能支持的文件最大容量是     (2)(11+128+128<em>128) * 512B 。<br>3）在上一问的基础上，若将数据块的大小修改为 1KB，则该文件系统能支持的文件最大容量是 (3)(11+256+256</em>256) * 1KB    。<br>4）在上一问的基础上，假设该索引节点已经被加载进内存中，则若要读取文件的第 10MB 的内容，需要访问磁盘     (4) 3次。<br>5）若 inode 的大小为 128B，NBPI (Number of Bytes Per Inode) 为 2048，则一个 32GB 大小的文件系统中，用于存放数据和间接指针的数据块总大小约为     (5) 30GB。</p>
-<blockquote>
-<p>答：<br>(1) (12+128)<em>512B = 71680B = 70KB<br>(2) (11+128+128</em>128) * 512B = 8459776B = 8261.5KB =8.068MB<br>(3) (11+256+256<em>256) * 1KB = 65803KB = 64.261MB<br>(4)3次。由上一问知，10MB需要通过二级间接索引访问，故需要访问二个索引块和一个数据块。<br>(5)30GB。inode大小:NBPI = 1:16，故1/16空间存放inode，15/16空间存放数据块。32</em>15/16=30GB。</p>
-</blockquote>
-</li>
-<li><p>在某UNIX操作系统中，文件系统给文件分配外存空间采用的是混合索引分配方式。索引节点（inode）中包含13个直接块指针、1个一级间接块指针和1个二级间接块指针，间接块指向的是一个索引块，每个索引块和数据块的大小一致， 均为1KB，地址指针所占空间为4B。<br>13 * 1 + 256 * 1 +256 * 256 * 1<br>(1) 若某inode共有2个硬链接（hard link），分别为a和b，另有1个符号链接<br>（symbolic link）x-&gt;a，则该inode的link counter为 C。<br>A．0    B．1    C．2    D．3</p>
-</li>
-</ol>
-<p>(2)将a删除后，访问x，结果为 A。<br>A．提示文件不存在    B．打开文件b C．打开一个空文件    D．x已被删除<br><a href="https://blog.csdn.net/kang19970201/article/details/88931745" target="_blank" rel="noopener">软连接和硬链接</a></p>
-<p>(3)    假设该索引节点已经被加载进内存中，则若要读取文件的第1MB的内容，需要访问磁盘 C 次。<br>A．1    B．2    C．3    D．4<br> 1级 一个间接块 == 256个指针  256KB  269KB<br>需要访问二级间接  然后再访问数据 3次</p>
-<p>(3)    该文件系统能支持的文件最大容量约为     。<br>A．64KB    B．64MB    C．4GB    D．16GB</p>
-<blockquote>
-<p>B<br>13 * 1 + 256 * 1 +256 * 256 * 1 </p>
-</blockquote>
-<p>(4)  若将数据块的大小修改为4KB，则该文件系统能支持的文件最大容量约为     。<br>A．64KB    B．64MB    C．4GB    D．16GB</p>
-<blockquote>
-<p>C<br>13 * 4+1024 * 4 +1024 * 1024 * 4 =4GB </p>
-</blockquote>
-<p>(5)    若保持数据块大小1KB不变，在不增加inode中的指针个数的前提下，取<br>消一个直接块指针，增加一个三级间接块指针，则能支持的文件最大容量约为     。<br>A．64KB    B．64MB    C．4GB    D．16GB</p>
-<blockquote>
-<p>D<br>主要看三级指针 256 * 256 * 256 * 1 KB = 2 ^ 24 = 16GB</p>
-</blockquote>
-<p>(6)    若inode的大小为128B，NBPI (Number of Bytes Per Inode) 为1024，则一个32GB大小的文件系统中，用于存放数据和间接指针的数据块总大小约为         。<br>A．4GB    B．8GB    C．24GB    D．28GB</p>
-<blockquote>
-<p>D<br>1024/128 = 8  1/8放 inode 7/8 放数据<br>7/8 * 32 = 28GB</p>
-</blockquote>
-<h4 id="解答题"><a href="#解答题" class="headerlink" title="解答题"></a>解答题</h4><p>关于四种磁盘调度策略的统一说明：</p>
-<ul>
-<li>1．SCAN算法，磁臂从磁盘的一端向另一端移动，当磁头移过每一个柱面时，处理位于该柱面上的请求服务。当到达另一端时，改变方向继续处理。（每次都运动到顶端）</li>
-<li>2．C-SCAN算法，C-SCAN也是将磁头从磁盘一端移到另一端，随着移动不断的处理请求。但是，当磁头移到另一端时，会马上返回到磁盘开始，返回时不处理请求. （每次都运动到顶端）</li>
-<li>3．LOOK算法：是改进的SCAN算法，与SCAN相似，只是每次都不运动到顶端，在最大磁道号和最小磁道号之间移动。</li>
-<li>4．C-LOOK算法：是改进的C-SCAN算法，与C-SCAN相似，只是每次都不运动到顶端，在最大磁道号和最小磁道号之间移动。</li>
-</ul>
-<ol>
-<li><p>在使用 Linux 操作系统管理文件时，你有一个 2TB 的大数据文件要存放到硬盘上，但是现在只有<br>二个 1TB 大小的硬盘。如果不考虑硬件上购买 RAID 等设备，请问你有什么办法来操作系统软件<br>层面上解决这个问题吗？</p>
-<blockquote>
-<p>答：使用 LVM 逻辑卷管理。（2 分）将两个硬盘设置成两个物理卷 VG（PV），再加入一个卷组（VG）<br>中，在卷组中创建一个 2TB 的逻辑卷，此时就可以将大数据文件放入此逻辑卷内的文件系统中。（3分）</p>
-</blockquote>
-</li>
-<li><p>假如你刚刚成为一台服务器的管理员，这台服务器安装的是 Linux操作系统。<br>服务器上只有一块容量为 250GB 的硬盘，系统只划分了一个文件系统，所有<br>的数据都在根文件系统中。根据规划，这台服务器将要满足以下的需求：<br>（1） 开放给多个用户使用，限制每个用户在自己的主目录下最多只能存放<br>500MB 数据。另外，每个用户的邮箱限制只能容纳 200MB 的邮件。<br>（2） 目前计划支持的用户数 300 人，但是日后可能扩大，希望空间可以很<br>方便的扩充，但不能影响数据的正常使用。<br>（3） 服务器上安装数据库软件，需要一个很大的文件系统存放数据文件，<br>一个单独的数据文件甚至可能达到 2TB，文件系统则需要随时增长。<br>可以适当购买一些新硬盘，但是市场上能购买到的硬盘最大只有容量<br>为 1TB 的。<br>（4） 因节约成本，服务器没有安装硬件 RAID 支持，也没有购买 SAN 存储<br>阵列的。在这方面近期也没有新的预算。<br>请问你应该如何规划存储方案，满足上述要求？</p>
-<blockquote>
-<p>答：<br>（1）应该分别新建二个文件系统，一个用于用户主目录，挂载到/home 下，一个用于用<br>户邮箱，挂载到/var 下。使用用户磁盘配额设置，/home 设置每用户 500MB 配额，/var<br>设置每用户 200MB 配额。<br>（2）由于最大的文件系统可能要大于所有的硬盘，并且要满足文件系统可扩充的需求，<br>可以采用逻辑卷管理（LVM）技术。<br>在逻辑卷管理中，硬盘作为物理卷，组成卷组，在卷组中划分逻辑卷，逻辑卷中可以存<br>放文件系统。由于逻辑卷可以跨物理卷，并且可以动态调整大小，所以其中的文件系统<br>也可以具备这些好处</p>
-</blockquote>
-</li>
-<li><p>在 inode 的多级索引指针中，为什么保留了直接指向数据块的指针，而不是<br>设计成只使用一个指向多级间接索引块的指针，就可以访问到所有的数据块？<br>数据块的大小可以影响文件系统能支持的最大文件的大小，但是数据块的大<br>小对文件系统的性能和空间利用率之间有什么关系？为什么？</p>
-<blockquote>
-<p>答：虽然只使用一个指向三级间接索引块的指针就可以访问到所有的数据块，但是小文<br>件也需要多级寻址，多次访问硬盘，影响速度。保留直接指向数据块的指针后，小文件<br>可以直接定位数据块，节约了访问硬盘的时间，ᨀ高了存取效率。</p>
-</blockquote>
-</li>
-<li><p>、假设计算机系统采用 CSCAN(循环扫描)磁盘调度策略,使用 2KB 的内存空间<br>记录 16384 个磁盘块的空闲状态。<br>6<br>(1) 请说明在上述条件下如何进行磁盘块空闲状态的管理。<br>(2) 设某单面磁盘旋转速度为每分钟6000 转,每个磁道有100 个扇区,相邻磁<br>道间的平均移动时间为1ms。若在某时刻,磁头位于100 号磁道处,并沿着<br>磁道号增大的方向移动(如下图所示),磁道号请求队列为50,90,30,120,对<br>请求队列中的每个磁道需读取1 个随机分布的扇区,则读完这4 个扇区<br>点共需要多少时间?要求给出计算过程。<br>(3) 如果将磁盘替换为随机访问的Flash 半导体存储器(如U 盘、SSD 等),是<br>否有比CSCAN 更高效的磁盘调度策略?若有,给出磁盘调度策略的名称<br>并说明理由;若无,说明理由<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os3.png" alt=""></p>
-<blockquote>
-<p>(1)位矢图法<br>(2)CSCAN:190.4ms<br>寻道时间: 20+90+20+40 = 170ms<br>旋转时间: 10ms /2 *4 =20ms<br>读数据: 10ms/100 *4 = 0.4ms<br>(3)FCFS</p>
-</blockquote>
-</li>
-<li><p>在磁盘臂调度算法中，循环扫᧿算法（或称为循环电梯算法）（C-SCAN）对扫᧿算法（或称 为电梯算法）（SCAN）有什么改进之处？</p>
-<blockquote>
-<p>SCAN算法对两端磁道的响应时间过长，相对中间磁道而言不公平，而C-SCAN公平处理各磁道的请求</p>
-</blockquote>
-</li>
-<li><p>Linux 中的为安全起见，一个用户不能进入另一个用户的主目录。现有一个文件需要<br>共享给二个用户，放在各自主目录下共同使用。如何实现？</p>
-<blockquote>
-<p>答：<br>方法 1：为这个文件设置两个（硬）连接，分别放在两个用户的主目录下即可。<br>方法 2：将这个文件放在两个用户均可访问的目录中，然后做两个（硬）连接或符号连<br>接，分别入在两个用户的主目录下即可。</p>
-</blockquote>
-</li>
-<li><p>产生死锁的必要条件中，在实际操作系统里，哪个条件最有可能被破坏？如何做到<br>这一点？举例说明。</p>
-<blockquote>
-<p>答：最容易破坏的条件是：资源互斥使用。部分资源，如打印机，可以通过 SPOOLing<br>机制，为此类资源配备一个等待队列，即可破坏资源互斥使用。</p>
-</blockquote>
-<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3></li>
-</ol>
-<ul>
-<li>进程与程序的区别?<br>操作系统中最核心的概念是进程,对正在运行程序的一个抽象.<br>进程是程序的 一次执行 过程，程序是进程 赖以存在 的基础。</li>
-<li>多道程序 (伪并行):<br>在1秒钟期间,它可能运行多道程序,给人一种同时并行的错觉<br>拥有1个CPU实现多任务同时进行</li>
-<li>在一个单CPU系统中，若有5个用户进程。假设当前系统为用户态，则处于就绪状态的用户进程最多有 4 个，最少有 0 个。<blockquote>
-<p>注意，题目里给出的是假设当前系统为用户态，这表明现在有一个进程处于运行状态，因此最多有4个进程处于就绪态。也可能除一个在运行外，其他4个都处于阻塞。这时，处于就绪的进程一个也没有。</p>
-</blockquote>
-</li>
-<li>可以把CPU的指令分为两类，一类是操作系统和用户都能使用的指令，一类是只能由操作系统使用的指令。前者称为“非特权”指令，后者称为“特权”指令。<h4 id="选择题-1"><a href="#选择题-1" class="headerlink" title="选择题"></a>选择题</h4></li>
-</ul>
-<ol>
-<li><p>下列选项中，降低进程优先级的合理时机是<strong>A_</strong>。<br>A. 进程的时间片用完 B. 进程刚完成 I/O ,进入就绪队列<br>C. 进程长期处于就绪队列中 D. 进程从就绪态转为运行态</p>
-</li>
-<li><p>用户程序发出磁盘I/O请求后，系统的正确处理流程是（B）<br>A. 用户程序-&gt;系统调用处理程序-&gt;中断处理程序-&gt;设备驱动程序<br>B. 用户程序-&gt;系统调用处理程序-&gt;设备驱动程序-&gt;中断处理程序<br>C. 用户程序-&gt;设备驱动程序-&gt;系统调用处理程序-&gt;中断处理程序<br>D. 用户程序-&gt;设备驱动程序-&gt;中断处理程序-&gt;系统调用处理程序</p>
-</li>
-<li><p>在缺页处理过程中，操作系统执行的操作可能是（D）<br>I. 修改页表 II. 磁盘 I/O III. 分配页框<br>A. 仅 I, II B. 仅 II C. 仅 III D. I, II 和 III</p>
-<blockquote>
-<p>为什么?</p>
-</blockquote>
-</li>
-<li><p>当系统发生抖动（trashing）时，可以采取的有效措施是（A）<br>I. 撤销部分进程 II. 增加磁盘交换区的容量 III. ᨀ高用户进程的优先级<br>A. 仅 I B. 仅 II C. 仅 III D. 仅 I, II</p>
-</li>
-</ol>
-<ul>
-<li>系统抖动，解释为在请求分页存储管理中，从主存（DRAM）中刚刚换出（Swap Out）某一页面后（换出到Disk），根据请求马上又换入（Swap In）该页，这种反复换出换入的现象。</li>
-<li>产生该现象的主要原因是置换算法选择不当。<ul>
-<li>1.如果分配给进程的存储块数量小于进程所需要的最小值，进程的运行将很频繁地产生缺页中断，这种频率非常高的页面置换现象称为抖动。解决方案优化置换算法。</li>
-<li>2.在请求分页存储管理中，可能出现这种情况，即对刚被替换出去的页，立即又要被访问。需要将它调入，因无空闲内存又要替换另一页，而后者又是即将被访问的页，于是造成了系统需花费大量的时间忙于进行这种频繁的页面交换，致使系统的实际效率很低，严重导致系统瘫痪，这种现象称为抖动现象。解决方案运用局部性原理优化置换算法。</li>
-</ul>
-</li>
-<li>危害：系统时间消耗在低速的I/O上，大大降低系统效率。进程对当前换出页的每一次访问，与对RAM中页的访问相比，要慢几个数量级。</li>
-</ul>
-<ol start="5">
-<li><p>若系统S1 采用死锁避免方法，S2采用死锁检测方法，下列叙述中正确的是（）<br>Ⅰ. S1 会限制用户申请资源的顺序<br>Ⅱ．S1 需要进行所需资源总量信息，而 S2 不需要<br>Ⅲ．S1 不会给可能导致死锁的进程分配资源，S2 会<br>A．仅Ⅰ Ⅱ B．仅Ⅱ Ⅲ C．仅Ⅰ Ⅲ D．Ⅰ Ⅱ Ⅲ</p>
-</li>
-<li><p>两个进程合作完成一个任务。在并发执行中，一个进程要等待其合作伙伴发来消息，或者<br>建立某个条件后再向前执行，这种制约性合作关系被称为进程的（ ）。<br>A．同步 B．互斥 C．调度 D．执行</p>
-</li>
-<li><p>当一个进程处于(B)状态时,称其为等待(或阻塞)状态.<br>A. 它正等待中央处理机        B.它正等待合作进程的一个消息<br>C. 它正等待分给它一个时间片   D.它正在进入内存</p>
-</li>
-<li><p>下面关于线程的叙述中,正确的是(C)<br>A.不论是系统支持线程还是用户级线程,其切换都需要内核的支持.<br>B.线程是资源管理的分配单位,进程是调度和分配的单位<br>C.不管系统中是否有线程,进程都是拥有资源的独立单位.<br>D.在引入线程的系统中,进程仍是资源分配和调度分配的基本单位.</p>
-</li>
-<li><p>段页式存储管理汲取了页式管理和段式管理的长处,其实现原理结合了页式和段式管理的基本思想,即用分段式方法分配和管理用户地址空间,用分页方法管理物理存储空间.</p>
-</li>
-<li><p>下列调度算法中，不可能导致饥饿现象的是：A<br>A.时间片轮转    B.静态优先级调度    C.非抢占式作业优先    D.抢占式短作业优先</p>
-</li>
-<li><p>一个进程调用了阻塞式系统调用read()进行读磁盘操作，操作完成后，操作系统针对该进程必须做的是： A<br>A.修改进程状态为就绪态    B.降低进程优先级<br>C.进程分配用户内存空间    D.增加进程的时间片大小  </p>
-</li>
-<li><p>设m为同类资源数，n为系统中并发线程数。当n个进程共享m个互斥资源时，每个进程的最大需求是w；则下列情况会出现系统死锁的是：D<br>A. m=2,n=1,w=2    B. m=2,n=2,w=1    C. m=4,n=3,w=2    D. m=4,n=2,w=3</p>
-</li>
-<li><p>下列关于银行家算法的叙述中，正确的是 B<br>A.银行家算法可以预防死锁<br>B.当系统处于安全状态时，系统中一定无死锁进程<br>C.当系统处于不安全状态时，系统中一定会出现死锁进程<br>D.银行家算法破坏了死锁必要条件中的“请求和保持”条件</p>
-</li>
-<li><p>在多进程的系统中，为了保证公共变量的完整性，各进程应互斥进入临界区。所<br>谓临界区是指<strong><em>D</em></strong>。<br>A．一个缓冲区 B．一段数据区 C．同步机制 D．一段程序</p>
-</li>
-<li><p>某单CPU系统中有输入和输出设备各1台，现有3个并发执行的作业，每个作业的<br>输入、计算和输出时间均分别为2ms、3ms和4ms，且都按输入、计算和输出的顺序执<br>行，则执行完3个作业需要的时间最少是<strong>B</strong>。<br>A. 15ms B. 17ms C. 22ms D.27ms</p>
-</li>
-<li><p>下面对进程的描述中，错误的是 D 。<br>A．进程是动态的概念 B．进程的执行需要CPU<br>C．进程具有生命周期 D．进程是指令的集合</p>
-</li>
-<li><p>既考虑作业等待时间，又考虑作业执行时间的作业调度算法是 A 。<br>A．响应比高者优先 B．短作业优先<br>C．优先级调度 D．先来先服务</p>
-<h4 id="计算题-1"><a href="#计算题-1" class="headerlink" title="计算题"></a>计算题</h4></li>
-<li><p>有3个CPU密集型批处理作业，按照A、B和C的顺序间隔4分钟依次ᨀ交。预计运行时间分别为12， 8和4分钟。对于下列每种调度算法，忽略进程切换的开销，计算其平均进程周转时间。<br>(1) 采用先来先服务调度算法，平均进程周转时间为多少。 (2) 采用最短作业优先调度算法，平均进程周转时间为多少。</p>
-</li>
-</ol>
-<p>FCFS，作业调度顺序：A-&gt;B-&gt;C</p>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">到达日期</th>
-<th align="center">运行时间</th>
-<th align="center">等待时间</th>
-<th align="center">结束时间</th>
-<th align="center">周转时间</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">A</td>
-<td align="center">0</td>
-<td align="center">12</td>
-<td align="center">0</td>
-<td align="center">12</td>
-<td align="center">12</td>
-</tr>
-<tr>
-<td align="center">B</td>
-<td align="center">4</td>
-<td align="center">8</td>
-<td align="center">8</td>
-<td align="center">20</td>
-<td align="center">16</td>
-</tr>
-<tr>
-<td align="center">C</td>
-<td align="center">8</td>
-<td align="center">4</td>
-<td align="center">12</td>
-<td align="center">24</td>
-<td align="center">16</td>
-</tr>
-<tr>
-<td align="center">故平远周转时间：(12+16+16)/3 = 14.67 min（3 分）</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">2）SJF，作业调度顺序：A -&gt;C-&gt;B</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">到达日期</td>
-<td align="center">运行时间</td>
-<td align="center">等待时间</td>
-<td align="center">结束时间</td>
-<td align="center">周转时间</td>
-</tr>
-<tr>
-<td align="center">:-:</td>
-<td align="center">:-:</td>
-<td align="center">:-:</td>
-<td align="center">:-:</td>
-<td align="center">:-:</td>
-<td align="center">:-:</td>
-</tr>
-<tr>
-<td align="center">A</td>
-<td align="center">0</td>
-<td align="center">12</td>
-<td align="center">0</td>
-<td align="center">12</td>
-<td align="center">12</td>
-</tr>
-<tr>
-<td align="center">B</td>
-<td align="center">4</td>
-<td align="center">8</td>
-<td align="center">12</td>
-<td align="center">24</td>
-<td align="center">20</td>
-</tr>
-<tr>
-<td align="center">C</td>
-<td align="center">8</td>
-<td align="center">4</td>
-<td align="center">4</td>
-<td align="center">16</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">故平远周转时间：(12+20+8)/3 = 13.33 min（3 分）</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">2. 银行家算法问题</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h4 id="解答题-1"><a href="#解答题-1" class="headerlink" title="解答题"></a>解答题</h4><ol>
-<li><p>你需要在一个很古老的 UNIX 上编写支持多线程的程序，它的内核不支持线程，内核代码也未公开，所以很难改造内核。请问如何解决这个问题？</p>
-<blockquote>
-<p>答:应该使用用户态线程。<br>在进程中设计运行时环境，由运行时控制多个线程的调度运行。内核不感知线程的<br>存在，只调度进程。资源分配给进程使用。</p>
-</blockquote>
-</li>
-<li><p>在 UNIX 中父进程通过 fork()产生与自己一模一样的子进程，请问执行什么系统调用后，子进程才拥有自己独立的新代码段。这个系统调用的返回值是如何规定的？</p>
-<blockquote>
-<p>答:exec    系列函数，如 execlp()等。该系统调用替换进程的正文段，如果成功，没<br>有返回值，如果失败，返回值为-1。</p>
-</blockquote>
-</li>
-<li><p>当检测到死锁发生时，如果必须杀死一个进程以解除死锁，请问以什么标准来选择被杀死的进程比较合理？</p>
-<blockquote>
-<p>答:一般选择运行时间较短的进程，因为这样重新运行的代价较小，另外，程序<br>需要可以多次运行不影响执行结果。还要考虑杀死优先级较低的进程等</p>
-</blockquote>
-</li>
-<li><p>有三个批处理作业，第一个作业 10:00 到达，需要执行 2 小时;第二个作业在 10:10<br>到 达，需要执行 1 小时;第三个作业在 10:25 到达，需要执行 25 分钟。分别采用<br>先来先服务，短作业优先和最高响应比优先三种调度算法，各自的平均周转时间是多<br>少?</p>
-<blockquote>
-<p>解：<br>FCFS：执行顺序1-&gt;2-&gt;3，平均周转时间为(120+170+180)/3=156.7分=2.61小时<br>SJF：执行顺序1-&gt;3-&gt;2，平均周转时间为(120+195+120)/3=145分=2.42小时<br>HRF：执行顺序 1-&gt;3-&gt;2，平均周转时间为(120+195+120)/3=145 分=2.42 小时<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os4.png" alt=""></p>
-</blockquote>
-</li>
-<li><p>某系统有三个作业：<br><img src="https://img-blog.csdn.net/20180920030652549?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NDMzNzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""><br>系统确定在它们全部到达后，开始采用响应比高者优先调度算法，并忽略系统调度时间。试问对它们的调度顺序是什么？各自的周转时间是多少？</p>
-</li>
-</ol>
-<p>响应比= 等待时间/所需cpu时间；响应比最高开始运行</p>
-<p>解：三个作业是在9.5时全部到达的。这时它们各自的响应比如下：<br>作业1的响应比 =（9.5 – 8.8）/ 1.5 = 0.46<br>作业2的响应比 =（9.5 – 9.0）/ 0.4 = 1.25<br>作业3的响应比 =（9.5 – 9.5）/ 1.0 = 0<br>因此，最先应该调度作业2运行，因为它的响应比最高。它运行了0.4后完成，这时的时间是9.9。再计算作业1和3此时的响应比：<br>作业1的响应比 =（9.9 – 8.8）/ 1.5 = 0.73<br>作业3的响应比 =（9.9 – 9.5）/ 1.0 = 0.40<br>因此，第二个应该调度作业1运行，因为它的响应比最高。它运行了1.5后完成，这时的时间是11.4。第三个调度的是作业3，它运行了1.0后完成，这时的时间是12.4。整个实施过程如下。<br><img src="https://img-blog.csdn.net/20180920031138869?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NDMzNzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
-<ol start="6">
-<li><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os5.png" alt=""><br> ① 系统中资源总量为某时刻系统中可用资源量与各进程已分配资源量之和，所以各种资源总<br>数为(9,3,6)。各进程对资源的需求量为各进程对资源的最大需求量与进程已分配资源量之差，<br> <img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os6.png" alt=""></p>
-</li>
-<li><p>死锁是一种对操作系统正常运行危害很大的现象，但是大多数死锁的解决方法只<br>停留在理论探讨中，无法应用于实际的操作系统系统。请列举中哪些方法是实际操作<br>系统中采用的应对死锁的可行方法。如果操作系统发现死锁已经发生，应如何应对使<br>造成的损失较小？</p>
-<blockquote>
-<p>答:实际常采用的方法:    1、鸵鸟算法。因为处理死锁成本太高，而死锁出现的频<br>率较低，故可以忽略死锁的发生。 2、Spooling 技术。假脱机技术。为临界资源增<br>加一个等待队列，使其好像可以被共享使用，如打印机。 当死锁发生时，杀死运<br>行时间较短的进程，损失较小，因为容易恢复。</p>
-</blockquote>
-</li>
-<li><p>在多道程序设计系统中，如何理解“内存中的多个程序的执行过程交织在一起，大家都在走走停停”这样一个现象？</p>
-<blockquote>
-<p>答：在多道程序设计系统中，内存中存放多个程序，它们以交替的方式使用CPU。因此，从宏观上看，这些程序都开始了自己的工作。但由于CPU只有一个，在任何时刻CPU只能执行一个进程程序。所以这些进程程序的执行过程是交织在一起的。也就是说，从微观上看，每一个进程一会儿在向前走，一会儿又停步不前，处于一种“走走停停”的状态之中。</p>
-</blockquote>
-</li>
-<li><p>作业调度与进程调度有什么区别？</p>
-<blockquote>
-<p>答：作业调度和进程调度（即CPU调度）都涉及到CPU的分配。<br>但作业调度只是选择参加CPU竞争的作业，它并不具体分配CPU。<br>而进程调度是在作业调度完成选择后的基础上，把CPU真正分配给某一个具体的进程使用。</p>
-</blockquote>
-</li>
-<li><p>为什么说响应比高者优先作业调度算法是对先来先服务以及短作业优先这两种调度算法的折中？</p>
-<blockquote>
-<p>答：先来先服务的作业调度算法，重点考虑的是作业在后备作业队列里的等待时间，因此对短作业不利；<br>短作业优先的作业调度算法，重点考虑的是作业所需的CPU时间（当然，这个时间是用户自己估计的），因此对长作业不利。<br>“响应比高者优先”作业调度算法，总是在需要调度时，考虑作业已经等待的时间和所需运行时间之比，即：<br>该作业已等待时间 / 该作业所需CPU时间</p>
-</blockquote>
-</li>
-<li><p>进程可以在运行、就绪和阻塞三个状态之间转换，试分析各种转换的发生时机和引发者</p>
-<blockquote>
-<p>答：运行-&gt;就绪：运行态进程时间片用完，由scheduler剥夺处理器进行调度。 就绪-&gt;运行：处理器空闲时，由scheduler挑选一个就绪进程，分配其处理器开始运行。 运行-&gt;阻塞：正在运行的进程，发现缺少资源或等待特定事件发生时，主动放弃处理器。 阻塞-&gt;就绪：阻塞态进程，阻塞其运行的条件消失，如缺少的资源可用，或特定的事件发生， 这时该进程被释放该资源或引发该事件的进程唤醒被阻塞的进程，被阻塞的进程转入就绪状态，等待 被调度运行。</p>
-</blockquote>
-</li>
-<li><p>什么是系统调用（System call或称为System API）？简述一下系统调用的使用方法和执行过程。在Shell中执行一个命令，从输入命令开始到命令结束，至少可能会涉及到哪些系统调用，这些系统调用的功能分别是什么？</p>
-<blockquote>
-<p>答：系统调用是由操作系统内核提供的服务例程。用户程序通过软中断的形式调用系统调用，执行过<br>程与中断相似。在shell中执行的命令，至少要涉及到以下系统调用：<br>fork() 创建一个子进程<br>exec() 替换进程代码段<br>wait() 等待其他进程结束<br>exit() 结束当前进程</p>
-</blockquote>
-</li>
-<li><p>分时操作系统中进程调度算法中对普通进程常常采用的是优先级轮转法，请问如何保证不会有进程因为优先级太低而饥饿？</p>
-<blockquote>
-<p>答：采用动态调整进程优先级的方法。动态降低长时间占用CPU进程的优先级，低优先级的进程的优先级则相对升高，最终得到运行。</p>
-</blockquote>
-</li>
-<li><p>死锁是一种对操作系统正常运行危害很大的现象，但是大多数死锁的解决方法只停留在理论探讨中，无法应用于实际的操作系统系统。请列举中哪些方法是实际操作系统中采用的应对死锁的可行方法。如果操作系统发现死锁已经发生，应如何应对使造成的损失较小？</p>
-<blockquote>
-<p>答：实际常采用的方法：<br>1、鸵鸟算法。因为处理死锁成本太高，而死锁出现的频率较低，故可以忽略死锁的发生。<br>2、Spooling技术。假脱机技术。为临界资源增加一个等待队列，使其好像可以被共享使用，如打印机。<br>当死锁发生时，杀死运行时间较短的进程，损失较小，因为容易恢复。</p>
-</blockquote>
-</li>
-<li><p>简述进程与线程的区别与联系。进程间通信和线程间通信有什么异同？<br>答：</p>
-<blockquote>
-<p>线程是进程中的执行序列，进程是资源分配的单位，进程和线程都可以被调度。进程间一般不共享资源，所以进程间通信需要操作系统内核支持，使用信号、管道、SysV IPC或sockets等技术实现共享信号、信号量、共享内存、队列等信息。同一个进程内的线程间共享进程的所有资源，所以很容易实现通信。进程间与线程间通信都面临互斥和同步问题，也都需要加锁、信号量等方法来解决。</p>
-</blockquote>
-</li>
-<li><p>在引入线程概念的操作系统中，操作系统将资源分配给线程还是进程？为什么？在线程实现<br>的二种方案中，线程实现在用户级与实现在内核级相比，有什么缺点？</p>
-<blockquote>
-<p>答：资源分配给进程，因为进程是资源分配的最小单位，线程是在进程内，共享使用进程的资<br>源。线程实现在用户级，当一个线程阻塞时，内核会阻塞这个线程所在进程，导致这个进程中<br>其他可以运行的线程也被阻塞。</p>
-</blockquote>
-</li>
-<li><p>什么是 SPOOLing 技术？它是如何在解决死锁问题中得到应用的？</p>
-<blockquote>
-<p>SPOOLing 技术又称为“假脱机技术“。它可以破坏”独占使用“条件。例如打印机为临界资<br>源，可以在硬盘上开辟一个目录，所有的打印任务都ᨀ交的这个目录下的队列中，由一个打印<br>队列监控程序（daemon）负责将任务送到打印机上打印。</p>
-</blockquote>
-</li>
-<li><p>为什么要使用倒排页表？倒排页表面临的最大的问题是什么？如何解决？</p>
-<blockquote>
-<p>答：在 64 位系统中，由于虚拟地址太大，普通页表会非常大，无法存储。另一方面，实际内存<br>相对较小，所以建立一张从物理地址索引得到相对地址的倒排页表。<br>最大的问题的难于从相对地址查找到绝对地址。可以采用 hash 表ᨀ高查找效率，并使用 TLB<br>加速查找。</p>
-</blockquote>
-</li>
-<li><h4 id="PV题"><a href="#PV题" class="headerlink" title="PV题"></a>PV题</h4></li>
-</ol>
-<ul>
-<li>“虚拟化与云计算”课程安排上机，假设机房共有 2m 台机器，有 2n 名学生选该课，<br>其中 m,n 为正整数且 m&lt;n。规定：<br>（1） 按到达顺序，两个学生组成一组，每人占一台机器，协同完成上机实习；<br>（2） 两个学生到齐，并且此时机房有空闲机器时，方可进入机房；<br>试用类 C 语言，使用 PV 操作实现上述要求。<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore computer=<span class="number">2</span>m; <span class="comment">//控制对机器使用的信号量</span></span><br><span class="line">semaphore pair=<span class="number">0</span>; <span class="comment">//保证学生成对进入的信号量</span></span><br><span class="line">semaphore mutex=<span class="number">1</span>; <span class="comment">//保证变量互斥访问的信号量</span></span><br><span class="line"><span class="keyword">int</span> sc=<span class="number">0</span>; <span class="comment">//到达学生的个数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">student</span><span class="params">()</span></span>&#123;</span><br><span class="line">P(mutex); <span class="comment">//加锁，保证变量 sc 互斥使用</span></span><br><span class="line">sc=sc+<span class="number">1</span>; <span class="comment">//学生以到达顺序编号</span></span><br><span class="line"><span class="keyword">if</span> (sc%<span class="number">2</span>==<span class="number">1</span>) &#123; <span class="comment">//奇数编号的学生到达</span></span><br><span class="line"> V(mutex); <span class="comment">//解锁</span></span><br><span class="line"> P(pair); <span class="comment">//申请结对进入</span></span><br><span class="line">&#125; <span class="keyword">else</span> ( <span class="comment">//偶数编号的学生到达</span></span><br><span class="line"> V(mutex); <span class="comment">//解锁</span></span><br><span class="line"> V(pair); <span class="comment">//完成结对</span></span><br><span class="line">&#125;</span><br><span class="line">P(computer); <span class="comment">//申请计算机</span></span><br><span class="line">上机实习…</span><br><span class="line">V(computer); <span class="comment">//释放计算机</span></span><br><span class="line">&#125;</span><br><span class="line">评分标准：</span><br><span class="line">（<span class="number">1</span>） 正确定义信号量和共享变量，并赋初值。（<span class="number">2</span> 分）</span><br><span class="line">（<span class="number">2</span>） 正确使用信号量（mutex），保证共享变量（sc）被互斥使用。（<span class="number">2</span> 分）如存在死锁</span><br><span class="line">可能，如在 V(mutex)前就做 P(pair)，则此处只得 <span class="number">1</span> 分。</span><br><span class="line">（<span class="number">3</span>） 正确使用信号量（pair），保证学生结对。（<span class="number">2</span> 分）</span><br><span class="line">（<span class="number">4</span>） 正确使用共享变量（sc），实现对学生编号的判断。（<span class="number">2</span> 分）</span><br><span class="line">（<span class="number">5</span>） 正确使用信号量（computer），实现对计算机资源的控制。（<span class="number">2</span> 分）</span><br><span class="line">解法不唯一，如有其他解题思想，酌情给分。</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol>
-<li>某停车场有 M 个大型车车位和 N 个小型车车位，大型车必须停大型车车位内，小型车优先停小型<br>车车位，在小型车车位全满的情况下，也可以停入大型车车位。大型车与小型车分别从两个入口<br>进入停车场。当车位已满时，车辆在停车场外排队等候。为实现上述控制，请用 PV 原语和信号<br>量，分别描述大型车和小型车使用停车场的过程。<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore big=M; <span class="comment">//大型车车位</span></span><br><span class="line">Semaphore all=M+N; <span class="comment">//总车位</span></span><br><span class="line">BigCar()&#123;</span><br><span class="line">P(big); <span class="comment">//如果有大型车车位，则占大型车车位</span></span><br><span class="line">P(all); <span class="comment">//占一个总车位</span></span><br><span class="line">大型车进车位</span><br><span class="line">V(big); <span class="comment">//释放一个大型车车位</span></span><br><span class="line">V(all); <span class="comment">//释放一个总车位</span></span><br><span class="line">&#125;</span><br><span class="line">SmallCar() &#123;</span><br><span class="line">P(all); <span class="comment">//占一个总车位</span></span><br><span class="line">小型车进车位</span><br><span class="line">V(all); <span class="comment">//释放一个总车位</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>设有两个优先级相同的进程 P1 和 P2，共享 x、y、z 三个变量，执行代码见下表。信号量 s1 和s2 的初值均为 0。试问 P1、P2 并发执行后，x、y、z 的值各是多少？给出解题过程。</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="left">进程 P1</th>
-<th align="left">进程 P2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">y=1;</td>
-<td align="left">x=1;</td>
-</tr>
-<tr>
-<td align="left">y=y+2;</td>
-<td align="left">x=x+2;</td>
-</tr>
-<tr>
-<td align="left">V(s1);</td>
-<td align="left">P(s1);</td>
-</tr>
-<tr>
-<td align="left">z=y+1;</td>
-<td align="left">x=x+y;</td>
-</tr>
-<tr>
-<td align="left">P(s2);</td>
-<td align="left">V(s2);</td>
-</tr>
-<tr>
-<td align="left">y=z+y;</td>
-<td align="left">z=x+z;</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>答：<br>P1 的 6 条语句，分别用 P1-1 ~ P1-6 表示，P2 的 6 条语句，分别用 P2-1 ~ P2-6 表示。<br>根据信号量的约束，P1-6 一定晚于 P2-5 执行，而 P2-4 一定晚于 P1-3，而其他顺序不受<br>限制。执行顺序不同后导致结果不同的语句有：P1-6, P2-4, P2-6<br>(1) 由于 P2-4 一定晚于 P1-3，但一定早于 P1-6，而 P1-3~P1-6 期间 y=3，所以最终 x=6<br>(2) 如果 P2-6 早于 P1-4 执行，则 P2-6 使 z=6，然后 P1-4 使 z=4，P1-6 使 y=7<br>(3) 如果 P2-6 晚于 P1-4，但早于 P1-6 执行，则 P1-4 使 z=4，P2-6 使 z=10，P1-6 使 y=13<br>(4) 如果 P2-6 晚于 P1-6 执行，则 P1-4 使 z=4，P1-6 使 y=7，P2-6 使 z=10<br>综上所述：<br>如果 P2-6 早于 P1-4 执行，则 x=6, y=7, z=4<br>如果 P2-6 晚于 P1-4，但早于 P1-6 执行，则 x=6, y=13, z=10<br>如果 P2-6 晚于 P1-6 执行，则 x=6, y=7, z=10</p>
-</blockquote>
-<p>2.理发师问题</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore mutex = <span class="number">1</span>;    <span class="comment">//互斥信号量，初值为1.</span></span><br><span class="line">Semaphore  Wait = <span class="number">0</span>;     <span class="comment">//等待服务的顾客数 </span></span><br><span class="line">Semaphore  barbers= <span class="number">0</span>;    <span class="comment">//等待顾客的理发师数</span></span><br><span class="line">Int custNum = <span class="number">0</span>;    <span class="comment">//等待的顾客(还没理发的)  </span></span><br><span class="line"></span><br><span class="line">Costumer()</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">　　&#123;</span><br><span class="line">        P(mutex);            <span class="comment">//申请理发</span></span><br><span class="line">        <span class="keyword">if</span>(custNum&gt;<span class="number">0</span>)         </span><br><span class="line">　　　　　&#123;</span><br><span class="line">            <span class="keyword">if</span>(custNum&lt;N)   <span class="comment">//若等待人数小于N</span></span><br><span class="line">　　　　　　　&#123;</span><br><span class="line">                V(mutex);     <span class="comment">//释放进程等待</span></span><br><span class="line">                CustNum++；     <span class="comment">//增加等待人数</span></span><br><span class="line">            &#125;</span><br><span class="line">　　　　　　　<span class="keyword">else</span>            <span class="comment">//若等待人数超过N</span></span><br><span class="line">　　　　　　　　&#123;</span><br><span class="line">                V(mutex);   <span class="comment">//释放进程等待</span></span><br><span class="line">                离开；</span><br><span class="line">             &#125;</span><br><span class="line">　　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">else</span>                <span class="comment">//若目前无人等待</span></span><br><span class="line">　　　　&#123;</span><br><span class="line">            V(mutex);        <span class="comment">//释放进程等待</span></span><br><span class="line">            V(barbers)；     <span class="comment">//如果必要的话，唤醒理发师</span></span><br><span class="line">            理发；</span><br><span class="line">            离开；</span><br><span class="line">            P(mutex);        <span class="comment">//要求进程等待</span></span><br><span class="line">            custNum--；        <span class="comment">//顾客人数减1</span></span><br><span class="line">            V(mutex);       <span class="comment">//释放进程等待</span></span><br><span class="line">            V(wait);        <span class="comment">//等待人数减1</span></span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Barber()</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">　　&#123;</span><br><span class="line">        P(mutex);            <span class="comment">//要求进程等待</span></span><br><span class="line">        <span class="keyword">if</span>(custNum ==<span class="number">0</span>)    <span class="comment">//目前无顾客</span></span><br><span class="line">　　　　 &#123;</span><br><span class="line">            V(mutex);        <span class="comment">//释放进程等待</span></span><br><span class="line">            P(barbers);        <span class="comment">//理发师睡觉</span></span><br><span class="line">　　     &#125;</span><br><span class="line">　　　　<span class="keyword">else</span></span><br><span class="line">　　　　&#123;</span><br><span class="line">            V(mutex);        <span class="comment">//释放进程等待</span></span><br><span class="line">            理发;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、烟—吸烟者问题。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore S = <span class="number">1</span>;                <span class="comment">//供应者</span></span><br><span class="line">Semaphore S1,S2,S3;                <span class="comment">//三个吸烟者</span></span><br><span class="line">S1 = S2 = S3 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">bool</span> flag1,flag2,fiag3;            <span class="comment">//三种吸烟原料</span></span><br><span class="line">fiag1=flag2=flag3=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">Apply()                            <span class="comment">//供应者</span></span><br><span class="line">&#123;</span><br><span class="line">　　While(<span class="literal">true</span>)</span><br><span class="line">　　&#123;</span><br><span class="line">          P(S);</span><br><span class="line">　　   　　 取两样香烟原料放桌上，由flagi标记；</span><br><span class="line">　　　     <span class="keyword">if</span> (flag2 &amp;&amp; flag3) <span class="comment">//供纸和火柴</span></span><br><span class="line">　　　　　　&#123;</span><br><span class="line">　　　        V(S1);          <span class="comment">//唤醒吸烟者一</span></span><br><span class="line">　　　       &#125;</span><br><span class="line">　　       <span class="keyword">else</span> <span class="keyword">if</span>(flag1 &amp;&amp; fiag3) <span class="comment">//供烟草和火柴</span></span><br><span class="line">　　　　　　&#123;</span><br><span class="line">　　　        V(S2);                <span class="comment">//唤醒吸烟者二</span></span><br><span class="line">　　　       &#125;</span><br><span class="line">　　   　　<span class="keyword">else</span>                      <span class="comment">//供烟草和纸</span></span><br><span class="line">　　　　　　&#123;</span><br><span class="line">　　　        V(S3);                <span class="comment">//唤醒吸烟者三</span></span><br><span class="line">           &#125;</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Smoker1()                         <span class="comment">//吸烟者一</span></span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　 &#123;</span><br><span class="line">　　　    P(S1);</span><br><span class="line">　　　    取原料；</span><br><span class="line">　　　    做香烟；</span><br><span class="line">　　　    V(S);                    <span class="comment">//唤醒供应者</span></span><br><span class="line">　　　    吸香烟；</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">smoker2()                        <span class="comment">//吸烟者二</span></span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　    P(S2);</span><br><span class="line">　　　    取原料；</span><br><span class="line">　　　    做香烟；</span><br><span class="line">　　　    V(S);                    <span class="comment">//唤醒供应者</span></span><br><span class="line">　　　    吸香烟;</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;　　</span><br><span class="line"></span><br><span class="line">Smoker3()                        <span class="comment">//吸烟者三</span></span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">　　　    P(S3);</span><br><span class="line">　　     取原料；</span><br><span class="line">　　     做香烟；</span><br><span class="line">　　　    V(S);                    <span class="comment">//唤醒供应者</span></span><br><span class="line">　　　   吸香烟;</span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4.面包师问题</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore buyer= <span class="number">0</span>;                <span class="comment">//顾客人数</span></span><br><span class="line">Semaphore seller = n;            <span class="comment">//销售人员数</span></span><br><span class="line">Semaphore mutex_s = <span class="number">1</span>;            <span class="comment">//用于销售人员的互斥信号量</span></span><br><span class="line">Semaphore mutex_b = <span class="number">1</span>;            <span class="comment">//用于顾客的互斥信号量</span></span><br><span class="line"><span class="keyword">int</span> count_s = <span class="number">0</span>;                <span class="comment">//记录取号的值</span></span><br><span class="line"><span class="keyword">int</span> count_b = <span class="number">0</span>;                <span class="comment">//记录叫号的值 </span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Buy</span><span class="params">()</span>                    <span class="comment">//顾客进程</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     进店；</span><br><span class="line">    P(mutex_b);          <span class="comment">//取号</span></span><br><span class="line">    count_b++; </span><br><span class="line">　　 V(mutex_b);</span><br><span class="line">　　 V(buyer);</span><br><span class="line"> 　　P(seller);            <span class="comment">//等待叫号</span></span><br><span class="line">    买面包；</span><br><span class="line">    离开             </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sell</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">         P(buyer);</span><br><span class="line">         P(mutex_s);   <span class="comment">//叫号</span></span><br><span class="line">        </span><br><span class="line">         count_s++;</span><br><span class="line">         </span><br><span class="line">         叫编号为count_s的顾客；</span><br><span class="line">         V(mutex_s);</span><br><span class="line">         V(seller)；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5.</p>
-<blockquote>
-<p>桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘<br>子放苹果（ apple），妈妈专向盘子中放桔子（ orange）；两个儿子专等吃盘子中的桔子，<br>两个女儿专等吃盘子中的苹果。请用 P、 V 操作来实现爸爸、妈妈、儿子、女儿之间的<br>同步与互斥关系。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore mutex = <span class="number">1</span>;      <span class="comment">//互斥信号量, 其初值为1</span></span><br><span class="line">Semaphore empty = <span class="number">2</span>;       <span class="comment">//记录允许向盘子中放入水果的个数，初值为2</span></span><br><span class="line">Semaphore orange = <span class="number">0</span>;      <span class="comment">//盘子中已放入的苹果的个数，初值为0</span></span><br><span class="line">Semaphore apple = <span class="number">0</span>;      <span class="comment">//盘子中已放入的桔子的个数，初值为0</span></span><br><span class="line">main()  </span><br><span class="line">&#123;   </span><br><span class="line">Cobegin  </span><br><span class="line">&#123;   </span><br><span class="line">　 father                    <span class="comment">//父亲进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　　　  P(empty);           <span class="comment">//减少盘中可放入的水果数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                向盘中放苹果;  </span><br><span class="line">                V(mutex);           <span class="comment">//允许向盘中取、放水果  </span></span><br><span class="line">                V(apple);           <span class="comment">//递增盘中的苹果数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">    mother                    <span class="comment">//母亲进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　　　　 P(empty);           <span class="comment">//减少盘中可放入的水果数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                向盘中放桔子;  </span><br><span class="line">                V(mutex);           <span class="comment">//允许向盘中取、放水果  </span></span><br><span class="line">                V(orange);          <span class="comment">//递增盘中的桔子数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    daughteri（i=<span class="number">1</span>,<span class="number">2</span>）      <span class="comment">//两女儿进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　      P(apple);           <span class="comment">//减少盘中苹果数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                取盘中苹果;  </span><br><span class="line">                V(mutex);           <span class="comment">//允许向盘中取、放水果  </span></span><br><span class="line">                V(empty);           <span class="comment">//递增盘中可放入的水果数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">    sonj（j=<span class="number">1</span>,<span class="number">2</span>）           <span class="comment">//两儿子进程  </span></span><br><span class="line">    &#123;   </span><br><span class="line">　　　　<span class="keyword">while</span> (<span class="literal">true</span>)  </span><br><span class="line">       &#123;   </span><br><span class="line">　　　　　　　　  P(orange);          <span class="comment">//减少盘中桔子数  </span></span><br><span class="line">                P(mutex);           <span class="comment">//申请向盘中取、放水果  </span></span><br><span class="line">                取盘中桔子;  </span><br><span class="line">                V(mutex);           ／/允许向盘中取、放水果  </span><br><span class="line">                V(empty);           <span class="comment">//递增盘中可放入的水果数  </span></span><br><span class="line">        &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">   &#125;  </span><br><span class="line">    Coend  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>6.有一个仓库，可以存放 A 和 B 两种产品，仓库的存储空间足够大，但要求：<br>（ 1）一次只能存入一种产品（ A 或 B）；<br>（ 2） -N &lt; (A 产品数量-B 产品数量) &lt; M。<br>其中， N 和 M 是正整数。试用“存放 A”和“存放 B”以及 P、 V 操作描述产品 A 与<br>产品 B 的入库过程。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Semaphore mutex = <span class="number">1</span>;   <span class="comment">//互斥信号量</span></span><br><span class="line">Semaphore a = M<span class="number">-1</span> ;   <span class="comment">//存放A的资源信号量，初值为M-1</span></span><br><span class="line">Semaphore b = N<span class="number">-1</span>;      <span class="comment">//存放B的资源信号量，初值为N-1</span></span><br><span class="line">存放 A:</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">        Get A；</span><br><span class="line">        P(&amp;a); </span><br><span class="line">         P(&amp;mutex); </span><br><span class="line">Put A；  </span><br><span class="line">V(&amp;mutex);  </span><br><span class="line">V(&amp;b);</span><br><span class="line">&#125;  </span><br><span class="line">&#125; </span><br><span class="line">存放B:</span><br><span class="line">&#123; </span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">&#123; </span><br><span class="line">        Get B；</span><br><span class="line">        P(&amp;b);</span><br><span class="line">        P(&amp;mutex);</span><br><span class="line">        Put B；</span><br><span class="line">        V(&amp;mutex);</span><br><span class="line">        V(&amp;a);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>三个进程 P1、 P2、 P3 互斥使用一个包含 N(N&gt;0)个单元的缓冲区。 P1 每次用 produce()<br>生成一个正整数并用 put()送入缓冲区某一空单元中;P2 每次用 getodd()从该缓冲区中<br>取出一个奇数并用 countodd()统计奇数个数;P3 每次用 geteven()从该缓冲区中取出一<br>个偶数并用 counteven()统计偶数个数。请用信号量机制实现这三个进程的同步与互斥活<br>动,并说明所定义信号量的含义。要求用伪代码描述。<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">P1()</span><br><span class="line">&#123;  </span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　    X = produce();      <span class="comment">//生成一个数</span></span><br><span class="line">　　　 　 P(empty);     <span class="comment">//是否有空单元格</span></span><br><span class="line">　　　    P(mutex);    <span class="comment">//进入临界区</span></span><br><span class="line">　　　    Put();  </span><br><span class="line">　　　    <span class="keyword">if</span>(X%<span class="number">2</span> == <span class="number">0</span>)  </span><br><span class="line">　　　         V(s2);   <span class="comment">//如果是偶数，向P3发出信号 </span></span><br><span class="line">　　　    <span class="keyword">else</span>  </span><br><span class="line">　　　          V(s1);   <span class="comment">//如果是奇数，向P2发出信号 </span></span><br><span class="line">　　　    V(mutex);         <span class="comment">//离开临界区，释放互斥信号量  </span></span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">P2()</span><br><span class="line">&#123;  </span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　    P(s1);     <span class="comment">//收到P1发送来的信号，已产生奇数</span></span><br><span class="line">　　　 　 P(mutex);         <span class="comment">//进入临界区     </span></span><br><span class="line">　　　    getodd();  </span><br><span class="line">　　　    countodd():=countodd()+<span class="number">1</span>; </span><br><span class="line">　　　    V(mutex);    </span><br><span class="line">　　　    V(empty);         <span class="comment">//离开临界区，释放互斥信号量   </span></span><br><span class="line">　　　&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">P3()</span><br><span class="line">&#123;</span><br><span class="line">　　　While(<span class="literal">true</span>)</span><br><span class="line">　　　&#123;</span><br><span class="line">　　　 　 P(s2)        <span class="comment">//收到P1发送来的信号，已产生偶数   </span></span><br><span class="line">　　　   P(mutex);         <span class="comment">//进入临界区  </span></span><br><span class="line">　　　   geteven();  </span><br><span class="line">　　　   counteven():=counteven()+<span class="number">1</span>;  </span><br><span class="line">　　　   V(mutex);    </span><br><span class="line">　　　   V(empty);         <span class="comment">//离开临界区，释放互斥信号量   </span></span><br><span class="line">　　　&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>8.在天津大学与南开大学之间有一条弯曲的小路，这条路上每次每个方向上只允许一辆自<br>行车通过。但其中有一个小的安全岛 M，同时允许两辆自行车停留，可供两辆自行车已<br>从两端进入小路的情况下错车使用。如图所示。<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/pv.png" alt=""><br>下面的算法可以使来往的自行车均可顺利通过。其中使用了 4 个信号量， T 代表天大路<br>口资源， S 代表南开路口资源， L 代表从天大到安全岛一段路的资源， K 代表从南开到<br>安全岛一段路的资源。程序如下，请在空白位置处填写适当的 PV 操作语句，每处空白<br>可能包含若干个 PV 操作语句。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">begin</span><br><span class="line">    t:=<span class="number">1</span>;s:=<span class="number">1</span>;l:=<span class="number">1</span>;k:=<span class="number">1</span>;</span><br><span class="line">    cobegin</span><br><span class="line">    从天大到南开的进程</span><br><span class="line">        begin</span><br><span class="line">            ______(<span class="number">1</span>)______</span><br><span class="line">           通过 L 路段;</span><br><span class="line">           进入安全岛 M；</span><br><span class="line">           ______(<span class="number">2</span>)______</span><br><span class="line">           通过 K 路段</span><br><span class="line">           ______(<span class="number">3</span>)______</span><br><span class="line">        end</span><br><span class="line">   从南开到天大的进程</span><br><span class="line">       begin</span><br><span class="line">          略，与“从天大到南开的进程”相反。</span><br><span class="line">       end</span><br><span class="line">    coend</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p>9.有桥如下图所示，车流如箭头所示，桥上不允许两车交汇，但允许同方向多辆车依次<br>通过（即桥上可以有多个同方向的车）。用P、V操作实现交通管理以防止桥上堵塞。<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/pv2.png" alt=""></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这题和读者写者问题类似</span></span><br><span class="line">semaphore fmutex=<span class="number">1</span>, normutex=<span class="number">1</span>, sormutex=<span class="number">1</span>,<span class="built_in">queue</span> = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> sou_count = <span class="number">0</span>, nor_count = <span class="number">0</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tonorth</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>)</span><br><span class="line">P(normutex); </span><br><span class="line"><span class="keyword">if</span>( nor_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">nor_count = nor_count + <span class="number">1</span>; </span><br><span class="line">V(normutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//过去了 ... </span></span><br><span class="line">P(normutex); </span><br><span class="line">nor_count = nor_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( nor_count == <span class="number">0</span> ) &#123; V(fmutex); &#125; </span><br><span class="line">V(normutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tosouth</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(sormutex);</span><br><span class="line"><span class="keyword">if</span>(sor_count==<span class="number">0</span>) &#123;P(fmutex);&#125;</span><br><span class="line">sor_count = sor_count++;</span><br><span class="line">V(sormutex);</span><br><span class="line">V(<span class="built_in">queue</span>);</span><br><span class="line"><span class="comment">// ... </span></span><br><span class="line">P(sormutex)</span><br><span class="line">sor_count = sor_count + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(sorcount==<span class="number">0</span>)&#123;V(fmutexl)&#125;</span><br><span class="line">V(sormutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>10.用 P、V 操作和信号量实现下图中的前趋关系。其中 S1~S5 是 5 个具有同步关系的<br>进程。<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/pv1.png" alt=""></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore s1 =<span class="number">0</span>,s2=<span class="number">0</span>,s3=<span class="number">0</span>,s4=<span class="number">0</span>,s5=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//s1....</span></span><br><span class="line">    V(s1);</span><br><span class="line">    V(s1);</span><br><span class="line">    V(s1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s1);</span><br><span class="line">    <span class="comment">//s2...</span></span><br><span class="line">    V(s2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s1);</span><br><span class="line">    <span class="comment">//s3...</span></span><br><span class="line">    V(s3);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p4</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s2);</span><br><span class="line">    <span class="comment">//s4....</span></span><br><span class="line">    V(s4);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p5</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P(s1);</span><br><span class="line">    P(s3);</span><br><span class="line">    P(s4);</span><br><span class="line">    <span class="comment">//s5...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="11">
-<li>2010 世博会在上海成功举行，很多场馆都给人留下了深刻的印象。中国馆有很多<br>观众参观。为保持场内卫生，需要不定期的清馆打扫卫生。为保证秩序，相关部门做出了以下的管理规定：<br>1) 同时进入场馆的人数上限为 N；如果场内观众人数达到上限，新观众在场外排队等候。<br>2) 为保证打扫卫生工作的正常开始，保洁人员首先会暂停新观众进场，新观众在场外排队等候；<br>3) 如果场内无观众，则打扫卫生立即开始，如还有剩余观众，则待场内观众全部离开后，即开始打扫卫生；<br>4) 完成后重新开放。</li>
-</ol>
-<p>为实现上述控制，请用 PV 原语和信号量，分别描述观众和保洁人员的行为。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore mutex=<span class="number">1</span>(人数加减的锁),r=N,w=<span class="number">1</span>,s=<span class="number">1</span>; (w是保持场馆状态)</span><br><span class="line"><span class="keyword">int</span> rc=<span class="number">0</span>;</span><br><span class="line">reader()</span><br><span class="line">&#123;</span><br><span class="line">P(s);<span class="comment">//给别人(特别是writer)看</span></span><br><span class="line">P(mutex);</span><br><span class="line">rc++;</span><br><span class="line"><span class="keyword">if</span> (rc==<span class="number">1</span>) P(w);</span><br><span class="line">P(r);</span><br><span class="line">V(mutex);</span><br><span class="line">V(s);</span><br><span class="line">读文件;</span><br><span class="line">P(mutex);</span><br><span class="line">rc--;</span><br><span class="line"><span class="keyword">if</span> (rc==<span class="number">0</span>) V(w);</span><br><span class="line">V(r);</span><br><span class="line">V(mutex);</span><br><span class="line">&#125;</span><br><span class="line">writer()<span class="comment">//w给别人看</span></span><br><span class="line">&#123;</span><br><span class="line">P(s);</span><br><span class="line">P(w);</span><br><span class="line">写文件;</span><br><span class="line">V(w);</span><br><span class="line">V(s);</span><br><span class="line">&#125;</span><br><span class="line">只有reader 会拿着 w</span><br><span class="line">只有写者 会拿着 s</span><br><span class="line">s 保证了门口只能站着一个人在等着进去</span><br></pre></td></tr></table></figure>
-<ol start="12">
-<li>某火车订票系统，可共多个用户同时共享一个订票数据库。规定允许多个用户同时查询该数据库，有查询者时，用户不能订票；有用户订票而需要更新数据库时，不可以有其他用户使用数据库。当有用户申请订票时，后续的查询者的请求会被暂时挂起直到订票操作完成。请在下面程序的空格处填入 P、 V 操作写出查询者和订票者的同步执行程序，一个空格处可能会有一条或多条 P、V 操作<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">答：程序中没有出现对信号量直接读写的语句，且 P、V 操作中没有出现非信号</span><br><span class="line">量作为参数。（<span class="number">1</span> 分）（程序中的给分项必须 P、V 操作成对完整且位置正确方可</span><br><span class="line">得分，分值标在相应的 P 操作上）</span><br><span class="line">semaphore mutex=<span class="number">1</span>（<span class="number">1</span> 分）,db=<span class="number">1</span>（<span class="number">1</span> 分）,w=<span class="number">1</span>（<span class="number">1</span> 分）; <span class="comment">//此处为信号量初始</span></span><br><span class="line">化</span><br><span class="line"><span class="keyword">int</span> count=<span class="number">0</span>; <span class="comment">//共享变量，查询用户的个数</span></span><br><span class="line">query() <span class="comment">//查询过程</span></span><br><span class="line">&#123;</span><br><span class="line">P(mutex) （<span class="number">1</span> 分）;P(w) （<span class="number">1</span> 分）;</span><br><span class="line">count=count+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (count==<span class="number">1</span>) &#123; <span class="comment">//是第一个查询者</span></span><br><span class="line">P(db) （<span class="number">1</span> 分）; &#125;</span><br><span class="line">V(w);V(mutex);</span><br><span class="line">查询余票; P(mutex) （<span class="number">1</span> 分）;</span><br><span class="line">count=count<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">if</span> (count==<span class="number">0</span>)&#123; <span class="comment">//是最后一个查询者</span></span><br><span class="line">V(db);</span><br><span class="line">&#125;</span><br><span class="line">V(mutex);</span><br><span class="line">&#125;</span><br><span class="line">book() <span class="comment">//订票过程</span></span><br><span class="line">&#123;</span><br><span class="line">P(w) （<span class="number">1</span> 分）;P(db) （<span class="number">1</span> 分）;</span><br><span class="line">订票;</span><br><span class="line">V(db);V(w);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>(1)读者优先(考试重点)</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore fmutex=<span class="number">1</span> <span class="comment">//fmutex --&gt; access to file; </span></span><br><span class="line">sepaphore rdcntmutex=<span class="number">1</span>; <span class="comment">// rdcntmutex --&gt; access to reader_count </span></span><br><span class="line"><span class="keyword">int</span> reader_count = <span class="number">0</span>; <span class="comment">// reader_count --&gt; the number of readers </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span> ( TRUE )&#123; </span><br><span class="line">P(rdcntmutex); </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">reader_count = reader_count + <span class="number">1</span>; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line"><span class="comment">//Do read operation ... </span></span><br><span class="line">P(rdcntmutex); </span><br><span class="line">reader_count = reader_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span>) &#123; V(fmutex); &#125; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span> ( TRUE )&#123; </span><br><span class="line">P(fmutex); </span><br><span class="line"><span class="comment">//Do write operation ... </span></span><br><span class="line">V(fmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>(2)写者优先</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore fmutex=<span class="number">1</span>, rdcntmutex=<span class="number">1</span>, wtcntmutex=<span class="number">1</span>, <span class="built_in">queue</span>=<span class="number">1</span>; </span><br><span class="line"><span class="keyword">int</span> reader_count = <span class="number">0</span>, writer_count = <span class="number">0</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(rdcntmutex); </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">reader_count = reader_count + <span class="number">1</span>; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//Do read operation ... </span></span><br><span class="line">P(rdcntmutex); </span><br><span class="line">reader_count = reader_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; V(fmutex); &#125; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(wtcntmutex); </span><br><span class="line"><span class="keyword">if</span>( writer_count == <span class="number">0</span> ) &#123; P(<span class="built_in">queue</span>); &#125; </span><br><span class="line">writer_count = writer_count + <span class="number">1</span>; </span><br><span class="line">V(wtcntmutex); </span><br><span class="line">P(fmutex); </span><br><span class="line"><span class="comment">//Do write operation ... </span></span><br><span class="line">V(fmutex); </span><br><span class="line">P(wtcntmutex); </span><br><span class="line">writer_count = writer_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( writer_count == <span class="number">0</span> ) &#123; V(<span class="built_in">queue</span>); &#125; </span><br><span class="line">V(wtcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>(3)公平竞争</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">semaphore fmutex=<span class="number">1</span>, rdcntmutex=<span class="number">1</span>, wtcntmutex=<span class="number">1</span>, <span class="built_in">queue</span>=<span class="number">1</span>; </span><br><span class="line"><span class="keyword">int</span> reader_count = <span class="number">0</span>, writer_count = <span class="number">0</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(rdcntmutex); </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; P(fmutex); &#125; </span><br><span class="line">reader_count = reader_count + <span class="number">1</span>; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//Do read operation ... </span></span><br><span class="line">P(rdcntmutex); </span><br><span class="line">reader_count = reader_count - <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>( reader_count == <span class="number">0</span> ) &#123; V(fmutex); &#125; </span><br><span class="line">V(rdcntmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span></span>&#123; </span><br><span class="line"><span class="keyword">while</span>( TRUE )&#123; </span><br><span class="line">P(<span class="built_in">queue</span>); </span><br><span class="line">P(fmutex); </span><br><span class="line">V(<span class="built_in">queue</span>); </span><br><span class="line"><span class="comment">//Do write operation ... </span></span><br><span class="line">V(fmutex); </span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="解答题-2"><a href="#解答题-2" class="headerlink" title="解答题"></a>解答题</h4><ol>
-<li><p>当操作系统发现死锁已经发生时，通常采用哪些方法来解决这个问题？哪种方法的代价相对比较小？</p>
-<blockquote>
-<p>答：可以重启操作系统、或结束死锁状态的一个或多个进程。回答剥夺死锁进程的部分资源也可以给分。<br>选择结束死锁状态中最年轻的进程的生命，代价较小，因为重新运行到这个状态相对比较容易。 </p>
-</blockquote>
-</li>
-<li><p>请讨论一下使用 TSL 语句实现加锁的方法和原理。如果在不支持 TSL 的 x86 系列 CPU 上，如何使<br>用 XCHG 语句来代替 TSL 语句实现同样的功能？</p>
-<blockquote>
-<p>答：设置一个变量 LOCK，约定其值为 0 代表资源空闲，为 1 代表资源占用。(1 分)<br>进入临界区前执行下面的判断<br>(1) TSL 指令将变量 LOCK 的值存入寄存器 REGISTER 中，并将 LOCK 的值设置为 1。由于这是在一条指<br>令中完成，这两件事是原子性的，即“同时、不可被打断”。<br>(2) 判断寄存器 REGISTER 的值是 1 吗？是，重新执行第（1）步。<br>离开临界区前，将变量 LOCK 的值设为 0。（2 分）<br>如果使用 XCHG 替代 TSL 语句，可以改为：<br>进入临界区前执行下面的判断<br>(1) 将寄存器 REGISTER 的值设置为 1。<br>(3) 使用 XCHG 交换变量 LOCK 的值和寄存器 REGISTER 的值。由于这是在一条指令中完成，这个交换<br>是原子性的，即“同时、不可被打断”。<br>(4) 判断寄存器 REGISTER 的值是 1 吗？是，重新执行第（1）步。<br>离开临界区前，将变量 LOCK 的值设为 0。（2 分）</p>
-</blockquote>
-</li>
-</ol>
-<p>代码:?</p>
-<ol start="3">
-<li><p>根据你了解的 Linux 对于进程的管理机制，回答下面的问题：<br>（1）Linux 中各个进程是彼此平等的，还是存在父子族亲关系？<br>（2）内核创建的第一个进程叫什么名字？<br>（3）如果一个进程即将结束，而它尚有活动的子进程，该进程会正常结束，从而形成孤儿进程吗？<br>（4）使用什么命令，可以起动一个进程，在其父 shell 退出后，可以继续在后台运行？</p>
-<blockquote>
-<p>答：(1) 存在父子族亲关系（1 分）<br>(2) 第一个进程叫 init（1 分）<br>(3) 不会形成孤儿进程。（1 分）一般情况下有两种处理方法，一是先将它的子进程杀死后再结束自己，另一种是将子进程的父进程变更为 init 后再结束自己。（1 分）<br>(4) 使用 nohup 语句（1 分）</p>
-</blockquote>
-</li>
-<li><p>操作系统通过系统调用向用户程序提供服务,讨论一下问题<br>1)以fork()为例,说明用户程序如何调用系统调用.<br>2)以xv6系统为例,说明设计并实现一个系统调用需要哪些步骤.</p>
-<blockquote>
-<p>答:1)用户调用fork(),如果进程分裂成功,当前进程为父进程,fork()的返回值为子进程的PID,子进程中fork()的返回值为0.如果分裂失败,返回值为-1.<br>2)要点,需要修改一下文件:</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>syscall.h 增加系统调用编号</li>
-<li>syscall.c 增加系统调用声明</li>
-<li>sysproc.c 实现系统调用</li>
-<li>user.h 增加系统调用的声明</li>
-<li>usys.S 增加系统调用相关的宏</li>
-</ul>
-<h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><h5 id="选择题-2"><a href="#选择题-2" class="headerlink" title="选择题"></a>选择题</h5><ol>
-<li><p>下列措施中，能加快虚实地址转换的是：C<br>I. 增大快表（TLB）    II. 让页表常驻内存    III. 增加交换区<br>A.  仅 I    B. 仅 II    C. 仅 I,II    D. 仅 II,III</p>
-</li>
-<li><p>下列选项中，属于多级页表优点的是：D<br>A.加快地址变换速度            B.减少缺页中断次数<br>C. 减少一个页表项所占字节数     D.减少页表所占的内存空间</p>
-</li>
-<li><p>若用户进程访问内存时产生缺页，则下列选项中，操作系统可能执行的操作是 B<br>I.处理越界错    II.置换页    III.分配内存<br>A.仅I、II    B.仅II、III    C. 仅I、III    D. I、II和III</p>
-<blockquote>
-<p>增大TLB，是为了避免去内存中匹配页表。TLB本身就在***里，而且能并行计算。把页表都放在内存里，也是可以的，但一般页表很大，可以经过多级页表和反置页表处理后再放在内存里。交换区是内存不够用时的解决手段，增大交换区能腾出更多地方。</p>
-</blockquote>
-</li>
-<li><p>在⼀个请求分页系统中，采⽤ LRU 页⾯转换算法时，加⼊⼀个作业的页⾯⾛向为：<br>1，3，2，1，1，3，5，1，3，2，1，5.当分配给该作业的物理块数分别为 3 和 4 时，在访问过程中所发⽣的缺页率为  C<br>A. 25%，33%    B. 50%，25%    C.50%,33%    D. 50%，75%</p>
-<blockquote>
-<p>M=3<br>1 3 2<br>请求5 缺页 1 3 5<br>请求2 缺页 1 3 2<br>请求5 缺页 1 5 2<br>6/12 = 25%<br>M=4<br>1 3 2 5<br>4 / 12 = 33%</p>
-</blockquote>
-</li>
-<li><p>某作业的逻辑地址空间为4页，页⾯⼤⼩为2048，已知页表如下所⽰，则逻辑地址<br>4865（⼗进制）对应的物理地址为（<strong>C</strong>）。<br>页号    0    1    2    3<br>块号    2    4    6    8<br>A、4865    B、8961    C、13057    D、6865</p>
-<blockquote>
-<p>4865 = 1301H = ‭0001001100000001‬<br>2对应6<br>11001100000001‬ = 13057<br>ok</p>
-</blockquote>
-</li>
-<li><p>若⽤户进程访问内存时产⽣缺页，则下列选项中，操作系统可能执⾏的操作是 B<br>I.处理越界错    II.置换页    III.分配内存<br>A.仅I、II    B.仅II、III    C.  仅I、III    D. I、II和III</p>
-<blockquote>
-<p>用户进程访问内存时缺页会发生缺页中断。发生缺页中断，系统会执行的操作可能是置换页面或分配内存。系统内没有越界的错误，不会进行越界出错处理</p>
-</blockquote>
-</li>
-<li><p>考虑页⾯置换算法，系统有 m 个物理块供调度，初始时全空，页⾯引⽤串长度为p，包含了 n 个不同的页号，⽆论⽤什么算法，缺页次数不会少于（<strong>C</strong>）<br>A、m<br>B.p<br>C. n<br>D. min(m,n)</p>
-<blockquote>
-<p>无论采用什么置换算法,每种页面第一次访问时不可能在内存中.必然发生缺页.</p>
-</blockquote>
-</li>
-<li><p>把进程地址空间中使⽤的逻辑地址变成内存中物理地址的过程称为：<strong>A</strong><br>A、重定位    B、物理化    C、逻辑化    D、加载</p>
-<blockquote>
-<p>由程序中逻辑地址组成的地址范围叫做逻辑地址空间，或简称为地址空间。而由内存中的一系列存储单元所限定的地址范围称为内存空间，也称为物理空间或者绝对空间。<br>程序和数据装入内存时需对目标程序中的地址进行修改。这种把逻辑地址转变为内存的物理地址的过程叫重定位。<br>对程序进行重定位的技术按重定位的时机可分为两种：静态重定位和动态重定位。</p>
-</blockquote>
-</li>
-</ol>
-<h5 id="计算题-2"><a href="#计算题-2" class="headerlink" title="计算题"></a>计算题</h5><ol>
-<li>某操作系统的内存管理器采用请求式分页，页面大小为 4KB，某计算机主存按字节编址，逻辑地<br>址和物理地址都是 32 位，页表项大小为 4 字节。若使用二级页表的分页存储管理方式，逻辑地<br>址结构为</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">页目录号(10位)</th>
-<th align="center">页表索引(10位)</th>
-<th align="center">页内偏移量(12位)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">TLB（快表）采用全相联映射，有 4 个页表项，内容如下表所示。</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">有效位</td>
-<td align="center">页号</td>
-<td align="center">页框号</td>
-</tr>
-<tr>
-<td align="center">:-</td>
-<td align="center">:-</td>
-<td align="center">:-</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">FF180H</td>
-<td align="center">——</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">3FFF1H</td>
-<td align="center">0F035H</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">FFFC6H</td>
-<td align="center">3054CH</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">03FFFH</td>
-<td align="center">0C153H</td>
-</tr>
-<tr>
-<td align="center">(1) 该系统的页表项中,最多可以保存多少位标志位.</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">(2) 若该进程共用到了3072个页,则此时此二级页表占用的总空间最小为多少.</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">(3) 对逻辑地址3FFF1880H转换为物理地址的结果是什么.</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>解：(1) 页面大小为 4KB =&gt; 页内偏移量 12 位<br>物理地址 32 位 =&gt; 页框号 20 位<br>页表项大小为 4 字节（即，32 位）=&gt; 标志位最多 = 页表项长度 32 – 页框号 20 = 12 位（2 分）<br>(2) 一个页表索引 10 位 =&gt; 一个小页表有 2^10=1024 个页表项<br>逻辑地址空间 3072 个页 =&gt; 需要 3072/1024=3 个小页表，加上一个页目录表，共 4 个页表 =&gt; 页<br>表最小 4*4KB=16KB（2 分）<br>(3) 页内偏移量 12 位 =&gt; 逻辑地址 3FFF1880H 的页号是 3FFF1H，查快表可知，对应页框号为<br>0F035H =&gt; 物理地址是 0F035880H（2 分）</p>
-</blockquote>
-<ol start="2">
-<li>某操作系统的内存管理器采⽤请求式分页，页⾯⼤⼩为 4KB，逻辑地址空间为 32 位， 物理地址空间为 36 位，⼀个页表项⼤⼩为 4B。⼀次快表（TLB）的访问时间是 10ns，⼀次内存的访问时间是 100ns，处理⼀次缺页的平均时间 10^8 ns（已含更新 TLB 和页表的时间）。进程的驻留集⼤⼩固定为 2,采⽤最近未使⽤置换算法(NRU)和局部淘汰策略。假设（1） TLB 初始为空;（2）地址转换时先访问 TLB,若 TLB 未命中,再访问页表(忽略访问页表之后的 TLB  更新时间);（3）有效位为  0  表⽰页⾯不在内存,产⽣缺页中断,缺页中断处理后,返回到产⽣缺页中断的指令处重新执⾏。进程的部分页表如下所⽰：</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="left">页号</th>
-<th align="left">页框(Page Frame)号</th>
-<th align="left">P存在位</th>
-<th align="left">R访问位</th>
-<th align="left">M修改位</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">00000H</td>
-<td align="left">——</td>
-<td align="left">0</td>
-<td align="left">-</td>
-<td align="left">-</td>
-</tr>
-<tr>
-<td align="left">00001H</td>
-<td align="left">007F61H</td>
-<td align="left">1</td>
-<td align="left">0</td>
-<td align="left">0</td>
-</tr>
-<tr>
-<td align="left">00002H</td>
-<td align="left">101254H</td>
-<td align="left">1</td>
-<td align="left">0</td>
-<td align="left">0</td>
-</tr>
-<tr>
-<td align="left">00003H</td>
-<td align="left">——</td>
-<td align="left">0</td>
-<td align="left">-</td>
-<td align="left">-</td>
-</tr>
-</tbody></table>
-<p>(1)该系统的页表项中，最多可以保存 <strong>B</strong>位标志位。<br>A．4    B．8    C．12    D．16</p>
-<blockquote>
-<p>页表项32位, (36-12)算出页框号<br>所以32 - (36- 12) = 8<br>41、若采⽤多级页表，要求每级页表均可以装⼊⼀个页⾯内，则应该采⽤  <strong>C</strong>级页表较合适。<br>A．0    B．1    C．2    D．3<br>ok</p>
-</blockquote>
-<p>(2)如果不考虑缺页的情况，对于已经载⼊内存的页⾯，快表命中率为90%，则访问内存中数据的平均有效访问时间是  <strong>A</strong>。<br>A．20ns    B．110ns    C．120ns    D．320ns</p>
-<blockquote>
-<p>10<em>0.9+110</em>0.1=20ns +不+100呢?</p>
-</blockquote>
-<p>(3)⾸先，访问逻辑地址00001618H，则读⼊所需数据需要的总时间是 <strong>D</strong>。<br>A．约 10^8ns    B．110ns    C．200ns    D．210ns</p>
-<blockquote>
-<p>内存是P位<br>10 + 100 +100</p>
-</blockquote>
-<p>(4)然后，访问逻辑地址00000FA6H，则读⼊所需数据需要的总时间是 <strong>A</strong>    。<br>A．约 10^8ns    B．110ns    C．200ns    D．210ns</p>
-<blockquote>
-<p>缺页中断了.</p>
-</blockquote>
-<p>(5)最后，访问逻辑地址0000126CH，则读⼊所需数据需要的总时间是 <strong>B</strong>    。<br>A．约 10^8ns    B．110ns    C．200ns    D．210ns</p>
-<blockquote>
-<p>页表1 在快表中了</p>
-</blockquote>
-<p>(6)在依次访问完上述三个逻辑地址后，页框101254H对应的页号为 <strong>A</strong>。<br>A．00000H    B．00001H    C．00002H    D．00003H</p>
-<blockquote>
-<p>(这题我也没太理解)是不是访问00000FA6H时候缺页中断 置换了页表2</p>
-</blockquote>
-<ol start="3">
-<li><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%861.png" alt=""></p>
-<blockquote>
-<p>答案:(1) 4KB (2) 4MB (3) (LA&gt;&gt;22)&amp;0x000003FF (4) (LA&gt;&gt;12)&amp;0x000003FF (5)  4×4K<br>(6) 00200020H (7) 00200040H (8) 00900H (9) 00901H (10)00901000H</p>
-</blockquote>
-</li>
-<li><p>已知某系统页⾯长 4KB，页表项 4B，虚拟地址空间为 64 位。<br>（1）如采⽤多层分页策略，限定各分层页表最多占 1 页⼤⼩，请问可以采⽤⼏层分页<br>策略？<br>（2）如采⽤倒排页表⽅式，请问倒排页表的⼤⼩？是每个进程⼀张倒排页表还是系统<br>维护⼀张倒排页表？如何解决倒排页表不便于逻辑地址向物理地址转换的问题？</p>
-<blockquote>
-<p>(1)页面长 4KB，说明页内偏移地址占 12 位，虚拟地址空间 64 位，说明页号总长<br>为 64-12=52 位。页面长 4KB，页表项 4B，故每张页表不超过<br>4K/4=1K=2^10    项，即每级 页表地址长度不应该超过 10 位。页号总长 52 位/<br>每页表最长 10 位=5.2，向上取整为 6。 即采用六层分页策略。<br>(2)如采用倒排页表，因为物理地址空间 4GB，故倒排页表应该有 4GB/4KB=1M个页 表项，每页表项大小为 4B，倒排页表大小为 1M*4B=4MB。系统维护一张倒排页表。可以使用 Hash 散列，解决倒排页表不便于逻辑地址向物理地址转换的问题。</p>
-</blockquote>
-</li>
-</ol>
-<h5 id="解答题-3"><a href="#解答题-3" class="headerlink" title="解答题"></a>解答题</h5><ol>
-<li>缺页中断产生后，被中断的进程应该转入什么运行状态？讨论一下缺页中断的执行过程，并说明<br>中断处理完毕后返回被中断的进程时应该执行哪条语句。<blockquote>
-<p>（1）转入阻塞态（或者说 blocked 态、睡眠态、sleep 态都可以）(1 分)<br>（2）保护现场、陷入内核态、如果内存空间不足则选择页面淘汰(1 分)；调需要的页面进内存、更新页表和快表(1 分)；返回用户态，恢复现场、重新执行 被中断的语句(1 分)。<br>（3）执行被中断的语句(1 分)</p>
-</blockquote>
-</li>
-<li>某系统的页面淘汰算法采用老化(Aging)算法，每个页面分配一个 8 位二进制数的计数器。某进程共有 6 个页面，在时刻 0 之前所有页面均未被引用过。下表是前 5 个 clock tick 中各页面的被引用情况，被引用者标 1，未被引用者标 0。</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">Clock tick</th>
-<th align="center">Page 0</th>
-<th align="center">Page 1</th>
-<th align="center">Page 2</th>
-<th align="center">Page 3</th>
-<th align="center">Page 4</th>
-<th align="center">Page 5</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1） 在 clock tick 4 过后，需要淘汰一个页面，应选择哪个页面进行淘汰？为什么？</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">2） 为什么说老化(Aging)算法是一种简单有效的算法，但只是 LRU 的一个近似实现？</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>1)应淘汰 Page 3，因为其访问计数器为 00100，为最小值<br>2)老化算法只有有限位的存储，记录最近若干次页面使用情况，更早的使用情况会丢失。另外，老<br>化算法没有记录在一个时间周期内页面的使用频度和时间等，所以与 LRU 相比只是一个近似实现。</p>
-</blockquote>
-<ol start="3">
-<li><p>在虚拟存储管理中，分段式内存管理⽅式解决了分页式内存管理中的什么问题，又带来了什么问题呢？</p>
-<blockquote>
-<p>解决了分页式机械化的分页(功能可能不同)导致颠簸现象?<br>分段式由内在逻辑来分, 不过段大 类似于动态分区会产生外碎片 导致内存利用率低<br>标答:分段式内存管理解决了分页式内存管理中划分页时仅根据大小划分，这样<br>可能将无关的 内容分到一页中，此页不便设置权限与保护，也不利于共享。<br>也有可能把密切相关的内容分 到不同页中，当页面置换算法设置不当时，内<br>存紧张时容易形成“抖动”现象。 分段式内存管理带来的问题是段往往过大，多<br>次分配释放后可能形成大量“外碎片”，利 用内存效率不高。</p>
-</blockquote>
-</li>
-<li><p>LRU页⾯置换算法是⼀种⽐较优秀的算法但是较难实现，为什么？试给出⼀种可⾏<br>的近似算法作为LRU的取代⽅案。</p>
-<blockquote>
-<p>LRU需求记录所有页面长期运行中被使用的时间和次数，需要大量的快速存<br>储空间，而且比较 pthreadkill()：向线程发送一个信号 算法非常复杂，不容易<br>实现。 <code>z</code>同步函数，用于 mutex    和条件变量替代方案可以采用老化（aging）<br>算法，每个页面有一个长度有限的记数器，记录每个 tick    内pthreadmutexinit()    初始化互斥锁 面使用情况，记录信息的权重逐次递减。这种算法与 LRU    相比，不能记录每个 tick    中内存使用情况，pthreadmutex_destroy()    删除互斥锁 而且记录的位数有限，但是实现方案较易<br>实现。</p>
-</blockquote>
-</li>
-<li><p>单纯的分段式和分页式内存管理各有什么缺点？为什么段页式可以避免这些缺点？<br>为什么段页式内存管理没有被⼴泛采⽤呢？</p>
-<blockquote>
-<p>分页式：逻辑地址空间划分只简单依靠页面大小，缺乏内在逻辑性，导致一方<br>面相关内容被分散 到多页上，页面置换不当时容易造成内存抖动，另一方面<br>不同性质的内容被分到同一页中，使得页面 权限保护设置困难。 分段式：段<br>体积大，在内存中无法不连续存储，易形成内存外碎片，降低内存利用率。<br>段页式：先分段再分页，以段为单位调入调出，以页为单位在内存中不连续存<br>储，既保证了相关内容 同时进出内存，便于设置权限保护，又可以充分利用<br>内存空间。 段页式结构复杂，实现起来效率低，所以没有被广泛采用。</p>
-</blockquote>
-</li>
-<li><p>为什么内存管理⽅式中，可变分区管理中有最差适应（worst fit)分配算法，⽽固定<br>分区管理中没有这个算法？分区管理中的交换技术（swap）和段式管理中的请求式<br>分段技术有什么区别？请求式分段与覆盖技术（overlay）又有什么区别？</p>
-<blockquote>
-<p>最差适应分配最大空间的分区给进程使用,以期剩余外碎片空间较大,再次利用的可能性较大.固定分区无外碎片,故不应采用这种算法.<br>交换技术交换单位是进程,请求式分段技术交换的单位是段<br>请求式分段式操作系统进行段调入调出,对程序员透明,而覆盖技术需要程序员自己完成调入调出.</p>
-</blockquote>
-</li>
-<li><p>页⾯置换（淘汰）的时机是什么？哪种算法最理想同时也不可能实现？为什么说<br>LRU算法很有效但是很难实现？什么是Belady异常？哪种算法存在Belady异常现<br>象?</p>
-<blockquote>
-<p>页面置换应该在内存空余空间小于一个固定的下限阈值时开始，并在达到<br>另一个上限阈值时停止。 OPT 最理想但不可能实现。 LRU 要求比较最近最少<br>使用的页面，条件多，要存储的数据量大，比较的时间长，很难实现。<br>Belady 异常指的时当增加页框时缺页中断发生的数量反而升高的现象。 FIFO<br>存在 Belady 异常</p>
-</blockquote>
-</li>
-<li><p>请讨论⼀下页⾯置换算法中⼯作集（Working Set）置换算法的⼯作原理。</p>
-<blockquote>
-<p>答：进程设置一个虚拟时钟，执行一个时钟周期就加 1，不执行就不增加。<br>（1    分）每个页面被访问时，记录最后访问的虚拟时间，R    位置 1。R    位定期<br>清除。（1 分）如果 R=1,则保留，将当前时间记录下来。（1    分）如果 R=0    对<br>比当前虚拟时间与页面最后访问时间差 age    与阈值 τ，如 age&gt;τ 则淘汰（1<br>分）。如 age    &lt;=    τ，则记录其访问时间，必要时淘汰其中最旧的。（1    分）</p>
-</blockquote>
-</li>
-<li><p>在内存管理的⽅法中，分段式管理⽐分页式管理有什么优势？段页式与其他⽅式相<br>⽐有什么好处？</p>
-<blockquote>
-<p>分段比分页更有逻辑性，将同类的或相关的内容放在一个段内，这样不会<br>由于页面置换算法选择不当而形成“抖动”现象。（1    分）同类内容划分在一个<br>段内，可以实现段的保护，如代码段设置为只读，数据段设置为读写。（1     分）<br>公共代码段可以通过映射共享到多个进程。（1    分）段页式既按照相关性划分<br>段，继承了分段的优势（1    分），又有分页管理可以不连续存储，能够充分利<br>用空间的好处。（1    分）</p>
-</blockquote>
-</li>
-<li><p>为什么要使⽤倒排页表？倒排页表⾯临的最⼤的问题是什么？如何解决？</p>
-<blockquote>
-<p>在 64    位系统中，由于虚拟地址太大，普通页表会非常大，无法存储。另一方<br>面，实际内存 相对较小，所以建立一张从物理地址索引得到相对地址的倒排<br>页表。 最大的问题的难于从相对地址查找到绝对地址。可以采用 hash    表ò高<br>查找效率，并使用 TLB加速查找。</p>
-</blockquote>
-</li>
-<li><p>内存分区管理中的交换技术与请求式分段技术相⽐，有什么相同点和不同点？</p>
-<blockquote>
-<p>答：相同点都是为了在内存不足的情况下装入更多的进程，都是会产生外碎片。<br>不同点为交换 技术交换的对象是整个进程而请求式分段交换的进程中的一个<br>段。</p>
-</blockquote>
-</li>
-<li><p>在页⾯淘汰算法中，为什么说⽼化(Aging)算法只是 LRU 的⼀个近似实现？</p>
-<blockquote>
-<p>老化算法与 LRU    相比，主要有两点区别：<br>(1）老化算法记录使用情况的<br>寄存器只有有限位， 比如 8位，无法记录所有使用情况。<br>（2）同一时间间隔内只使用 0/1区分页面使用情况，无法详 细区别间隔内的具体时间</p>
-</blockquote>
-</li>
-<li><p>单纯的分段式和分页式内存管理各有什么缺点？为什么段页式可以避免这些缺点？为什么段页式内存管理没有被广泛采用呢？</p>
-<blockquote>
-<p>答：分页式：逻辑地址空间划分只简单依靠页面大小，缺乏内在逻辑性，导致一方面相关内容被分散到多页上，页面置换不当时容易造成内存抖动，另一方面不同性质的内容被分到同一页中，使得页面权限保护设置困难。<br>分段式：段体积较大，在内存中无法不连续存储，易形成内存外碎片，降低内存利用率。<br>段页式：先分段再分页，以段为单位调入调出，以页为单位在内存中不连续存储，既保证了相关内容同时进出内存，便于设置权限保护，又可以充分利用内存空间。<br>段页式结构复杂，实现起来效率低，所以没有被广泛采用。</p>
-</blockquote>
-</li>
-<li><p>为什么内存管理方式中，可变分区管理中有最差适应（worst fit)分配算法，而固定分区管理中没有这个算法？分区管理中的交换技术（swap）和段式管理中的请求式分段技术有什么区别？请求式分段与覆盖技术（overlay）又有什么区别？</p>
-<blockquote>
-<p>答：最差适应分配最大空间的分区给进程使用，以期剩余外碎片空间较大，再次利用的可能性较大。<br>固定分区无外碎片，故不应采用这种算法。<br>交换技术交换的单位是进程，请求式分段技术交换的单位是段。<br>请求式分段是操作系统进行段调入调出，对程序员透明，而覆盖技术需要程序员自己完成调入调出。</p>
-</blockquote>
-</li>
-<li><p>页面置换（淘汰）的时机是什么？哪种算法最理想同时也不可能实现？为什么说LRU算法很有效但是很难实现？什么是Belady异常？哪种算法存在Belady异常现象？</p>
-<blockquote>
-<p>答：页面置换应该在内存空余空间小于一个固定的下限阈值时开始，并在达到另一个上限阈值时停止。<br>OPT最理想但不可能实现。<br>LRU要求比较最近最少使用的页面，条件多，要存储的数据量大，比较的时间长，很难实现。<br>Belady异常指的时当增加页框时缺页中断发生的数量反而升高的现象。<br>FIFO存在Belady异常。</p>
-</blockquote>
-</li>
-<li><p>请问缓存（Cache）有什么用，什么地方会用到它？</p>
-<blockquote>
-<p>答：缓存主要用于解决 CPU 和内存之间存在的速度差。一般来说，CPU 中寄存器的速<br>度要远快于内存，将 CPU 要用到的数据预先从内存中读到缓存，这样 CPU 使用时就可<br>以快速得到数据，写回内存的过程也类似。<br>TLB 就是使用缓存的一个典型例子。</p>
-</blockquote>
-</li>
-<li><p>内存管理中，什么是内存的外碎片？哪些种内存管理方式可能出现外碎片？为什么？为了避免出现大量很小的外碎片，在空间申请时可以考虑采用哪种分配策略？</p>
-<blockquote>
-<p>答：外碎片指的是内存中的小的空闲区域，虽然存在理论上被分配出去的可能性，但是<br>实际上由于空间很小，很难被利用。<br>可变式分区管理、分段式管理等内存管理方式均可能出现外碎片。<br>为了避免出现大量小的外碎片，可以使用最差适应（Worst Fit）分配策略。</p>
-</blockquote>
-</li>
-<li><p>已知某系统页面长 4KB，页表项 4B，虚拟地址空间为 64 位，物理地址空间 4GB。 （1）如采用多层分页策略，限定各分层页表最多占 1 页大小，请问可以采用几层分页策<br>略？<br>（2）如采用倒排页表方式，请问倒排页表的大小？是每个进程一张倒排页表还是系统维<br>护一张倒排页表？如何解决倒排页表不便于逻辑地址向物理地址转换的问题？</p>
-<blockquote>
-<p>答：（1）页面长 4KB，说明页内偏移地址占 12 位，虚拟地址空间 64 位，说明页号总长为 64-12=52 位。页面长 4KB，页表项 4B，故每张页表不超过 4K/4=1K=210 项，即每级页表地址长度不应该超过 10 位。页号总长 52 位/每页表最长 10 位=5.2，向上取整为 6。即采用六层分页策略。<br>（2）如采用倒排页表，因为物理地址空间 4GB，故倒排页表应该有 4GB/4KB=1M 个页<br>表项，每页表项大小为 4B，倒排页表大小为 1M*4B=4MB。<br>系统维护一张倒排页表。<br>可以使用 Hash 散列，解决倒排页表不便于逻辑地址向物理地址转换的问题。</p>
-</blockquote>
-</li>
-<li><p>缺页中断产生后，被中断的进程应该转入什么运行状态？讨论一下缺页中断<br>的执行过程，并说明中断处理完毕后返回被中断的进程时应该执行哪条语句。</p>
-<blockquote>
-<p>答：转入阻塞态（1 分）保护现场、陷入内核态、如果内存空间不足则选择淘汰、调需要的页面进内存（1 分）、更新页表和快表（1 分）、返回用户态，恢复现场、（1 分）重新执行被中断的语句。(1分)</p>
-</blockquote>
-</li>
-<li><p>请讨论一下页面置换算法中工作集（Working Set）置换算法的工作原理。</p>
-<blockquote>
-<p>答：进程设置一个虚拟时钟，执行一个时钟周期就加 1，不执行就不增加。<br>（1 分）<br>每个页面被访问时，记录最后访问的虚拟时间，R 位置 1。R 位定期清除。（1<br>分）<br>如果 R=1,则保留，将当前时间记录下来。（1 分）<br>如果 R=0 对比当前虚拟时间与页面最后访问时间差 age 与阈值τ，如 age&gt;<br>τ则淘汰（1 分）。如 age &lt;= τ，则记录其访问时间，必要时淘汰其中最旧的。 （1 分）</p>
-</blockquote>
-<h4 id="设备管理和其他"><a href="#设备管理和其他" class="headerlink" title="设备管理和其他"></a>设备管理和其他</h4></li>
-<li><p>用户程序发出磁盘I/O请求后，计算数据所在磁盘的柱面号、磁头号、扇区号的程序是 C<br>A.用户程序 B.系统调用处理程序 C.设备驱动程序 D.中断处理程序</p>
-</li>
-<li><p>在系统内存中设置磁盘缓冲区的主要目的是(A)<br>A．减少磁盘 I/O 次数 B．减少平均寻道时间 C．ᨀ高磁盘数据可靠性 D．实现设备无关性</p>
-</li>
-<li><p>在一个文件被用户进程首次打开的过程中，操作系统需做的是：B<br>A. 将文件内容读到内存中    B. 将文件控制块读到内存中<br>C. 修改文件控制块中的读写权限    D. 将文件的数据缓冲区首指针返回给用户进程</p>
-</li>
-<li><p>下列选项中，不可能在用户态发生的事件是 C<br>A. 系统调用    B. 外部中断    C. 进程切换    D. 缺页</p>
-</li>
-<li><p>操作系统的I/O子系统通常由四个层次组成，每一层明确定义了与邻近层次的接口，其合理层次组织排列顺序是 A<br>A.用户级 I/O 软件、设备无关软件、设备驱动程序、中断处理程序<br>B.用户级 I/O 软件、设备无关软件、中断处理程序、设备驱动程序<br>C.用户级 I/O 软件、设备驱动程序、设备无关软件、中断处理程序<br>D.用户级 I/O 软件、中断处理程序、设备无关软件、设备驱动程序</p>
-</li>
-<li><p>下列关于虚拟存储器的叙述中，正确的是 B<br>A. 虚拟存储器只能基于连续分配技术    B. 虚拟存储器只能基于非连续分配技术<br>C. 虚拟存储器只受外存容量的限制    D. 虚拟存储器只受内存容量的限制</p>
-</li>
-<li><p>计算机开机后，操作系统最终被加载到 D<br>A. BIOS    B. ROM(只读存储器)    C. EPROM    D. RAM(内存)</p>
-</li>
-<li><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os%E4%B9%A0%E9%A2%98/os9.png" alt="os9.png"><br>B</p>
-</li>
-<li><p>若一个用户过程通过read系统调用读取一个磁盘文件中的数据，则下列关于此过程的叙述中，正确的是A<br>Ⅰ. 若该文件的数据不在内存，则该进程进入睡眠等待状态<br>Ⅱ. 请求 read 系统调用会导致 CPU 从用户态切换到核心态<br>Ⅲ. read 系统调用的参数应包含文件的名称<br>A. 仅Ⅰ、Ⅱ B. 仅Ⅰ、Ⅲ C. 仅Ⅱ、Ⅲ D. Ⅰ、Ⅱ和Ⅲ</p>
-</li>
-<li><p>在采用 SPOOLing 技术的系统中，用户的打印数据首先被送到<strong>A_</strong>。<br>A. 磁盘固定区域 B. 内存固定区域 C. 终端 D. 打印机</p>
-</li>
-<li><p>操作系统的I/O子系统通常由四个层次组成，每一层明确定义了与邻近层次的接口，其合理的层次组织排列顺序是: A<br>A. 用户级 I/O 软件、设备无关软件、设备驱动程序、中断处理程序<br>B. 用户级 I/O 软件、设备无关软件、中断处理程序、设备驱动程序<br>C. 用户级 I/O 软件、设备驱动程序、设备无关软件、中断处理程序<br>D. 用户级 I/O 软件、中断处理程序、设备无关软件、设备驱动程序</p>
-</li>
-<li><p>下列选项中，不可能在用户态发生的事件是 C<br>A. 系统调用 B. 外部中断 C. 进程切换 D. 缺页</p>
-</li>
-<li><p>中断处理和子程序调用都需要压栈以保护现场，中断处理一定会保存而子程序调用不需要保存的是 A<br>A. 程序计数器 B. 程序状态字寄存器<br>C. 通用数据寄存器 D. 通用地址寄存器</p>
-</li>
-<li><p>在分时系统中，进程调度的时间片的大小宜选择为（C）<br>A、几十纳秒 B、几十微秒 C、几十毫秒 D、几十秒</p>
-</li>
-<li><p>若当前进程因时间片用完而让出处理机时，该进程应转变为（A）状态。<br>A、就绪 B、等待 C、运行 D、完成</p>
-</li>
-<li><p>能否使用管程，主要取决于（ B）：<br>A、程序员的编程技巧 B、编程语言的编译器支持<br>C、操作系统是否支持线程 D、是否有相应硬件的支持</p>
-</li>
-<li><p>下列选项中,导致创建新进程的操作是<strong><em>C</em></strong>。<br>I 用户登录成功 II 设备分配 III 启动程序执行<br>A.仅 I 和 II B.仅 II 和 III C.仅 I 和 III D.I 、II 和 III</p>
-</li>
-<li><p>下列文件物理结构中,适合随机访问且易于文件扩展的是<strong>B_</strong>。<br>A.连续结构 B.索引结构<br>C.链式结构且磁盘块定长 D.链式结构且磁盘块变长</p>
-</li>
-<li><p>19、设文件 F1 的当前引用计数值为 1,先建立 F1 的符号链接(软链接)文件 F2,再建立F1 的硬链接文件 F3,然后删除 F1。此时,F2 和 F3 的引用计数值分别是<strong>B</strong>。<br>A. 0、1 B.1、1 C.1、2 D.2、1</p>
-</li>
-<li><p>中断扫描机构是（B）扫描一次中断寄存器。<br>A、每隔一个时间片 B、每条指令执行周期内最后时刻<br>C、每当进程释放 CPU D、每产生一次中断</p>
-</li>
-<li><p>弹出式线程的优点在于：A<br>A、没有历史，创建迅速 B、安全性高<br>C、执行效率高 D、不需要操作系统内核支持线程</p>
-</li>
-<li><p>在 Web Server 中使用线程，可以ᨀ高对客户请求的响应效率。请简述图中<br>web page cache 的作用。<br><img src="os1.png" alt=""></p>
-<blockquote>
-<p>答：线程共享进程资源，所有的线程都可以访问进程的 web page cache（1<br>分），cache 在内存中（1 分），被访问过的页面存放在 cache 中，当任何线程再<br>次需要这个页面时就可以从 cache 中得到，而不需要再次读取硬盘。（3 分）</p>
-</blockquote>
-</li>
-</ol>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p><a href="https://blog.csdn.net/qq_28602957/article/details/53744956" target="_blank" rel="noopener">请求分页存储管理方式</a></p>
-<p><a href="https://www.cnblogs.com/edisonchou/p/5090315.html" target="_blank" rel="noopener">内存管理上:基本内存管理</a><br><a href="https://www.cnblogs.com/edisonchou/p/5094066.html" target="_blank" rel="noopener">内存管理中:分页内存管理</a><br><a href="https://www.cnblogs.com/edisonchou/p/5115242.html" target="_blank" rel="noopener">内存管理下:段式内存管理</a></p>
-]]></content>
-      <categories>
-        <category>期末</category>
-      </categories>
-      <tags>
-        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
