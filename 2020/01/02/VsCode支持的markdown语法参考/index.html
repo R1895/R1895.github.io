@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="VS Code 使用 Markdown 编写文档  1. 文本部分">
+<meta name="keywords" content="VsCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VsCode支持的markdown语法参考">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:description" content="VS Code 使用 Markdown 编写文档  1. 文本部分">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;1414656-4697bde7bd330473.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;654&#x2F;format&#x2F;webp">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;1414656-4e1275ac4a64ba20.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;527&#x2F;format&#x2F;webp">
+<meta property="og:image" content="https:&#x2F;&#x2F;img2018.cnblogs.com&#x2F;blog&#x2F;1683299&#x2F;201909&#x2F;1683299-20190911231431885-470598308.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;1414656-b1f92b959dfa863e.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;301&#x2F;format&#x2F;webp">
+<meta property="og:image" content="https:&#x2F;&#x2F;img2018.cnblogs.com&#x2F;blog&#x2F;1683299&#x2F;201909&#x2F;1683299-20190911232801569-1228742801.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;1414656-4558e18cf543a874.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;376&#x2F;format&#x2F;webp">
+<meta property="og:image" content="https:&#x2F;&#x2F;img2018.cnblogs.com&#x2F;blog&#x2F;1683299&#x2F;201909&#x2F;1683299-20190911233054628-1216522735.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;1414656-3c07364e15ba43dd.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;773&#x2F;format&#x2F;webp">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83&#x2F;%E6%97%B6%E5%BA%8F%E5%9B%BE.png">
+<meta property="og:updated_time" content="2020-02-25T05:36:47.824Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;1414656-4697bde7bd330473.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;654&#x2F;format&#x2F;webp">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>VsCode支持的markdown语法参考 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Jie</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">10</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj2.jpg">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="Only action can relieve the uneasiness.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VsCode支持的markdown语法参考
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-02 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-02T00:00:00+08:00">2020-01-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-25 13:36:47" itemprop="dateModified" datetime="2020-02-25T13:36:47+08:00">2020-02-25</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div align="center" style="color:red">VS Code 使用 Markdown 编写文档</div>
+
+<h2 id="1-文本部分"><a href="#1-文本部分" class="headerlink" title="1. 文本部分"></a>1. 文本部分</h2><a id="more"></a>
+<h3 id="1-1-斜体和粗体，删除线"><a href="#1-1-斜体和粗体，删除线" class="headerlink" title="1.1 斜体和粗体，删除线"></a>1.1 斜体和粗体，删除线</h3><p>使用 * 和 ** 表示斜体和粗体。</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">示例：这是<span class="strong">*斜体*</span>，这是*<span class="strong">*粗体*</span><span class="strong">*。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>这是<em>斜体</em>，这是<strong>粗体</strong>。<br>使用 ~~ 表示删除线。<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~这是一段错误的文本。</span><br></pre></td></tr></table></figure></li>
+<li><del>这是一段错误的文本。</del></li>
+</ul>
+<h3 id="1-2-分级标题"><a href="#1-2-分级标题" class="headerlink" title="1.2 分级标题"></a>1.2 分级标题</h3><p>使用 === 表示一级标题，使用 — 表示二级标题。<br><img src="https://upload-images.jianshu.io/upload_images/1414656-4697bde7bd330473.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/654/format/webp" alt=""><br>你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：# H1, ## H2, ### H3，#### H4。<br><img src="https://upload-images.jianshu.io/upload_images/1414656-4e1275ac4a64ba20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/527/format/webp" alt=""></p>
+<h3 id="1-3-常用-Emoji-amp-Font-Awesome"><a href="#1-3-常用-Emoji-amp-Font-Awesome" class="headerlink" title="1.3 常用 Emoji &amp; Font-Awesome"></a>1.3 常用 Emoji &amp; Font-Awesome</h3><p><img src="https://img2018.cnblogs.com/blog/1683299/201909/1683299-20190911231431885-470598308.png" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/1414656-b1f92b959dfa863e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/301/format/webp" alt=""><br><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">更多emoji查看</a></p>
+<h3 id="1-4-引用和注脚"><a href="#1-4-引用和注脚" class="headerlink" title="1.4 引用和注脚"></a>1.4 引用和注脚</h3><p>使用 [^keyword] 表示注脚。</p>
+<h2 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>上标：30^th^</span><br><span class="line"><span class="bullet">- </span>下标：H~2~O</span><br><span class="line"><span class="bullet">- </span>脚注：Content [^1]</span><br><span class="line">[<span class="symbol">^1</span>]:<span class="link">Hi 这里是一个注脚，会自动拉到最后面排版</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>上标：30^th^</li>
+<li>下标：H<del>2</del>O</li>
+<li>脚注：Content [^1]<br>[^1]:Hi 这里是一个注脚，会自动拉到最后面排版</li>
+</ul>
+<h2 id="缩略："><a href="#缩略：" class="headerlink" title="缩略："></a>缩略：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*[HTML]: 超文本标记语言</span><br><span class="line">*[W3C]:  World Wide Web Consortium</span><br><span class="line">The HTML specification</span><br><span class="line">is maintained by the W3C.</span><br></pre></td></tr></table></figure>
+<p>*[HTML]: 超文本标记语言<br>*[W3C]:  World Wide Web Consortium<br>The HTML specification<br>is maintained by the W3C.</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这里要有空格隔开中文</span><br><span class="line">*<span class="string">[月]</span>: yue4</span><br><span class="line">*<span class="string">[辍]</span>: chuo4</span><br><span class="line">明 明 如 月，何 时 可 辍</span><br></pre></td></tr></table></figure>
+<p>*[月]: yue4<br>*[辍]: chuo4<br>明 明 如 月，何 时 可 辍</p>
+<h2 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==<span class="attribute">marked</span>==</span><br></pre></td></tr></table></figure>
+
+<p>==marked==</p>
+<h3 id="1-5-外链接"><a href="#1-5-外链接" class="headerlink" title="1.5 外链接"></a>1.5 外链接</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">关键词</span>](<span class="link">链接地址 "（可选）添加一个标题"</span>)</span><br><span class="line">图片带链接 </span><br><span class="line"><span class="code">    [![](.//img/01.png '百度')](http://www.baidu.com)</span></span><br></pre></td></tr></table></figure>
+<p>这里是去 <a href="http://www.baidu.com/" target="_blank" rel="noopener" title="百度一下">百度</a> 的链接</p>
+<p><a href="https://user.qzone.qq.com/1535045887/" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1683299/201909/1683299-20190911232801569-1228742801.jpg" alt="" title="本人QQ:1535045887"></a></p>
+<h3 id="1-6文字引用"><a href="#1-6文字引用" class="headerlink" title="1.6文字引用"></a>1.6文字引用</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;                   <span class="keyword">Only</span> <span class="keyword">action</span> can relieve the uneasiness.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>Only action can relieve the uneasiness.</code></pre></blockquote>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">多层嵌套</span><br><span class="line">&gt;天大彭于晏</span><br><span class="line"><span class="meta">&gt;&gt;</span>天大彭于晏</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;天大彭于晏</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>天大彭于晏</p>
+<blockquote>
+<p>天大彭于晏</p>
+<blockquote>
+<p>天大彭于晏</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="1-7-内容目录"><a href="#1-7-内容目录" class="headerlink" title="1.7 内容目录"></a>1.7 内容目录</h3><p>在段落中填写 [TOC] 以显示全文内容的目录结构。</p>
+<blockquote>
+<p>[TOC]</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1414656-4558e18cf543a874.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/376/format/webp" alt=""></p>
+<h3 id="1-8行内标记"><a href="#1-8行内标记" class="headerlink" title="1.8行内标记"></a>1.8行内标记</h3><p>注：用 ` 标记代码块将变成一行<br>代码</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标记之外`hello </span><br><span class="line">world`标记之外</span><br></pre></td></tr></table></figure>
+<p>标记之外<code>hello 
+world</code>标记之外</p>
+<h3 id="1-9支持内嵌CSS样式"><a href="#1-9支持内嵌CSS样式" class="headerlink" title="1.9支持内嵌CSS样式"></a>1.9支持内嵌CSS样式</h3><p>代码:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"color: #AD5D0F;font-size: 30px; font-family: '宋体';"</span>&gt;</span>内联样式<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p style="color: #AD5D0F;font-size: 30px; font-family: '宋体';">内联样式</p>
+
+<h3 id="1-10-支持html标签"><a href="#1-10-支持html标签" class="headerlink" title="1.10 支持html标签"></a>1.10 支持html标签</h3><p>直接使用 HTML 标签，可以设置文字居中，字体颜色等样色(HTML 语法)<br>代码:</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="meta">align</span>=<span class="string">"center"</span> style=<span class="string">"color:red"</span>&gt;VS <span class="meta">Code</span> 使用 <span class="keyword">Markdown </span>编写文档&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>演示:<br>        <div align="center" style="color:red">VS Code 使用 Markdown 编写文档</div></p>
+<h2 id="2-标签分类"><a href="#2-标签分类" class="headerlink" title="2. 标签分类"></a>2. 标签分类</h2><p>在编辑区任意行的列首位置输入以下代码给文稿标签：</p>
+<p>标签： 数学 英语 Markdown<br>Tags： 数学 英语 Markdown</p>
+<h3 id="2-0-常用布局"><a href="#2-0-常用布局" class="headerlink" title="2.0 常用布局"></a>2.0 常用布局</h3><h3 id="2-1-无序列表"><a href="#2-1-无序列表" class="headerlink" title="2.1 无序列表"></a>2.1 无序列表</h3><p>使用 *，+，- 表示无序列表。</p>
+<p>示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>无序列表项 一</span><br><span class="line"><span class="bullet">* </span>无序列表项 二</span><br><span class="line"><span class="bullet">+ </span>无序列表项 三</span><br></pre></td></tr></table></figure>
+<p>效果:</p>
+<ul>
+<li>无序列表项 一</li>
+</ul>
+<ul>
+<li>无序列表项 二</li>
+</ul>
+<ul>
+<li>无序列表项 三<h3 id="2-2-有序列表（ol-li）"><a href="#2-2-有序列表（ol-li）" class="headerlink" title="2.2 有序列表（ol-li）"></a>2.2 有序列表（ol-li）</h3>使用数字和点表示有序列表。<br>示例：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>有序列表项 一<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>有序列表项 二<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>有序列表项 三<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol >
+<li>有序列表项 一</li>
+<li>有序列表项 二</li>
+<li>有序列表项 三</li>
+</ol>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注：序列.后 保持空格</span><br><span class="line"><span class="number">1.</span> one</span><br><span class="line"><span class="number">2.</span> two</span><br><span class="line"><span class="number">3.</span> three</span><br></pre></td></tr></table></figure>
+演示:</li>
+</ul>
+<ol>
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</ol>
+<h3 id="2-3-行内代码块"><a href="#2-3-行内代码块" class="headerlink" title="2.3 行内代码块"></a>2.3 行内代码块</h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用 ```代码```进行包裹</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-插入图像"><a href="#2-4-插入图像" class="headerlink" title="2.4 插入图像"></a>2.4 插入图像</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用 !<span class="selector-attr">[]</span>(图片链接地址<span class="string">'描述'</span>) 插入图像。</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/1683299/201909/1683299-20190911233054628-1216522735.jpg" alt="" title="我是一名程序员"></p>
+<h3 id="2-5-表格支持"><a href="#2-5-表格支持" class="headerlink" title="2.5 表格支持"></a>2.5 表格支持</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> 项目        </span>|<span class="string"> 价格   </span>|<span class="string">  数量  </span>|</span><br><span class="line">|<span class="string"> --------   </span>|<span class="string"> -----:  </span>|<span class="string"> :----:  </span>|</span><br><span class="line">|<span class="string"> 计算机     </span>|<span class="string"> \$1600 </span>|<span class="string">   5     </span>|</span><br><span class="line">|<span class="string"> 手机        </span>|<span class="string">   \$12   </span>|<span class="string">   12   </span>|</span><br><span class="line">|<span class="string"> 管线        </span>|<span class="string">    \$1    </span>|<span class="string">  234  </span>|</span><br><span class="line">|<span class="string"> &gt; </span>|<span class="string"> ce    </span>|<span class="string">   ce</span>|</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th align="right">价格</th>
+<th align="center">数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算机</td>
+<td align="right">$1600</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td align="right">$12</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td align="right">$1</td>
+<td align="center">234</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td align="right">ce</td>
+<td align="center">ce</td>
+</tr>
+</tbody></table>
+<h3 id="2-6-定义型列表"><a href="#2-6-定义型列表" class="headerlink" title="2.6 定义型列表"></a>2.6 定义型列表</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">名词 <span class="number">1</span></span><br><span class="line">: 定义 <span class="number">1</span>（左侧有一个可见的冒号和四个不可见的空格）</span><br><span class="line"></span><br><span class="line">代码块 <span class="number">2</span></span><br><span class="line">: 这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）</span><br></pre></td></tr></table></figure>
+<dl><dt>名词 1</dt><dd>定义 1（左侧有一个可见的冒号和四个不可见的空格）</dd></dl><dl><dt>代码块 2</dt><dd>这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）</dd></dl><h3 id="2-7表格对齐"><a href="#2-7表格对齐" class="headerlink" title="2.7表格对齐"></a>2.7表格对齐</h3><p>注： : 代表对齐方式 ,** : 与 | 之间不要有空格**，否则对齐会有些不兼容</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">代码</span><br><span class="line"></span><br><span class="line">|    a    |       b       |      c     |</span><br><span class="line">|<span class="symbol">:-------</span><span class="symbol">:|</span><span class="symbol">:-------------</span> | ----------<span class="symbol">:|</span></span><br><span class="line">|   居中  |     左对齐    |   右对齐   |</span><br><span class="line">|=========|===============|============|</span><br></pre></td></tr></table></figure>
+<p>演示</p>
+<table>
+<thead>
+<tr>
+<th align="center">a</th>
+<th align="left">b</th>
+<th align="right">c</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">居中</td>
+<td align="left">左对齐</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td align="center">=========</td>
+<td align="left">===============</td>
+<td align="right">============</td>
+</tr>
+</tbody></table>
+<h3 id="2-8-Html-标签"><a href="#2-8-Html-标签" class="headerlink" title="2.8 Html 标签"></a>2.8 Html 标签</h3><p>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：<br>设置colspan，rowspan<br><a href="https://blog.csdn.net/loongshawn/article/details/72829090?utm_source=blogxgwz6" target="_blank" rel="noopener">Markdown表格之合并单元格效果</a></p>
+<h3 id="2-8-待办事宜-Todo-列表"><a href="#2-8-待办事宜-Todo-列表" class="headerlink" title="2.8 待办事宜 Todo 列表"></a>2.8 待办事宜 Todo 列表</h3><p>使用带有 [ ] 或 [x] （未完成或已完成）项的列表语法撰写一个待办事宜列表，并且支持子列表嵌套以及混用Markdown语法，例如：<br><img src="https://upload-images.jianshu.io/upload_images/1414656-3c07364e15ba43dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/773/format/webp" alt=""></p>
+<h2 id="3-补充"><a href="#3-补充" class="headerlink" title="3.补充"></a>3.补充</h2><h3 id="3-1定义型列表"><a href="#3-1定义型列表" class="headerlink" title="3.1定义型列表"></a>3.1定义型列表</h3><p>注：解释型定义</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">代码：</span><br><span class="line">        Markdown   </span><br><span class="line"><span class="title">        : 轻量级文本标记语言，可以转换成html，pdf等格式  //  开头一个`:</span>` + `Tab` 或 四个空格</span><br></pre></td></tr></table></figure>
+<p>Markdown<br>  : 轻量级文本标记语言，可以转换成html，pdf等格式  //  开头一个<code>:</code> + <code>Tab</code> 或 四个空格</p>
+<h3 id="3-2自动邮箱链接"><a href="#3-2自动邮箱链接" class="headerlink" title="3.2自动邮箱链接"></a>3.2自动邮箱链接</h3><p>代码:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">xxx</span>@<span class="keyword">outlook</span>.<span class="keyword">com</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>演示<br>    <a href="mailto:&#49;&#x35;&#51;&#x35;&#48;&#52;&#x35;&#56;&#56;&#x37;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;" target="_blank" rel="noopener">&#49;&#x35;&#51;&#x35;&#48;&#52;&#x35;&#56;&#56;&#x37;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<h3 id="3-3字体-字号与颜色"><a href="#3-3字体-字号与颜色" class="headerlink" title="3.3字体,字号与颜色"></a>3.3字体,字号与颜色</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;font <span class="attribute">face</span>=<span class="string">"STCAIYUN"</span>&gt;我是华文彩云&lt;/font&gt;</span><br><span class="line">&lt;font <span class="attribute">color</span>=gray <span class="attribute">size</span>=5&gt;color=gray&lt;/font&gt;</span><br><span class="line">&lt;font color=  #0099ff <span class="attribute">size</span>=5 <span class="attribute">face</span>=<span class="string">"黑体"</span>&gt;color=#0099ff <span class="attribute">size</span>=5 <span class="attribute">face</span>=<span class="string">"黑体"</span>&lt;/font&gt;</span><br></pre></td></tr></table></figure>
+<p><font face="STCAIYUN">我是华文彩云</font><br><font color=gray size=5>color=gray</font><br><font color=#0099ff size=5 face="黑体">color=#0099ff size=5 face=”黑体”</font><br><font face = "楷体"><br>Size：规定文本的尺寸大小。可能的值：从 1 到 7 的数字。浏览器默认值是 3。</font><br>##4. 数学和LaTeX<br>$ 表示行内公式：</p>
+<p>质能守恒方程可以用一个很简洁的方程式 E=mc^2 来表达。</p>
+<p>$$ 表示整行公式：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>\sum_&#123;i=<span class="number">1</span>&#125;^n a_i=<span class="number">0</span><span class="symbol">$</span><span class="symbol">$</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$E</span>=mc^2$</span></span><br></pre></td></tr></table></figure>
+<p>$$\sum_{i=1}^n a_i=0$$<br>$ E=mc^2$</p>
+<h3 id="4-1-常用计算速查"><a href="#4-1-常用计算速查" class="headerlink" title="4.1 常用计算速查"></a>4.1 常用计算速查</h3><h3 id="4-2省略号"><a href="#4-2省略号" class="headerlink" title="4.2省略号"></a>4.2省略号</h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">a_1</span>,<span class="built_in">a_2</span>,\ldots,<span class="built_in">a_n</span>$</span><br><span class="line">$ <span class="built_in">a_1</span>+<span class="built_in">a_2</span>+\ldots+<span class="built_in">a_n</span>$</span><br><span class="line">$ <span class="built_in">a_1</span>+<span class="built_in">a_2</span>+\cdots+<span class="built_in">a_n</span>$</span><br></pre></td></tr></table></figure>
+<p>$ a_1,a_2,\ldots,a_n$<br>$ a_1+a_2+\ldots+a_n$<br>$ a_1+a_2+\cdots+a_n$</p>
+<h3 id="4-3字体"><a href="#4-3字体" class="headerlink" title="4.3字体"></a>4.3字体</h3><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> \mathsf&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125;   <span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span> \mathcal&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125; <span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span> \mathscr&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125; <span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span> \mathfrak&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125; <span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+<p>$ \mathsf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}   $<br>$ \mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ} $<br>$ \mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ} $<br>$ \mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ} $</p>
+<h3 id="4-4常用公式"><a href="#4-4常用公式" class="headerlink" title="4.4常用公式"></a>4.4常用公式</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$x_i^<span class="number">2</span>$，$x_i^<span class="number">2</span>+x_&#123;i^<span class="number">2</span>&#125;$，$<span class="number">10</span>^&#123;<span class="number">10</span>&#125;$</span><br><span class="line">$\log_2 x$</span><br><span class="line">$&#123;x^y&#125;^z+x^&#123;y^z&#125;$</span><br><span class="line">$\sum^&#123;j<span class="number">-1</span>&#125;_&#123;k=<span class="number">0</span>&#125;&#123;\widehat&#123;\gamma&#125;_&#123;kj&#125; z_k&#125;$</span><br><span class="line">$\sum_&#123;i=<span class="number">0</span>&#125;^n i^<span class="number">2</span> = \frac&#123;(n^<span class="number">2</span>+n)(<span class="number">2</span>n+<span class="number">1</span>)&#125;&#123;<span class="number">6</span>&#125;$</span><br><span class="line">$f(x_1,x_x,\ldots,x_n) = x_1^<span class="number">2</span> + x_2^<span class="number">2</span> + \cdots + x_n^<span class="number">2</span> $</span><br><span class="line">$\displaystyle \lim_&#123;t \to <span class="number">0</span>&#125; \<span class="built_in">int</span>_t^<span class="number">1</span> f(t)\, dt$</span><br><span class="line">$\lim_&#123;t \to <span class="number">0</span>&#125; \<span class="built_in">int</span>_t^<span class="number">1</span> f(t)\, dt$.</span><br></pre></td></tr></table></figure>
+<p>$x_i^2$，$x_i^2+x_{i^2}$，$10^{10}$<br>$\log_2 x$<br>${x^y}^z+x^{y^z}$<br>$\sum^{j-1}<em>{k=0}{\widehat{\gamma}</em>{kj} z_k}$<br>$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$<br>$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $<br>$\displaystyle \lim_{t \to 0} \int_t^1 f(t), dt$<br>$\lim_{t \to 0} \int_t^1 f(t), dt$.</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果需要大小调整，大小写切换写</span><br><span class="line">$$<span class="symbol">\B</span>iggl(<span class="symbol">\b</span>iggl(<span class="symbol">\B</span>igl(<span class="symbol">\b</span>igl((x)<span class="symbol">\b</span>igr)<span class="symbol">\B</span>igr)<span class="symbol">\b</span>iggr)<span class="symbol">\B</span>iggr) gives (((((x)))))$$</span><br></pre></td></tr></table></figure>
+<p>$$\Biggl(\biggl(\Bigl(\bigl((x)\bigr)\Bigr)\biggr)\Biggr) gives (((((x)))))$$</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">括号自适应大小</span><br><span class="line"><span class="symbol">$</span><span class="symbol">$</span>(\<span class="built-in">frac</span>&#123;\<span class="built-in">sqrt</span> x&#125;&#123;y^<span class="number">3</span>&#125;)<span class="symbol">$</span><span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span><span class="symbol">$</span> \left(\<span class="built-in">frac</span>&#123;\<span class="built-in">sqrt</span> x&#125;&#123;y^<span class="number">3</span>&#125;\right)<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+<p>$$(\frac{\sqrt x}{y^3})$$<br>$$ \left(\frac{\sqrt x}{y^3}\right)$$</p>
+<h3 id="4-5等式"><a href="#4-5等式" class="headerlink" title="4.5等式"></a>4.5等式</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="formula">$$</span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;aligned&#125;</span></span></span></span><br><span class="line"><span class="formula">        a &amp;= b + c <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">        &amp;= d + e + f + g <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">        &amp;= h + i</span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">end</span><span class="string">&#123;aligned&#125;</span></span></span></span><br><span class="line"><span class="formula">$$</span></span><br></pre></td></tr></table></figure>
+<p>$$<br>    \begin{aligned}<br>        a &amp;= b + c \<br>        &amp;= d + e + f + g \<br>        &amp;= h + i<br>    \end{aligned}<br>$$</p>
+<h3 id="4-6矩阵"><a href="#4-6矩阵" class="headerlink" title="4.6矩阵"></a>4.6矩阵</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="formula">$</span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;matrix&#125;</span></span></span></span><br><span class="line"><span class="formula">    1 &amp; x &amp; x^2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    1 &amp; y &amp; y^2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    1 &amp; z &amp; z^2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">end</span><span class="string">&#123;matrix&#125;</span></span></span></span><br><span class="line"><span class="formula">$</span> , <span class="formula">$</span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;pmatrix&#125;</span></span> </span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">end</span><span class="string">&#123;pmatrix&#125;</span></span></span></span><br><span class="line"><span class="formula">$</span> , <span class="formula">$   </span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;bmatrix&#125;</span></span> </span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">end</span><span class="string">&#123;bmatrix&#125;</span></span></span></span><br><span class="line"><span class="formula">$</span> , <span class="formula">$</span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;Bmatrix&#125;</span></span> </span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">end</span><span class="string">&#123;Bmatrix&#125;</span></span> </span></span><br><span class="line"><span class="formula">$</span> , <span class="formula">$</span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;vmatrix&#125;</span></span> </span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">end</span><span class="string">&#123;vmatrix&#125;</span></span> </span></span><br><span class="line"><span class="formula">$</span> , <span class="formula">$</span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;Vmatrix&#125;</span></span> </span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    1 &amp; 2 <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">end</span><span class="string">&#123;Vmatrix&#125;</span></span> </span></span><br><span class="line"><span class="formula">$</span></span><br></pre></td></tr></table></figure>
+<p>$<br>    \begin{matrix}<br>    1 &amp; x &amp; x^2 \<br>    1 &amp; y &amp; y^2 \<br>    1 &amp; z &amp; z^2 \<br>    \end{matrix}<br>$ , $<br>    \begin{pmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{pmatrix}<br>$ , $<br>    \begin{bmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{bmatrix}<br>$ , $<br>    \begin{Bmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{Bmatrix}<br>$ , $<br>    \begin{vmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{vmatrix}<br>$ , $<br>    \begin{Vmatrix}<br>    1 &amp; 2 \<br>    1 &amp; 2 \<br>    \end{Vmatrix}<br>$</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">省略元素 <span class="tag">\<span class="name">cdots</span></span> ⋯ <span class="tag">\<span class="name">ddots</span></span> ⋱ vdots ⋮</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="formula">$$</span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;matrix&#125;</span></span></span></span><br><span class="line"><span class="formula">    a_&#123;11&#125; &amp; a_&#123;12&#125; &amp; a_&#123;13&#125; &amp; <span class="tag">\<span class="name">cdots</span></span> &amp; a_&#123;1n&#125; <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    a_&#123;21&#125; &amp; a_&#123;22&#125; &amp; a_&#123;23&#125; &amp; <span class="tag">\<span class="name">cdots</span></span> &amp; a_&#123;2n&#125; <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">vdots</span></span> &amp; <span class="tag">\<span class="name">vdots</span></span> &amp; <span class="tag">\<span class="name">vdots</span></span> &amp; <span class="tag">\<span class="name">ddots</span></span> &amp; <span class="tag">\<span class="name">vdots</span></span> <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    a_&#123;n1&#125; &amp; a_&#123;n2&#125; &amp; a_&#123;n3&#125; &amp; <span class="tag">\<span class="name">cdots</span></span> &amp; a_&#123;2n&#125; <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">    <span class="tag">\<span class="name">end</span><span class="string">&#123;matrix&#125;</span></span></span></span><br><span class="line"><span class="formula">$$</span></span><br><span class="line"></span><br><span class="line"><span class="formula">$$ <span class="tag">\<span class="name">left</span><span class="string">[</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">\begin&#123;array&#125;&#123;cc|c&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">  1&amp;2&amp;3\\</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">  4&amp;5&amp;6</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">\end&#123;array&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">\right]</span></span> </span></span><br><span class="line"><span class="formula">$$</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="formula">$$</span></span><br><span class="line"><span class="formula">  f(n) =</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">begin</span><span class="string">&#123;cases&#125;</span></span></span></span><br><span class="line"><span class="formula">n/2,  &amp; <span class="tag">\<span class="name">text</span><span class="string">&#123;if $n$ is even&#125;</span></span> <span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">3n+1, &amp; <span class="tag">\<span class="name">text</span><span class="string">&#123;if $n$ is odd&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">end</span><span class="string">&#123;cases&#125;</span></span></span></span><br><span class="line"><span class="formula">$$</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="formula">$$</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">left</span></span>.</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">begin</span><span class="string">&#123;array&#125;</span><span class="string">&#123;l&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">text</span><span class="string">&#123;if $n$ is even:&#125;</span></span>&amp;n/2<span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">text</span><span class="string">&#123;if $n$ is odd:&#125;</span></span>&amp;3n+1</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">end</span><span class="string">&#123;array&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">right</span></span><span class="tag">\<span class="name">&#125;</span></span></span></span><br><span class="line"><span class="formula">=f(n)</span></span><br><span class="line"><span class="formula">$$</span></span><br></pre></td></tr></table></figure>
+
+
+<p>$$<br>    \begin{matrix}<br>    a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1n} \<br>    a_{21} &amp; a_{22} &amp; a_{23} &amp; \cdots &amp; a_{2n} \<br>    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>    a_{n1} &amp; a_{n2} &amp; a_{n3} &amp; \cdots &amp; a_{2n} \<br>    \end{matrix}<br>$$</p>
+<p>$$ \left[<br>\begin{array}{cc|c}<br>  1&amp;2&amp;3\<br>  4&amp;5&amp;6<br>\end{array}<br>\right]<br>$$</p>
+<p>$$<br>  f(n) =<br>\begin{cases}<br>n/2,  &amp; \text{if $n$ is even} \<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p>
+<p>$$<br>\left.<br>\begin{array}{l}<br>\text{if $n$ is even:}&amp;n/2\<br>\text{if $n$ is odd:}&amp;3n+1<br>\end{array}<br>\right}<br>=f(n)<br>$$</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">上下行的间距调整 ex</span><br><span class="line"><span class="formula">$$</span></span><br><span class="line"><span class="formula">f(n) =</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">begin</span><span class="string">&#123;cases&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">frac</span><span class="string">&#123;n&#125;</span><span class="string">&#123;2&#125;</span></span>,  &amp; <span class="tag">\<span class="name">text</span><span class="string">&#123;if $n$ is even&#125;</span></span> <span class="tag">\<span class="name">\</span><span class="string">[5ex]</span></span></span></span><br><span class="line"><span class="formula">3n+1, &amp; <span class="tag">\<span class="name">text</span><span class="string">&#123;if $n$ is odd&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">end</span><span class="string">&#123;cases&#125;</span></span></span></span><br><span class="line"><span class="formula">$$</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="formula">$$</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">left</span></span><span class="tag">\<span class="name">&#123;</span></span> </span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">begin</span><span class="string">&#123;array&#125;</span><span class="string">&#123;c&#125;</span></span></span></span><br><span class="line"><span class="formula">a_1x+b_1y+c_1z=d_1 <span class="tag">\<span class="name">\</span></span> </span></span><br><span class="line"><span class="formula">a_2x+b_2y+c_2z=d_2 <span class="tag">\<span class="name">\</span></span> </span></span><br><span class="line"><span class="formula">a_3x+b_3y+c_3z=d_3</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">end</span><span class="string">&#123;array&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">right</span></span>. </span></span><br><span class="line"><span class="formula">$$</span></span><br></pre></td></tr></table></figure>
+<p>$$<br>f(n) =<br>\begin{cases}<br>\frac{n}{2},  &amp; \text{if $n$ is even} \[5ex]<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p>
+<p>$$<br>\left{<br>\begin{array}{c}<br>a_1x+b_1y+c_1z=d_1 \<br>a_2x+b_2y+c_2z=d_2 \<br>a_3x+b_3y+c_3z=d_3<br>\end{array}<br>\right.<br>$$</p>
+<h3 id="aligned-对齐"><a href="#aligned-对齐" class="headerlink" title="aligned 对齐"></a>aligned 对齐</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="formula">$$ </span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">left</span></span><span class="tag">\<span class="name">&#123;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">begin</span><span class="string">&#123;aligned&#125;</span></span> </span></span><br><span class="line"><span class="formula">a_1x+b_1y+c_1z &amp;=d_1+e_1 <span class="tag">\<span class="name">\</span></span> </span></span><br><span class="line"><span class="formula">a_2x+b_2y&amp;=d_2 <span class="tag">\<span class="name">\</span></span> </span></span><br><span class="line"><span class="formula">a_3x+b_3y+c_3z &amp;=d_3 </span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">end</span><span class="string">&#123;aligned&#125;</span></span> </span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">right</span></span>. </span></span><br><span class="line"><span class="formula">$$</span></span><br></pre></td></tr></table></figure>
+<p>$$<br>\left{<br>\begin{aligned}<br>a_1x+b_1y+c_1z &amp;=d_1+e_1 \<br>a_2x+b_2y&amp;=d_2 \<br>a_3x+b_3y+c_3z &amp;=d_3<br>\end{aligned}<br>\right.<br>$$</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">继续用em调整行距</span><br><span class="line"><span class="formula">$$<span class="tag">\<span class="name">begin</span><span class="string">&#123;cases&#125;</span></span></span></span><br><span class="line"><span class="formula">a_1x+b_1y+c_1z=d_1 <span class="tag">\<span class="name">\</span><span class="string">[2ex]</span></span> </span></span><br><span class="line"><span class="formula">a_2x+b_2y+c_2z=d_2 <span class="tag">\<span class="name">\</span><span class="string">[2ex]</span></span> </span></span><br><span class="line"><span class="formula">a_3x+b_3y+c_3z=d_3</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">end</span><span class="string">&#123;cases&#125;</span></span></span></span><br><span class="line"><span class="formula">$$</span></span><br></pre></td></tr></table></figure>
+<p>$$\begin{cases}<br>a_1x+b_1y+c_1z=d_1 \[2ex]<br>a_2x+b_2y+c_2z=d_2 \[2ex]<br>a_3x+b_3y+c_3z=d_3<br>\end{cases}<br>$$</p>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><h2 id="5-流程图"><a href="#5-流程图" class="headerlink" title="5.流程图"></a>5.流程图</h2><h3 id="5-1简单流程图"><a href="#5-1简单流程图" class="headerlink" title="5.1简单流程图"></a>5.1简单流程图</h3><p><a href="http://flowchart.js.org/" target="_blank" rel="noopener">流程图语法参考</a></p>
+<h3 id="5-2序列图x"><a href="#5-2序列图x" class="headerlink" title="5.2序列图x`"></a>5.2序列图x`</h3><p>代码:<br><img src="./%E6%97%B6%E5%BA%8F%E5%9B%BE.png" alt=""><br>效果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A-&gt;&gt;B: 你好</span><br><span class="line">Note left of A: 我在左边 </span><br><span class="line">Note right of B: 我在右边</span><br><span class="line">B--&gt;A: 很高兴认识你</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">起床-&gt;吃饭: 稀饭油条</span><br><span class="line">吃饭-&gt;上班: 不要迟到了</span><br><span class="line">上班-&gt;午餐: 吃撑了</span><br><span class="line">上班-&gt;下班:</span><br><span class="line">Note right of 下班: 下班了</span><br><span class="line">下班-&gt;回家:</span><br><span class="line">Note right of 回家: 到家了</span><br><span class="line">回家--&gt;&gt;起床:</span><br><span class="line">Note left of 起床: 新的一天</span><br></pre></td></tr></table></figure>
+<p>未完待续…. </p>
+<h3 id="5-3mermaid-甘特图"><a href="#5-3mermaid-甘特图" class="headerlink" title="5.3mermaid 甘特图"></a>5.3mermaid 甘特图</h3><h3 id="5-4-puml-序列图"><a href="#5-4-puml-序列图" class="headerlink" title="5.4 puml 序列图"></a>5.4 puml 序列图</h3><h3 id="5-5-dot"><a href="#5-5-dot" class="headerlink" title="5.5 dot"></a>5.5 dot</h3>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/VsCode/" rel="tag"><i class="fa fa-tag"></i># VsCode</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/01/01/Homework%20Shell/" rel="next" title="Homework Shell">
+                  <i class="fa fa-chevron-left"></i> Homework Shell
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-文本部分"><span class="nav-number">1.</span> <span class="nav-text">1. 文本部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-斜体和粗体，删除线"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 斜体和粗体，删除线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-分级标题"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 分级标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-常用-Emoji-amp-Font-Awesome"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 常用 Emoji &amp; Font-Awesome</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-引用和注脚"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 引用和注脚</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标注"><span class="nav-number">2.</span> <span class="nav-text">标注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缩略："><span class="nav-number">3.</span> <span class="nav-text">缩略：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标记"><span class="nav-number">4.</span> <span class="nav-text">标记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-外链接"><span class="nav-number">4.1.</span> <span class="nav-text">1.5 外链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6文字引用"><span class="nav-number">4.2.</span> <span class="nav-text">1.6文字引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-内容目录"><span class="nav-number">4.3.</span> <span class="nav-text">1.7 内容目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8行内标记"><span class="nav-number">4.4.</span> <span class="nav-text">1.8行内标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-9支持内嵌CSS样式"><span class="nav-number">4.5.</span> <span class="nav-text">1.9支持内嵌CSS样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-支持html标签"><span class="nav-number">4.6.</span> <span class="nav-text">1.10 支持html标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-标签分类"><span class="nav-number">5.</span> <span class="nav-text">2. 标签分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-常用布局"><span class="nav-number">5.1.</span> <span class="nav-text">2.0 常用布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-无序列表"><span class="nav-number">5.2.</span> <span class="nav-text">2.1 无序列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-有序列表（ol-li）"><span class="nav-number">5.3.</span> <span class="nav-text">2.2 有序列表（ol-li）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-行内代码块"><span class="nav-number">5.4.</span> <span class="nav-text">2.3 行内代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-插入图像"><span class="nav-number">5.5.</span> <span class="nav-text">2.4 插入图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-表格支持"><span class="nav-number">5.6.</span> <span class="nav-text">2.5 表格支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-定义型列表"><span class="nav-number">5.7.</span> <span class="nav-text">2.6 定义型列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7表格对齐"><span class="nav-number">5.8.</span> <span class="nav-text">2.7表格对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-Html-标签"><span class="nav-number">5.9.</span> <span class="nav-text">2.8 Html 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-待办事宜-Todo-列表"><span class="nav-number">5.10.</span> <span class="nav-text">2.8 待办事宜 Todo 列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-补充"><span class="nav-number">6.</span> <span class="nav-text">3.补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1定义型列表"><span class="nav-number">6.1.</span> <span class="nav-text">3.1定义型列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2自动邮箱链接"><span class="nav-number">6.2.</span> <span class="nav-text">3.2自动邮箱链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3字体-字号与颜色"><span class="nav-number">6.3.</span> <span class="nav-text">3.3字体,字号与颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-常用计算速查"><span class="nav-number">6.4.</span> <span class="nav-text">4.1 常用计算速查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2省略号"><span class="nav-number">6.5.</span> <span class="nav-text">4.2省略号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3字体"><span class="nav-number">6.6.</span> <span class="nav-text">4.3字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4常用公式"><span class="nav-number">6.7.</span> <span class="nav-text">4.4常用公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5等式"><span class="nav-number">6.8.</span> <span class="nav-text">4.5等式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6矩阵"><span class="nav-number">6.9.</span> <span class="nav-text">4.6矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aligned-对齐"><span class="nav-number">6.10.</span> <span class="nav-text">aligned 对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色"><span class="nav-number">6.11.</span> <span class="nav-text">颜色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-流程图"><span class="nav-number">7.</span> <span class="nav-text">5.流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1简单流程图"><span class="nav-number">7.1.</span> <span class="nav-text">5.1简单流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2序列图x"><span class="nav-number">7.2.</span> <span class="nav-text">5.2序列图x`</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3mermaid-甘特图"><span class="nav-number">7.3.</span> <span class="nav-text">5.3mermaid 甘特图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-puml-序列图"><span class="nav-number">7.4.</span> <span class="nav-text">5.4 puml 序列图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-dot"><span class="nav-number">7.5.</span> <span class="nav-text">5.5 dot</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Jason"
+    src="/images/rlj2.jpg">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">Only action can relieve the uneasiness.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">125k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:54</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

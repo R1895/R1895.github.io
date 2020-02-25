@@ -51,17 +51,21 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="Threads and Locking题目来源Threads and Locking本次作业主要讲的是并行作业，以及并行作业中互斥锁（P,V问题）的相关知识。">
+<meta name="keywords" content="OS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="Thread and locking">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;01&#x2F;Thread%20and%20locking&#x2F;index.html">
 <meta property="og:site_name" content="Jason&#39;s blogs">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="Threads and Locking题目来源Threads and Locking本次作业主要讲的是并行作业，以及并行作业中互斥锁（P,V问题）的相关知识。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-25T02:02:04.351Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os&#x2F;thread1">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os&#x2F;thread3">
+<meta property="og:updated_time" content="2020-02-25T05:37:08.992Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;os&#x2F;thread1">
 
-<link rel="canonical" href="http://yoursite.com/2019/10/27/hello-world/">
+<link rel="canonical" href="http://yoursite.com/2020/01/01/Thread%20and%20locking/">
 
 
 <script id="page-configurations">
@@ -75,7 +79,7 @@
   };
 </script>
 
-  <title>Hello World | Jason's blogs</title>
+  <title>Thread and locking | Jason's blogs</title>
   
 
 
@@ -194,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/01/Thread%20and%20locking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/rlj2.jpg">
@@ -207,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          Thread and locking
         </h1>
 
         <div class="post-meta">
@@ -217,14 +221,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-27 14:03:56" itemprop="dateCreated datePublished" datetime="2019-10-27T14:03:56+08:00">2019-10-27</time>
+              <time title="创建时间：2020-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-01T00:00:00+08:00">2020-01-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-25 10:02:04" itemprop="dateModified" datetime="2020-02-25T10:02:04+08:00">2020-02-25</time>
+                <time title="修改时间：2020-02-25 13:37:08" itemprop="dateModified" datetime="2020-02-25T13:37:08+08:00">2020-02-25</time>
               </span>
 
           <br>
@@ -233,7 +237,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>357</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,20 +256,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <h3 id="Threads-and-Locking"><a href="#Threads-and-Locking" class="headerlink" title="Threads and Locking"></a>Threads and Locking</h3><p>题目来源<a href="https://pdos.csail.mit.edu/6.828/2018/homework/lock.html" target="_blank" rel="noopener">Threads and Locking</a><br>本次作业主要讲的是并行作业，以及并行作业中互斥锁（P,V问题）的相关知识。</p>
 <a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p><a href="https://pdos.csail.mit.edu/6.828/2018/homework/ph.c" target="_blank" rel="noopener">ph.c源码</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -g -O2 ph.c -pthread</span><br><span class="line">./a.out <span class="number">1</span></span><br><span class="line">./a.out <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>代码首先创建了10000个小的node，用每一个node（在代码中名字是entry）来表示一个线程（这里涉及C++链表的内容），然后通过平均分配的方法来把这些线程分配给各个进程。</li>
+<li>put函数用来将每一个线程加入链表。然后将这个node的对应信息记录到哈希表：struct entry *table[NBUCKET]中。</li>
+<li>get函数通过反哈希的方式得到一个node（也就是一个线程）。同时这也表示这次线程的结束。</li>
+</ul>
+<p>这样不断通过put 和get来实现并行程序。</p>
+<blockquote>
+<p>产生错误的原因：当我们在使用put函数的时候，不小心造成两个新的node同时插入链表时（也就是同时使用内存），我们的哈希表只能记录下其中的一个表头，而失去了另外一个node的表头，所以造成了get的时候丢失了node。</p>
+</blockquote>
+<blockquote>
+<p>为了避免这样的错误产生，我们仅仅需要在put的时候加入互斥锁即可：</p>
+</blockquote>
+<p>1)编译ph.c源文件，并分别以单线程和双线程运行，查看结果<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread1" alt=""></p>
+<blockquote>
+<p>每个线程分两个阶段(<code>phases</code>)运行。在第一个阶段，每个线程将<code>NKEYS/nthread keys</code>放入<code>the hash table</code>。<br>在第二阶段，每个线程从散列表中获取<code>NKEYS</code>。<code>print</code>语句告诉你每个阶段为每个线程花费了多长时间。 倒数第二行会告诉你有多少个key丢失了，底部的<code>completion time</code>告诉你应用程序的总运行时间。</p>
+</blockquote>
+<blockquote>
+<p><code>ph.c</code>程序主要工作是使用随机数生成10000个<code>keys</code>，然后利用线性<code>hash</code>将其插入5个哈希槽中，最后再取出每<br>个key。</p>
+</blockquote>
+<p>2)pthread_mutex_t bucket_locks[NBUCKET];//声明锁变量数组:</p>
+<p>3)在main()函数中初始锁变量数组</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i &lt; NBUCKET;i++)&#123;</span><br><span class="line">	pthread_mutex_init(&amp;bucket_locks[i],<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4)修改put函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> i = key % NBUCKET;</span><br><span class="line"></span><br><span class="line">  pthread_mutex_lock(&amp;bucket_locks[i]);</span><br><span class="line">  insert(key, value, &amp;table[i], table[i]);</span><br><span class="line">  pthread_mutex_unlock(&amp;bucket_locks[i]);</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>5)再次编译ph.c,并分别以单线程和双线程运行,查看结果<br>gcc -g -O2 ph.c -pthread<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread3" alt=""><br>0 keys missing<br>结果可能存在偏差。<br><a href="https://blog.csdn.net/a747979985/article/details/97250404" target="_blank" rel="noopener">这篇文章讲的更详细</a></p>
 
     </div>
 
@@ -274,18 +293,24 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OS/" rel="tag"><i class="fa fa-tag"></i># OS</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
+                <a href="/2020/01/01/%E5%AF%B95%E4%B8%AA%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%E6%9C%80%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E6%AC%A1/" rel="next" title="对5个数进行排序最少需要多少次">
+                  <i class="fa fa-chevron-left"></i> 对5个数进行排序最少需要多少次
+                </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/02/%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98/" rel="prev" title="矩阵链相乘">
-                  矩阵链相乘 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/01/01/Ping%20%E6%9C%AC%E8%B4%A8/" rel="prev" title="Ping 本质（ ICMP ）">
+                  Ping 本质（ ICMP ） <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -325,7 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Threads-and-Locking"><span class="nav-number">1.</span> <span class="nav-text">Threads and Locking</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
