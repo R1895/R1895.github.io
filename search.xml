@@ -1,6 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python3 100?</title>
+    <url>/2020/02/26/python%E5%AD%A6%E4%B9%A0100%E4%BE%8B/</url>
+    <content><![CDATA[<h3 id="Python3-100"><a href="#Python3-100" class="headerlink" title="Python3 100?"></a>Python3 100?</h3><blockquote>
+<p>????:<br><a href="http://www.runoob.com/python/python-100-examples.html" target="_blank" rel="noopener">http://www.runoob.com/python/python-100-examples.html</a><br>????Python2.7??<br>?????Python3.7??</p>
+</blockquote>
+<h4 id="001"><a href="#001" class="headerlink" title="??001:????"></a>??001:????</h4><blockquote>
+<p>??????1?2?3?4???????????????????????????</p>
+</blockquote>
+<p>???? ???????????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">            <span class="keyword">if</span>((i!=j)<span class="keyword">and</span> (j!=k)<span class="keyword">and</span>(i!=k)):</span><br><span class="line">                print(i,j,k)</span><br><span class="line">                total +=<span class="number">1</span></span><br><span class="line">print(total) <span class="comment">#24</span></span><br></pre></td></tr></table></figure>
+<p>???????,python???itertools??permutations ??????<br><code>itertools</code>????<a href="">???????</a>???</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> itertools.permutations(range(<span class="number">1</span>,<span class="number">5</span>),<span class="number">3</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    total +=<span class="number">1</span></span><br><span class="line">print(total)</span><br></pre></td></tr></table></figure>
+
+<h4 id="002-”-”"><a href="#002-”-”" class="headerlink" title="??002:”????”"></a>??002:”????”</h4><blockquote>
+<p>????????????????(I)?????10????????10%?????10?????20??????10??????10%?????10?????????7.5%?20??40???????20?????????5%?40??60??????40?????????3%?60??100???????60?????????1.5%???100??????100??????1%????????????I??????????</p>
+</blockquote>
+<p>???? ????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">profit=int(input(<span class="string">'Show me the money: '</span>))</span><br><span class="line">money = [<span class="number">100000</span>,<span class="number">100000</span>,<span class="number">200000</span>,<span class="number">200000</span>,<span class="number">400000</span>]</span><br><span class="line">rates = [<span class="number">0.1</span>,<span class="number">0.075</span>,<span class="number">0.05</span>,<span class="number">0.03</span>,<span class="number">0.015</span>,<span class="number">0.01</span>]</span><br><span class="line">bonus=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(money)):</span><br><span class="line">    <span class="keyword">if</span> profit &lt;= money[i]:</span><br><span class="line">        bonus += profit*rates[i]</span><br><span class="line">        profit = <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        bonus += money[i]*rates[i]</span><br><span class="line">        profit -= money[i]</span><br><span class="line">bonus += profit*rates[<span class="number">-1</span>]</span><br><span class="line">print(bonus)</span><br><span class="line">``` </span><br><span class="line">??2:</span><br><span class="line">```py</span><br><span class="line">profit=int(input(<span class="string">'Show me the money: '</span>))</span><br><span class="line">arr = [<span class="number">1000000</span>,<span class="number">600000</span>,<span class="number">400000</span>,<span class="number">200000</span>,<span class="number">100000</span>,<span class="number">0</span>]</span><br><span class="line">rat = [<span class="number">0.01</span>,<span class="number">0.015</span>,<span class="number">0.03</span>,<span class="number">0.05</span>,<span class="number">0.075</span>,<span class="number">0.1</span>]</span><br><span class="line">r = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> idx <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">6</span>):</span><br><span class="line">    <span class="keyword">if</span> profit&gt;arr[idx]:</span><br><span class="line">        r+=(profit-arr[idx])*rat[idx]</span><br><span class="line">        profit=arr[idx]</span><br><span class="line"><span class="keyword">print</span> (r)</span><br></pre></td></tr></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title="??: ?????:"></a>??: ?????:</h4><blockquote>
+<p>????????100?????????????168?????<br>?????????????</p>
+</blockquote>
+<p>?????</p>
+<p>????? x?<br>1???x + 100 = n2, x + 100 + 168 = m2<br>2??????m2 - n2 = (m + n)(m - n) = 168<br>3???? m + n = i?m - n = j?i * j =168?i ? j ???????<br>4???? m = (i + j) / 2? n = (i - j) / 2?i ? j ??????????????<br>5?? 3 ? 4 ??????i ? j ?????? 2 ????<br>6??? i * j = 168? j&gt;=2?? 1 &lt; i &lt; 168 / 2 + 1?<br>7???? i ????????????</p>
+<p>??????????????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">i = <span class="number">-99</span> <span class="comment"># 1???????</span></span><br><span class="line"><span class="keyword">while</span> i&lt;<span class="number">10000</span>:</span><br><span class="line">    iif (i+<span class="number">100</span>)**<span class="number">0.5</span>==int((i+<span class="number">100</span>)**<span class="number">0.5</span>)<span class="keyword">and</span> (i+<span class="number">100</span>+<span class="number">168</span>)**<span class="number">0.5</span>==int((i+<span class="number">100</span>+<span class="number">168</span>)**<span class="number">0.5</span>):</span><br><span class="line">        <span class="keyword">print</span> (i)</span><br><span class="line">    i=i+<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>???:</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#???????????????????168??n</span></span><br><span class="line">n=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> (n+<span class="number">1</span>)**<span class="number">2</span>-n*n&lt;=<span class="number">168</span>:</span><br><span class="line">    n+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range((n+<span class="number">1</span>)**<span class="number">2</span>):</span><br><span class="line">    <span class="keyword">if</span> i**<span class="number">0.5</span>==int(i**<span class="number">0.5</span>)<span class="keyword">and</span> (i+<span class="number">168</span>)**<span class="number">0.5</span>==int((i+<span class="number">168</span>)**<span class="number">0.5</span>):</span><br><span class="line">        print(i<span class="number">-100</span>)</span><br><span class="line"><span class="comment">## ???    </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n):</span><br><span class="line">    <span class="keyword">if</span> <span class="number">168</span> % i == <span class="number">0</span>:</span><br><span class="line">        j = <span class="number">168</span> / i</span><br><span class="line">        <span class="keyword">if</span>  i &gt; j <span class="keyword">and</span> (i + j) % <span class="number">2</span> == <span class="number">0</span> <span class="keyword">and</span> (i - j) % <span class="number">2</span> == <span class="number">0</span> :</span><br><span class="line">            m = (i + j) / <span class="number">2</span></span><br><span class="line">            n = (i - j) / <span class="number">2</span></span><br><span class="line">            x = n * n - <span class="number">100</span></span><br><span class="line">            print(int(x))</span><br></pre></td></tr></table></figure>
+
+<h4 id="004"><a href="#004" class="headerlink" title="??004: ?????"></a>??004: ?????</h4><blockquote>
+<p>???????????????????????</p>
+</blockquote>
+<p>???? ??????????????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isLeapYear</span><span class="params">(y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (y%<span class="number">400</span>==<span class="number">0</span> <span class="keyword">or</span> (y%<span class="number">4</span>==<span class="number">0</span> <span class="keyword">and</span> y%<span class="number">100</span>!=<span class="number">0</span>))</span><br><span class="line">DayOfMonth=[<span class="number">0</span>,<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>]</span><br><span class="line">res=<span class="number">0</span></span><br><span class="line">year=int(input(<span class="string">'Year:'</span>))</span><br><span class="line">month=int(input(<span class="string">'Month:'</span>))</span><br><span class="line">day=int(input(<span class="string">'day:'</span>))</span><br><span class="line"><span class="keyword">if</span> isLeapYear(year):</span><br><span class="line">    DayOfMonth[<span class="number">2</span>]+=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,month):</span><br><span class="line">    res+=DayOfMonth[i]</span><br><span class="line">print(res+day)</span><br></pre></td></tr></table></figure>
+
+<h4 id="005"><a href="#005" class="headerlink" title="??005?????"></a>??005?????</h4><blockquote>
+<p>??????x,y,z??????????????</p>
+</blockquote>
+<p>??????????????,?????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">num = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">    x = int (input(<span class="string">'the %d is : '</span>%(i+<span class="number">1</span>)))</span><br><span class="line">    num.append(x)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort1</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(num)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i,len(num)):</span><br><span class="line">            <span class="keyword">if</span>(num[i]&gt;num[j]):</span><br><span class="line">                num[i],num[j]=num[j],num[i]</span><br><span class="line">    <span class="keyword">return</span> num          </span><br><span class="line">print(sort1(num))</span><br></pre></td></tr></table></figure>
+<h4 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h4><p>python?????</p>
+<h4 id="006"><a href="#006" class="headerlink" title="??006???????"></a>??006???????</h4><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ??</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib_1</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n&lt;=<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="keyword">return</span> fib_1(n<span class="number">-1</span>)+fib_1(n<span class="number">-2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#??</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib_2</span><span class="params">(n)</span>:</span></span><br><span class="line">    a,b=<span class="number">0</span>,<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        a,b=b,a+b</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"><span class="keyword">print</span> (fib_2(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># ?????????????</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib_list</span><span class="params">(n)</span>:</span></span><br><span class="line">    fibs=[]</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        fibs = [<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">2</span>:</span><br><span class="line">        fibs = [<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-2</span>):</span><br><span class="line">        fibs.append[fibs[<span class="number">-1</span>]+fibs[<span class="number">-2</span>]]</span><br><span class="line">    <span class="keyword">return</span> fibs</span><br><span class="line"></span><br><span class="line"><span class="comment"># ?????</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib_yield</span><span class="params">(x)</span>:</span></span><br><span class="line">    n=<span class="number">0</span></span><br><span class="line">    last=<span class="number">1</span></span><br><span class="line">    sum=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n&lt;x:</span><br><span class="line">        <span class="keyword">yield</span> last </span><br><span class="line">        sum,last=last,sum+last</span><br><span class="line">        n=n+<span class="number">1</span></span><br><span class="line">f = fib_yield(<span class="number">6</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f:</span><br><span class="line">    print(i,end=<span class="string">','</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="007-copy"><a href="#007-copy" class="headerlink" title="??007?copy"></a>??007?copy</h4><blockquote>
+<p>??????????????????</p>
+</blockquote>
+<p>???? ????<code>[:]</code>????????copy???</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,[<span class="string">'a'</span>,<span class="string">'b'</span>]]</span><br><span class="line"></span><br><span class="line">b = a					<span class="comment"># ??</span></span><br><span class="line">c = a[:]				<span class="comment"># ???</span></span><br><span class="line">d = copy.copy(a)		<span class="comment"># ???</span></span><br><span class="line">e = copy.deepcopy(a)	<span class="comment"># ???</span></span><br><span class="line"></span><br><span class="line">a.append(<span class="number">5</span>)</span><br><span class="line">a[<span class="number">4</span>].append(<span class="string">'c'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'a='</span>,a)</span><br><span class="line">print(<span class="string">'b='</span>,b)</span><br><span class="line">print(<span class="string">'c='</span>,c)</span><br><span class="line">print(<span class="string">'d='</span>,d)</span><br><span class="line">print(<span class="string">'e='</span>,e)</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">a</span>= [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], <span class="number">5</span>]</span><br><span class="line"><span class="attr">b</span>= [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], <span class="number">5</span>]</span><br><span class="line"><span class="attr">c</span>= [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]]</span><br><span class="line"><span class="attr">d</span>= [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]]</span><br><span class="line"><span class="attr">e</span>= [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>]]</span><br></pre></td></tr></table></figure>
+
+<h4 id="008"><a href="#008" class="headerlink" title="??008??????"></a>??008??????</h4><blockquote>
+<p>?? 9*9 ??????</p>
+</blockquote>
+<p>???? ????????9?9??i????j???</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,i+<span class="number">1</span>):</span><br><span class="line">        print(<span class="string">'%d*%d=%2d '</span>%(i,j,i*j),end=<span class="string">''</span>)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure>
+
+<h4 id="009"><a href="#009" class="headerlink" title="??009???????"></a>??009???????</h4><blockquote>
+<p>???????</p>
+</blockquote>
+<p>???? ?? time ??? sleep() ??</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span>  itertools.count():</span><br><span class="line">    print(str(int(time.time()))[<span class="number">-2</span>:])</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="010"><a href="#010" class="headerlink" title="??010???????"></a>??010???????</h4><blockquote>
+<p>????????????????</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span>  itertools.count():</span><br><span class="line">    print(time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>,time.localtime(time.time())))</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="011"><a href="#011" class="headerlink" title="??011????"></a>??011????</h4><blockquote>
+<p>???????????3??????????????????????????????????????????????????????</p>
+</blockquote>
+<p>?????????????1,1,2,3,5,8,13,21….<br>????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">month=int(input(<span class="string">'??????? '</span>))</span><br><span class="line">month_1=<span class="number">1</span> </span><br><span class="line">month_2=<span class="number">0</span></span><br><span class="line">month_elder=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,month):</span><br><span class="line">    month_1,month_2,month_elder=month_elder+month_2,month_1,month_elder+month_2</span><br><span class="line">    print(<span class="string">'?%d???'</span>%(i+<span class="number">1</span>),month_1+month_2+month_elder,<span class="string">'???'</span>)</span><br><span class="line">    print(<span class="string">'??1???'</span>,month_1)</span><br><span class="line">    print(<span class="string">'??2???'</span>,month_2)</span><br><span class="line">    print(<span class="string">'??????'</span>,month_elder)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rabbit</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n&lt;= <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="keyword">return</span> rabbit(n<span class="number">-1</span>)+rabbit(n<span class="number">-2</span>)</span><br><span class="line"></span><br><span class="line">print(rabbit(month))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rabbit</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n&lt;= <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="keyword">return</span> rabbit(n<span class="number">-1</span>)+rabbit(n<span class="number">-2</span>)</span><br><span class="line"></span><br><span class="line">print(rabbit(month))</span><br></pre></td></tr></table></figure>
+
+<h4 id="012-100-200"><a href="#012-100-200" class="headerlink" title="??012?100?200???"></a>??012?100?200???</h4><blockquote>
+<p>??101-200?????????????????</p>
+</blockquote>
+<p>???? ????????????????2?sqrt(???)???????????????????????? ?else?????????.</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>,<span class="number">200</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">2</span>,math.ceil(math.sqrt(i))):</span><br><span class="line">        <span class="keyword">if</span> i % j ==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:<span class="comment"># python?????for-else</span></span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure>
+<h4 id="013"><a href="#013" class="headerlink" title="??013???????"></a>??013???????</h4><blockquote>
+<p>??????”????”???”????”??????????????????????????153???”????”???153=1?????5?????3?????</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>,<span class="number">1000</span>):</span><br><span class="line">    a = i % <span class="number">10</span></span><br><span class="line">    b = i//<span class="number">10</span> %<span class="number">10</span></span><br><span class="line">    c = i // <span class="number">100</span></span><br><span class="line">    <span class="keyword">if</span> i == a**<span class="number">3</span>+b**<span class="number">3</span>+c**<span class="number">3</span>:</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure>
+
+<h4 id="014"><a href="#014" class="headerlink" title="??014??????"></a>??014??????</h4><blockquote>
+<p>???????????????90,???90=233*5?</p>
+</blockquote>
+<p>????: ??????????????2??????????????????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">target = int(input(<span class="string">'???????:'</span>))</span><br><span class="line">print(target, <span class="string">'= '</span>, end=<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> target == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, target+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> target % i == <span class="number">0</span>:</span><br><span class="line">            print(i, end=<span class="string">''</span>)</span><br><span class="line">            <span class="keyword">if</span> target != i:</span><br><span class="line">                print(<span class="string">"*"</span>, end=<span class="string">''</span>)</span><br><span class="line">            target = int(target/i)</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<h4 id="015"><a href="#015" class="headerlink" title="??015?????"></a>??015?????</h4><blockquote>
+<p>????????????????????&gt;=90?????A???60-89?????B???60?????C???</p>
+</blockquote>
+<p>???? ????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">points=int(input(<span class="string">'?????'</span>))</span><br><span class="line"><span class="keyword">if</span> points&gt;=<span class="number">90</span>:</span><br><span class="line">    grade=<span class="string">'A'</span></span><br><span class="line"><span class="keyword">elif</span> points&lt;<span class="number">60</span>:</span><br><span class="line">    grade=<span class="string">'C'</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    grade=<span class="string">'B'</span></span><br><span class="line">print(grade)</span><br></pre></td></tr></table></figure>
+
+<h4 id="016"><a href="#016" class="headerlink" title="??016?????"></a>??016?????</h4><blockquote>
+<p>??????????</p>
+</blockquote>
+<p>???? ?? datetime ???</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># ?????????? dd/mm/yyyy????????? strftime() ??</span></span><br><span class="line">    print(datetime.date.today().strftime(<span class="string">'%d/%m/%Y'</span>))</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># ??????</span></span><br><span class="line">    miyazakiBirthDate = datetime.date(<span class="number">1941</span>, <span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"> </span><br><span class="line">    print(miyazakiBirthDate.strftime(<span class="string">'%d/%m/%Y'</span>))</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># ??????</span></span><br><span class="line">    miyazakiBirthNextDay = miyazakiBirthDate + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line"> </span><br><span class="line">    print(miyazakiBirthNextDay.strftime(<span class="string">'%d/%m/%Y'</span>))</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># ????</span></span><br><span class="line">    miyazakiFirstBirthday = miyazakiBirthDate.replace(year=miyazakiBirthDate.year + <span class="number">1</span>)</span><br><span class="line"> </span><br><span class="line">    print(miyazakiFirstBirthday.strftime(<span class="string">'%d/%m/%Y'</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="017"><a href="#017" class="headerlink" title="??017??????"></a>??017??????</h4><blockquote>
+<p>?????????????????????????????????</p>
+</blockquote>
+<p>???? ?? while ? for ??,?????????? �\n�?</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">string=input(<span class="string">"??????"</span>)</span><br><span class="line">alp=<span class="number">0</span></span><br><span class="line">num=<span class="number">0</span></span><br><span class="line">spa=<span class="number">0</span></span><br><span class="line">oth=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(string)):</span><br><span class="line">    <span class="keyword">if</span> string[i].isspace():</span><br><span class="line">        spa+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> string[i].isdigit():</span><br><span class="line">        num+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> string[i].isalpha():</span><br><span class="line">        alp+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        oth+=<span class="number">1</span></span><br><span class="line">print(<span class="string">'space: '</span>,spa)</span><br><span class="line">print(<span class="string">'digit: '</span>,num)</span><br><span class="line">print(<span class="string">'alpha: '</span>,alp)</span><br><span class="line">print(<span class="string">'other: '</span>,oth)</span><br></pre></td></tr></table></figure>
+
+<h4 id="018"><a href="#018" class="headerlink" title="??018??????"></a>??018??????</h4><p>?? ?s=a+aa+aaa+aaaa+aa�a?????a????????2+22+222+2222+22222(????5????)????????????</p>
+<p>???? ???????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">a=input(<span class="string">'?????'</span>)</span><br><span class="line">n=int(input(<span class="string">'?????'</span>))</span><br><span class="line">res=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    res+=int(a)</span><br><span class="line">    a+=a[<span class="number">0</span>]</span><br><span class="line">print(<span class="string">'????'</span>,res)</span><br></pre></td></tr></table></figure>
+
+<h4 id="019"><a href="#019" class="headerlink" title="??019???"></a>??019???</h4><blockquote>
+<p>??????????????????????”??”???6=1?2?3.????1000????????</p>
+</blockquote>
+<p>???? ??????????????????????????????????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#???????</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,<span class="number">1001</span>):</span><br><span class="line">    num = i</span><br><span class="line">    k = []</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,i):</span><br><span class="line">        <span class="keyword">if</span> i % j == <span class="number">0</span> :</span><br><span class="line">            k.append(j)</span><br><span class="line">    <span class="keyword">if</span> (sum(k)==i):</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure>
+<h4 id="020"><a href="#020" class="headerlink" title="??020?????"></a>??020?????</h4><blockquote>
+<p>???100???????????????????????????????10?????????????10??????</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">high = <span class="number">100.0</span></span><br><span class="line">tim = <span class="number">10</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(tim):</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">        total += high</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        total += high *<span class="number">2</span></span><br><span class="line">    high /= <span class="number">2</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"high= &#123;&#125;,total = &#123;&#125;"</span>.format(high,total))</span><br></pre></td></tr></table></figure>
+<h4 id="021"><a href="#021" class="headerlink" title="??021?????"></a>??021?????</h4><blockquote>
+<p>????????????????????????????????????????????????????????????????????????????????????10????????????????????????????</p>
+</blockquote>
+<p>???? ?????????????????????????????????????????????9??</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">peach=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">9</span>):</span><br><span class="line">    peach=(peach+<span class="number">1</span>)*<span class="number">2</span></span><br><span class="line">print(peach)</span><br></pre></td></tr></table></figure>
+<h4 id="022"><a href="#022" class="headerlink" title="??022?????"></a>??022?????</h4><blockquote>
+<p>???????????????????a,b,c??????x,y,z??????????????????????????a????x??c????x,z????????????????</p>
+</blockquote>
+<p>???? ????????????????</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">a=set([<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>])</span><br><span class="line">b=set([<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>])</span><br><span class="line">c=set([<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>])</span><br><span class="line">c-=set((<span class="string">'x'</span>,<span class="string">'z'</span>))</span><br><span class="line">a-=set(<span class="string">'x'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> b:</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> c:</span><br><span class="line">            <span class="keyword">if</span> len(set((i,j,k)))==<span class="number">3</span>:</span><br><span class="line">                print(<span class="string">'a:%s,b:%s,c:%s'</span>%(i,j,k))</span><br></pre></td></tr></table></figure>
+<h4 id="-1"><a href="#-1" class="headerlink" title="???"></a>???</h4>]]></content>
+      <tags>
+        <tag>ptyhon</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2020/02/25/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -176,7 +311,7 @@ world</code>标记之外</p>
 <p>Markdown<br>  : 轻量级文本标记语言，可以转换成html，pdf等格式  //  开头一个<code>:</code> + <code>Tab</code> 或 四个空格</p>
 <h3 id="3-2自动邮箱链接"><a href="#3-2自动邮箱链接" class="headerlink" title="3.2自动邮箱链接"></a>3.2自动邮箱链接</h3><p>代码:</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">xxx</span>@<span class="keyword">outlook</span>.<span class="keyword">com</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>演示<br>    <a href="mailto:&#49;&#x35;&#x33;&#x35;&#48;&#52;&#x35;&#56;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;" target="_blank" rel="noopener">&#49;&#x35;&#x33;&#x35;&#48;&#52;&#x35;&#56;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p>演示<br>    <a href="mailto:&#x31;&#x35;&#51;&#53;&#x30;&#52;&#53;&#x38;&#x38;&#55;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;" target="_blank" rel="noopener">&#x31;&#x35;&#51;&#53;&#x30;&#52;&#53;&#x38;&#x38;&#55;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a></p>
 <h3 id="3-3字体-字号与颜色"><a href="#3-3字体-字号与颜色" class="headerlink" title="3.3字体,字号与颜色"></a>3.3字体,字号与颜色</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;font <span class="attribute">face</span>=<span class="string">"STCAIYUN"</span>&gt;我是华文彩云&lt;/font&gt;</span><br><span class="line">&lt;font <span class="attribute">color</span>=gray <span class="attribute">size</span>=5&gt;color=gray&lt;/font&gt;</span><br><span class="line">&lt;font color=  #0099ff <span class="attribute">size</span>=5 <span class="attribute">face</span>=<span class="string">"黑体"</span>&gt;color=#0099ff <span class="attribute">size</span>=5 <span class="attribute">face</span>=<span class="string">"黑体"</span>&lt;/font&gt;</span><br></pre></td></tr></table></figure>
 <p><font face="STCAIYUN">我是华文彩云</font><br><font color=gray size=5>color=gray</font><br><font color=#0099ff size=5 face="黑体">color=#0099ff size=5 face=”黑体”</font><br><font face = "楷体"><br>Size：规定文本的尺寸大小。可能的值：从 1 到 7 的数字。浏览器默认值是 3。</font><br>##4. 数学和LaTeX<br>$ 表示行内公式：</p>
 <p>质能守恒方程可以用一个很简洁的方程式 E=mc^2 来表达。</p>
@@ -220,91 +355,6 @@ world</code>标记之外</p>
 <h3 id="5-3mermaid-甘特图"><a href="#5-3mermaid-甘特图" class="headerlink" title="5.3mermaid 甘特图"></a>5.3mermaid 甘特图</h3><h3 id="5-4-puml-序列图"><a href="#5-4-puml-序列图" class="headerlink" title="5.4 puml 序列图"></a>5.4 puml 序列图</h3><h3 id="5-5-dot"><a href="#5-5-dot" class="headerlink" title="5.5 dot"></a>5.5 dot</h3>]]></content>
       <tags>
         <tag>VsCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ping 本质（ ICMP ）</title>
-    <url>/2020/01/01/Ping%20%E6%9C%AC%E8%B4%A8/</url>
-    <content><![CDATA[<h2 id="1、什么是-Ping"><a href="#1、什么是-Ping" class="headerlink" title="1、什么是 Ping"></a>1、什么是 Ping</h2><a id="more"></a>
-<blockquote>
-<p>ping是一种计算机网络工具，用来测试数据包能否透过IP协议到达特定主机。ping的运作原理是向目标主机传出一个ICMP echo@要求数据包，并等待接收echo回应数据包。程序会按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延，Round-trip delay time）。———— 维基百科<br> 我们在网络通信的过程中，常常使用 ping 某一个 IP 地址或者某个域名看下基本连接是否正常；是否有丢包；是否有网络延迟。ping 就是我们经常用来作为网络连接通信的测试“指令”。</p>
-</blockquote>
-<p>我记得我们以前调侃说只要会 Ping 就可以去当网吧网管了（其实网管的工作肯定比这个复杂的多）。</p>
-<p>Windows 10 下的 Ping</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">C:\&gt;ping www.baidu.com</span><br><span class="line"></span><br><span class="line">正在 Ping www.a.shifen.com [<span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span>] 具有 <span class="number">32</span> 字节的数据:</span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line"></span><br><span class="line"><span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = <span class="number">4</span>，已接收 = <span class="number">4</span>，丢失 = <span class="number">0</span> (<span class="number">0</span>% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = <span class="number">42</span>ms，最长 = <span class="number">42</span>ms，平均 = <span class="number">42</span>ms</span><br></pre></td></tr></table></figure>
-<h2 id="Ping-的工作原理"><a href="#Ping-的工作原理" class="headerlink" title="Ping 的工作原理"></a>Ping 的工作原理</h2><p>在维基百科中解释有说明， Ping 的原理是 ICMP 协议.</p>
-<h2 id="什么是-ICMP-协议"><a href="#什么是-ICMP-协议" class="headerlink" title="什么是 ICMP 协议"></a>什么是 ICMP 协议</h2><blockquote>
-<p>ICMP 的全称是 Intent Control Message Protocol, 中文过来就是 互联网控制报文协议</p>
-</blockquote>
-<p>网络数据包在庞大的网络中会很多各种不同情况。如果一定需要举一个例子来比如的话，用相当于兵种的侦察兵。时刻给大部队探测前方的情况。以便后方的大部队能够根据不同情况做出不同的调整。所以 ICMP 经常用于网络环境的测试。</p>
-<blockquote>
-<p>互联网控制消息协议（英语：Internet Control Message Protocol，缩写：ICMP）是互联网协议族的核心协议之一。它用于TCP/IP网络中发送控制消息，提供可能发生在通信环境中的各种问题反馈，通过这些信息，使管理者可以对所发生的问题作出诊断，然后采取适当的措施解决。 —— 维基百科</p>
-</blockquote>
-<h2 id="ICMP-协议的格式"><a href="#ICMP-协议的格式" class="headerlink" title="ICMP 协议的格式"></a>ICMP 协议的格式</h2><p>用图文表示：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-200da5d8944c012d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp" alt="ICMP 协议格式"><br>ICMP 报文封装在 IP 包里面。ICMP 的报文类型根据类型和代码有很多，文章后面有来自维基百科的完整的表格。但是主要分为两类：</p>
-<blockquote>
-<p>A、查询报文<br>B、差错报文</p>
-</blockquote>
-<h2 id="查询报文-（Echo-Request与-Echo-Reply）"><a href="#查询报文-（Echo-Request与-Echo-Reply）" class="headerlink" title="查询报文 （Echo Request与 Echo Reply）"></a>查询报文 （Echo Request与 Echo Reply）</h2><p>定义：发送端主动发起请求，并且获取到应答。</p>
-<p>常见应用：Ping</p>
-<p>Ping 就是主动请求，获取到主动应答。但是 Ping 是在原生的 ICMP 中添加了自定义格式区域。例如 Ping 中放了发送的请求时间，以此计算出路程。所以，其实在 Ping 的报文中会加入序号，以用来区分数据包，从而提高计算时间或者路程的准确性。</p>
-<h2 id="差错报文"><a href="#差错报文" class="headerlink" title="差错报文"></a>差错报文</h2><p>主要有以下几种：</p>
-<ol>
-<li><p>源抑制<br>发送端发送大量数据时，可能会导致网络( 路由器 )过载，此时过载处可以向发送端发送源抑制的消息，让他降低发送速度。</p>
-</li>
-<li><p>终点不可到达<br>网络信息不能到达终点，就会给发送端发送一个目的不可到达的信息。告诉发送端可能是设备故障而引起关闭（情况之一）。然后这种又可以再次细分：<br>A、网络不可达 — 代码为 0，<br>B、主机不可达 — 代码为 1.<br>C、协议不可达 — 代码为 2.<br>D、端口不可达 — 代码为 3.<br>E、需要分段 - 代码为 4.（ 必须把数据分段才能去到终点 ）</p>
-</li>
-<li><p>超时<br>网络包超过设置的在网络中的生存时间，还没有达到。</p>
-</li>
-<li><p>路由重定向<br>定义数据包的路由股则。因为大部分的时候，路由规则是通过相关协议算法生成的，有些时候重新定义过之后，会让这个数据包绕的更远。</p>
-</li>
-</ol>
-<blockquote>
-<p>常见应用：Traceroute<br>Traceoute 有点像是在不断试错的意思。是用来侦测主机到目的主机之间所经路由情况的重要工具。Ping 我们知道是可以知道这条大路通不通的，Traceoute 通过设置 TTL 知道到底是哪个路由器不通。<br>TTL : 数据包在网络中生存时间，也就是通过数据被路由器转发的次数，没转发一次就减一。知道为 0 的时候就抛弃。<br>Traceroute 的原理：它收到目的主机的 IP 后，首先给目的主机发送一个 TTL=1 的 UDP 数据包，而经过的第一个路由器收到这个数据包以后，就自动把 TTL 减 1，而 TTL 变为 0 以后，路由器就把这个包给抛弃了，并同时产生 一个主机不可达的 ICMP 数据报给主机。如此循环就可以知道所有的路由 IP 了。（ ICMP 出错了就会回错误包 ）</p>
-</blockquote>
-<p>通常 Traceoute 的目的端口设置的是一个大于 30000 的值（ 一般的应用端口号远小于这个数 ）。所以如果回复的是 “端口不可达”，那就说明到达终点，否则这个信息就会超时。以此确保 消息是否到达终点。</p>
-<p>Traceoute 还有一个有意思的功能，就是确定 MTU（数据最大传输单元），Traceoute 通常对数据不分段，就直接发送，如果如果遇到过程中某个路由转发，出现返回 ICMP 需要分段的错误，就把数据进行拆分，直到最后到达终点。就验证出 MTU。</p>
-<p>ICMP 其实还有很多意思的地方，这边就简单的介绍到这里。<br>附表：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-660f2b1948e6e6c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1006/format/webp" alt="ICMP"></p>
-<p>作者：FutureEye<br>链接：<a href="https://www.jianshu.com/p/e1795962ad76" target="_blank" rel="noopener">https://www.jianshu.com/p/e1795962ad76</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-]]></content>
-      <tags>
-        <tag>Computer Networking</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Thread and locking</title>
-    <url>/2020/01/01/Thread%20and%20locking/</url>
-    <content><![CDATA[<h3 id="Threads-and-Locking"><a href="#Threads-and-Locking" class="headerlink" title="Threads and Locking"></a>Threads and Locking</h3><p>题目来源<a href="https://pdos.csail.mit.edu/6.828/2018/homework/lock.html" target="_blank" rel="noopener">Threads and Locking</a><br>本次作业主要讲的是并行作业，以及并行作业中互斥锁（P,V问题）的相关知识。</p>
-<a id="more"></a>
-<p><a href="https://pdos.csail.mit.edu/6.828/2018/homework/ph.c" target="_blank" rel="noopener">ph.c源码</a></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -g -O2 ph.c -pthread</span><br><span class="line">./a.out <span class="number">1</span></span><br><span class="line">./a.out <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>代码首先创建了10000个小的node，用每一个node（在代码中名字是entry）来表示一个线程（这里涉及C++链表的内容），然后通过平均分配的方法来把这些线程分配给各个进程。</li>
-<li>put函数用来将每一个线程加入链表。然后将这个node的对应信息记录到哈希表：struct entry *table[NBUCKET]中。</li>
-<li>get函数通过反哈希的方式得到一个node（也就是一个线程）。同时这也表示这次线程的结束。</li>
-</ul>
-<p>这样不断通过put 和get来实现并行程序。</p>
-<blockquote>
-<p>产生错误的原因：当我们在使用put函数的时候，不小心造成两个新的node同时插入链表时（也就是同时使用内存），我们的哈希表只能记录下其中的一个表头，而失去了另外一个node的表头，所以造成了get的时候丢失了node。</p>
-</blockquote>
-<blockquote>
-<p>为了避免这样的错误产生，我们仅仅需要在put的时候加入互斥锁即可：</p>
-</blockquote>
-<p>1)编译ph.c源文件，并分别以单线程和双线程运行，查看结果<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread1" alt=""></p>
-<blockquote>
-<p>每个线程分两个阶段(<code>phases</code>)运行。在第一个阶段，每个线程将<code>NKEYS/nthread keys</code>放入<code>the hash table</code>。<br>在第二阶段，每个线程从散列表中获取<code>NKEYS</code>。<code>print</code>语句告诉你每个阶段为每个线程花费了多长时间。 倒数第二行会告诉你有多少个key丢失了，底部的<code>completion time</code>告诉你应用程序的总运行时间。</p>
-</blockquote>
-<blockquote>
-<p><code>ph.c</code>程序主要工作是使用随机数生成10000个<code>keys</code>，然后利用线性<code>hash</code>将其插入5个哈希槽中，最后再取出每<br>个key。</p>
-</blockquote>
-<p>2)pthread_mutex_t bucket_locks[NBUCKET];//声明锁变量数组:</p>
-<p>3)在main()函数中初始锁变量数组</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i &lt; NBUCKET;i++)&#123;</span><br><span class="line">	pthread_mutex_init(&amp;bucket_locks[i],<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4)修改put函数</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> i = key % NBUCKET;</span><br><span class="line"></span><br><span class="line">  pthread_mutex_lock(&amp;bucket_locks[i]);</span><br><span class="line">  insert(key, value, &amp;table[i], table[i]);</span><br><span class="line">  pthread_mutex_unlock(&amp;bucket_locks[i]);</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>5)再次编译ph.c,并分别以单线程和双线程运行,查看结果<br>gcc -g -O2 ph.c -pthread<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread3" alt=""><br>0 keys missing<br>结果可能存在偏差。<br><a href="https://blog.csdn.net/a747979985/article/details/97250404" target="_blank" rel="noopener">这篇文章讲的更详细</a></p>
-]]></content>
-      <tags>
-        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -356,6 +406,43 @@ world</code>标记之外</p>
       </tags>
   </entry>
   <entry>
+    <title>Thread and locking</title>
+    <url>/2020/01/01/Thread%20and%20locking/</url>
+    <content><![CDATA[<h3 id="Threads-and-Locking"><a href="#Threads-and-Locking" class="headerlink" title="Threads and Locking"></a>Threads and Locking</h3><p>题目来源<a href="https://pdos.csail.mit.edu/6.828/2018/homework/lock.html" target="_blank" rel="noopener">Threads and Locking</a><br>本次作业主要讲的是并行作业，以及并行作业中互斥锁（P,V问题）的相关知识。</p>
+<a id="more"></a>
+<p><a href="https://pdos.csail.mit.edu/6.828/2018/homework/ph.c" target="_blank" rel="noopener">ph.c源码</a></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gcc -g -O2 ph.c -pthread</span><br><span class="line">./a.out <span class="number">1</span></span><br><span class="line">./a.out <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>代码首先创建了10000个小的node，用每一个node（在代码中名字是entry）来表示一个线程（这里涉及C++链表的内容），然后通过平均分配的方法来把这些线程分配给各个进程。</li>
+<li>put函数用来将每一个线程加入链表。然后将这个node的对应信息记录到哈希表：struct entry *table[NBUCKET]中。</li>
+<li>get函数通过反哈希的方式得到一个node（也就是一个线程）。同时这也表示这次线程的结束。</li>
+</ul>
+<p>这样不断通过put 和get来实现并行程序。</p>
+<blockquote>
+<p>产生错误的原因：当我们在使用put函数的时候，不小心造成两个新的node同时插入链表时（也就是同时使用内存），我们的哈希表只能记录下其中的一个表头，而失去了另外一个node的表头，所以造成了get的时候丢失了node。</p>
+</blockquote>
+<blockquote>
+<p>为了避免这样的错误产生，我们仅仅需要在put的时候加入互斥锁即可：</p>
+</blockquote>
+<p>1)编译ph.c源文件，并分别以单线程和双线程运行，查看结果<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread1" alt=""></p>
+<blockquote>
+<p>每个线程分两个阶段(<code>phases</code>)运行。在第一个阶段，每个线程将<code>NKEYS/nthread keys</code>放入<code>the hash table</code>。<br>在第二阶段，每个线程从散列表中获取<code>NKEYS</code>。<code>print</code>语句告诉你每个阶段为每个线程花费了多长时间。 倒数第二行会告诉你有多少个key丢失了，底部的<code>completion time</code>告诉你应用程序的总运行时间。</p>
+</blockquote>
+<blockquote>
+<p><code>ph.c</code>程序主要工作是使用随机数生成10000个<code>keys</code>，然后利用线性<code>hash</code>将其插入5个哈希槽中，最后再取出每<br>个key。</p>
+</blockquote>
+<p>2)pthread_mutex_t bucket_locks[NBUCKET];//声明锁变量数组:</p>
+<p>3)在main()函数中初始锁变量数组</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i &lt; NBUCKET;i++)&#123;</span><br><span class="line">	pthread_mutex_init(&amp;bucket_locks[i],<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4)修改put函数</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> i = key % NBUCKET;</span><br><span class="line"></span><br><span class="line">  pthread_mutex_lock(&amp;bucket_locks[i]);</span><br><span class="line">  insert(key, value, &amp;table[i], table[i]);</span><br><span class="line">  pthread_mutex_unlock(&amp;bucket_locks[i]);</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>5)再次编译ph.c,并分别以单线程和双线程运行,查看结果<br>gcc -g -O2 ph.c -pthread<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread3" alt=""><br>0 keys missing<br>结果可能存在偏差。<br><a href="https://blog.csdn.net/a747979985/article/details/97250404" target="_blank" rel="noopener">这篇文章讲的更详细</a></p>
+]]></content>
+      <tags>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>对5个数进行排序最少需要多少次</title>
     <url>/2020/01/01/%E5%AF%B95%E4%B8%AA%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%E6%9C%80%E5%B0%91%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E6%AC%A1/</url>
     <content><![CDATA[<h2 id="对五个数排序最少需要7次"><a href="#对五个数排序最少需要7次" class="headerlink" title="对五个数排序最少需要7次."></a>对五个数排序最少需要7次.</h2><p>今个儿,算法老师上课给我们出的一道题,老师只是告诉我们7次,也没说具体怎么个过程.<br>上网查了查也是看懂了吧<br>本文介绍一个对5个数进行排序的方法，仅使用7次比较。假设要排序的数为a,b,c,d,e。</p>
@@ -377,6 +464,54 @@ world</code>标记之外</p>
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ping 本质（ ICMP ）</title>
+    <url>/2020/01/01/Ping%20%E6%9C%AC%E8%B4%A8/</url>
+    <content><![CDATA[<h2 id="1、什么是-Ping"><a href="#1、什么是-Ping" class="headerlink" title="1、什么是 Ping"></a>1、什么是 Ping</h2><a id="more"></a>
+<blockquote>
+<p>ping是一种计算机网络工具，用来测试数据包能否透过IP协议到达特定主机。ping的运作原理是向目标主机传出一个ICMP echo@要求数据包，并等待接收echo回应数据包。程序会按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延，Round-trip delay time）。———— 维基百科<br> 我们在网络通信的过程中，常常使用 ping 某一个 IP 地址或者某个域名看下基本连接是否正常；是否有丢包；是否有网络延迟。ping 就是我们经常用来作为网络连接通信的测试“指令”。</p>
+</blockquote>
+<p>我记得我们以前调侃说只要会 Ping 就可以去当网吧网管了（其实网管的工作肯定比这个复杂的多）。</p>
+<p>Windows 10 下的 Ping</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">C:\&gt;ping www.baidu.com</span><br><span class="line"></span><br><span class="line">正在 Ping www.a.shifen.com [<span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span>] 具有 <span class="number">32</span> 字节的数据:</span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line">来自 <span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">42</span>ms TTL=<span class="number">53</span></span><br><span class="line"></span><br><span class="line"><span class="number">119.75</span><span class="number">.216</span><span class="number">.20</span> 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = <span class="number">4</span>，已接收 = <span class="number">4</span>，丢失 = <span class="number">0</span> (<span class="number">0</span>% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = <span class="number">42</span>ms，最长 = <span class="number">42</span>ms，平均 = <span class="number">42</span>ms</span><br></pre></td></tr></table></figure>
+<h2 id="Ping-的工作原理"><a href="#Ping-的工作原理" class="headerlink" title="Ping 的工作原理"></a>Ping 的工作原理</h2><p>在维基百科中解释有说明， Ping 的原理是 ICMP 协议.</p>
+<h2 id="什么是-ICMP-协议"><a href="#什么是-ICMP-协议" class="headerlink" title="什么是 ICMP 协议"></a>什么是 ICMP 协议</h2><blockquote>
+<p>ICMP 的全称是 Intent Control Message Protocol, 中文过来就是 互联网控制报文协议</p>
+</blockquote>
+<p>网络数据包在庞大的网络中会很多各种不同情况。如果一定需要举一个例子来比如的话，用相当于兵种的侦察兵。时刻给大部队探测前方的情况。以便后方的大部队能够根据不同情况做出不同的调整。所以 ICMP 经常用于网络环境的测试。</p>
+<blockquote>
+<p>互联网控制消息协议（英语：Internet Control Message Protocol，缩写：ICMP）是互联网协议族的核心协议之一。它用于TCP/IP网络中发送控制消息，提供可能发生在通信环境中的各种问题反馈，通过这些信息，使管理者可以对所发生的问题作出诊断，然后采取适当的措施解决。 —— 维基百科</p>
+</blockquote>
+<h2 id="ICMP-协议的格式"><a href="#ICMP-协议的格式" class="headerlink" title="ICMP 协议的格式"></a>ICMP 协议的格式</h2><p>用图文表示：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-200da5d8944c012d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp" alt="ICMP 协议格式"><br>ICMP 报文封装在 IP 包里面。ICMP 的报文类型根据类型和代码有很多，文章后面有来自维基百科的完整的表格。但是主要分为两类：</p>
+<blockquote>
+<p>A、查询报文<br>B、差错报文</p>
+</blockquote>
+<h2 id="查询报文-（Echo-Request与-Echo-Reply）"><a href="#查询报文-（Echo-Request与-Echo-Reply）" class="headerlink" title="查询报文 （Echo Request与 Echo Reply）"></a>查询报文 （Echo Request与 Echo Reply）</h2><p>定义：发送端主动发起请求，并且获取到应答。</p>
+<p>常见应用：Ping</p>
+<p>Ping 就是主动请求，获取到主动应答。但是 Ping 是在原生的 ICMP 中添加了自定义格式区域。例如 Ping 中放了发送的请求时间，以此计算出路程。所以，其实在 Ping 的报文中会加入序号，以用来区分数据包，从而提高计算时间或者路程的准确性。</p>
+<h2 id="差错报文"><a href="#差错报文" class="headerlink" title="差错报文"></a>差错报文</h2><p>主要有以下几种：</p>
+<ol>
+<li><p>源抑制<br>发送端发送大量数据时，可能会导致网络( 路由器 )过载，此时过载处可以向发送端发送源抑制的消息，让他降低发送速度。</p>
+</li>
+<li><p>终点不可到达<br>网络信息不能到达终点，就会给发送端发送一个目的不可到达的信息。告诉发送端可能是设备故障而引起关闭（情况之一）。然后这种又可以再次细分：<br>A、网络不可达 — 代码为 0，<br>B、主机不可达 — 代码为 1.<br>C、协议不可达 — 代码为 2.<br>D、端口不可达 — 代码为 3.<br>E、需要分段 - 代码为 4.（ 必须把数据分段才能去到终点 ）</p>
+</li>
+<li><p>超时<br>网络包超过设置的在网络中的生存时间，还没有达到。</p>
+</li>
+<li><p>路由重定向<br>定义数据包的路由股则。因为大部分的时候，路由规则是通过相关协议算法生成的，有些时候重新定义过之后，会让这个数据包绕的更远。</p>
+</li>
+</ol>
+<blockquote>
+<p>常见应用：Traceroute<br>Traceoute 有点像是在不断试错的意思。是用来侦测主机到目的主机之间所经路由情况的重要工具。Ping 我们知道是可以知道这条大路通不通的，Traceoute 通过设置 TTL 知道到底是哪个路由器不通。<br>TTL : 数据包在网络中生存时间，也就是通过数据被路由器转发的次数，没转发一次就减一。知道为 0 的时候就抛弃。<br>Traceroute 的原理：它收到目的主机的 IP 后，首先给目的主机发送一个 TTL=1 的 UDP 数据包，而经过的第一个路由器收到这个数据包以后，就自动把 TTL 减 1，而 TTL 变为 0 以后，路由器就把这个包给抛弃了，并同时产生 一个主机不可达的 ICMP 数据报给主机。如此循环就可以知道所有的路由 IP 了。（ ICMP 出错了就会回错误包 ）</p>
+</blockquote>
+<p>通常 Traceoute 的目的端口设置的是一个大于 30000 的值（ 一般的应用端口号远小于这个数 ）。所以如果回复的是 “端口不可达”，那就说明到达终点，否则这个信息就会超时。以此确保 消息是否到达终点。</p>
+<p>Traceoute 还有一个有意思的功能，就是确定 MTU（数据最大传输单元），Traceoute 通常对数据不分段，就直接发送，如果如果遇到过程中某个路由转发，出现返回 ICMP 需要分段的错误，就把数据进行拆分，直到最后到达终点。就验证出 MTU。</p>
+<p>ICMP 其实还有很多意思的地方，这边就简单的介绍到这里。<br>附表：<br><img src="https://upload-images.jianshu.io/upload_images/12814988-660f2b1948e6e6c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1006/format/webp" alt="ICMP"></p>
+<p>作者：FutureEye<br>链接：<a href="https://www.jianshu.com/p/e1795962ad76" target="_blank" rel="noopener">https://www.jianshu.com/p/e1795962ad76</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+]]></content>
+      <tags>
+        <tag>Computer Networking</tag>
       </tags>
   </entry>
   <entry>
