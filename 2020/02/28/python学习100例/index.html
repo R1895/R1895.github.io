@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="Jason&#39;s blogs">
 <meta property="og:description" content="Python3 100例 原题地址:http:&#x2F;&#x2F;www.runoob.com&#x2F;python&#x2F;python-100-examples.html原例子未Python2.7版本本文章采用Python3.7版本  这是多无聊的人才会做这个啊.感觉好蠢.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-28T11:27:16.474Z">
+<meta property="og:updated_time" content="2020-02-28T12:39:57.454Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/02/28/python%E5%AD%A6%E4%B9%A0100%E4%BE%8B/">
@@ -161,7 +161,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">11</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -244,7 +244,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-02-28 00:00:00 / 修改时间：19:27:16" itemprop="dateCreated datePublished" datetime="2020-02-28T00:00:00+08:00">2020-02-28</time>
+              <time title="创建时间：2020-02-28 00:00:00 / 修改时间：20:39:57" itemprop="dateCreated datePublished" datetime="2020-02-28T00:00:00+08:00">2020-02-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -559,7 +559,7 @@
 <h4 id="实例050：随机数"><a href="#实例050：随机数" class="headerlink" title="实例050：随机数"></a>实例050：随机数</h4><blockquote>
 <p>输出一个随机数。</p>
 </blockquote>
-<p>程序分析 使用 random 模块。</p>
+<p>程序分析 使用 <a href="https://blog.csdn.net/weixin_41084236/article/details/81457949" target="_blank" rel="noopener">random 模块</a>。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">print(random.uniform(<span class="number">10</span>,<span class="number">20</span>))</span><br></pre></td></tr></table></figure>
 
 <h2 id="random内置模块中的方法注解"><a href="#random内置模块中的方法注解" class="headerlink" title="random内置模块中的方法注解"></a>random内置模块中的方法注解</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">random.seed(a=<span class="literal">None</span>, version=<span class="number">2</span>)  <span class="comment"># 初始化伪随机数生成器，若种子a相同，则可以使生成的随机数相同。如果未提供a或者a=None，则使用系统时间为种子。</span></span><br><span class="line">random.random()  <span class="comment"># 返回一个介于左闭右开[0.0, 1.0)区间的浮点数。</span></span><br><span class="line">random.randint(a, b)  <span class="comment"># 返回range[a,b]之间的一个整数。</span></span><br><span class="line">random.uniform(a, b)  <span class="comment"># 返回一个介于a和b之间（含a,b）的浮点数。如果a&gt;b，则是b到a之间的浮点数。</span></span><br><span class="line">random.randrange(start, stop[, step])  <span class="comment"># 返回range[start,stop)之间的一个整数，可加步长step，跟range(0,10,2)类似。</span></span><br><span class="line">random.choice(seq)  <span class="comment"># 从非空序列seq中随机选取一个元素。如果seq为空则弹出 IndexError异常。</span></span><br><span class="line">random.choices(population, weights=<span class="literal">None</span>, *, cum_weights=<span class="literal">None</span>, k=<span class="number">1</span>)  <span class="comment"># 3.6版本新增！从population集群中随机抽取K个元素（可重复）。weights是相对权重列表，cum_weights是累计权重，两个参数不能同时存在。</span></span><br><span class="line">random.sample(population, k)  <span class="comment"># 从population样本或集合中随机抽取K个元素（不重复）形成新的序列。常用于不重复的随机抽样、打乱序列。</span></span><br><span class="line">random.shuffle(x[, random])  <span class="comment"># 随机打乱序列x内元素的排列顺序。只能针对可变的序列，对于不可变序列，请使用sample()方法。</span></span><br><span class="line"></span><br><span class="line">random.triangular(low, high, mode)  <span class="comment"># 返回一个N∈[low, high]的三角形分布的随机数。参数mode指明众数出现位置。</span></span><br><span class="line">random.betavariate(alpha, beta)  <span class="comment"># β分布。返回的结果在0~1之间。</span></span><br><span class="line">random.gammavariate(alpha, beta)  <span class="comment"># 伽玛分布。</span></span><br><span class="line">random.expovariate(lambd)  <span class="comment"># 指数分布。</span></span><br><span class="line">random.gauss(mu, sigma)  <span class="comment"># 高斯分布。</span></span><br><span class="line">random.normalvariate(mu, sigma)  <span class="comment"># 正态分布。</span></span><br><span class="line">random.lognormvariate(mu, sigma)  <span class="comment"># 对数正态分布。</span></span><br><span class="line">random.vonmisesvariate(mu, kappa)  <span class="comment"># 卡帕分布。</span></span><br><span class="line">random.paretovariate(alpha)  <span class="comment"># 帕累托分布。</span></span><br><span class="line">random.weibullvariate(alpha, beta)  <span class="comment"># 威布尔分布。</span></span><br><span class="line"></span><br><span class="line">random.getstate()  <span class="comment"># 返回一个当前生成器的内部状态的对象。</span></span><br><span class="line">random.setstate(state)  <span class="comment"># 传入一个先前利用getstate方法获得的状态对象，使得生成器恢复到这个状态。</span></span><br></pre></td></tr></table></figure>
@@ -836,6 +836,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2020/02/28/English/" rel="prev" title="English">
+                  English <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -891,7 +894,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
