@@ -154,17 +154,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">8</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -331,8 +331,8 @@
 <li><code>int dup(int old_fd)</code><br>作用是产生一个fd，指向 old_fd 指向的文件，并返回这个fd。产生的 fd 总是空闲的最小 fd。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">  pcmd = (struct pipecmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  <span class="keyword">if</span> (pipe(p) &lt; 0) fprintf(stderr,<span class="string">"pipe failed\n"</span>);</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  // 先关闭标准输出再 dup</span><br><span class="line">  // dup 会把标准输出定向到 p[1] 所指文件，即管道写入端</span><br><span class="line">  close(1);</span><br><span class="line">  dup(p[1]);</span><br><span class="line">  // 去掉管道对端口的引用</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  // 此时 left 的标准输入不变，标准输出流入管道</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  // 先关闭标准输入再 dup</span><br><span class="line">  // dup 会把标准输入定向到 p[0] 所指文件，即管道读取端</span><br><span class="line">  close(0);</span><br><span class="line">  dup(p[0]);</span><br><span class="line">  // 去掉管道对端口的引用</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  // 此时 right 的标准输入从管道读取，标准输出不变</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  <span class="built_in">wait</span>(&amp;r);</span><br><span class="line">  <span class="built_in">wait</span>(&amp;r);</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
 比较费解的就是 fork 了两次，也 wait 了两次。我自己写了一个实现，似乎也能正常运行，并且只 fork 了一次。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">'|'</span>:</span><br><span class="line">  pcmd = (struct pipecmd*)cmd;</span><br><span class="line">  // fprintf(stderr, <span class="string">"pipe not implemented\n"</span>);</span><br><span class="line">  // Your code here ...</span><br><span class="line">  <span class="keyword">if</span> (pipe(p) &lt; 0) fprintf(stderr,<span class="string">"pipe failed\n"</span>);</span><br><span class="line">  <span class="keyword">if</span> (fork1() == 0) &#123;</span><br><span class="line">  close(1);</span><br><span class="line">  dup(p[1]);</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  close(0);</span><br><span class="line">  dup(p[0]);</span><br><span class="line">  close(p[0]);</span><br><span class="line">  close(p[1]);</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
 最后，执行脚本判断：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell4" alt=""><br>好的 ，又出现了问题。这几个命令都位于 <code>/usr/bin/</code>下，而我们在执行中只加入了 <code>/bin/</code> 目录，于是我又为case ‘ ‘添加了一个一劳永逸的实现，方便以后添加新的路径。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">  ecmd = (struct execcmd*)cmd;</span><br><span class="line">  <span class="keyword">if</span>(ecmd-&gt;argv[0] == 0)</span><br><span class="line">    <span class="built_in">exit</span>(0);</span><br><span class="line">  // fprintf(stderr, <span class="string">"exec not implemented\n"</span>);</span><br><span class="line">  <span class="keyword">if</span>(access(ecmd-&gt;argv[0], F_OK) == 0) &#123;</span><br><span class="line">  execv(ecmd-&gt;argv[0], ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  // 将路径改为数组实现</span><br><span class="line">  const char *binPath[] = &#123;<span class="string">"/bin/"</span>, <span class="string">"/usr/bin/"</span>&#125;;</span><br><span class="line">  char *abs_path;</span><br><span class="line">  int bin_count = sizeof(binPath)/sizeof(binPath[0]);</span><br><span class="line">  int found = 0;</span><br><span class="line">  <span class="keyword">for</span> (int i=0; i&lt;bin_count &amp;&amp; found==0; i++) &#123;</span><br><span class="line">      int pathLen = strlen(binPath[i]) + strlen(ecmd-&gt;argv[0]);</span><br><span class="line">      abs_path = (char *)malloc((pathLen+1)*sizeof(char));</span><br><span class="line">      strcpy(abs_path, binPath[i]);</span><br><span class="line">      strcat(abs_path, ecmd-&gt;argv[0]);</span><br><span class="line">      <span class="keyword">if</span>(access(abs_path, F_OK) == 0) &#123;</span><br><span class="line">          execv(abs_path, ecmd-&gt;argv);</span><br><span class="line">      found = 1;</span><br><span class="line">      &#125;</span><br><span class="line">      free(abs_path);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (found == 0) &#123;</span><br><span class="line">      fprintf(stderr, <span class="string">"%s: Command not found\n"</span>, ecmd-&gt;argv[0]);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
-运行成功,结果如下<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell2" alt=""></li>
+<img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell4" alt><br>好的 ，又出现了问题。这几个命令都位于 <code>/usr/bin/</code>下，而我们在执行中只加入了 <code>/bin/</code> 目录，于是我又为case ‘ ‘添加了一个一劳永逸的实现，方便以后添加新的路径。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">' '</span>:</span><br><span class="line">  ecmd = (struct execcmd*)cmd;</span><br><span class="line">  <span class="keyword">if</span>(ecmd-&gt;argv[0] == 0)</span><br><span class="line">    <span class="built_in">exit</span>(0);</span><br><span class="line">  // fprintf(stderr, <span class="string">"exec not implemented\n"</span>);</span><br><span class="line">  <span class="keyword">if</span>(access(ecmd-&gt;argv[0], F_OK) == 0) &#123;</span><br><span class="line">  execv(ecmd-&gt;argv[0], ecmd-&gt;argv);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  // 将路径改为数组实现</span><br><span class="line">  const char *binPath[] = &#123;<span class="string">"/bin/"</span>, <span class="string">"/usr/bin/"</span>&#125;;</span><br><span class="line">  char *abs_path;</span><br><span class="line">  int bin_count = sizeof(binPath)/sizeof(binPath[0]);</span><br><span class="line">  int found = 0;</span><br><span class="line">  <span class="keyword">for</span> (int i=0; i&lt;bin_count &amp;&amp; found==0; i++) &#123;</span><br><span class="line">      int pathLen = strlen(binPath[i]) + strlen(ecmd-&gt;argv[0]);</span><br><span class="line">      abs_path = (char *)malloc((pathLen+1)*sizeof(char));</span><br><span class="line">      strcpy(abs_path, binPath[i]);</span><br><span class="line">      strcat(abs_path, ecmd-&gt;argv[0]);</span><br><span class="line">      <span class="keyword">if</span>(access(abs_path, F_OK) == 0) &#123;</span><br><span class="line">          execv(abs_path, ecmd-&gt;argv);</span><br><span class="line">      found = 1;</span><br><span class="line">      &#125;</span><br><span class="line">      free(abs_path);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (found == 0) &#123;</span><br><span class="line">      fprintf(stderr, <span class="string">"%s: Command not found\n"</span>, ecmd-&gt;argv[0]);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+运行成功,结果如下<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/shell2" alt></li>
 </ul>
 <p>[本文来源]<a href="https://www.jianshu.com/p/64385b80210b" target="_blank" rel="noopener">https://www.jianshu.com/p/64385b80210b</a></p>
 
@@ -372,16 +372,16 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2020/01/01/Thread%20and%20locking/" rel="next" title="Thread and locking">
-                  <i class="fa fa-chevron-left"></i> Thread and locking
+                <a href="/2020/01/01/Ping%20%E6%9C%AC%E8%B4%A8/" rel="next" title="Ping 本质（ ICMP ）">
+                  <i class="fa fa-chevron-left"></i> Ping 本质（ ICMP ）
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2020/01/01/Ping%20%E6%9C%AC%E8%B4%A8/" rel="prev" title="Ping 本质（ ICMP ）">
-                  Ping 本质（ ICMP ） <i class="fa fa-chevron-right"></i>
+                <a href="/2020/01/02/VsCode%E6%94%AF%E6%8C%81%E7%9A%84markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/" rel="prev" title="VsCode支持的markdown语法参考">
+                  VsCode支持的markdown语法参考 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -438,20 +438,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -513,12 +513,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">163k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:20</span>
+    <span title="站点阅读时长">2:28</span>
 </div>
   <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
 

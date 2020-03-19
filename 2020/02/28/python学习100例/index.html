@@ -151,17 +151,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">8</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -307,7 +307,7 @@
 </blockquote>
 <p>程序分析 遍历全部可能，把有重复的剃掉。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">            <span class="keyword">if</span>((i!=j)<span class="keyword">and</span> (j!=k)<span class="keyword">and</span>(i!=k)):</span><br><span class="line">                print(i,j,k)</span><br><span class="line">                total +=<span class="number">1</span></span><br><span class="line">print(total) <span class="comment">#24</span></span><br></pre></td></tr></table></figure>
-<p>上述是暴力解决,python提供的itertools中的permutations 可以简化本题<br><code>itertools</code>模块我在<a href="">常用内建模块中</a>有介绍</p>
+<p>上述是暴力解决,python提供的itertools中的permutations 可以简化本题<br><code>itertools</code>模块我在<a href>常用内建模块中</a>有介绍</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> itertools.permutations(range(<span class="number">1</span>,<span class="number">5</span>),<span class="number">3</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    total +=<span class="number">1</span></span><br><span class="line">print(total)</span><br></pre></td></tr></table></figure>
 
 <h4 id="实例002-”个税计算”"><a href="#实例002-”个税计算”" class="headerlink" title="实例002:”个税计算”"></a>实例002:”个税计算”</h4><blockquote>
@@ -641,7 +641,7 @@
 <h4 id="实例068：旋转数列"><a href="#实例068：旋转数列" class="headerlink" title="实例068：旋转数列"></a>实例068：旋转数列</h4><blockquote>
 <p>有n个整数，使其前面各数顺序向后移m个位置，最后m个数变成最前面的m个数</p>
 </blockquote>
-<p>使用了<a href="">collections模块</a> </p>
+<p>使用了<a href>collections模块</a> </p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> *</span><br><span class="line">li=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">deq=deque(li,maxlen=len(li))</span><br><span class="line">print(li)</span><br><span class="line">deq.rotate(int(input(<span class="string">'rotate:'</span>)))</span><br><span class="line">print(list(deq))</span><br></pre></td></tr></table></figure>
 
 <h4 id="实例069：报数"><a href="#实例069：报数" class="headerlink" title="实例069：报数"></a>实例069：报数</h4><blockquote>
@@ -894,20 +894,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -969,12 +969,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">163k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:20</span>
+    <span title="站点阅读时长">2:28</span>
 </div>
   <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
 

@@ -154,17 +154,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">8</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -311,7 +311,7 @@
 <blockquote>
 <p>为了避免这样的错误产生，我们仅仅需要在put的时候加入互斥锁即可：</p>
 </blockquote>
-<p>1)编译ph.c源文件，并分别以单线程和双线程运行，查看结果<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread1" alt=""></p>
+<p>1)编译ph.c源文件，并分别以单线程和双线程运行，查看结果<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread1" alt></p>
 <blockquote>
 <p>每个线程分两个阶段(<code>phases</code>)运行。在第一个阶段，每个线程将<code>NKEYS/nthread keys</code>放入<code>the hash table</code>。<br>在第二阶段，每个线程从散列表中获取<code>NKEYS</code>。<code>print</code>语句告诉你每个阶段为每个线程花费了多长时间。 倒数第二行会告诉你有多少个key丢失了，底部的<code>completion time</code>告诉你应用程序的总运行时间。</p>
 </blockquote>
@@ -323,7 +323,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i &lt; NBUCKET;i++)&#123;</span><br><span class="line">	pthread_mutex_init(&amp;bucket_locks[i],<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>4)修改put函数</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> i = key % NBUCKET;</span><br><span class="line"></span><br><span class="line">  pthread_mutex_lock(&amp;bucket_locks[i]);</span><br><span class="line">  insert(key, value, &amp;table[i], table[i]);</span><br><span class="line">  pthread_mutex_unlock(&amp;bucket_locks[i]);</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>5)再次编译ph.c,并分别以单线程和双线程运行,查看结果<br>gcc -g -O2 ph.c -pthread<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread3" alt=""><br>0 keys missing<br>结果可能存在偏差。<br><a href="https://blog.csdn.net/a747979985/article/details/97250404" target="_blank" rel="noopener">这篇文章讲的更详细</a></p>
+<p>5)再次编译ph.c,并分别以单线程和双线程运行,查看结果<br>gcc -g -O2 ph.c -pthread<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/os/thread3" alt><br>0 keys missing<br>结果可能存在偏差。<br><a href="https://blog.csdn.net/a747979985/article/details/97250404" target="_blank" rel="noopener">这篇文章讲的更详细</a></p>
 
     </div>
 
@@ -369,8 +369,8 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2020/01/01/Homework%20Shell/" rel="prev" title="Homework Shell">
-                  Homework Shell <i class="fa fa-chevron-right"></i>
+                <a href="/2020/01/01/Ping%20%E6%9C%AC%E8%B4%A8/" rel="prev" title="Ping 本质（ ICMP ）">
+                  Ping 本质（ ICMP ） <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -427,20 +427,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -502,12 +502,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">163k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:20</span>
+    <span title="站点阅读时长">2:28</span>
 </div>
   <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
 
