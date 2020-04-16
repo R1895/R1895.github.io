@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="keywords" content="设计模式,策略模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之Strategy模式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;27&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BStrategy%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;cl.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;cl3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;cl.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;cl2.png">
+<meta property="og:updated_time" content="2020-03-30T09:42:21.135Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;cl.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BStrategy%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>设计模式之Strategy模式 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Jie</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">38</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BStrategy%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj2.jpg">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="Only action can relieve the uneasiness.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设计模式之Strategy模式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-27 10:24:00" itemprop="dateCreated datePublished" datetime="2020-03-27T10:24:00+08:00">2020-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-30 17:42:21" itemprop="dateModified" datetime="2020-03-30T17:42:21+08:00">2020-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BStrategy%E6%A8%A1%E5%BC%8F/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BStrategy%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/cl.png" alt></p>
+<a id="more"></a>
+<p>在策略模式（Strategy Pattern）中,一个类的行为或其算法可以在运行时更改.</p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>策略模式比较简单,其实就是使用抽象类或者接口,定义一个方法,然后子类来实现相应的方法,之后通过一个新的类来使用这个已经定义好的组件,使用委托(组合)的方式,让定义的接口根据多态来灵活的使用相应的实现方法,最终完成一定的功能.和Builder模式比起来,Builder中新建的类还要对接口中的元素方法进行组合和操作,而策略模式只用一个方法就可以,没有这种复杂的操作,就是简单的使用已经定义好的方法,不用再次封装操作.和桥接模式相比,差别也是很明显的,桥接是功能层次和实现层次分离,而策略模式是方便扩充策略,但是这几种模式的某些部分是很类似的,只不过完成的任务有些许不同而已.</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><ul>
+<li>示例1：<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/cl3.png" alt><br>Sorter.java<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Strategy.Sample1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sorter</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable []data)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+BubbleSorter.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Strategy.Sample1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSorter</span> <span class="keyword">implements</span> <span class="title">Sorter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] data)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; data.length; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (data[i].compareTo(data[j]) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">					Comparable temp = data[i];</span><br><span class="line">					data[i] = data[j];</span><br><span class="line">					data[j] = temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>QuickSorter.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Strategy.Sample1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSorter</span> <span class="keyword">implements</span> <span class="title">Sorter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] data)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> low = <span class="number">0</span>, high = data.length - <span class="number">1</span>;</span><br><span class="line">		Qsort(data, low, high);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/************** 快速排序 *****************/</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">Partiton</span><span class="params">(Comparable[] data, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		Comparable temp, pivotkey;</span><br><span class="line">		pivotkey = data[low]; <span class="comment">// 选取支点</span></span><br><span class="line">		temp = pivotkey; <span class="comment">// 暂存支点</span></span><br><span class="line">		<span class="keyword">while</span> (low &lt; high) <span class="comment">// 条件，相等则结束</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">while</span> (low &lt; high &amp;&amp; data[high].compareTo(pivotkey) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">				high--;<span class="comment">// 左移</span></span><br><span class="line">			&#125;</span><br><span class="line">			data[low] = data[high];<span class="comment">// 覆盖</span></span><br><span class="line">			<span class="keyword">while</span> (low &lt; high &amp;&amp; data[low].compareTo(pivotkey) &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">				low++; <span class="comment">// 右移</span></span><br><span class="line">			&#125;</span><br><span class="line">			data[high] = data[low];<span class="comment">// 覆盖</span></span><br><span class="line">		&#125;</span><br><span class="line">		data[low] = temp; <span class="comment">// 恢复</span></span><br><span class="line">		<span class="keyword">return</span> low; <span class="comment">// 返回分界点位置</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Qsort</span><span class="params">(Comparable[] data, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> pivot;</span><br><span class="line">		<span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">			pivot = Partiton(data, low, high); <span class="comment">// 获得分界点位置</span></span><br><span class="line">			Qsort(data, low, pivot - <span class="number">1</span>); <span class="comment">// 排左边</span></span><br><span class="line">			Qsort(data, pivot + <span class="number">1</span>, high);<span class="comment">// 右边</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SortAndPrint.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Strategy.Sample1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SortAndPrint</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Comparable[] data;</span><br><span class="line">	<span class="keyword">private</span> Sorter sorter;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortAndPrint</span><span class="params">(Comparable[] data, Sorter sorter)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.data = data;</span><br><span class="line">		<span class="keyword">this</span>.sorter = sorter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execuate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		printResult();</span><br><span class="line">		sorter.sort(data);</span><br><span class="line">		printResult();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printResult</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"========================="</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">			System.out.print(data[i] + <span class="string">"  "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"\n========================="</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Main.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Strategy.Sample1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Comparable[] data1 = &#123; <span class="string">"rlj"</span>, <span class="string">"bb"</span>, <span class="string">"love"</span>, <span class="string">"forever"</span> &#125;;</span><br><span class="line">		SortAndPrint sap1 = <span class="keyword">new</span> SortAndPrint(data1, <span class="keyword">new</span> QuickSorter());</span><br><span class="line">		System.out.println(<span class="string">"=====策略一======"</span>);</span><br><span class="line">		sap1.execuate();</span><br><span class="line">		System.out.println(<span class="string">"=====策略二======"</span>);</span><br><span class="line">		Comparable[] data2 = &#123; <span class="string">"rlj"</span>, <span class="string">"jx"</span>, <span class="string">"love"</span>, <span class="string">"forever"</span> &#125;;</span><br><span class="line">		SortAndPrint sap2 = <span class="keyword">new</span> SortAndPrint(data2, <span class="keyword">new</span> BubbleSorter());</span><br><span class="line">		sap2.execuate();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>示例2：<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/cl.jpg" alt></li>
+</ul>
+<p>创建一个接口。<br>Strategy.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Strategy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建实现接口的实体类。<br>OperationAdd.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperationAdd</span> <span class="keyword">implements</span> <span class="title">Strategy</span></span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1 + num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>OperationSubstract.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperationSubstract</span> <span class="keyword">implements</span> <span class="title">Strategy</span></span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1 - num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>OperationMultiply.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperationMultiply</span> <span class="keyword">implements</span> <span class="title">Strategy</span></span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1 * num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建 Context 类。<br>Context.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> Strategy strategy;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Context</span><span class="params">(Strategy strategy)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.strategy = strategy;</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">executeStrategy</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> strategy.doOperation(num1, num2);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 Context 来查看当它改变策略 Strategy 时的行为变化。<br>StrategyPatternDemo.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StrategyPatternDemo</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Context context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationAdd());    </span><br><span class="line">      System.out.println(<span class="string">"10 + 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</span><br><span class="line"> </span><br><span class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationSubstract());      </span><br><span class="line">      System.out.println(<span class="string">"10 - 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</span><br><span class="line"> </span><br><span class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationMultiply());    </span><br><span class="line">      System.out.println(<span class="string">"10 * 5 = "</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Strategy-模式中的登场角色"><a href="#Strategy-模式中的登场角色" class="headerlink" title="Strategy 模式中的登场角色"></a>Strategy 模式中的登场角色</h4><ul>
+<li><p>策略 (Strategy) 接口是所有具体策略的通用接口, 它声明了一个上下文用于执行策略的方法.</p>
+</li>
+<li><p>具体策略 (Concrete Strategies) 实现了上下文所用算法的各种不同变体.</p>
+</li>
+<li><p>上下文 (Context) 维护指向具体策略的引用, 且仅通过策略接口与该对象进行交流.</p>
+</li>
+<li><p>类图<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/cl2.png" alt></p>
+<h4 id="策略模式应用场景"><a href="#策略模式应用场景" class="headerlink" title="策略模式应用场景"></a>策略模式应用场景</h4></li>
+<li><p><strong>当你想使用对象中各种不同的算法变体, 并希望能在运行时切换算法时, 可使用策略模式.</strong><br>  策略模式让你能够将对象关联至可以不同方式执行特定子任务的不同子对象, 从而以间接方式在运行时更改对象行为.</p>
+</li>
+<li><p><strong>当你有许多仅在执行某些行为时略有不同的相似类时, 可使用策略模式.</strong><br>  策略模式让你能将不同行为抽取到一个独立类层次结构中, 并将原始类组合成同一个, 从而减少重复代码.</p>
+</li>
+<li><p><strong>如果算法在逻辑的上下文中不是特别重要, 使用该模式能将类的业务逻辑与其算法实现细节隔离开来.</strong><br>  策略模式让你能将各种算法的代码、 内部数据和依赖关系与其他代码隔离开来. 不同客户端可通过一个简单接口执行算法, 并能在运行时进行切换.</p>
+</li>
+<li><p><strong>当类中使用了复杂条件运算符以在同一算法的不同变体中切换时, 可使用该模式.</strong><br>  策略模式将所有继承自同样接口的算法抽取到独立类中, 因此不再需要条件语句. 原始对象并不实现所有算法的变体, 而是将执行工作委派给其中的一个独立算法对象.</p>
+<h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4></li>
+<li><p>从上下文类中找出修改频率较高的算法 （也可能是用于在运行时选择某个算法变体的复杂条件运算符）.</p>
+</li>
+<li><p>声明该算法所有变体的通用策略接口.</p>
+</li>
+<li><p>将算法逐一抽取到各自的类中, 它们都必须实现策略接口.</p>
+</li>
+<li><p>在上下文类中添加一个成员变量用于保存对于策略对象的引用. 然后提供设置器以修改该成员变量. 上下文仅可通过策略接口同策略对象进行交互, 如有需要还可定义一个接口来让策略访问其数据.</p>
+</li>
+<li><p>客户端必须将上下文类与相应策略进行关联, 使上下文可以预期的方式完成其主要工作</p>
+</li>
+</ul>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
+<li><p>策略模式优点</p>
+<ul>
+<li>你可以在运行时切换对象内的算法.</li>
+<li>你可以将算法的实现和使用算法的代码隔离开来.</li>
+<li>你可以使用组合来代替继承.</li>
+<li>开闭原则. 你无需对上下文进行修改就能够引入新的策略.</li>
+</ul>
+</li>
+<li><p>策略模式缺点</p>
+<ul>
+<li>如果你的算法极少发生改变, 那么没有任何理由引入新的类和接口. 使用该模式只会让程序过于复杂.</li>
+<li>客户端必须知晓策略间的不同——它需要选择合适的策略.</li>
+<li>许多现代编程语言支持函数类型功能, 允许你在一组匿名函数中实现不同版本的算法. 这样, 你使用这些函数的方式就和使用策略对象时完全相同, 无需借助额外的类和接口来保持代码简洁.<h4 id="为什么需要特意编写Strategy角色呢"><a href="#为什么需要特意编写Strategy角色呢" class="headerlink" title="为什么需要特意编写Strategy角色呢"></a>为什么需要特意编写Strategy角色呢</h4>通常在编程时,算法会被卸载具体方法中.而Strategy模式却特意将算法与其他部分分离开来,只是定义了与该算法相关的接口(API),然后在程序中以委托的方法来使用算法.<br>这样看来,程序好像变复杂了.其实不然,例如,当我们想要通过改善算法来提高算法的处理速度时,如果使用了Strategy模式,就不必修改Stragegy角色的接口(API)了,仅仅修稿ConcreteStrategy角色即可.而且<strong>使用委托这种弱关联关系而已很方便地整体替换算法</strong>,例如,如果相比较原来的算法与改进后的算法的处理速度有多大区别,简单地替换下算法即可进行测试.<br>使用Stragegy模式编写想起程序时,可以方便地根据棋手的选择切换AI例程的水平.</li>
+</ul>
+</li>
+</ul>
+<h4 id="与其他模式的关系"><a href="#与其他模式的关系" class="headerlink" title="与其他模式的关系"></a>与其他模式的关系</h4><ul>
+<li>装饰者模式可让你更改对象的外表, 策略则让你能够改变其本质.</li>
+<li>模板方法模式基于继承机制： 它允许你通过扩展子类中的部分内容来改变部分算法. 策略基于组合机制： 你可以通过对相应行为提供不同的策略来改变对象的部分行为. 模板方法在类层次上运作, 因此它是静态的. 策略在对象层次上运作, 因此允许在运行时切换行为.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>Thank you for your support</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jason 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jason 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 设计模式</a>
+              <a href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 策略模式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BBridge%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之Bridge模式">
+                  <i class="fa fa-chevron-left"></i> 设计模式之Bridge模式
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/03/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BComposite%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之Composite模式">
+                  设计模式之Composite模式 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Strategy-模式中的登场角色"><span class="nav-number">3.</span> <span class="nav-text">Strategy 模式中的登场角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#策略模式应用场景"><span class="nav-number">4.</span> <span class="nav-text">策略模式应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现方式"><span class="nav-number">5.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优缺点"><span class="nav-number">6.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么需要特意编写Strategy角色呢"><span class="nav-number">7.</span> <span class="nav-text">为什么需要特意编写Strategy角色呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#与其他模式的关系"><span class="nav-number">8.</span> <span class="nav-text">与其他模式的关系</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Jason"
+    src="/images/rlj2.jpg">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">Only action can relieve the uneasiness.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/R1895" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;R1895" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/jason1999/" title="博客园 &amp;rarr; https:&#x2F;&#x2F;www.cnblogs.com&#x2F;jason1999&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tjuyjn.top/" title="http:&#x2F;&#x2F;tjuyjn.top&#x2F;" rel="noopener" target="_blank">yjn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<div class="copyright">
+  
+  &copy; 2019 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">330k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:01</span>
+</div>
+  <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
+
+  </div>
+<br>
+<span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'sQH1h8lhQ9gWOGcmtUYC8XVl-MdYXbMMI',
+    appKey: 'vNW3GOfCCmYcbuAXh5ONlisr',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

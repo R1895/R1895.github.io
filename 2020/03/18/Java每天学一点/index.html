@@ -51,16 +51,27 @@
   };
 </script>
 
-  <meta name="description" content="Java一天学一点当初学java的时候,偷懒没怎么学,敲的代码太少.如今又选了java进阶.从头开始,一点一点学吧.  Only action can relieve the uneasiness.     - 2020-03-18 20:20  1.如何对HashMap按键值排序 创建一个简单的HashMap,并插入一些键和值.123456789Map&amp;lt;String,Integer&amp;gt;">
-<meta name="keywords" content="java">
+  <meta name="description" content="Only action can relieve the uneasiness.">
+<meta name="keywords" content="java,Comparator">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java每天学一点">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;index.html">
 <meta property="og:site_name" content="Jason&#39;s blogs">
-<meta property="og:description" content="Java一天学一点当初学java的时候,偷懒没怎么学,敲的代码太少.如今又选了java进阶.从头开始,一点一点学吧.  Only action can relieve the uneasiness.     - 2020-03-18 20:20  1.如何对HashMap按键值排序 创建一个简单的HashMap,并插入一些键和值.123456789Map&amp;lt;String,Integer&amp;gt;">
+<meta property="og:description" content="Only action can relieve the uneasiness.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-18T12:45:40.897Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j1.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j2.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;by.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j6.png">
+<meta property="og:updated_time" content="2020-03-29T08:55:06.205Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9&#x2F;j1.jpg">
 
 <link rel="canonical" href="http://yoursite.com/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/">
 
@@ -151,17 +162,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">9</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">38</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">5</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">13</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -242,10 +253,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-18 20:20:20 / 修改时间：20:45:40" itemprop="dateCreated datePublished" datetime="2020-03-18T20:20:20+08:00">2020-03-18</time>
+              <time title="创建时间：2020-03-18 20:20:20" itemprop="dateCreated datePublished" datetime="2020-03-18T20:20:20+08:00">2020-03-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-29 16:55:06" itemprop="dateModified" datetime="2020-03-29T16:55:06+08:00">2020-03-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -278,14 +295,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8.6k</span>
+              <span>42k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
+              <span>38 分钟</span>
             </span>
 
         </div>
@@ -297,10 +314,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Java一天学一点"><a href="#Java一天学一点" class="headerlink" title="Java一天学一点"></a>Java一天学一点</h2><p>当初学java的时候,偷懒没怎么学,敲的代码太少.如今又选了java进阶.<br>从头开始,一点一点学吧.</p>
-<blockquote>
-<p>Only action can relieve the uneasiness.     - 2020-03-18 20:20</p>
-</blockquote>
+        <p>Only action can relieve the uneasiness.</p>
+<a id="more"></a>
+<h2 id="Java每天学一点"><a href="#Java每天学一点" class="headerlink" title="Java每天学一点"></a>Java每天学一点</h2><p>当初学java的时候,偷懒没怎么学,敲的代码太少.如今又选了java进阶.<br>从头开始,一点一点学吧.</p>
 <h3 id="1-如何对HashMap按键值排序"><a href="#1-如何对HashMap按键值排序" class="headerlink" title="1.如何对HashMap按键值排序"></a>1.如何对HashMap按键值排序</h3><ol>
 <li>创建一个简单的HashMap,并插入一些键和值.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,Integer&gt; aMap = <span class="keyword">new</span> HashMap&lt;String,Integer&gt;(); </span><br><span class="line"><span class="comment">//adding keys and values </span></span><br><span class="line">aMap.put(<span class="string">"Five"</span>, <span class="number">5</span>); </span><br><span class="line">aMap.put(<span class="string">"Seven"</span>, <span class="number">7</span>);</span><br><span class="line">aMap.put(<span class="string">"Four"</span>, <span class="number">4</span>);</span><br><span class="line">aMap.put(<span class="string">"Eight"</span>, <span class="number">8</span>); </span><br><span class="line">aMap.put(<span class="string">"One"</span>, <span class="number">1</span>); </span><br><span class="line">aMap.put(<span class="string">"Two"</span>, <span class="number">2</span>); </span><br><span class="line">aMap.put(<span class="string">"Three"</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure></li>
 <li>利用Set entrySet(): 返回Map.Entry对象的视图集,即映像中的关键字/值对<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Map.Entry&lt;String,Integer&gt;&gt; mapEntries = aMap.entrySet();</span><br></pre></td></tr></table></figure></li>
@@ -311,7 +327,7 @@
 
 </li>
 </ol>
-<h4 id="2-java中Comparator的用法-排序-分组"><a href="#2-java中Comparator的用法-排序-分组" class="headerlink" title="2.java中Comparator的用法(排序,分组)"></a>2.java中Comparator的用法(排序,分组)</h4><p>下面是javaSE一些使用到Comparator接口的地方：</p>
+<h3 id="2-java中Comparator的用法-排序-分组"><a href="#2-java中Comparator的用法-排序-分组" class="headerlink" title="2.java中Comparator的用法(排序,分组)"></a>2.java中Comparator的用法(排序,分组)</h3><p>下面是javaSE一些使用到Comparator接口的地方：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(T[],Comparator&lt;? <span class="keyword">super</span> T&gt; c);</span><br><span class="line">Collections.sort(List&lt;T&gt; list,Comparator&lt;? <span class="keyword">super</span> T&gt; c);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用场景<ul>
@@ -327,12 +343,803 @@
 <blockquote>
 <p>按颜色分组:<br>[Nubia [name=努比亚z7mini,color=黑金色, weight=143g], Nubia [name=努比亚z11mini,color=黑金色, weight=138g]]<br>[Nubia [name=努比亚X,color=蓝银色, weight=181g], Nubia [name=努比亚布拉格 ,color=蓝银色, weight=140g]]<br>[Nubia [name=努比亚红魔Mars,color=黑红色, weight=193g], Nubia [name=努比亚红魔3 ,color=黑红色, weight=215g]]<br>按重量级分组:<br>[Nubia [name=努比亚z7mini,color=黑金色, weight=143g], Nubia [name=努比亚z11mini,color=黑金色, weight=138g], Nubia [name=努比亚布拉格 ,color=蓝银色, weight=140g]]<br>[Nubia [name=努比亚红魔Mars,color=黑红色, weight=193g], Nubia [name=努比亚X,color=蓝银色, weight=181g]]<br>[Nubia [name=努比亚红魔3 ,color=黑红色, weight=215g]]</p>
 </blockquote>
-<h4 id="3-遍历map的四种方法及Map-entry详解"><a href="#3-遍历map的四种方法及Map-entry详解" class="headerlink" title="3.遍历map的四种方法及Map.entry详解"></a>3.遍历map的四种方法及Map.entry详解</h4><p>Map.entrySet() 这个方法返回的是一个<code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code><br>Map.Entry 是Map中的一个接口,他的用途是表示一个映射项（里面有Key和Value）,而<code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code>表示一个映射项的Set。Map.Entry里有相应的getKey和getValue方法,即JavaBean,让我们能够从一个项中取出Key和Value。</p>
+<h3 id="3-遍历map的四种方法及Map-entry详解"><a href="#3-遍历map的四种方法及Map-entry详解" class="headerlink" title="3.遍历map的四种方法及Map.entry详解"></a>3.遍历map的四种方法及Map.entry详解</h3><p>Map.entrySet() 这个方法返回的是一个<code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code><br>Map.Entry 是Map中的一个接口,他的用途是表示一个映射项（里面有Key和Value）,而<code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code>表示一个映射项的Set。Map.Entry里有相应的getKey和getValue方法,即JavaBean,让我们能够从一个项中取出Key和Value。</p>
 <p>下面是遍历Map的四种方法:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.jason.Collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CollectionDemo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line">		map.put(<span class="string">"1"</span>, <span class="string">"value1"</span>);</span><br><span class="line">		map.put(<span class="string">"2"</span>, <span class="string">"value2"</span>);</span><br><span class="line">		map.put(<span class="string">"3"</span>, <span class="string">"value3"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 第一种：普遍使用,二次取值</span></span><br><span class="line">		System.out.println(<span class="string">"通过Map.keySet遍历key和value："</span>);</span><br><span class="line">		<span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">			System.out.println(<span class="string">"key= "</span> + key + <span class="string">" and value= "</span> + map.get(key));</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 第二种</span></span><br><span class="line">		System.out.println(<span class="string">"通过Map.entrySet使用iterator遍历key和value："</span>);</span><br><span class="line">		Iterator&lt;Map.Entry&lt;String, String&gt;&gt; it = map.entrySet().iterator();</span><br><span class="line">		<span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">			Map.Entry&lt;String, String&gt; entry = it.next();</span><br><span class="line">			System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span> + entry.getValue());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 第三种：推荐,尤其是容量大时</span></span><br><span class="line">		System.out.println(<span class="string">"通过Map.entrySet遍历key和value"</span>);</span><br><span class="line">		<span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : map.entrySet()) &#123;</span><br><span class="line">			System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span> + entry.getValue());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 第四种</span></span><br><span class="line">		System.out.println(<span class="string">"通过Map.values()遍历所有的value,但不能遍历key"</span>);</span><br><span class="line">		<span class="keyword">for</span> (String v : map.values()) &#123;</span><br><span class="line">			System.out.println(<span class="string">"value= "</span> + v);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>看HashMap的源代码:会发现,HashMap的底层实现用的是一个Entry数组.<br>我们在HashMap的源码的674行发现了Entry的定义,原来他是HashMap的一个内部类,并且实现了Map.Entry接口<br>我们再看一下Map.Entry这个接口是怎么定义的,发现原来他是Map的一个内部接口并且定义了一些方法<br>原来Entry实现的Map.Entry接口里面定义了getKey(),getValue(),setKey(),setValue()等方法相当于一个javaBean,对键值对进行了一个封装便于后面的操作,从这里我们其实也可以联想到不光是HashMap,譬如LinkedHashMap,TreeMap 等继承自map的容器存储key-value对都应该使用的是Entry只不过组织Entry的形式不一样,HashMap用的是数组加链表的形式,LinkedHashMap用的是链表的形式,TreeMap应该使用的二叉树的形式.想多了解一下的可以查看源码.</p>
 <p><a href="https://blog.csdn.net/kyi_zhu123/article/details/52769469" target="_blank" rel="noopener">转自</a></p>
-<h4 id><a href="#" class="headerlink" title></a></h4>
+<blockquote>
+<p>Only action can relieve the uneasiness.     - 2020-03-18 20:20</p>
+</blockquote>
+<h3 id="4-常用快捷键"><a href="#4-常用快捷键" class="headerlink" title="4.常用快捷键"></a>4.常用快捷键</h3><ol>
+<li>ctrl+o: 快速outline<blockquote>
+<p>如果想要查看当前类的方法或某个特定方法，但又不想把代码拉上拉下，也不想使用查找功能的话，就用ctrl+o吧。它可以列出当前类中的所有方法及属性，你只需输入你想要查询的方法名，点击enter就能够直接跳转至你想去的位置。</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/j1.jpg" alt></p>
+<ol start="2">
+<li>ctrl+e：快速转换编辑器<blockquote>
+<p>这组快捷键将帮助你在打开的编辑器之间浏览。使用ctrl+page down或ctrl+page up可以浏览前后的选项卡，但是在很多文件打开的状态下，ctrl+e会更加有效率。</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/j2.jpg" alt></p>
+<ol start="3">
+<li><p>alt + shift + r:重命名</p>
+<blockquote>
+<p>   重命名属性及方法在几年前还是个很麻烦的事，需要大量使用搜索及替换，以至于代码变得零零散散的。今天的Java IDE提供源码处理功能，Eclipse也是一样。现在，变量和方法的重命名变得十分简单，你会习惯于在每次出现更好替代名称的时候都做一次重命名。要使 用这个功能，将鼠标移动至属性名或方法名上，按下alt+shift+r，输入新名称并点击回车。就此完成。如果你重命名的是类中的一个属性，你可以点击alt+shift+r两次，这会呼叫出源码处理对话框，可以实现get及set方法的自动重命名。</p>
+</blockquote>
+</li>
+<li><p>shift+enter及ctrl+shift+enter</p>
+<blockquote>
+<p>Shift+enter在当前行之下创建一个空白行，与光标是否在行末无关。Ctrl+shift+enter则在当前行之前插入空白行。</p>
+</blockquote>
+</li>
+<li><p>alt+shift+l以及alt+shift+m：提取本地变量及方法</p>
+<blockquote>
+<p>源码处理还包括从大块的代码中提取变量和方法的功能。比如，要从一个string创建一个常量，那么就选定文本并按下alt+shift+l即可。如果同 一个string在同一类中的别处出现，它会被自动替换。方法提取也是个非常方便的功能。将大方法分解成较小的、充分定义的方法会极大的减少复杂度，并提 升代码的可测试性。</p>
+</blockquote>
+</li>
+<li><p>Alt+方向键</p>
+<blockquote>
+<p>这也是个节省时间的法宝。这个组合将当前行的内容往上或下移动。在try/catch部分，这个快捷方式尤其好使。</p>
+</blockquote>
+</li>
+<li><p>ctrl+m</p>
+<blockquote>
+<p>大显示屏幕能够提高工作效率是大家都知道的。Ctrl+m是编辑器窗口最大化的快捷键。</p>
+</blockquote>
+</li>
+<li><p>ctrl+.及ctrl+1：下一个错误及快速修改。配合Ctrl+Q，快速回到最后一次编辑的地方</p>
+<blockquote>
+<p>ctrl+.将光标移动至当前文件中的下一个报错处或警告处。这组快捷键我一般与ctrl+1一并使用，即修改建议的快捷键。新版Eclipse的修改建议做的很不错，可以帮你解决很多问题，如方法中的缺失参数，throw/catch exception，未执行的方法等等。</p>
+</blockquote>
+</li>
+<li><p>ctrl+shift+f: 格式化代码</p>
+</li>
+<li><p>ctrl+Q 回到最后一次编辑的地方</p>
+</li>
+<li><p>Alt+左右方向键</p>
+<blockquote>
+<p>我们经常会遇到看代码时Ctrl+左键，层层跟踪，然后迷失在代码中的情况，这时只需要按“Alt+左方向键”就可以退回到上次阅读的位置，同理，按“Alt+右方向键”会前进到刚才退回的阅读位置，就像浏览器的前进和后退按钮一样。</p>
+</blockquote>
+</li>
+<li><p>Ctrl+Shift+O 导入包</p>
+</li>
+<li><p>ctrl+d 删除当前行</p>
+</li>
+<li><p>Ctrl+Shift+X 把当前选中的文本全部变味小写<br>Ctrl+Shift+Y 把当前选中的文本全部变为小写</p>
+</li>
+</ol>
+<p>更多快捷键组合可在Eclipse按下ctrl+shift+L查看。</p>
+<blockquote>
+<p>今天没有新知识,就学下eclipse快捷键吧.eclipse写java用起来还是很方便的.<br>Only action can relieve the uneasiness.            —2020/03/20</p>
+</blockquote>
+<h3 id="5-耦合和解耦-转载"><a href="#5-耦合和解耦-转载" class="headerlink" title="5.耦合和解耦(转载)"></a>5.耦合和解耦(转载)</h3><p>百度解释:   </p>
+<blockquote>
+<p>耦合是指两个或两个以上的体系或两种运动形式间通过相互作用而彼此影响以至联合起来的现象。<br>解耦就是用数学方法将两种运动分离开来处理问题。 </p>
+</blockquote>
+<p>这是形象搞笑的比喻：</p>
+<blockquote>
+<p>完全可以这么想像嘛，有一对热恋中的男女，水深火热的，谁离开谁都不行了，离开就得死，要是对方有一点风吹草动，这一方就得地动山摇。<br>可以按照琼瑶阿姨的路子继续想象，想成什么样都不过分，他们之间的这种状态就应该叫做“偶合”。<br>他们这么下去，有人看不惯了，有一些掌握话语权的权利机构觉得有必要出面阻止了，这样下去不是个事吖，你得先爱祖国，爱社会，爱人民，爱这大好河山才行啊，<br>于是棒打鸳鸯，让他们之间对对方的需要，抽象成一种生理需要，这就好办了，把她抽象成女人，他抽象成男人，当他需要女人时，就把她当做女人送来，反之亦然，<br>看上去他们仍在一起，没什么变化，实质上呢，他们已经被成功的拆散了，当有一天他需要女人时，来了另外一个女人，嘿嘿 他不会反对的。<br>对方怎么变他也不会关心了。这就是“解偶”。</p>
+</blockquote>
+<p>较为具体的说明就是有的时候程序需要修改，我只需要改正一部分，单是如果程序的耦合性很强的话就需要从头再写一遍很不划算，而正常的开发中都是改那部分，重写那部分，<br>把配置文件一改就成了，java中通过接口（interface），spring技术中的IOC等实现的解耦合，重写覆盖父类的方法也是一种解耦行为</p>
+<p><a href>转载地址忘记了</a></p>
+<h3 id="6-贫血模型-充血模型"><a href="#6-贫血模型-充血模型" class="headerlink" title="6.贫血模型,充血模型"></a>6.贫血模型,充血模型</h3><p>程序中级设计讲到了,贫血模型和充血模型.要求设计一个虚拟钱包系统.<br>以该系统理解了贫血模型和充血模型的区别</p>
+<ul>
+<li>MVC三层架构<ul>
+<li>MVC 三层架构中的 M 表示 Model，V 表示 View，C 表示 Controller。<br>它将整个项目分为三层：展示层、逻辑层、数据层</li>
+<li>现在很多 Web 或者 App 项目都是前后端分离的，后端负责暴露接口给前端调用。这种情况下，我们一般就将后端项目分为 Repository 层、Service 层、Controller 层。其中，Repository 层负责数据访问，Service 层负责业务逻辑，Controller 层负责暴露接口。<h4 id="钱包业务背景介绍"><a href="#钱包业务背景介绍" class="headerlink" title="钱包业务背景介绍"></a>钱包业务背景介绍</h4></li>
+</ul>
+</li>
+<li>五个功能：充值、支付、提现、查询余额、交易流水。</li>
+<li>业务划分两大块：虚拟钱包、三方支付。文中主要涉及虚拟钱包。</li>
+<li>交易流水的两种实现方式：<ul>
+<li>一条记录，出账入账在一起；</li>
+<li>两条记录，支付与被支付。文中推荐第二种。</li>
+</ul>
+</li>
+<li>交易流水还可以分两种形式：<ul>
+<li>用户看的，包含交易类型；</li>
+<li>系统看的，只有余额的加减。<h4 id="基于贫血模型的传统开发模式"><a href="#基于贫血模型的传统开发模式" class="headerlink" title="基于贫血模型的传统开发模式"></a>基于贫血模型的传统开发模式</h4></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>基于虚拟钱包，一个典型的 Web 后端项目的三层结构。</li>
+<li>Controller 中，接口实现比较简单，主要就是调用 Service 的方法。</li>
+<li>重点说Service 层，VirtualWalletBo 是一个纯粹的数据结构，只包含数据，不包含任何业务逻辑，业务逻辑集中在 VirtualWalletService 中。</li>
+</ol>
+<h4 id="基于充血模型的-DDD-开发模式"><a href="#基于充血模型的-DDD-开发模式" class="headerlink" title="基于充血模型的 DDD 开发模式"></a>基于充血模型的 DDD 开发模式</h4><ol>
+<li>也是重点说Service 层，把虚拟钱包 VirtualWallet 类设计成一个充血的Domain 领域模型，并且将原来在 Service 类中的中的部分业务逻辑移动到 VirtualWallet 类中，让Service 类的实现依赖 VirtualWallet 类。</li>
+<li>此例子中，领域模型 VirtualWallet 类很单薄，包含的业务逻辑很简单。不过，如果虚拟钱包系统需要支持更复杂的业务逻辑，那充血模型的优势就显现出来了。比如，我们要支持透支一定额度和冻结部分余额的功能。</li>
+</ol>
+<ul>
+<li><p>在基于充血模型的 DDD 开发模式中，哪些功能逻辑会放到 Service 类中？</p>
+<ol>
+<li>Service 类负责与 Repository 交流。将流程性的代码逻辑与领域模型的业务逻辑解耦，让领域模型更加可复用。</li>
+<li>Service 类负责跨领域模型的业务聚合功能。</li>
+<li>Service 类负责一些非功能性及与三方系统交互的工作。</li>
+</ol>
+</li>
+<li><p>Repository层和Controller层继续沿用贫血模型<br>  基于充血模型的DDD开发模式跟基于贫血模型的传统开发模式相比，Controller层和Repository层的代码基本上相同。 这是因为REpository层的Entity生命周期有限，Controller层的VO只是单纯作为一种DTO。两部分的业务逻辑都不会太复杂。业务逻辑主要集中在Service层。所以，Repository层和Controller层继续沿用贫血模型的设计思路是没有问题</p>
+</li>
+<li><p><a href="https://blog.csdn.net/weixin_38345081/article/details/103311449?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">相关的代码实现</a></p>
+</li>
+</ul>
+<ol>
+<li>基于贫血模型的传统开发模式<br>VirtualWaletController类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VirtualWalletController</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 通过构造函数或者 IOC 框架注入</span></span><br><span class="line">  <span class="keyword">private</span> VirtualWalletService virtualWalletService;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">getBalance</span><span class="params">(Long walletId)</span> </span>&#123; ... &#125; <span class="comment">// 查询余额</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">debit</span><span class="params">(Long walletId, BigDecimal amount)</span> </span>&#123; ... &#125; <span class="comment">// 出账</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">credit</span><span class="params">(Long walletId, BigDecimal amount)</span> </span>&#123; ... &#125; <span class="comment">// 入账</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Long fromWalletId, Long toWalletId, BigDecimal amount)</span> </span>&#123; ...&#125; <span class="comment">// 转账</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+VirtualWalletBo<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VirtualWalletBo</span> </span>&#123;<span class="comment">// 省略 getter/setter/constructor 方法</span></span><br><span class="line">  <span class="keyword">private</span> Long id;</span><br><span class="line">  <span class="keyword">private</span> Long createTime;</span><br><span class="line">  <span class="keyword">private</span> BigDecimal balance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+VirtualWalletService<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VirtualWalletService</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 通过构造函数或者 IOC 框架注入</span></span><br><span class="line">  <span class="keyword">private</span> VirtualWalletRepository walletRepo;</span><br><span class="line">  <span class="keyword">private</span> VirtualWalletTransactionRepository transactionRepo;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> VirtualWalletBo <span class="title">getVirtualWallet</span><span class="params">(Long walletId)</span> </span>&#123;</span><br><span class="line">    VirtualWalletEntity walletEntity = walletRepo.getWalletEntity(walletId);</span><br><span class="line">    VirtualWalletBo walletBo = convert(walletEntity);</span><br><span class="line">    <span class="keyword">return</span> walletBo;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">getBalance</span><span class="params">(Long walletId)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> virtualWalletRepo.getBalance(walletId);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">debit</span><span class="params">(Long walletId, BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    VirtualWalletEntity walletEntity = walletRepo.getWalletEntity(walletId);</span><br><span class="line">    BigDecimal balance = walletEntity.getBalance();</span><br><span class="line">    <span class="keyword">if</span> (balance.compareTo(amount) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> NoSufficientBalanceException(...);</span><br><span class="line">    &#125;</span><br><span class="line">    walletRepo.updateBalance(walletId, balance.subtract(amount));</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">credit</span><span class="params">(Long walletId, BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    VirtualWalletEntity walletEntity = walletRepo.getWalletEntity(walletId);</span><br><span class="line">    BigDecimal balance = walletEntity.getBalance();</span><br><span class="line">    walletRepo.updateBalance(walletId, balance.add(amount));</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Long fromWalletId, Long toWalletId, BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    VirtualWalletTransactionEntity transactionEntity = <span class="keyword">new</span> VirtualWalletTransactionEntity();</span><br><span class="line">    transactionEntity.setAmount(amount);</span><br><span class="line">    transactionEntity.setCreateTime(System.currentTimeMillis());</span><br><span class="line">    transactionEntity.setFromWalletId(fromWalletId);</span><br><span class="line">    transactionEntity.setToWalletId(toWalletId);</span><br><span class="line">    transactionEntity.setStatus(Status.TO_BE_EXECUTED);</span><br><span class="line">    Long transactionId = transactionRepo.saveTransaction(transactionEntity);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      debit(fromWalletId, amount);</span><br><span class="line">      credit(toWalletId, amount);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InsufficientBalanceException e) &#123;</span><br><span class="line">      transactionRepo.updateStatus(transactionId, Status.CLOSED);</span><br><span class="line">      ...rethrow exception e...</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">      transactionRepo.updateStatus(transactionId, Status.FAILED);</span><br><span class="line">      ...rethrow exception e...</span><br><span class="line">    &#125;</span><br><span class="line">    transactionRepo.updateStatus(transactionId, Status.EXECUTED);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>基于充血模型的DDD开发模式<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VirtualWallet</span> </span>&#123; <span class="comment">// Domain 领域模型 (充血模型)</span></span><br><span class="line">  <span class="keyword">private</span> Long id;</span><br><span class="line">  <span class="keyword">private</span> Long createTime = System.currentTimeMillis();;</span><br><span class="line">  <span class="keyword">private</span> BigDecimal balance = BigDecimal.ZERO;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">VirtualWallet</span><span class="params">(Long preAllocatedId)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.id = preAllocatedId;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">balance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.balance;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">debit</span><span class="params">(BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.balance.compareTo(amount) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> InsufficientBalanceException(...);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.balance.subtract(amount);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">credit</span><span class="params">(BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (amount.compareTo(BigDecimal.ZERO) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> InvalidAmountException(...);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.balance.add(amount);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VirtualWalletService</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 通过构造函数或者 IOC 框架注入</span></span><br><span class="line">  <span class="keyword">private</span> VirtualWalletRepository walletRepo;</span><br><span class="line">  <span class="keyword">private</span> VirtualWalletTransactionRepository transactionRepo;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> VirtualWallet <span class="title">getVirtualWallet</span><span class="params">(Long walletId)</span> </span>&#123;</span><br><span class="line">    VirtualWalletEntity walletEntity = walletRepo.getWalletEntity(walletId);</span><br><span class="line">    VirtualWallet wallet = convert(walletEntity);</span><br><span class="line">    <span class="keyword">return</span> wallet;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">getBalance</span><span class="params">(Long walletId)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> virtualWalletRepo.getBalance(walletId);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">debit</span><span class="params">(Long walletId, BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    VirtualWalletEntity walletEntity = walletRepo.getWalletEntity(walletId);</span><br><span class="line">    VirtualWallet wallet = convert(walletEntity);</span><br><span class="line">    wallet.debit(amount);</span><br><span class="line">    walletRepo.updateBalance(walletId, wallet.balance());</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">credit</span><span class="params">(Long walletId, BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    VirtualWalletEntity walletEntity = walletRepo.getWalletEntity(walletId);</span><br><span class="line">    VirtualWallet wallet = convert(walletEntity);</span><br><span class="line">    wallet.credit(amount);</span><br><span class="line">    walletRepo.updateBalance(walletId, wallet.balance());</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Long fromWalletId, Long toWalletId, BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//... 跟基于贫血模型的传统开发模式的代码一样...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+这种充血模型的设计思路，看起来领域模型VitualWallet类很单薄，包含的业务逻辑很简单，这种思路貌似没太大优势。<br>这也是大部分业务系统都使用基于贫血模型开发的原因。<br>不过当虚拟钱包需要支持更复杂的业务的时候，它的优势就会显现出来。<br>比如要支持透支一定额度和冻结部分余额的功能，这是重新设计VirtualWallet类的实现代码<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VirtualWallet</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> Long id;</span><br><span class="line">  <span class="keyword">private</span> Long createTime = System.currentTimeMillis();;</span><br><span class="line">  <span class="keyword">private</span> BigDecimal balance = BigDecimal.ZERO;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">boolean</span> isAllowedOverdraft = <span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">private</span> BigDecimal overdraftAmount = BigDecimal.ZERO;</span><br><span class="line">  <span class="keyword">private</span> BigDecimal frozenAmount = BigDecimal.ZERO;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">VirtualWallet</span><span class="params">(Long preAllocatedId)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.id = preAllocatedId;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">freeze</span><span class="params">(BigDecimal amount)</span> </span>&#123; ... &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unfreeze</span><span class="params">(BigDecimal amount)</span> </span>&#123; ...&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increaseOverdraftAmount</span><span class="params">(BigDecimal amount)</span> </span>&#123; ... &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">decreaseOverdraftAmount</span><span class="params">(BigDecimal amount)</span> </span>&#123; ... &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">closeOverdraft</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openOverdraft</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">balance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.balance;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">getAvaliableBalance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    BigDecimal totalAvaliableBalance = <span class="keyword">this</span>.balance.subtract(<span class="keyword">this</span>.frozenAmount);</span><br><span class="line">    <span class="keyword">if</span> (isAllowedOverdraft) &#123;</span><br><span class="line">      totalAvaliableBalance += <span class="keyword">this</span>.overdraftAmount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> totalAvaliableBalance;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">debit</span><span class="params">(BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    BigDecimal totalAvaliableBalance = getAvaliableBalance();</span><br><span class="line">    <span class="keyword">if</span> (totoalAvaliableBalance.compareTo(amount) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> InsufficientBalanceException(...);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.balance.subtract(amount);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">credit</span><span class="params">(BigDecimal amount)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (amount.compareTo(BigDecimal.ZERO) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> InvalidAmountException(...);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.balance.add(amount);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a href="https://www.cnblogs.com/NewBigLiang/p/4971513.html" target="_blank" rel="noopener">贫血模型和充血模型</a><br>文章提到了一句化, 不要为了面向对象而面向对象.感觉很有道理,但又不是很理解.<br><a href="https://www.infoq.cn/article/ddd-in-practice/" target="_blank" rel="noopener">领域驱动设计和开发实战</a></li>
+</ol>
+<h3 id="7-Generic-泛型"><a href="#7-Generic-泛型" class="headerlink" title="7.Generic 泛型"></a>7.Generic 泛型</h3><ul>
+<li><p><strong>加入泛型之前：如果我们有如下需求：一个StringArr，你只想放string，但你并不能阻止其他类型数据放入</strong>。为了通用性，这样的数组一般都是Object。当我们获取里面的值的时候，就得强制转换，这就是它的缺点。</p>
+</li>
+<li><p><strong>加入泛型之后：</strong> 例如：<code>ArrayList&lt;String&gt; stringValues=new ArrayList&lt;String&gt;();</code>这样，就指定了具体的类型，添加一些数据的时候，如果不符合初定的类型，就会报错，<strong>安全性提高！</strong> 再有就是指定了具体的类型，<strong>提高了代码的质量，可读性提高！</strong></p>
+</li>
+<li><p>实现原理:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;String&gt; arrayString = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        ArrayList&lt;Integer&gt; arrayInteger = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        System.out.println(arrayString.getClass()==arrayInteger.getClass());#true</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如上，两者的类型分明不同，输出的结果却是true，这是因为，泛型它不会影响java虚拟机生成的汇编代码，在编译阶段，虚拟机就会把泛型的类型擦除，还原成没有泛型的代码，顶多编译速度稍微慢一些，执行速度是完全没有什么区别的。 这就是为什么，Java的泛型被称为“伪泛型”的原因</p>
+</li>
+</ul>
+<p><strong>注意:</strong></p>
+<ul>
+<li><p>泛型变量不允许是基本数据类型，只能是他们的包装类</p>
+</li>
+<li><p>静态方法和静态变量不可以使用泛型类所声明的泛型类型参数</p>
+</li>
+<li><p>java泛型中的标记符含义</p>
+<ul>
+<li>E - Element (在集合中使用，因为集合中存放的是元素)</li>
+<li>T - Type（Java 类）</li>
+<li>K - Key（键）</li>
+<li>V - Value（值）</li>
+<li>N - Number（数值类型）</li>
+<li>？ - 表示不确定的java类型<ul>
+<li>? extends</li>
+<li>? super</li>
+</ul>
+</li>
+<li>S、U、V - 2nd、3rd、4th types</li>
+</ul>
+</li>
+<li><p>Object跟这些标记符代表的java类型有啥区别呢？</p>
+<blockquote>
+<p>Object是所有类的根类，任何类的对象都可以设置给该Object引用变量，使用的时候可能需要类型强制转换，但是用使用了泛型T、E等这些标识符后，在实际用之前类型就已经确定了，不需要再进行类型强制转换。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="泛型的使用"><a href="#泛型的使用" class="headerlink" title="泛型的使用"></a>泛型的使用</h4><p>泛型有三种常用的使用方式：泛型类，泛型接口和泛型方法。</p>
+<h5 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h5><p>一个泛型类（generic class）就是具有一个或多个类型变量的类。下面通过一个简单的<code>Pair</code>类作为例子。对于这个类来说，我们只关注泛型，而不会为数据存储的细节烦恼。下面是Pair类的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 泛型类</span></span><br><span class="line"><span class="comment"> * Java库中 E表示集合的元素类型，K 和 V分别表示表的关键字与值的类型</span></span><br><span class="line"><span class="comment"> * T（需要时还可以用临近的字母 U 和 S）表示“任意类型”</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> T name;</span><br><span class="line">    <span class="keyword">private</span> T price;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pair</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pair</span><span class="params">(T name, T price)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.price = price;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(T name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> price;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPrice</span><span class="params">(T price)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.price = price;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>pair</code>类引入了一个类型变量T，用尖括号（<code>&lt;&gt;</code>）括起来，并放在类名的后面。泛型类可以有多个类型变量。例如，可以定义Pair类，其中第一个域和第二个域使用不同的类型：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>,<span class="title">U</span>&gt; </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>类方法中的类型变量指定方法的返回类型以及域和局部变量的类型。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> T first; <span class="comment">//uses the type variable</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">用具体的类型替换类型变量就可以实例化泛型类型，</span><br><span class="line">Pair&lt;String&gt;</span><br><span class="line">可以将结果想象成带有构造器的普通类：</span><br><span class="line">Pair&lt;String&gt;()</span><br><span class="line">Pair&lt;String&gt;(String,String)</span><br><span class="line">和方法：</span><br><span class="line"><span class="function">String <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">String <span class="title">getPrice</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setPrice</span><span class="params">(String)</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Generator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继承接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitGenerator</span> <span class="keyword">implements</span> <span class="title">Generator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Fruit"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">或者</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitGenerator</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Generator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> T next;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FruitGenerator</span><span class="params">(T next)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.next = next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        FruitGenerator&lt;String&gt; fruit = <span class="keyword">new</span> FruitGenerator&lt;&gt;(<span class="string">"Fruit"</span>);</span><br><span class="line">        System.out.println(fruit.next);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayAlg</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getMiddle</span><span class="params">(T... a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a[a.length / <span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(ArrayAlg.getMiddle(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法是在普通类中定义的，而不是在泛型类中定义的。然而，这是一个泛型方法，可以从尖括号和类型变量看出这一点。注意，<strong>类型变量放在修饰符（这里是 public static）的后面，返回类型的前面</strong></p>
+<p><a href="https://www.cnblogs.com/coprince/p/8603492.html" target="_blank" rel="noopener">这篇文章的泛型讲的很详细</a></p>
+<h3 id="8-java编译"><a href="#8-java编译" class="headerlink" title="8.java编译"></a>8.java编译</h3><p>一直都在使用IDE来写java, 今天学习一下如何命令行来运行一个java项目<br>但是不只是运行一个HelloWorld.java文件,还要学习一下如果运行一个项目呢</p>
+<ul>
+<li>使用javac命令java<br>可以通过只敲击javac 看到各种命令参数。</li>
+</ul>
+<h4 id="不带包名的类如何编译"><a href="#不带包名的类如何编译" class="headerlink" title="不带包名的类如何编译"></a>不带包名的类如何编译</h4><p>新建一个HelloWorld.java文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        System.out.println(<span class="string">"Hello World!"</span>);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>命令行进入当前文件的位置<br>命令:java HelloWorld.java<br>    java HelloWorld<br>输出结果:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt;javac HelloWorld.java</span><br><span class="line"></span><br><span class="line">D:\&gt;java HelloWorld</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>那么如果输出是中文,会怎样?<br>我们输出一句”我来了”看一下结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt;javac HelloWorld.java</span><br><span class="line">HelloWorld.java:<span class="number">5</span>: 错误: 编码 GBK 的不可映射字符 (<span class="number">0x86</span>)</span><br><span class="line">        System.out.println(<span class="string">"Hello World!,鎴戞潵浜?"</span>);</span><br><span class="line">                                             ^</span><br><span class="line"><span class="number">1</span> 个错误</span><br></pre></td></tr></table></figure>
+<p>编译不通过<br>输出 :你好”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt;javac HelloWorld.java</span><br><span class="line">D:\&gt;java HelloWorld</span><br><span class="line">Hello World!,浣犲ソ</span><br></pre></td></tr></table></figure>
+<p>编译成功,输出乱码</p>
+</li>
+<li><p>原因分析<br>javac是java compiler的命令，是将.java文件编译成.class文件的过程。我们需要先将文件读入内存，才能进行编译。<br>读入内存需要知道文件的编码格式，才能正确的将文件读取。我们查看一下java源文件的编码，发现是UTF-8。而java编译器默认的字符集可以通过如下代码查看。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Charset.defaultCharset());</span><br></pre></td></tr></table></figure>
+<p>会发现输出GBK。</p>
+</li>
+</ul>
+<p>也就是java编译器认为文件采用GBK编码，而实际上文件是采用UTF-8编码。然后“你好吗”三个字的UTF-8码值，转换成GBK就是”浣犲ソ鍚�”，这个问号“�”就是一个GBK不可映射的字符。可以用下面的代码试一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"你好吗"</span>;</span><br><span class="line"> </span><br><span class="line">String s1 = <span class="keyword">new</span> String(s.getBytes(<span class="string">"utf-8"</span>), <span class="string">"gbk"</span>);</span><br><span class="line"> </span><br><span class="line">System.out.println(s1);</span><br></pre></td></tr></table></figure>
+<p>而如果是”你好”两个字的UTF-8码值转换成GBK是这三个字符”浣犲ソ”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"你好"</span>;</span><br><span class="line"> </span><br><span class="line">String s1 = <span class="keyword">new</span> String(s.getBytes(<span class="string">"utf-8"</span>), <span class="string">"gbk"</span>);</span><br><span class="line"> </span><br><span class="line">System.out.println(s1);</span><br></pre></td></tr></table></figure>
+<p>编译器使用了UTF-8的二进制值来尝试转换成GBK，第一次认识到了一个不认识的字符，因为UTF-8的范围很大，这个码值在GBK中没有，就报了这个错。</p>
+<p>而第二次编译通过，是因为“你好”这两个字的UTF-8编码，恰好能转换成GBK编码，所以能编译通过。但是编译通过并不保证内容就是正确的，输出的时候仍然是乱码。</p>
+<ul>
+<li>那么问题又来了<br>为什么我们通过IDE就能编译通过呢</li>
+</ul>
+<p>通过IDE，不可能分开java文件编码和java compiler的编码格式的，文件设置成什么编码，编译器都会知道，就会用什么编码来解析。原生的javac不会这样，它只会按照默认的系统编码来编，这个时候如果文件编码不同，就出现这个问题了。<br>知道了原因，怎么解决，两种解决方案，最终目的是为了文件编码和解码字符集相同<br>1）如果文件是UTF-8编码的，我们使用-encoding UTF-8 来显式指定为UTF-8的编码格式<br>2）将文件改为GBK编码，如果使用windows自带的记事本，保存为ANSI，中国区域会使用GBK编码。如果使用其它高级文本编辑工具，如：notepad++、Emeditor、UE这样的，另存为指定格式。</p>
+<h4 id="带包名的类如何编译"><a href="#带包名的类如何编译" class="headerlink" title="带包名的类如何编译"></a>带包名的类如何编译</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo2020;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        System.out.println(<span class="string">"Hello World!"</span>);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译运行：<br>我们会发现编译成功，A.class被编译到了D盘根目录下。运行报错“错误：找不到或无法加载主类A”</p>
+<p><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/by.png" alt></p>
+<ul>
+<li>原因分析:<ul>
+<li>有包的java程序，需要用完整包名来执行<br>由于我们没有指定classpath，jvm准备在当前路径下查找HelloWorld.class来装载，找了一圈没找到（确实有个HelloWorld类，但是HelloWorld类的完整路径是mypack.HelloWorld，所以不是这个），报错找不到或无法加载主类。</li>
+<li>有包的java程序，文件路径中必须包含包名，并以包名结尾<br>jvm看了一下有包，于是将包转换为路径，也就是期望在D:/mypack文件夹下，找到HelloWorld.class文件进行装载。也没找到。</li>
+</ul>
+</li>
+</ul>
+<p>如果有包，java命令必须在包的上层目录执行完整路径名（完全限定名），上例中HelloWorld.class的完全限定名是mypack.HelloWorld。如果在D盘下，有一个HelloWorld.java，包路径为aaa.bbb.ccc，必须在D盘下，执行java aaa.bbb.ccc.A才行，此处的“在D盘下”，暂时可以看做直接在D盘下，也可以通过-cp指定到D盘下，这个后面还会说。</p>
+<ul>
+<li>解决方法<br>我们可以使用-d . 来让编译器以当前路径为基准，自动创建包路径，这个-d .放在前面，放在后面都可以<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt;javac HelloWorld<span class="selector-class">.java</span> -d .</span><br><span class="line"></span><br><span class="line">D:\&gt;java mypack.HelloWorld</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+这个-d 可以将文件编译到指定目录下。</li>
+</ul>
+<p>假设我们在D盘下创建一个aa的目录，然后执行javac -d aa A.java，效果不贴了.<br>使用-classpath指定包的上级目录<br>使用-classpath（或者 -cp，简写，意思相同）指定.class的目录，使用相对路径，绝对路径都可以，这个目录直接通到mypack的上级即可<br>我们可以通过-classpath指定.class在哪个根目录下，然后从这个目录拼接上包路径来构成完整路径。</p>
+<p><a href="https://blog.csdn.net/u011531425/article/details/80961628" target="_blank" rel="noopener">点击此处,查看更多</a></p>
+<h4 id="java命令行运行java项目"><a href="#java命令行运行java项目" class="headerlink" title="java命令行运行java项目"></a>java命令行运行java项目</h4><p><a href="https://blog.csdn.net/huagong_adu/article/details/6929817" target="_blank" rel="noopener">点击查看</a></p>
+<blockquote>
+<p>有点烦躁了.去峡谷转一转,<br>Only action can relieve the uneasiness.            —2020/03/21</p>
+</blockquote>
+<h3 id="9-异常处理"><a href="#9-异常处理" class="headerlink" title="9.异常处理"></a>9.异常处理</h3><p><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/j7.png" alt></p>
+<h4 id="异常处理5个关键字"><a href="#异常处理5个关键字" class="headerlink" title="异常处理5个关键字"></a>异常处理5个关键字</h4><pre><code>![](Java每天学一点/j8.png)</code></pre><h4 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h4><h4 id="throwable类-异常方法"><a href="#throwable类-异常方法" class="headerlink" title="throwable类 异常方法"></a>throwable类 异常方法</h4><h4 id="throws-和-throw-区别"><a href="#throws-和-throw-区别" class="headerlink" title="throws 和 throw 区别"></a>throws 和 throw 区别</h4><ul>
+<li>throw：指的是在方法中人为抛出一个异常对象（这个异常对象可能是自己实例化或者抛出已存在的）；</li>
+<li>throws：在方法的声明上使用，表示此方法在调用时必须处理异常。<h4 id="RuntimeException"><a href="#RuntimeException" class="headerlink" title="RuntimeException"></a>RuntimeException</h4></li>
+</ul>
+<h4 id="Error与Exception的区别"><a href="#Error与Exception的区别" class="headerlink" title="Error与Exception的区别"></a>Error与Exception的区别</h4><ul>
+<li><p>Error（错误）是系统中的错误，程序员是不能改变的和处理的，是在程序编译时出现的错误，只能通过修改程序才能修正。一般是指与虚拟机相关的问题，如系统崩溃，虚拟机错误，内存空间不足，方法调用栈溢等。对于这类错误的导致的应用程序中断，仅靠程序本身无法恢复和和预防，遇到这样的错误，建议让程序终止。</p>
+</li>
+<li><p>Exception（异常）表示程序可以处理的异常，可以捕获且可能恢复。遇到这类异常，应该尽可能处理异常，使程序恢复运行，而不应该随意终止异常。</p>
+<h4 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h4><p>如果要自定义异常类，则扩展Exception类即可，因此这样的自定义异常都属于检查异常（checked exception）。如果要自定义非检查异常，则扩展自RuntimeException。</p>
+</li>
+</ul>
+<ul>
+<li>处理多个异常时,捕获范围小的异常要放在捕获范围大的异常之前处理</li>
+</ul>
+<p><a href="https://www.cnblogs.com/zhangchao0515/p/9613701.html" target="_blank" rel="noopener">java异常的详解</a></p>
+<h3 id="10-java反射"><a href="#10-java反射" class="headerlink" title="10. java反射"></a>10. java反射</h3><ul>
+<li><p>概念:Java反射说的是在运行状态中，对于任何一个类，我们都能够知道这个类有哪些方法和属性。对于任何一个对象，我们都能够对它的方法和属性进行调用。我们把这种动态获取对象信息和调用对象方法的功能称之为反射机制。</p>
+</li>
+<li><p>反射的应用场合：在编译时根本无法知道该对象或类可能属于哪些类，程序只依靠运行时信息来发现该对象和类的真实信息.</p>
+</li>
+<li><p>反射的作用：通过反射可以使程序代码访问装载到JVM 中的类的内部信息</p>
+<ul>
+<li><p>获取已装载类的成员变量信息</p>
+</li>
+<li><p>获取已装载类的方法</p>
+</li>
+<li><p>获取已装载类的构造方法信息</p>
+</li>
+</ul>
+</li>
+<li><p>常用方法:</p>
+<ul>
+<li>getName()获得类的完整名字</li>
+<li>getPackage()获取此类所属的包</li>
+<li>getSuperclass()获得此类的父类对应的Class对象</li>
+<li>getField(String name)获得类的指定属性 </li>
+<li>getMethods()获得类的public类型的方法</li>
+<li>getMethod (String name,Class [] args)获得类的指定方法<blockquote>
+<p>每个Method对象对应一个方法，获得Method对象后，可以调用其invoke() 来调用对应方法    Object invoke(Object obj,Object [] args):obj代表当前方法所属的对象的名字，args代表当前方法的参数列表，返回值Object是当前方法的返回值，即执行当前方法的结果。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>反射的缺点:</p>
+<ul>
+<li>性能问题<br>  1.使用反射基本上是一种解释操作，用于字段和方法接入时要远慢于直接代码。因此Java反射机制主要应用在对灵活性和扩展性要求很高的系统框架上,普通程序不建议使用。<br>  2.反射包括了一些动态类型，所以JVM无法对这些代码进行优化。因此，反射操作的效率要比那些非反射操作低得多。我们应该避免在经常被 执行的代码或对性能要求很高的程序中使用反射。</li>
+<li>使用反射会模糊程序内部逻辑<br>  程序人员希望在源代码中看到程序的逻辑，反射等绕过了源代码的技术，因而会带来维护问题。反射代码比相应的直接代码更复杂。</li>
+<li>安全限制<br>  使用反射技术要求程序必须在一个没有安全限制的环境中运行。如果一个程序必须在有安全限制的环境中运行，如Applet，那么这就是个问题了</li>
+<li>内部暴露<br>  由于反射允许代码执行一些在正常情况下不被允许的操作（比如访问私有的属性和方法），所以使用反射可能会导致意料之外的副作用－－代码有功能上的错误，降低可移植性。反射代码破坏了抽象性，因此当平台发生改变的时候，代码的行为就有可能也随着变化。</li>
+</ul>
+</li>
+</ul>
+<p>如果只是用一两次,可以忽略反射对性能的影响,只有运行上百万千万次才会感觉到对性能明显的影响.</p>
+<ul>
+<li>代码简介,提高代码的复用率,外部调用方便<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Fruit</span> </span>&#123; <span class="comment">//水果接口</span></span><br><span class="line">　 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>; <span class="comment">//吃水果</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">implements</span> <span class="title">Fruit</span></span>&#123; <span class="comment">//定义苹果</span></span><br><span class="line">　　<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">　　　　System.out.println(<span class="string">"**吃苹果。"</span>); </span><br><span class="line">　　&#125; </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Orange</span> <span class="keyword">implements</span> <span class="title">Fruit</span></span>&#123;</span><br><span class="line">　　<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">　　　　System.out.println(<span class="string">"**吃橘子。"</span>); </span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Factory</span></span>&#123;</span><br><span class="line">　　<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getInstance</span><span class="params">(String className)</span></span>&#123;</span><br><span class="line">　　　　Fruit fruit = <span class="keyword">null</span> ;</span><br><span class="line">　　　　<span class="keyword">try</span>&#123;</span><br><span class="line">　　　　　　fruit = (Fruit) Class.forName(className).newInstance() ;</span><br><span class="line">　　　　&#125;<span class="keyword">catch</span>(Exception e )&#123;</span><br><span class="line">　　　　　　e.printStackTrace() ;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">return</span> fruit ;</span><br><span class="line">　 &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryDemo</span></span>&#123;</span><br><span class="line">　　<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">　　<span class="comment">//通过工厂类取得接口实例，传入完整的包.类名称</span></span><br><span class="line">　　　　Fruit f = Factory.getInstance(<span class="string">"cn.yonyong.reflection.testdemo.Apple"</span>) ;</span><br><span class="line">　　　　<span class="keyword">if</span>(f!=<span class="keyword">null</span>)&#123; <span class="comment">//判断是否取得接口实例</span></span><br><span class="line">　　　　　　f.eat() ;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+如果部用反射,，那么我们如果再加一个西瓜类，就得在Factory里判断，每添加一个类都要修改一次Factory，但用了反射只用在调用的时候传入完整的类名就可完成。结果：用反射，修改一处代码；不用反射，修改两处代码。</li>
+</ul>
+<p>[反<strong>_____</strong>射]<a href="https://blog.csdn.net/huangliniqng/article/details/88554510" target="_blank" rel="noopener">https://blog.csdn.net/huangliniqng/article/details/88554510</a></p>
+<ul>
+<li><a href="https://blog.csdn.net/vikeyyyy/article/details/79083097" target="_blank" rel="noopener">invoke</a> 干啥的?<br><a href="https://blog.csdn.net/qq_36470686/article/details/85015753?utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">8错</a><br><a href="https://blog.csdn.net/lililuni/article/details/83449088?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">福利</a></li>
+</ul>
+<p>java.lang<br>java.Class</p>
+<h3 id="11-杂文篇"><a href="#11-杂文篇" class="headerlink" title="11.杂文篇"></a>11.杂文篇</h3><h4 id="11-1-StringUtils"><a href="#11-1-StringUtils" class="headerlink" title="11.1 StringUtils"></a>11.1 StringUtils</h4><ul>
+<li>public static boolean isEmpty(String str)<br>判断某字符串是否为空，为空的标准是str == null 或 str.length() == 0</li>
+<li>public static boolean isNotEmpty(String str)</li>
+<li>public static boolean isBlank(String str)<br>判断某字符串是否为空或长度为0或由空白符(whitespace)构成</li>
+<li>public static String trim(String str)<br>去掉字符串两端的控制符(control characters, char &lt;= 32)<br>如果输入为null则返回null</li>
+<li>public static String trimToNull(String str)<br>去掉字符串两端的控制符(control characters, char &lt;= 32)<br>如果变为null或”“，则返回null</li>
+<li>public static String strip(String str)<br>去掉字符串两端的空白符(whitespace)，</li>
+<li>public static String stripToNull(String str)</li>
+<li>public static String[] split(String str)</li>
+<li>53.public static String[] split(String str, char separatorChar)</li>
+</ul>
+<p>…不一一列举了.不需要背下来,大家看一遍 知道都能做什么就好了</p>
+<p><a href="https://www.cnblogs.com/liangjiejava/p/9850067.html" target="_blank" rel="noopener">https://www.cnblogs.com/liangjiejava/p/9850067.html</a></p>
+<h4 id="11-2-int和Integer的区别"><a href="#11-2-int和Integer的区别" class="headerlink" title="11.2 int和Integer的区别"></a>11.2 int和Integer的区别</h4><p>基本区别:</p>
+<ul>
+<li>（1）Integer是int的包装类；int是基本数据类型；</li>
+<li>（2）Integer变量必须实例化后才能使用；int变量不需要；</li>
+<li>（3）Integer实际是对象的引用，指向此new的Integer对象；int是直接存储数据值 ；</li>
+<li>（4）Integer的默认值是null；int的默认值是0。</li>
+</ul>
+<p>深入比较:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer i1 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        Integer i2 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        Integer i3 = <span class="number">1</span>;</span><br><span class="line">        Integer i4 = <span class="number">127</span>;</span><br><span class="line">        Integer i5 = <span class="number">127</span>;</span><br><span class="line">        Integer i6 = <span class="number">128</span>;</span><br><span class="line">        Integer i7 = <span class="number">128</span>;</span><br><span class="line">        <span class="keyword">int</span> i8 = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//1、直接比较时，比较两者的地址，每次new生成的都是新的对象</span></span><br><span class="line">        System.out.println(i1==i2);<span class="comment">//false</span></span><br><span class="line">        <span class="comment">//2、integer和int比较时会自动拆箱转换为int类型，然后比较两者的值</span></span><br><span class="line">        System.out.println(i1==i8);<span class="comment">//ture</span></span><br><span class="line">        <span class="comment">//3、非new生成i3指向的是java常量池的对象，new是新生成的</span></span><br><span class="line">        System.out.println(i1==i3);<span class="comment">//false</span></span><br><span class="line">        <span class="comment">//4、127和128问题，JavaAPI中对Integer定义：在-128到127(含)之间的数会缓存，只存在一个对象中，即在此创建只是从缓存中取</span></span><br><span class="line">            <span class="comment">//超过这个每次创建就会new，即产生新的对象</span></span><br><span class="line">        System.out.println(i4==i5);<span class="comment">//true</span></span><br><span class="line">        System.out.println(i6==i7);<span class="comment">//false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-3-null和“”的区别"><a href="#11-3-null和“”的区别" class="headerlink" title="11.3  null和“”的区别"></a>11.3  null和“”的区别</h4><p>本质的区别:</p>
+<ul>
+<li>null是没有地址的</li>
+<li>“”是有地址的,里面的内容为空</li>
+</ul>
+<p>具体区别:</p>
+<ol>
+<li>做成员变量（字段/属性/类变量）时，如果只写String str；那么是默认赋值为null的。null的话，你屏幕输出（toString方法）的结果为字符串null，而且其它调用str的操作，编译可通过，运行时会空指针异常，此时是异常。</li>
+<li>做局部变量（方法里的变量）时，如果只写String str；是不会默认赋值null的，这里仅声明了一个str变量，在栈内存中有定义，但没有任何值，null其实也是一种值。此时任何调用str的操作，编译时就均会报错，是error，不是异常。</li>
+<li>“”是空字符串，但也是字符串，没有什么东西。 而null是空的意思，什么都没有，没有地址</li>
+</ol>
+<p><code>String str = null</code>;和<code>String str1</code>; 这两者也是不同的，前者是分配了内存，也就是说，你对他可以进行相关操作，而不会报错，后者是不可以的。</p>
+<h4 id="11-4-Java-StringTokenizer"><a href="#11-4-Java-StringTokenizer" class="headerlink" title="11.4 Java StringTokenizer"></a>11.4 Java StringTokenizer</h4><p>Java StringTokenizer 属于 java.util 包，用于分隔字符串。</p>
+<ul>
+<li>StringTokenizer 构造方法：<ol>
+<li>StringTokenizer(String str) ：构造一个用来解析 str 的StringTokenizer 对象。java 默认的分隔符是空格(“”)、制表符(\t)、换行符(\n)、回车符(\r)。</li>
+<li>StringTokenizer(String str, String delim) ：构造一个用来解析 str 的 StringTokenizer 对象，并提供一个指定的分隔符。</li>
+<li>StringTokenizer(String str, String delim, boolean returnDelims) ：构造一个用来解析 str 的 StringTokenizer 对象，并提供一个指定的分隔符，同时，指定是否返回分隔符。</li>
+</ol>
+</li>
+<li>String Tokenizer常用方法<ol>
+<li>int countTokens()：返回nextToken方法被调用的次数。</li>
+<li>boolean hasMoreTokens()：返回是否还有分隔符。</li>
+<li>boolean hasMoreElements()：判断枚举 （Enumeration） 对象中是否还有数据。</li>
+<li>String nextToken()：返回从当前位置到下一个分隔符的字符串。</li>
+<li>Object nextElement()：返回枚举 （Enumeration） 对象的下一个元素。</li>
+<li>String nextToken(String delim)：与 4 类似，以指定的分隔符返回结果。</li>
+</ol>
+</li>
+<li>实例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span></span><br><span class="line"><span class="class"></span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123; </span><br><span class="line">        String str = <span class="string">"runoob,google,taobao,facebook,zhihu"</span>;</span><br><span class="line">        <span class="comment">// 以 , 号为分隔符来分隔字符串</span></span><br><span class="line">        StringTokenizer st=<span class="keyword">new</span> StringTokenizer(str,<span class="string">","</span>);</span><br><span class="line">        <span class="keyword">while</span>(st.hasMoreTokens()) &#123; </span><br><span class="line">            System.out.println(st.nextToken());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果为：</span></span><br><span class="line">runoob</span><br><span class="line">google</span><br><span class="line">taobao</span><br><span class="line">facebook</span><br><span class="line">zhihu</span><br></pre></td></tr></table></figure>
+实例2<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"使用第一种构造函数："</span>);</span><br><span class="line">        StringTokenizer st1 = <span class="keyword">new</span> StringTokenizer(<span class="string">"Only action can relieve the uneasiness"</span>, <span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">while</span> (st1.hasMoreTokens())</span><br><span class="line">            System.out.println(st1.nextToken());</span><br><span class="line"> </span><br><span class="line">        System.out.println(<span class="string">"使用第二种构造函数："</span>);</span><br><span class="line">        StringTokenizer st2 = <span class="keyword">new</span> StringTokenizer(<span class="string">"Jason says : Only action can relieve the uneasiness"</span>, <span class="string">" :"</span>);</span><br><span class="line">        <span class="keyword">while</span> (st2.hasMoreTokens())</span><br><span class="line">            System.out.println(st2.nextToken());</span><br><span class="line"> </span><br><span class="line">        System.out.println(<span class="string">"使用第三种构造函数："</span>);</span><br><span class="line">        StringTokenizer st3 = <span class="keyword">new</span> StringTokenizer(<span class="string">"Jason says : Only action can relieve the uneasiness"</span>, <span class="string">" :"</span>,  <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">while</span> (st3.hasMoreTokens())</span><br><span class="line">            System.out.println(st3.nextToken());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>注意,第二个参数是String类型,String类型中的每个字符都是分隔符,根据第三个构造函数的输出可以看出</strong><br>如果我们想要分割一篇文章的词汇,统计所出现的次数,就可以将第二个参数设置为”,.?! ;:/“‘“ 双引号需要转义</p>
+<h4 id="11-5-equals和-的区别"><a href="#11-5-equals和-的区别" class="headerlink" title="11.5  equals和==的区别"></a>11.5  equals和==的区别</h4><p>他们最大的区别就是一个是方法，一个是关系操作符。<br>Object类中的equals方法源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">this</span> == obj;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>可见它直接比较的对象本身.<br>String类中的equals方法源码（重写Object中的）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">        String anotherString = (String) anObject;</span><br><span class="line">        <span class="keyword">int</span> n = value.length;</span><br><span class="line">        <span class="keyword">if</span> (n == anotherString.value.length) &#123;</span><br><span class="line">            <span class="keyword">char</span> v1[] = value;</span><br><span class="line">            <span class="keyword">char</span> v2[] = anotherString.value;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的equals比较当中，都运用到了<code>==</code>，这就说明，equals（不管哪个类中的）是<code>==</code>的扩展。</p>
+<p>引用《java编程思想》中的原话：</p>
+<blockquote>
+<p>关系操作符生成的是一个boolean结果，它们计算的是操作数的值之间的关系</p>
+</blockquote>
+<p><strong>总结:</strong></p>
+<ul>
+<li>当<code>==</code>比较基本数据类型的时候，就是比较他们本身的值。</li>
+<li>而<code>==</code>比较引用数据类型的时候， 就是比较他们在内存的地址</li>
+<li>equals用来比较引用数据类型一般都要重写该方法。例如String类就重写了这个方法，</li>
+<li>如果没有重写equals就直接比较，就是比较他们的内存地址</li>
+<li>equals不能用于基本数据类型</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String str;</span><br><span class="line">        str = <span class="keyword">new</span> String(<span class="string">"a"</span>);</span><br><span class="line">        String str2 = str;</span><br><span class="line">        System.out.println(str==str2); # true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的str中存储的并不是“a”，而是它所指向的对象的地址。所以将他赋值给str2，比较他俩时返回的就是true</p>
+<p><strong>hashCode()方法</strong>也类似</p>
+<h4 id="11-6-string和各种格式互转-string转int-int转string-其他类型转String"><a href="#11-6-string和各种格式互转-string转int-int转string-其他类型转String" class="headerlink" title="11.6 string和各种格式互转 string转int int转string,其他类型转String"></a>11.6 string和各种格式互转 string转int int转string,其他类型转String</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String s = String.valueOf(value); <span class="comment">// 其中 value 为任意一种数字类型。 </span></span><br><span class="line"><span class="comment">//字符串型转换成各种数字类型：</span></span><br><span class="line">String s = <span class="string">"169"</span>; </span><br><span class="line"><span class="keyword">byte</span> b = Byte.parseByte( s ); </span><br><span class="line"><span class="keyword">short</span> t = Short.parseShort( s ); </span><br><span class="line"><span class="keyword">int</span> i = Integer.parseInt( s ); </span><br><span class="line"><span class="keyword">long</span> l = Long.parseLong( s ); </span><br><span class="line">Float f = Float.parseFloat( s ); </span><br><span class="line">Double d = Double.parseDouble( s );</span><br><span class="line">判断字符时候大小写及其转换</span><br><span class="line">Character.isUpperCase(c); <span class="comment">// 是否是大写</span></span><br><span class="line">Character.isLowerCase(c); <span class="comment">// 是否是小写</span></span><br><span class="line">Character.toUpperCase(c); <span class="comment">// 转换大写</span></span><br><span class="line">Character.toLowerCase(c); <span class="comment">// 转化小写</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>ASCII码<ul>
+<li>48-57  : 0-9</li>
+<li>65-90: A-Z</li>
+<li>97-122: a-z</li>
+</ul>
+</li>
+</ul>
+<h4 id="11-7-java计算程序运行时间"><a href="#11-7-java计算程序运行时间" class="headerlink" title="11.7 java计算程序运行时间"></a>11.7 java计算程序运行时间</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> startTime = System.currentTimeMillis();    <span class="comment">//获取开始时间</span></span><br><span class="line">doSomething();    <span class="comment">//测试的代码段</span></span><br><span class="line"><span class="keyword">long</span> endTime = System.currentTimeMillis();    <span class="comment">//获取结束时间</span></span><br><span class="line">System.out.println(<span class="string">"程序运行时间："</span> + (endTime - startTime) + <span class="string">"ms"</span>);    <span class="comment">//输出程序运行时间</span></span><br></pre></td></tr></table></figure>
+<p>以纳秒为单位:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> startTime=System.nanoTime();   <span class="comment">//获取开始时间  </span></span><br><span class="line">doSomeThing(); <span class="comment">//测试的代码段  </span></span><br><span class="line"><span class="keyword">long</span> endTime=System.nanoTime(); <span class="comment">//获取结束时间  </span></span><br><span class="line">System.out.println(<span class="string">"程序运行时间： "</span>+(endTime-startTime)+<span class="string">"ns"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="11-8-关于Set中toArray"><a href="#11-8-关于Set中toArray" class="headerlink" title="11.8 关于Set中toArray()"></a>11.8 关于Set中toArray()</h4><p>Set的toArray方法<br>下面是想把Set转换为String数组,于是就用到了Set的toArray()方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;String&gt;();  </span><br><span class="line">........          </span><br><span class="line">String[] strs = (String[]) set.toArray();</span><br></pre></td></tr></table></figure>
+<p>程序编译的时候很正常，当运行的时候却报了 ClassCastException.</p>
+<blockquote>
+<p>那么,String是Object的子类,而set.toArray()返回的就是一个Object数组,为什么就不能转换呢?</p>
+</blockquote>
+<p>其实,String是一种类型， String[]是另一种类型，这是不同的概念。<br>Object可以强转为String（只要可以）不代表<code>Object[]</code>类型可以强转为<code>String[]</code>类型。<br>再者,对于Set而言，它只知道它内部保存的是Object，所以默认情况下，toArray只能是返回一个由这些Object构成的Object数组出来。但程序的作者或许更清楚其内部元素的更具体的类型，因此，HashSet类提供了toArray的另一个重载版本，允许用户指定一种比Object[]更具体的数组类型，方法是传递一个用户想要的数组类型的一个数组实例进去，多长都无所谓（因此我们常常使用一个0长度的，毕竟把类型带进去就OK了），于是，toArray内部就会按照你想要的这种类型，给构造一个数组出来。这样构造出来的数组，当然是很安全地被调用者转换回那个实际的类型。</p>
+<p><strong>划重点</strong>:<br><font color="red">String 和String[]不是一种类型 ，不要犯想当然的错误。</font></p>
+<h4 id="11-9-String类的深入理解"><a href="#11-9-String类的深入理解" class="headerlink" title="11.9#### String类的深入理解"></a>11.9#### String类的深入理解</h4><p>了解一个类的最好的方式就是看源码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">public final <span class="class"><span class="keyword">class</span> <span class="title">String</span></span></span><br><span class="line">    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence</span><br><span class="line">&#123;</span><br><span class="line">    /** The value <span class="keyword">is</span> used <span class="keyword">for</span> character storage. */</span><br><span class="line">    private final char value[];</span><br><span class="line"></span><br><span class="line">    /** The offset <span class="keyword">is</span> the first index of the storage that <span class="keyword">is</span> used. */</span><br><span class="line">    private final int offset;</span><br><span class="line"></span><br><span class="line">    /** The count <span class="keyword">is</span> the number of characters <span class="keyword">in</span> the String. */</span><br><span class="line">    private final int count;</span><br><span class="line"></span><br><span class="line">    /** Cache the hash code <span class="keyword">for</span> the string */</span><br><span class="line">    private int hash; // Default to <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    /** use serialVersionUID <span class="keyword">from</span> JDK <span class="number">1.0</span><span class="number">.2</span> <span class="keyword">for</span> interoperability */</span><br><span class="line">    private static final long serialVersionUID = <span class="number">-6849794470754667710L</span>;</span><br><span class="line">	</span><br><span class="line">	public String substring(int beginIndex, int endIndex) &#123;</span><br><span class="line">    <span class="keyword">if</span> (beginIndex &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(beginIndex);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (endIndex &gt; count) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(endIndex);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (beginIndex &gt; endIndex) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(endIndex - beginIndex);</span><br><span class="line">    &#125;</span><br><span class="line">    return ((beginIndex == 0) &amp;&amp; (endIndex == count)) ? this :</span><br><span class="line">        new String(offset + beginIndex, endIndex - beginIndex, value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public String concat(String str) &#123;</span><br><span class="line">    int otherLen = str.length();</span><br><span class="line">    <span class="keyword">if</span> (otherLen == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> this;</span><br><span class="line">    &#125;</span><br><span class="line">    char buf[] = new char[count + otherLen];</span><br><span class="line">    getChars(<span class="number">0</span>, count, buf, <span class="number">0</span>);</span><br><span class="line">    str.getChars(<span class="number">0</span>, otherLen, buf, count);</span><br><span class="line">    <span class="keyword">return</span> new String(<span class="number">0</span>, count + otherLen, buf);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public String replace(char oldChar, char newChar) &#123;</span><br><span class="line">    <span class="keyword">if</span> (oldChar != newChar) &#123;</span><br><span class="line">        int len = count;</span><br><span class="line">        int i = <span class="number">-1</span>;</span><br><span class="line">        char[] val = value; /* avoid getfield opcode */</span><br><span class="line">        int off = offset;   /* avoid getfield opcode */</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (++i &lt; len) &#123;</span><br><span class="line">        <span class="keyword">if</span> (val[off + i] == oldChar) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; len) &#123;</span><br><span class="line">        char buf[] = new char[len];</span><br><span class="line">        <span class="keyword">for</span> (int j = <span class="number">0</span> ; j &lt; i ; j++) &#123;</span><br><span class="line">            buf[j] = val[off+j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; len) &#123;</span><br><span class="line">            char c = val[off + i];</span><br><span class="line">            buf[i] = (c == oldChar) ? newChar : c;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> new String(<span class="number">0</span>, len, buf);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> this;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">...更多的不再展示</span><br></pre></td></tr></table></figure>
+<p>从以上的源码中可以获得信息</p>
+<ul>
+<li><p>String是final类，这意味着，这个类不能被继承，也不可有子类，其中的方法默认都是final方法</p>
+</li>
+<li><p>String类是通过char数组来保存字符串的</p>
+</li>
+<li><p>String类对字符串的操作都是对新字符串操作。</p>
+<blockquote>
+<p>也就是说,String对象一旦被创建就不会改变,任何改变操作都不会改变原字符串,而生成新的对象</p>
+</blockquote>
+</li>
+<li><p>字符串常量池</p>
+<blockquote>
+<p>每当我们创建字符串常量时，JVM会首先检查字符串常量池，如果该字符串已经存在常量池中，那么就直接返回常量池中的实例引用。如果字符串不存在常量池中，就会实例化该字符串并且将其放到常量池中。由于String字符串不可变，所以常量池中一定不存在两个相同的字符串</p>
+</blockquote>
+</li>
+<li><p>静态常量池和运行时常量池</p>
+<ul>
+<li>静态常量池，即.class文件中的常量池，class文件中的常量池不仅仅包含字符串(数字)字面量，还包含类、方法的信息，占用class文件绝大部分空间。</li>
+<li>运行时常量池，则是jvm虚拟机在完成类装载操作后，将class文件中的常量池载入到内存中，并保存在方法区中，我们常说的常量池，就是指方法区中的运行时常量池。<br>想了解更多,文末给出原文链接</li>
+</ul>
+</li>
+</ul>
+<h4 id="11-10-static深入分析"><a href="#11-10-static深入分析" class="headerlink" title="11.10 static深入分析"></a>11.10 static深入分析</h4><p>基本介绍：static的存在就是为了，不创建对象来调用这些属性或者方法，也是核心思想。<br>几种使用场景:</p>
+<ol>
+<li>修饰“内部类”</li>
+<li>修饰变量</li>
+<li>修饰方法</li>
+<li>修饰代码块</li>
+</ol>
+<p>首先：修饰“内部类”，要注意普通类是不允许声明为静态的，只有内部类才可以。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">        InnerClass()&#123;</span><br><span class="line">            System.out.println(<span class="string">"static innerClass"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">innerMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"static innerMethod"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        InnerClass innerClass = <span class="keyword">new</span> Test.InnerClass();</span><br><span class="line">        innerClass.innerMethod();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修饰代码块时，执行的顺序（加载的顺序）如下：</p>
+<blockquote>
+<p>父类静态变量<br>父类静态代码块<br>子类静态变量<br>子类静态代码块<br>父类普通变量<br>父类普通代码块<br>父类构造函数<br>子类普通变量<br>子类普通代码块<br>子类构造函数</p>
+</blockquote>
+<p>总结一下就是，静态的先被加载（在这个基础上，父类优先于子类，在父类优先于子类的基础上，变量优先于代码块优先于构造函数（有的话））</p>
+<p>方法区:</p>
+<ol>
+<li>又叫静态区，跟堆一样，被所有的线程共享。方法区包含所有的class和static变量。</li>
+<li>方法区中包含的都是在整个程序中永远唯一的元素，如class，static变量。</li>
+</ol>
+<p>静态变量是所有线程共享的，所以不会消失。所以它具有那些特性。</p>
+<p>一个小结：</p>
+<ol>
+<li>static是一个修饰符，用于修饰成员。（成员变量，成员函数）static修饰的成员变量 称之为静态变量或类变量。</li>
+<li>static修饰的成员被所有的对象共享。</li>
+<li>static优先于对象存在，因为static的成员随着类的加载就已经存在。</li>
+<li>static修饰的成员多了一种调用方式，可以直接被类名所调用，（类名.静态成员）。</li>
+<li>static修饰的数据是共享数据，对象中的存储的是特有的数据。</li>
+</ol>
+<p><a href="https://blog.csdn.net/Song_JiangTao/article/details/82023526?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">摘自</a></p>
+<p><a href="https://baijiahao.baidu.com/s?id=1636927461989417537&wfr=spider&for=pc" target="_blank" rel="noopener">static</a></p>
+<blockquote>
+<p>Only action can relieve the uneasiness.            —2020/03/22</p>
+</blockquote>
+<h3 id="13-文件IO"><a href="#13-文件IO" class="headerlink" title="13 文件IO"></a>13 文件IO</h3><h4 id="File类的基本概念"><a href="#File类的基本概念" class="headerlink" title="File类的基本概念"></a>File类的基本概念</h4><ul>
+<li>File是进行文件自身(目录)操作主要二点类</li>
+<li>目录分隔符<br>  分隔符有三种形式,<code>//</code>,<code>\</code>,或者Separator</li>
+<li>常用的方法<br><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/j1.png" alt></li>
+<li>补充:<ul>
+<li>lastModified()</li>
+<li>查看文件大小<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"文件大小："</span> + <span class="keyword">new</span> BigDecimal((<span class="keyword">double</span>)file.length()/<span class="number">1024</span>/<span class="number">1024</span>).divide(<span class="keyword">new</span> BigDecimal(<span class="number">1</span>),<span class="number">2</span>,BigDecimal.ROUND_HALF_UP) +<span class="string">"M"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h4></li>
+</ul>
+</li>
+<li>I/O流表示输入源或输出目的地。 流可以表示许多不同的来源和目的地，包括磁盘文件、设备、其他程序和内存数组.</li>
+<li>流支持许多不同类型的数据，包括简单字节、原始数据类型、本地化字符和对象。 有些流只是传递数据；另一些流操纵和转换数据 以有用的方式提供数据。</li>
+</ul>
+<p>流的分类</p>
+<ul>
+<li><p>不同的方式</p>
+<ul>
+<li>InputStream/OutputStream</li>
+<li>Byte Stream/Character Stream</li>
+<li>节点流/处理流</li>
+</ul>
+</li>
+<li><p>四种不同的流</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Byte Stream</th>
+<th align="left">Character Stream</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Input</td>
+<td align="left">InputStream</td>
+<td align="left">Reader</td>
+</tr>
+<tr>
+<td align="left">Output</td>
+<td align="left">OutputStream</td>
+<td align="left">Writer</td>
+</tr>
+<tr>
+<td align="left">##### 字节流</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">- Java字节流结构</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/j2.png" alt></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<pre><code>- OutputStream
+    - close()
+    - flush()
+    - write(int b):输出单个字节
+    - write(byte[] b): 输出全部字节数组
+    - write(byte[] b, int off, int len): 输出部分字节数组
+- FileOutputStream
+- InputStream
+    - read()
+    - read(byte[] b)
+    - read(byte[] b, int off, int len)</code></pre><ul>
+<li>How to read date?<ol>
+<li>Open a stream</li>
+<li>While more information</li>
+<li>Read information</li>
+<li>Close the stream</li>
+</ol>
+</li>
+<li>How to write data?<ol>
+<li>Open a stream</li>
+<li>While more information</li>
+<li>Write information</li>
+<li>Close the stream</li>
+</ol>
+</li>
+</ul>
+<h5 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h5><p><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/j3.png" alt></p>
+<ul>
+<li><p>Write</p>
+<pre><code>- write(char[] cbuf)
+-  write(char[] cbuf, int off, int len)
+- write(int c)
+- write(String str)
+-  write(String str, int off, int len)</code></pre></li>
+<li><p>Reader</p>
+<pre><code>- read()
+- read(char[], cbuf)
+- read(char[] cbuf,int off, int len)
+- read(CharBuffer target)</code></pre></li>
+<li><p>字节流和字符流的区别</p>
+<ul>
+<li>buffer</li>
+<li>close()<ul>
+<li>OutputStream,yes</li>
+<li>writer, no<ul>
+<li>flush</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用场景<ul>
+<li>开发中字节数据比较多，图片、音乐、电影</li>
+<li>字符最大的好处，中文的有效处理，如果处理中文，优先使用字符流，除此之外，以字节流为主。<h5 id="传输流"><a href="#传输流" class="headerlink" title="传输流"></a>传输流</h5></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>InputStreamReader</p>
+<pre><code>An InputStreamReader is a bridge from byte streams to character streams: It
+reads bytes and decodes them into characters using a specified charset.</code></pre></li>
+<li><p>OutputStreamWriter</p>
+<pre><code>An OutputStreamWriter is a bridge from character streams to byte streams:Characters written to it are encoded into bytes using a specified charset. Thecharset that it uses may be specified by name or may be given explicitly, or theplatform&apos;s default charset may be accepted.</code></pre><h5 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h5></li>
+<li><p>Encoding<br>  计算机中所有的信息组成都是二进制数据，那么所有能够描述出的中文文字都是经过处理后的结果。在计算机的世界里，所有的语言文字都会使用编码来进行描述，最常见的编码是ASCII码</p>
+<ul>
+<li>GDK:中文的国标编码，GBK包含有简体中文和繁体中文</li>
+<li>GB2312: 常用的简体</li>
+<li>iso8859-1</li>
+<li>unicode:</li>
+<li>utf编码(utf-8):融合了ISO8859-1和UNICODE编码的特点，在以后的所有开发里，使用的都是UTF-8编码</li>
+</ul>
+</li>
+<li><p>乱码:编码与解码的字符集不统一.</p>
+</li>
+<li><p>utf8中 中文占多少字节<br>一般是3个字节，最常见的编码方式是1110xxxx 10xxxxxx 10xxxxxx。<br>但再超大字符集中的更多数汉字要占4个字节.<br><a href="https://www.cnblogs.com/web21/p/6090104.html" target="_blank" rel="noopener">click</a></p>
+</li>
+</ul>
+<h5 id="Memory-Stream"><a href="#Memory-Stream" class="headerlink" title="Memory Stream"></a>Memory Stream</h5><ul>
+<li>Byte Memory Stream： <ul>
+<li>ByteArrayInputStream</li>
+<li>ByteArrayOutputStream: toByteArray()</li>
+</ul>
+</li>
+<li>Character Memory Stream:<ul>
+<li>CharArrayReader</li>
+<li>CharArrayWriter<h5 id="PrintStream"><a href="#PrintStream" class="headerlink" title="PrintStream"></a>PrintStream</h5></li>
+</ul>
+</li>
+<li>输出流的问题<ul>
+<li>所有的输出数据必须以字节类型的数据为主。</li>
+<li>如果输出的数据是int(Integer)、double(Double)、java.util.Date等常用类型怎么办？都需要将其转换为字节后才能输出。</li>
+<li>为了解决这个问题，在java.io包中又专门提供了一组打印流以方便用户的输出操作<ul>
+<li>字节打印流：PrintStream<br>我们让用的 <code>System.out.Print</code> out就是PrintStream类型的</li>
+<li>字符打印流：PrintWriter</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>常用的操作方法<br><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/j4.png" alt></li>
+<li>PrintStream类的格式化输出<br>  PrintStram类在最初设计时主要是为了弥补OutputStream输出类的功能不足，但是从JDK 1.5开始，为PrintStream增加了格式化输出的支持方法：<ul>
+<li>public PrintStream printf(String format, Object… args)。</li>
+<li>利用这些方法可以使用像C语言那样的数据标记实现内容填充，常见<br>的输出标记为：整数（%d）、字符串（%s）、小数（%m.nf）、字符<br>（%c）</li>
+</ul>
+</li>
+</ul>
+<h5 id="System类对IO的支持"><a href="#System类对IO的支持" class="headerlink" title="System类对IO的支持"></a>System类对IO的支持</h5><p>System类是现在为止使用最多的一个类，所有的信息输出都会使用到“System.out.println()”或“System.out.print()”两个方法完成，而实际上System类中也专门提供了与IO有关的三个常量</p>
+<ul>
+<li>系统输入:System.in<br>在许多的编程语言之中为了方便用户的交互操作，都会直接提供有一种键盘输入数据的操作功能，但遗憾的是在Java之中并没有提供这样可以直接使用的键盘输入操作，而要想实现此类操作必须采用IO处理的形式完成，而操作的核心就是利用System.in（此为InputStream类实例化对象）完成。<h5 id="缓冲输入流"><a href="#缓冲输入流" class="headerlink" title="缓冲输入流"></a>缓冲输入流</h5>在java.io包中如果要使用缓冲区进行数据操作，</li>
+<li>字符缓冲区流：BufferedReader、BufferedWriter；</li>
+<li>字节缓冲区流：BufferedInputStream、BufferedOutputStream；</li>
+<li>以上给出的四个操作类中，最为重要的就是BufferedReader类，此类是Reader的子类，属于字符缓冲输入流，而如果要处理中文数据，字符流是最方便的，BufferedReader类的常用方法如表所示。</li>
+</ul>
+<p><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/j5.png" alt></p>
+<h5 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h5><ul>
+<li>BufferedReader的问题：<br>  读取数据的时候只能按照字符串返回</li>
+<li>Scanner</li>
+<li>Constructor：Scanner(InputStream source) </li>
+<li>Two methods： <ul>
+<li>hasNext()<br>判断是否有指定类型的数据</li>
+<li>next()<br>Get the data<h5 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h5></li>
+</ul>
+</li>
+<li>Serializable（序列化）<ul>
+<li>堆内存-&gt;二进制数据流进行传输</li>
+<li>并非所有类的对象都是可以被序列化，必须要实现<code>Serializable</code>接口</li>
+<li>ObjectOutputStream:</li>
+</ul>
+</li>
+<li>反序列化<ul>
+<li>ObjectInputStream：反序列化</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Only action can relieve the uneasiness.            —2020/03/23</p>
+</blockquote>
+<h3 id="14-Java序列化与反序列化"><a href="#14-Java序列化与反序列化" class="headerlink" title="14 Java序列化与反序列化"></a>14 Java序列化与反序列化</h3><blockquote>
+<p>Only action can relieve the uneasiness.            —2020/03/24</p>
+</blockquote>
+<h3 id="15-OOP"><a href="#15-OOP" class="headerlink" title="15 OOP"></a>15 OOP</h3><h4 id="多态和继承"><a href="#多态和继承" class="headerlink" title="多态和继承"></a>多态和继承</h4><p>成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边。<br><a href="https://blog.csdn.net/foreverhuylee/article/details/21278311/" target="_blank" rel="noopener">多态和继承</a></p>
+<h4 id="java-委托"><a href="#java-委托" class="headerlink" title="java 委托"></a>java 委托</h4><h4 id="抽象类和接口"><a href="#抽象类和接口" class="headerlink" title="抽象类和接口"></a>抽象类和接口</h4><p>abstract </p>
+<ul>
+<li>抽象类不允许被实例化,只能被继承</li>
+<li>它可以包含属性和方法.方法既可以包含代码实现,也可以不包含代码实现.不包含代码实现的方法叫做抽象方法.</li>
+<li>子类(具体类)继承抽象类,必须实现抽象类中的所有抽象方法.</li>
+</ul>
+<p>interfere</p>
+<ul>
+<li>接口不能包含属性</li>
+<li>接口只能声明方法,方法不能包含代码实现<ul>
+<li>jdk8开始接口支持default 和static方法</li>
+</ul>
+</li>
+<li>类实现接口的时候,必须实现接口中声明的所有方法.<h4 id><a href="#" class="headerlink" title></a></h4><blockquote>
+<p>Only action can relieve the uneasiness.            —2020/03/25</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="究竟何为面向对象？"><a href="#究竟何为面向对象？" class="headerlink" title="究竟何为面向对象？"></a>究竟何为面向对象？</h4><p>首先，面向对象是一种思想，它呢是基于面向过程而言的，这种思想是对数据的一种优化<font color="red">这种思想是对数据的一种优化</font><br>其次，理解对象概念</p>
+<ul>
+<li>什么是对象？<br>对象就是类的一个实例，</li>
+<li>什么是类？<br>类就是对一类事物的抽象，这类事物的共同特性就是程序中的属性，共同的行为就是方法。</li>
+</ul>
+<p>例如：动物这个类。有属性name，有方法eat()。动物类的对象：狗，狗呢就具有name的属性和吃的行为。</p>
+<p><font color="red">面向对象的三大特征：封装、继承、多态。</font></p>
+<ul>
+<li>封装：隐藏了对象的具体细节。提高了复用性和安全性</li>
+<li>继承：两个类之间有一些的属性和方法的重复。就使用继承，这样既简化了代码，也提高了代码的复用性</li>
+<li>多态：继承是多态的前提。体现在：父类对象的引用可以指向子类对象，这样提高了程序的扩展性<h3 id="Collection-容器"><a href="#Collection-容器" class="headerlink" title="Collection 容器"></a>Collection 容器</h3><img src="/2020/03/18/Java%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B8%80%E7%82%B9/j6.png" alt></li>
+</ul>
+<h4 id="java容器体系结构"><a href="#java容器体系结构" class="headerlink" title="java容器体系结构"></a>java容器体系结构</h4><ul>
+<li><code>==</code> vs equals<ul>
+<li><code>==</code><ul>
+<li>原始类型 <code>==</code>用来表示两个变量的数值</li>
+<li>引用类型 <code>==</code>用来地址的比较</li>
+</ul>
+</li>
+<li>equals<ul>
+<li>在Object类中<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>我们可以重写equals方法<br>例如 String类中就重写了equals<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">        String aString = (String)anObject;</span><br><span class="line">        <span class="keyword">if</span> (coder() == aString.coder()) &#123;</span><br><span class="line">            <span class="keyword">return</span> isLatin1() ? StringLatin1.equals(value, aString.value)</span><br><span class="line">                              : StringUTF16.equals(value, aString.value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Collection<br>  Methods of Collection<ul>
+<li>boolean add(E e) </li>
+<li>boolean addAll(Collection&lt;? extends E&gt; c) </li>
+<li>void clear() </li>
+<li>boolean contains(Object o) </li>
+<li>boolean containsAll(Collection&lt;?&gt; c) </li>
+<li>boolean equals(Object o) </li>
+<li>int hashCode() </li>
+<li>boolean isEmpty() </li>
+<li>Iterator<code>&lt;E&gt;</code> iterator() </li>
+<li>boolean remove(Object o) </li>
+<li>boolean removeAll(Collection&lt;?&gt; c) </li>
+<li>boolean retainAll(Collection&lt;?&gt; c) </li>
+<li>int size() </li>
+<li>Object[] toArray() </li>
+<li>default Stream<code>&lt;E&gt;</code> stream()</li>
+<li>Iterator</li>
+</ul>
+</li>
+<li>Iterator and ListIterator<br>  迭代器，用以方便的实现对容器内元素的遍历操作。<ul>
+<li>Methods of Iterator:<ul>
+<li>hasNext</li>
+<li>next()</li>
+<li>default void remove() 好像是新增的不怎么使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p>List包含ArrayList,LinkedList,一般ArrayList比较常用且效率更好</p>
+<ul>
+<li>List的重要方法<ul>
+<li>Object get(int index)</li>
+<li>Object set(int index, Object element)</li>
+<li>Void add(int index, Object element)</li>
+<li>Object remove(int index)</li>
+<li>Int indexOf(Object o)</li>
+<li>Int lastIndexOf(Object o)<h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4></li>
+</ul>
+</li>
+<li>HashSet<ul>
+<li>unsorted</li>
+<li>including null</li>
+</ul>
+</li>
+<li>TreeSet<ul>
+<li>Implementation of SortedSet</li>
+<li>sorted</li>
+<li>not including null</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://blog.csdn.net/zfliu96/article/details/83476493" target="_blank" rel="noopener">不详细列出了</a></p>
+<h4 id="Comparable"><a href="#Comparable" class="headerlink" title="Comparable"></a>Comparable</h4><ul>
+<li><p>如何对不同的对象进行排序<br>  java.lang.Comparable接口对实现它的每个类的对象强制排序。</p>
+</li>
+<li><p>这个接口只有一个方法</p>
+<ul>
+<li>public int compareTo(Object obj)<ul>
+<li>return 0 : this == obj</li>
+<li>Return positive number：this &gt; obj</li>
+<li>Return negative number：this &lt; </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实现此接口的所有对象都可以通过实现compareTo方法自动排序。<br><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html" target="_blank" rel="noopener">look here</a></p>
+<h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><p>将键映射到值的对象。 映射不能包含重复的键；每个键最多可以映射到一个值。</p>
+</li>
+<li><p>Three main implementing classes</p>
+<ul>
+<li>HashMap :unsorted</li>
+<li>TreeMap: sorted</li>
+<li>HashTable : thread safe</li>
+</ul>
+</li>
+<li><p>常用的方法</p>
+<ul>
+<li>int size() </li>
+<li>boolean isEmpty() </li>
+<li>Object get(Object key) </li>
+<li>Object put(Object key, Object value)/putAll()</li>
+<li>Object remove(Object key)</li>
+<li>replace(K key, V oldValue, V newValue) </li>
+</ul>
+</li>
+<li><p>遍历方式</p>
+<ul>
+<li>Map.Entryset<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMapDemo</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	Map&lt;String,Integer&gt; map = <span class="keyword">new</span> Hashtable&lt;String,Integer&gt;();</span><br><span class="line">	map.put(<span class="string">"one"</span>, <span class="number">1</span>);</span><br><span class="line">	map.put(<span class="string">"two"</span>, <span class="number">2</span>);</span><br><span class="line">	map.put(<span class="string">"three"</span>, <span class="number">3</span>);</span><br><span class="line">	</span><br><span class="line">	Set&lt;Map.Entry&lt;String,Integer&gt;&gt; set = map.entrySet();</span><br><span class="line">	Iterator&lt;Map.Entry&lt;String,Integer&gt;&gt; iter = set.iterator();</span><br><span class="line">	<span class="keyword">while</span>(iter.hasNext()) &#123;</span><br><span class="line">		Map.Entry&lt;String, Integer&gt; ele = iter.next();</span><br><span class="line">		System.out.println(ele.getKey() + <span class="string">"="</span> + ele.getValue());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li>iterator </li>
+<li>for </li>
+<li>foreach </li>
+<li>listiterator</li>
+<li>enumeration</li>
+</ul>
+</li>
+</ul>
+<h3 id="final-和-static-关键字"><a href="#final-和-static-关键字" class="headerlink" title="final 和 static 关键字"></a>final 和 static 关键字</h3><h3 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h3><p>jdk8新特性<br>‘-&gt;’</p>
+<h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p>java 多线程</p>
+<h3 id="Java-正则表达式"><a href="#Java-正则表达式" class="headerlink" title="Java 正则表达式"></a>Java 正则表达式</h3><p><a href="https://www.cnblogs.com/xyou/p/7427779.html" target="_blank" rel="noopener">https://www.cnblogs.com/xyou/p/7427779.html</a></p>
+<h3 id="java面试题"><a href="#java面试题" class="headerlink" title="java面试题"></a>java面试题</h3><p><a href="https://www.cnblogs.com/weirdo-lenovo/p/11418871.html" target="_blank" rel="noopener">java面试问题</a><br><a href="https://blog.csdn.net/u014042066/article/details/77584668?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">面试</a><br><a href="https://blog.csdn.net/jackfrued/article/details/44921941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">java面试</a></p>
+
     </div>
 
     
@@ -363,20 +1170,24 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i># java</a>
+              <a href="/tags/Comparator/" rel="tag"><i class="fa fa-tag"></i># Comparator</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2020/02/28/English/" rel="next" title="English">
-                  <i class="fa fa-chevron-left"></i> English
+                <a href="/2020/03/18/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BIterator%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之Iterator模式">
+                  <i class="fa fa-chevron-left"></i> 设计模式之Iterator模式
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2020/03/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BAdapter%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之Adapter模式">
+                  设计模式之Adapter模式 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -416,7 +1227,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java一天学一点"><span class="nav-number">1.</span> <span class="nav-text">Java一天学一点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-如何对HashMap按键值排序"><span class="nav-number">1.1.</span> <span class="nav-text">1.如何对HashMap按键值排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-java中Comparator的用法-排序-分组"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.java中Comparator的用法(排序,分组)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-遍历map的四种方法及Map-entry详解"><span class="nav-number">1.1.2.</span> <span class="nav-text">3.遍历map的四种方法及Map.entry详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.1.3.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java每天学一点"><span class="nav-number">1.</span> <span class="nav-text">Java每天学一点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-如何对HashMap按键值排序"><span class="nav-number">1.1.</span> <span class="nav-text">1.如何对HashMap按键值排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-java中Comparator的用法-排序-分组"><span class="nav-number">1.2.</span> <span class="nav-text">2.java中Comparator的用法(排序,分组)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-遍历map的四种方法及Map-entry详解"><span class="nav-number">1.3.</span> <span class="nav-text">3.遍历map的四种方法及Map.entry详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-常用快捷键"><span class="nav-number">1.4.</span> <span class="nav-text">4.常用快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-耦合和解耦-转载"><span class="nav-number">1.5.</span> <span class="nav-text">5.耦合和解耦(转载)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-贫血模型-充血模型"><span class="nav-number">1.6.</span> <span class="nav-text">6.贫血模型,充血模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#钱包业务背景介绍"><span class="nav-number">1.6.1.</span> <span class="nav-text">钱包业务背景介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于贫血模型的传统开发模式"><span class="nav-number">1.6.2.</span> <span class="nav-text">基于贫血模型的传统开发模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于充血模型的-DDD-开发模式"><span class="nav-number">1.6.3.</span> <span class="nav-text">基于充血模型的 DDD 开发模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Generic-泛型"><span class="nav-number">1.7.</span> <span class="nav-text">7.Generic 泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型的使用"><span class="nav-number">1.7.1.</span> <span class="nav-text">泛型的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#泛型类"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">泛型类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型接口"><span class="nav-number">1.7.2.</span> <span class="nav-text">泛型接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型方法"><span class="nav-number">1.7.3.</span> <span class="nav-text">泛型方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-java编译"><span class="nav-number">1.8.</span> <span class="nav-text">8.java编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不带包名的类如何编译"><span class="nav-number">1.8.1.</span> <span class="nav-text">不带包名的类如何编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带包名的类如何编译"><span class="nav-number">1.8.2.</span> <span class="nav-text">带包名的类如何编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java命令行运行java项目"><span class="nav-number">1.8.3.</span> <span class="nav-text">java命令行运行java项目</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-异常处理"><span class="nav-number">1.9.</span> <span class="nav-text">9.异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#异常处理5个关键字"><span class="nav-number">1.9.1.</span> <span class="nav-text">异常处理5个关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#try-catch-finally"><span class="nav-number">1.9.2.</span> <span class="nav-text">try-catch-finally</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#throwable类-异常方法"><span class="nav-number">1.9.3.</span> <span class="nav-text">throwable类 异常方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#throws-和-throw-区别"><span class="nav-number">1.9.4.</span> <span class="nav-text">throws 和 throw 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RuntimeException"><span class="nav-number">1.9.5.</span> <span class="nav-text">RuntimeException</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error与Exception的区别"><span class="nav-number">1.9.6.</span> <span class="nav-text">Error与Exception的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义异常"><span class="nav-number">1.9.7.</span> <span class="nav-text">自定义异常</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-java反射"><span class="nav-number">1.10.</span> <span class="nav-text">10. java反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-杂文篇"><span class="nav-number">1.11.</span> <span class="nav-text">11.杂文篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-1-StringUtils"><span class="nav-number">1.11.1.</span> <span class="nav-text">11.1 StringUtils</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-2-int和Integer的区别"><span class="nav-number">1.11.2.</span> <span class="nav-text">11.2 int和Integer的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-3-null和“”的区别"><span class="nav-number">1.11.3.</span> <span class="nav-text">11.3  null和“”的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-4-Java-StringTokenizer"><span class="nav-number">1.11.4.</span> <span class="nav-text">11.4 Java StringTokenizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-equals和-的区别"><span class="nav-number">1.11.5.</span> <span class="nav-text">11.5  equals和==的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-6-string和各种格式互转-string转int-int转string-其他类型转String"><span class="nav-number">1.11.6.</span> <span class="nav-text">11.6 string和各种格式互转 string转int int转string,其他类型转String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-7-java计算程序运行时间"><span class="nav-number">1.11.7.</span> <span class="nav-text">11.7 java计算程序运行时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-8-关于Set中toArray"><span class="nav-number">1.11.8.</span> <span class="nav-text">11.8 关于Set中toArray()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-9-String类的深入理解"><span class="nav-number">1.11.9.</span> <span class="nav-text">11.9#### String类的深入理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-10-static深入分析"><span class="nav-number">1.11.10.</span> <span class="nav-text">11.10 static深入分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-文件IO"><span class="nav-number">1.12.</span> <span class="nav-text">13 文件IO</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#File类的基本概念"><span class="nav-number">1.12.1.</span> <span class="nav-text">File类的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stream"><span class="nav-number">1.12.2.</span> <span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符流"><span class="nav-number">1.12.2.1.</span> <span class="nav-text">字符流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#传输流"><span class="nav-number">1.12.2.2.</span> <span class="nav-text">传输流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编码"><span class="nav-number">1.12.2.3.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Memory-Stream"><span class="nav-number">1.12.2.4.</span> <span class="nav-text">Memory Stream</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PrintStream"><span class="nav-number">1.12.2.5.</span> <span class="nav-text">PrintStream</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#System类对IO的支持"><span class="nav-number">1.12.2.6.</span> <span class="nav-text">System类对IO的支持</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缓冲输入流"><span class="nav-number">1.12.2.7.</span> <span class="nav-text">缓冲输入流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Scanner"><span class="nav-number">1.12.2.8.</span> <span class="nav-text">Scanner</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Serializable"><span class="nav-number">1.12.2.9.</span> <span class="nav-text">Serializable</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-Java序列化与反序列化"><span class="nav-number">1.13.</span> <span class="nav-text">14 Java序列化与反序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-OOP"><span class="nav-number">1.14.</span> <span class="nav-text">15 OOP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多态和继承"><span class="nav-number">1.14.1.</span> <span class="nav-text">多态和继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-委托"><span class="nav-number">1.14.2.</span> <span class="nav-text">java 委托</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类和接口"><span class="nav-number">1.14.3.</span> <span class="nav-text">抽象类和接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.14.4.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#究竟何为面向对象？"><span class="nav-number">1.14.5.</span> <span class="nav-text">究竟何为面向对象？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection-容器"><span class="nav-number">1.15.</span> <span class="nav-text">Collection 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java容器体系结构"><span class="nav-number">1.15.1.</span> <span class="nav-text">java容器体系结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-number">1.15.2.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set"><span class="nav-number">1.15.3.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparable"><span class="nav-number">1.15.4.</span> <span class="nav-text">Comparable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Map"><span class="nav-number">1.15.5.</span> <span class="nav-text">Map</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final-和-static-关键字"><span class="nav-number">1.16.</span> <span class="nav-text">final 和 static 关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda"><span class="nav-number">1.17.</span> <span class="nav-text">lambda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#synchronized"><span class="nav-number">1.18.</span> <span class="nav-text">synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-正则表达式"><span class="nav-number">1.19.</span> <span class="nav-text">Java 正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java面试题"><span class="nav-number">1.20.</span> <span class="nav-text">java面试题</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -432,20 +1243,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -507,12 +1318,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">163k</span>
+    <span title="站点总字数">330k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:28</span>
+    <span title="站点阅读时长">5:01</span>
 </div>
   <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
 

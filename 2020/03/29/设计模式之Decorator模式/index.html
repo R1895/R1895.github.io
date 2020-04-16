@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="keywords" content="设计模式,装饰模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之Decorator模式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;29&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BDecorator%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;zs.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;de.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;dec.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;dec1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;zsz.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;zsz.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;zsz2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;zsz3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;zsz4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;iopng">
+<meta property="og:updated_time" content="2020-03-30T09:43:12.194Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;zs.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BDecorator%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>设计模式之Decorator模式 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Jie</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">38</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BDecorator%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj2.jpg">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="Only action can relieve the uneasiness.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设计模式之Decorator模式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-29 10:24:00" itemprop="dateCreated datePublished" datetime="2020-03-29T10:24:00+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-30 17:43:12" itemprop="dateModified" datetime="2020-03-30T17:43:12+08:00">2020-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BDecorator%E6%A8%A1%E5%BC%8F/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BDecorator%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/zs.png" alt></p>
+<a id="more"></a>
+
+<p><a href="https://www.cnblogs.com/zyrblog/p/9238304.html" target="_blank" rel="noopener">转自</a><br>感觉这位博主讲的很清楚了</p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>装饰者模式动态地给一个对象增加一些额外的职责(Responsibility),就增加对象功能来说,装饰模式比生成子类实现更为灵活.其别名也可以称为包装器(Wrapper),与适配器模式的别名相同,但它们适用于不同的场合.</p>
+<p>第一次听说装饰器还是在学python的时候, 装饰器模式在java以及程序设计中也是占据着重要的地位.比如Java的数据流处理,我们可能看到数据流经过不同的类的包装和包裹,最终形成了我们需要的流,比如说从二进制到字节流再到字符流,这中间其实就是经过了装饰器的处理,在不改变原来的数据的基础上,加入属于自己的特征,就像是在一块蛋糕上加上一些水果等装饰品,这样输出的结果就不同了,我们将这种能产生类似于洋葱一样层层包裹的数据格式的设计模式成为装饰器模式.</p>
+<p>那么为什么装饰器这样神奇呢,几乎可以让我们无穷尽的包裹自身,在计算机中凡是能够无穷尽的重复某一件事物,必然不能设定固定的数据,只能按照用户的随意设置来计算,那么递归的魅力就在此彰显出来了,通过递归可以实现这一点,那么如何递归呢,我们想到一层套一层的数据结构（链表、二叉树等）,就必须在“自身”中包含“自身”；前一个“自身”可以是我们的子类,因为子类有着父类的所有特点,后一个“自身”就是具有最抽象资格的“自身”,正是因为足够抽象使得任何继承与这个抽象类的类都能通过里氏代换原则转换到这个抽象类.实现了递归,我们只需要停止条件就可以了,停止条件就是用户在Main中对原数据包裹的层数,肯定是有限的,因此停止是必然的.这样我们仿似看到一个原始数据,被一层层的进行包裹,加入新的内容,最终使用最顶层的输出方法将这个结果呈现给我们.同样的我们还可以反着看,当递归开始的时候,在最顶层等待下一层的数据,然后使用顶层的方式来封装,而下一层被启动执行到关键步骤时会等待下下一层的数据返回给自身,然后是用自己的方式来封装,就这样一直等待下去,直到最底层的数据（本来就有）得到之后,然后一步步的返回过来,在相应的层次进行相应的封装,最后得到了最终的数据.这就是装饰器模式,所有的类其实最终都是同源（一致性）的,有最终的祖先,如下图所示.</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/de.png" alt><br>上图中,StringDisplay是保存原始数据的,而Border中将父类的引用组合进入自身,形成了递归的必然条件,之后让子类（SideBorder和FullBorder）来使用这个引用,从而根据自身的实际情况（要怎样装饰）来进行包装,将原始的数据getRowText(rowID)进行包裹,最终通过同源祖先类的show()方法来现实,这里祖先类Display使用了面向抽象编程的模板方法,相信大家都能看出来.对比与上一个组合模式,我们可以看到上面的部分还是很相似的,但是在composite中,都实现了add()方法,通过容器来进行组织,并且使用委托机制来存储所有的有着共同父类的元素,在显示的时候使用了树的深度优先遍历.而在装饰器模式中,我们使用的递归从上到下,沿着display的指向一点点的走到了底部,并且最终返回了过来.遍历的方式有着相似之处也有着不同之处.这里要说明的是,<code>建议大家在show()的地方打个断点(大家自己实验把)</code>,然后跟踪进去,一点点的看看我们的程序到底是怎么组织起来的,只有这样我们才能理解递归的含义,对装饰器有一个更深层次的认识.</p>
+<p>Display.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Decorator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Border</span> <span class="keyword">extends</span> <span class="title">Display</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> Display display; <span class="comment">// 表示被装饰物</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="title">Border</span><span class="params">(Display display)</span> </span>&#123; <span class="comment">// 在生成实例时通过参数指定被装饰物</span></span><br><span class="line">		<span class="keyword">this</span>.display = display;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>StringDisplay.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Decorator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringDisplay</span> <span class="keyword">extends</span> <span class="title">Display</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String string;                          <span class="comment">// 要显示的字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StringDisplay</span><span class="params">(String string)</span> </span>&#123;           <span class="comment">// 通过参数传入要显示的字符串</span></span><br><span class="line">        <span class="keyword">this</span>.string = string;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getColumns</span><span class="params">()</span> </span>&#123;                       <span class="comment">// 字符数</span></span><br><span class="line">        <span class="keyword">return</span> string.getBytes().length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRows</span><span class="params">()</span> </span>&#123;                          <span class="comment">// 行数是1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getRowText</span><span class="params">(<span class="keyword">int</span> row)</span> </span>&#123;             <span class="comment">// 仅当row为0时返回值</span></span><br><span class="line">        <span class="keyword">if</span> (row == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> string;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Border.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Decorator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Border</span> <span class="keyword">extends</span> <span class="title">Display</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> Display display; <span class="comment">// 表示被装饰物</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="title">Border</span><span class="params">(Display display)</span> </span>&#123; <span class="comment">// 在生成实例时通过参数指定被装饰物</span></span><br><span class="line">		<span class="keyword">this</span>.display = display;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>SideBorder.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Decorator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SideBorder</span> <span class="keyword">extends</span> <span class="title">Border</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">char</span> borderChar; <span class="comment">// 表示装饰边框的字符</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SideBorder</span><span class="params">(Display display, <span class="keyword">char</span> ch)</span> </span>&#123; <span class="comment">// 通过构造函数指定Display和装饰边框字符</span></span><br><span class="line">		<span class="keyword">super</span>(display);</span><br><span class="line">		<span class="keyword">this</span>.borderChar = ch;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getColumns</span><span class="params">()</span> </span>&#123; <span class="comment">// 字符数为字符串字符数加上两侧边框字符数</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span> + display.getColumns() + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRows</span><span class="params">()</span> </span>&#123; <span class="comment">// 行数即被装饰物的行数</span></span><br><span class="line">		<span class="keyword">return</span> display.getRows();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getRowText</span><span class="params">(<span class="keyword">int</span> row)</span> </span>&#123; <span class="comment">// 指定的那一行的字符串为被装饰物的字符串加上两侧的边框的字符</span></span><br><span class="line">		<span class="keyword">return</span> borderChar + display.getRowText(row) + borderChar;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>FullBorder.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Decorator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FullBorder</span> <span class="keyword">extends</span> <span class="title">Border</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">FullBorder</span><span class="params">(Display display)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(display);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getColumns</span><span class="params">()</span> </span>&#123; <span class="comment">// 字符数为被装饰物的字符数加上两侧边框字符数</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span> + display.getColumns() + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRows</span><span class="params">()</span> </span>&#123; <span class="comment">// 行数为被装饰物的行数加上上下边框的行数</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span> + display.getRows() + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getRowText</span><span class="params">(<span class="keyword">int</span> row)</span> </span>&#123; <span class="comment">// 指定的那一行的字符串</span></span><br><span class="line">		<span class="keyword">if</span> (row == <span class="number">0</span>) &#123; <span class="comment">// 上边框</span></span><br><span class="line">			<span class="keyword">return</span> <span class="string">"+"</span> + makeLine(<span class="string">'-'</span>, display.getColumns()) + <span class="string">"+"</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (row == display.getRows() + <span class="number">1</span>) &#123; <span class="comment">// 下边框</span></span><br><span class="line">			<span class="keyword">return</span> <span class="string">"+"</span> + makeLine(<span class="string">'-'</span>, display.getColumns()) + <span class="string">"+"</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123; <span class="comment">// 其他边框</span></span><br><span class="line">			<span class="keyword">return</span> <span class="string">"|"</span> + display.getRowText(row - <span class="number">1</span>) + <span class="string">"|"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> String <span class="title">makeLine</span><span class="params">(<span class="keyword">char</span> ch, <span class="keyword">int</span> count)</span> </span>&#123; <span class="comment">// 生成一个重复count次字符ch的字符串</span></span><br><span class="line">		StringBuffer buf = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">			buf.append(ch);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> buf.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Main.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Decorator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Display b1 = <span class="keyword">new</span> StringDisplay(<span class="string">"Hello, world."</span>);</span><br><span class="line">		Display b2 = <span class="keyword">new</span> SideBorder(b1, <span class="string">'#'</span>);</span><br><span class="line">		Display b3 = <span class="keyword">new</span> FullBorder(b2);</span><br><span class="line">		b1.show();</span><br><span class="line">		b2.show();</span><br><span class="line">		b3.show();</span><br><span class="line">		Display b4 = <span class="keyword">new</span> SideBorder(</span><br><span class="line">				<span class="keyword">new</span> FullBorder(<span class="keyword">new</span> FullBorder(<span class="keyword">new</span> SideBorder(<span class="keyword">new</span> FullBorder(<span class="keyword">new</span> StringDisplay(<span class="string">"Hello,Jason"</span>)), <span class="string">'*'</span>))), <span class="string">'/'</span>);</span><br><span class="line">		b4.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>继承保证了父类和子类的一致性（有共同的方法）,委托保证了使用委托的类和被委托对象的一致性.正如Border和Display有着一些相同的方法名称,以及一些委托处理方法.可以看到装饰模式中,保证了装饰边框与被装饰物体的一致性（有共同父类）,使用了模板方法,这个方法几乎无处不在呀,同样使用了委托（组合）,通过在原始数据上面一层层的包裹,最终得到了我们想要的输出,有着非常广泛的用处.</p>
+<p><strong>我的理解</strong>:装饰者模式就是, 你要出去玩. 你穿上新买的球鞋,新买的裤子,新买的外套…然后 你感觉头型也需要整整,就用个整理头型的装饰器, 脸上有痘痘,再用个遮瑕的装饰器.就这样无限的装饰(递归的过程),最后你觉得非常完美了(退出递归). ok现在你就可以出门了.<br>当我们买了新的口红,我们只需要新写一个口红装饰器来装饰,不需要对 已经化好的装(已有的类)进行修改.</p>
+<h4 id="装饰者模式-结构-出场角色"><a href="#装饰者模式-结构-出场角色" class="headerlink" title="装饰者模式 结构(出场角色)"></a>装饰者模式 结构(出场角色)</h4><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/dec.png" alt></p>
+<ul>
+<li>部件 （Component） 声明封装器和被封装对象的公用接口.<br><code>Display</code></li>
+<li>具体部件 （Concrete Component） 类是被封装对象所属的类. 它定义了基础行为, 但装饰类可以改变这些行为.<br><code>StringDisplay</code></li>
+<li>基础装饰 （Base Decorator） 类拥有一个指向被封装对象的引用成员变量. 该变量的类型应当被声明为通用部件接口, 这样它就可以引用具体的部件和装饰. 装饰基类会将所有操作委派给被封装的对象.<br><code>Border</code></li>
+<li>具体装饰类 （Concrete Decorators） 定义了可动态添加到部件的额外行为. 具体装饰类会重写装饰基类的方法, 并在调用父类方法之前或之后进行额外的行为.<br><code>FullBorder</code>和<code>SideBorder</code></li>
+<li>客户端 （Client） 可以使用多层装饰来封装部件, 只要它能使用通用接口与所有对象互动即可.<br><code>Main</code><h4 id="最后再举个例子"><a href="#最后再举个例子" class="headerlink" title="最后再举个例子"></a>最后再举个例子</h4>在本例中, 装饰模式 能够对敏感数据进行压缩和加密, 从而将数据从使用数据的代码中独立出来.</li>
+</ul>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/dec1.png" alt></p>
+<p>程序使用一对装饰来封装数据源对象. 这两个封装器都改变了从磁盘读写数据的方式：</p>
+<ul>
+<li>当数据即将被写入磁盘前, 装饰对数据进行加密和压缩. 原始类在对改变毫无察觉的情况下, 将加密后的受保护数据写入文件.</li>
+<li>当数据刚从磁盘读出后, 同样通过装饰对数据进行解压和解密. 装饰和数据源类实现同一接口, 从而能在客户端代码中相互替换.</li>
+</ul>
+<p>伪代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">// 装饰可以改变组件接口所定义的操作.</span><br><span class="line">interface DataSource <span class="keyword">is</span></span><br><span class="line">    method writeData(data)</span><br><span class="line">    method readData():data</span><br><span class="line"></span><br><span class="line">// 具体组件提供操作的默认实现.这些类在程序中可能会有几个变体.</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileDataSource</span> <span class="title">implements</span> <span class="title">DataSource</span> <span class="title">is</span></span></span><br><span class="line">    constructor FileDataSource(filename) &#123; ... &#125;</span><br><span class="line"></span><br><span class="line">    method writeData(data) <span class="keyword">is</span></span><br><span class="line">        // 将数据写入文件.</span><br><span class="line"></span><br><span class="line">    method readData():data <span class="keyword">is</span></span><br><span class="line">        // 从文件读取数据.</span><br><span class="line"></span><br><span class="line">// 装饰基类和其他组件遵循相同的接口.该类的主要任务是定义所有具体装饰的封</span><br><span class="line">// 装接口.封装的默认实现代码中可能会包含一个保存被封装组件的成员变量,并</span><br><span class="line">// 且负责对其进行初始化.</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataSourceDecorator</span> <span class="title">implements</span> <span class="title">DataSource</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">protected</span> <span class="title">field</span> <span class="title">wrappee</span>:</span> DataSource</span><br><span class="line"></span><br><span class="line">    constructor DataSourceDecorator(source: DataSource) <span class="keyword">is</span></span><br><span class="line">        wrappee = source</span><br><span class="line"></span><br><span class="line">    // 装饰基类会直接将所有工作分派给被封装组件.具体装饰中则可以新增一些</span><br><span class="line">    // 额外的行为.</span><br><span class="line">    method writeData(data) <span class="keyword">is</span></span><br><span class="line">        wrappee.writeData(data)</span><br><span class="line"></span><br><span class="line">    // 具体装饰可调用其父类的操作实现,而不是直接调用被封装对象.这种方式</span><br><span class="line">    // 可简化装饰类的扩展工作.</span><br><span class="line">    method readData():data <span class="keyword">is</span></span><br><span class="line">        <span class="keyword">return</span> wrappee.readData()</span><br><span class="line"></span><br><span class="line">// 具体装饰必须在被封装对象上调用方法,不过也可以自行在结果中添加一些内容.</span><br><span class="line">// 装饰必须在调用封装对象之前或之后执行额外的行为.</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EncryptionDecorator</span> <span class="title">extends</span> <span class="title">DataSourceDecorator</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">writeData</span><span class="params">(data)</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        // 1. 对传递数据进行加密.</span></span><br><span class="line"><span class="class">        // 2. 将加密后数据传递给被封装对象 <span class="title">writeData</span>（写入数据）方法.</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">readData</span><span class="params">()</span>:</span>data <span class="keyword">is</span></span><br><span class="line">        // <span class="number">1.</span> 通过被封装对象的 readData（读取数据）方法获取数据.</span><br><span class="line">        // <span class="number">2.</span> 如果数据被加密就尝试解密.</span><br><span class="line">        // <span class="number">3.</span> 返回结果.</span><br><span class="line"></span><br><span class="line">// 你可以将对象封装在多层装饰中.</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CompressionDecorator</span> <span class="title">extends</span> <span class="title">DataSourceDecorator</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">writeData</span><span class="params">(data)</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        // 1. 压缩传递数据.</span></span><br><span class="line"><span class="class">        // 2. 将压缩后数据传递给被封装对象 <span class="title">writeData</span>（写入数据）方法.</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">readData</span><span class="params">()</span>:</span>data <span class="keyword">is</span></span><br><span class="line">        // <span class="number">1.</span> 通过被封装对象的 readData（读取数据）方法获取数据.</span><br><span class="line">        // <span class="number">2.</span> 如果数据被压缩就尝试解压.</span><br><span class="line">        // <span class="number">3.</span> 返回结果.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 选项 <span class="number">1</span>：装饰组件的简单示例</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">dumbUsageExample</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line">        source = new FileDataSource("somefile.dat")</span><br><span class="line">        source.writeData(salaryRecords)</span><br><span class="line">        // 已将明码数据写入目标文件.</span><br><span class="line"></span><br><span class="line">        source = new CompressionDecorator(source)</span><br><span class="line">        source.writeData(salaryRecords)</span><br><span class="line">        // 已将压缩数据写入目标文件.</span><br><span class="line"></span><br><span class="line">        source = new EncryptionDecorator(source)</span><br><span class="line">        // 源变量中现在包含：</span><br><span class="line">        // Encryption &gt; Compression &gt; FileDataSource</span><br><span class="line">        source.writeData(salaryRecords)</span><br><span class="line">        // 已将压缩且加密的数据写入目标文件.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 选项 <span class="number">2</span>：客户端使用外部数据源.SalaryManager（工资管理器）对象并不关心</span><br><span class="line">// 数据如何存储.它们会与提前配置好的数据源进行交互,数据源则是通过程序配</span><br><span class="line">// 置器获取的.</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SalaryManager</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">field</span> <span class="title">source</span>:</span> DataSource</span><br><span class="line"></span><br><span class="line">    constructor SalaryManager(source: DataSource) &#123; ... &#125;</span><br><span class="line"></span><br><span class="line">    method load() <span class="keyword">is</span></span><br><span class="line">        <span class="keyword">return</span> source.readData()</span><br><span class="line"></span><br><span class="line">    method save() <span class="keyword">is</span></span><br><span class="line">        source.writeData(salaryRecords)</span><br><span class="line">    // ...其他有用的方法...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 程序可在运行时根据配置或环境组装不同的装饰堆桟.</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplicationConfigurator</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">configurationExample</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line">        source = new FileDataSource("salary.dat")</span><br><span class="line">        <span class="keyword">if</span> (enabledEncryption)</span><br><span class="line">            source = new EncryptionDecorator(source)</span><br><span class="line">        <span class="keyword">if</span> (enabledCompression)</span><br><span class="line">            source = new CompressionDecorator(source)</span><br><span class="line"></span><br><span class="line">        logger = new SalaryManager(source)</span><br><span class="line">        salary = logger.load()</span><br><span class="line">    // ...</span><br></pre></td></tr></table></figure>
+
+<h4 id="装饰者模式-使用场景"><a href="#装饰者模式-使用场景" class="headerlink" title="装饰者模式 使用场景"></a>装饰者模式 使用场景</h4><ul>
+<li>如果你希望在无需修改代码的情况下即可使用对象, 且希望在运行时为对象新增额外的行为, 可以使用装饰模式.<br>装饰能将业务逻辑组织为层次结构, 你可为各层创建一个装饰, 在运行时将各种不同逻辑组合成对象. 由于这些对象都遵循通用接口, 客户端代码能以相同的方式使用这些对象.</li>
+<li>如果用继承来扩展对象行为的方案难以实现或者根本不可行, 你可以使用该模式.<br>许多编程语言使用 final最终关键字来限制对某个类的进一步扩展. 复用最终类已有行为的唯一方法是使用装饰模式： 用封装器对其进行封装.</li>
+</ul>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
+<li>优点<ul>
+<li>你无需创建新子类即可扩展对象的行为.</li>
+<li>你可以在运行时添加或删除对象的功能.</li>
+<li>你可以用多个装饰封装对象来组合几种行为.</li>
+<li>单一职责原则. 你可以将实现了许多不同行为的一个大类拆分为多个较小的类.</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>在封装器栈中删除特定封装器比较困难.</li>
+<li>实现行为不受装饰栈顺序影响的装饰比较困难.</li>
+<li>各层的初始化配置代码看上去可能会很糟糕.</li>
+</ul>
+</li>
+</ul>
+<h4 id="与其他模式的关系"><a href="#与其他模式的关系" class="headerlink" title="与其他模式的关系"></a>与其他模式的关系</h4><ul>
+<li><p>适配器模式可以对已有对象的接口进行修改, 装饰者模式则能在不改变对象接口的前提下强化对象功能. 此外, 装饰还支持递归组合, 适配器则无法实现.</p>
+</li>
+<li><p>适配器能为被封装对象提供不同的接口,代理模式能为对象提供相同的接口, 装饰则能为对象提供加强的接口.</p>
+</li>
+<li><p>装饰可让你更改对象的外表, 策略模式则让你能够改变其本质.</p>
+</li>
+<li><p>装饰和代理有着相似的结构, 但是其意图却非常不同. 这两个模式的构建都基于组合原则, 也就是说一个对象应该将部分工作委派给另一个对象. 两者之间的不同之处在于代理通常自行管理其服务对象的生命周期, 而装饰的生成则总是由客户端进行控制.</p>
+</li>
+</ul>
+<h3 id="为什么要使用装饰者模式"><a href="#为什么要使用装饰者模式" class="headerlink" title="为什么要使用装饰者模式"></a>为什么要使用装饰者模式</h3><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/zsz.png" alt></p>
+<p>新增加一个功能,导致新增子类很多, 会产生”类爆炸”<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/zsz.png" alt></p>
+<p>这里我们看到如果使用子类继承父类,那么我们要写很多子类,这么做无疑增加了程序的臃肿性,并不是很灵活.这时,装饰者模式就诞生了.</p>
+<p>有多少种辅料就有多少个子类<br>以后再怎增加辅料就加一个子类就好</p>
+<p>动态的给一个对象添加一些额外的职责.就扩展功能而言,它比生成子类的方式更为灵活.</p>
+<p>适应场景</p>
+<ul>
+<li>以动态的方式给对象添加之策</li>
+<li>处理那些可以撤销的职责</li>
+<li>当采用生成子类的方法进行扩充时,可能有大量独立的扩展,为支持每一种组合将产生大量的子类,使得子类数目呈爆炸性增长.</li>
+</ul>
+<h3 id="装饰者模式的接口"><a href="#装饰者模式的接口" class="headerlink" title="装饰者模式的接口"></a>装饰者模式的接口</h3><ul>
+<li>抽象组件(Component): 给出一个抽象接口,以规范准备</li>
+<li>被装饰这()</li>
+<li>装饰者组件(Decorator): 持有组件(Component)对象的实例引用,该类的职责就是为了装饰具体组件对象,定义的基类.</li>
+<li>具体装饰(ConcreteDecorator)</li>
+</ul>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/zsz2.png" alt></p>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/zsz3.png" alt><br>还可以装饰其他饮品</p>
+<h3 id="真实场景案例"><a href="#真实场景案例" class="headerlink" title="真实场景案例"></a>真实场景案例</h3><p>用装饰着模式解决乱码<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/zsz4.png" alt><br>案例所设计的知识点</p>
+<ul>
+<li>装饰者模式</li>
+<li>HTML</li>
+<li>Request/Resonse</li>
+<li>Servlet</li>
+<li>Filter</li>
+</ul>
+<h3 id="IO体系中装饰者模式"><a href="#IO体系中装饰者模式" class="headerlink" title="IO体系中装饰者模式"></a>IO体系中装饰者模式</h3><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/iopng" alt></p>
+<p>抽象组件:InputStream<br>被装饰者: FileInputStream, Byte..<br>装饰器: FilterInputStream</p>
+<ul>
+<li>django</li>
+<li>flask</li>
+<li>tornado</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>Thank you for your support</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jason 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jason 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 设计模式</a>
+              <a href="/tags/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 装饰模式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/03/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BComposite%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之Composite模式">
+                  <i class="fa fa-chevron-left"></i> 设计模式之Composite模式
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/03/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BVisitor%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之Visitor模式">
+                  设计模式之Visitor模式 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#装饰者模式-结构-出场角色"><span class="nav-number">4.</span> <span class="nav-text">装饰者模式 结构(出场角色)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最后再举个例子"><span class="nav-number">5.</span> <span class="nav-text">最后再举个例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#装饰者模式-使用场景"><span class="nav-number">6.</span> <span class="nav-text">装饰者模式 使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优缺点"><span class="nav-number">7.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#与其他模式的关系"><span class="nav-number">8.</span> <span class="nav-text">与其他模式的关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用装饰者模式"><span class="nav-number"></span> <span class="nav-text">为什么要使用装饰者模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装饰者模式的接口"><span class="nav-number"></span> <span class="nav-text">装饰者模式的接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真实场景案例"><span class="nav-number"></span> <span class="nav-text">真实场景案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO体系中装饰者模式"><span class="nav-number"></span> <span class="nav-text">IO体系中装饰者模式</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Jason"
+    src="/images/rlj2.jpg">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">Only action can relieve the uneasiness.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/R1895" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;R1895" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/jason1999/" title="博客园 &amp;rarr; https:&#x2F;&#x2F;www.cnblogs.com&#x2F;jason1999&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tjuyjn.top/" title="http:&#x2F;&#x2F;tjuyjn.top&#x2F;" rel="noopener" target="_blank">yjn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<div class="copyright">
+  
+  &copy; 2019 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">330k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:01</span>
+</div>
+  <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
+
+  </div>
+<br>
+<span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'sQH1h8lhQ9gWOGcmtUYC8XVl-MdYXbMMI',
+    appKey: 'vNW3GOfCCmYcbuAXh5ONlisr',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="keywords" content="设计模式,桥接模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之Bridge模式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;26&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BBridge%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;qj.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;qj2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;qj3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;br.png">
+<meta property="og:updated_time" content="2020-03-30T09:42:00.309Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;qj.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BBridge%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>设计模式之Bridge模式 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Jie</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">38</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BBridge%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj2.jpg">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="Only action can relieve the uneasiness.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设计模式之Bridge模式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-26 10:24:00" itemprop="dateCreated datePublished" datetime="2020-03-26T10:24:00+08:00">2020-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-30 17:42:00" itemprop="dateModified" datetime="2020-03-30T17:42:00+08:00">2020-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BBridge%E6%A8%A1%E5%BC%8F/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BBridge%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/qj.png" alt></p>
+<a id="more"></a>
+<p>桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。</p>
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>桥接模式是一种将类的功能层次和实现层次分离的技术，所谓类的功能层次指的是类要实现什么功能，要定义多少个函数进行处理，在功能之中我们会用到继承来定义新的方法同时也能使用父类的方法，这样就构成了一个层次“父类-子类-孙类…”，这就是功能层次，与之对应的就是实现层次了，其实也很好理解，如果我们事先确定了完成一件事情的最基本的子功能，那么我们定义这些子功能为接口或者抽象类，然后使用实现类来进行实现，这样一个抽象类，多个实现类，（抽象类——&gt;(实现类1，实现类2，实现类…)）这样的结构就是实现层次，可以看到高度一直为2，而功能层次高度为N(N为继承的层次）。那么可不可以将这两者分离呢，一方面我们知道一个类的基础子功能并且能够使用到这些子功能的实现，另一方面我们可以在这些子功能的基础上定义出我们自己需要的功能（功能层次），如果可以的话，基本的元素就相当于空气、水分等元素，而我们需要的功能就是将这些东西组成一种种不同的物质。这里就用到了委托，或者说是组合。实现了功能层次和实现层次分离的结构，我们称之为桥接模式。</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><ul>
+<li>示例1:<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/qj2.png" alt></li>
+</ul>
+<p>Display.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Bridge;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Display</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> DisplayImpl impl;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Display</span><span class="params">(DisplayImpl impl)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.impl = impl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        impl.rawOpen();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        impl.rawPrint();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        impl.rawClose();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        open();</span><br><span class="line">        print();                    </span><br><span class="line">        close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>CountDisplayl.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Bridge;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountDisplay</span> <span class="keyword">extends</span> <span class="title">Display</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CountDisplay</span><span class="params">(DisplayImpl impl)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(impl);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">multiDisplay</span><span class="params">(<span class="keyword">int</span> times)</span> </span>&#123; <span class="comment">// 循环显示times次</span></span><br><span class="line">		open();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">			print();</span><br><span class="line">		&#125;</span><br><span class="line">		close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>DisplayImpl.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Bridge;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">DisplayImpl</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">rawOpen</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">rawPrint</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">rawClose</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>l<br>StringDisplayImpl.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Bridge;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringDisplayImpl</span> <span class="keyword">extends</span> <span class="title">DisplayImpl</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String string; <span class="comment">// 要显示的字符串</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> width; <span class="comment">// 以字节单位计算出的字符串的宽度</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">StringDisplayImpl</span><span class="params">(String string)</span> </span>&#123; <span class="comment">// 构造函数接收要显示的字符串string</span></span><br><span class="line">		<span class="keyword">this</span>.string = string; <span class="comment">// 将它保存在字段中</span></span><br><span class="line">		<span class="keyword">this</span>.width = string.getBytes().length; <span class="comment">// 把字符串的宽度也保存在字段中，以供使用。</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rawOpen</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		printLine();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rawPrint</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"|"</span> + string + <span class="string">"|"</span>); <span class="comment">// 前后加上"|"并显示</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rawClose</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		printLine();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printLine</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.print(<span class="string">"+"</span>); <span class="comment">// 显示用来表示方框的角的"+"</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; width; i++) &#123; <span class="comment">// 显示width个"-"</span></span><br><span class="line">			System.out.print(<span class="string">"-"</span>); <span class="comment">// 将其用作方框的边框</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"+"</span>); <span class="comment">// 显示用来表示方框的角的"+"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Main.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Bridge;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Display d1 = <span class="keyword">new</span> Display(<span class="keyword">new</span> StringDisplayImpl(<span class="string">"Hello, China."</span>));</span><br><span class="line">        Display d2 = <span class="keyword">new</span> CountDisplay(<span class="keyword">new</span> StringDisplayImpl(<span class="string">"Hello, World."</span>));</span><br><span class="line">        CountDisplay d3 = <span class="keyword">new</span> CountDisplay(<span class="keyword">new</span> StringDisplayImpl(<span class="string">"Hello, Universe."</span>));</span><br><span class="line">        d1.display();</span><br><span class="line">        d2.display();</span><br><span class="line">        d3.display();</span><br><span class="line">        d3.multiDisplay(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然也可以实现用其他的形式”显示”,比如实现”显示字符串若干(随机)次”的功能.</p>
+<blockquote>
+<p>写这段代码的时候,感觉和对象适配器模式实现很像.都用到了委托</p>
+</blockquote>
+<ul>
+<li>示例2:<br>从晚上找到了这个例子,感觉很生动形象:<br>设备<code>Device</code>类作为实现部分， 而 遥控器<code>Remote</code>类则作为抽象部分。</li>
+</ul>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/qj3.png" alt></p>
+<blockquote>
+<p>最初类层次结构被拆分为两部分,设备和遥控器</p>
+</blockquote>
+<p>遥控器基类声明了一个指向设备对象的引用成员变量。 所有遥控器通过通用设备接口与设备进行交互， 使得同一个遥控器可以支持不同类型的设备。</p>
+<p>同时可以开发独立于设备类的遥控器类， 只需新建一个遥控器子类即可。 例如， 基础遥控器可能只有两个按钮， 但你可在其基础上扩展新功能， 比如额外的一节电池或一块触摸屏。</p>
+<p>客户端代码通过遥控器构造函数将特定种类的遥控器与设备对象连接起来。</p>
+<p>这里只提供伪代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// “抽象部分”定义了两个类层次结构中“控制”部分的接口。它管理着一个指向“实</span></span><br><span class="line"><span class="comment">// 现部分”层次结构中对象的引用，并会将所有真实工作委派给该对象。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RemoteControl</span> <span class="title">is</span></span></span><br><span class="line">    protected field device: Device</span><br><span class="line">    <span class="function">constructor <span class="title">RemoteControl</span><span class="params">(device: Device)</span> is</span></span><br><span class="line"><span class="function">        <span class="keyword">this</span>.device </span>= device</span><br><span class="line">    <span class="function">method <span class="title">togglePower</span><span class="params">()</span> is</span></span><br><span class="line"><span class="function">        <span class="title">if</span> <span class="params">(device.isEnabled()</span>) then</span></span><br><span class="line"><span class="function">            device.<span class="title">disable</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        <span class="keyword">else</span></span></span><br><span class="line"><span class="function">            device.<span class="title">enable</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    method <span class="title">volumeDown</span><span class="params">()</span> is</span></span><br><span class="line"><span class="function">        device.<span class="title">setVolume</span><span class="params">(device.getVolume()</span> - 10)</span></span><br><span class="line"><span class="function">    method <span class="title">volumeUp</span><span class="params">()</span> is</span></span><br><span class="line"><span class="function">        device.<span class="title">setVolume</span><span class="params">(device.getVolume()</span> + 10)</span></span><br><span class="line"><span class="function">    method <span class="title">channelDown</span><span class="params">()</span> is</span></span><br><span class="line"><span class="function">        device.<span class="title">setChannel</span><span class="params">(device.getChannel()</span> - 1)</span></span><br><span class="line"><span class="function">    method <span class="title">channelUp</span><span class="params">()</span> is</span></span><br><span class="line"><span class="function">        device.<span class="title">setChannel</span><span class="params">(device.getChannel()</span> + 1)</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 你可以独立于设备类的方式从抽象层中扩展类。</span></span></span><br><span class="line"><span class="function">class AdvancedRemoteControl extends RemoteControl is</span></span><br><span class="line"><span class="function">    method <span class="title">mute</span><span class="params">()</span> is</span></span><br><span class="line"><span class="function">        device.<span class="title">setVolume</span><span class="params">(<span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// “实现部分”接口声明了在所有具体实现类中通用的方法。它不需要与抽象接口相</span></span></span><br><span class="line"><span class="function"><span class="comment">// 匹配。实际上，这两个接口可以完全不一样。通常实现接口只提供原语操作，而</span></span></span><br><span class="line"><span class="function"><span class="comment">// 抽象接口则会基于这些操作定义较高层次的操作。</span></span></span><br><span class="line"><span class="function">interface Device is</span></span><br><span class="line"><span class="function">    method <span class="title">isEnabled</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    method <span class="title">enable</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    method <span class="title">disable</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    method <span class="title">getVolume</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    method <span class="title">setVolume</span><span class="params">(percent)</span></span></span><br><span class="line"><span class="function">    method <span class="title">getChannel</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    method <span class="title">setChannel</span><span class="params">(channel)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 所有设备都遵循相同的接口。</span></span></span><br><span class="line"><span class="function">class Tv implements Device is</span></span><br><span class="line"><span class="function">    <span class="comment">// ...</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">class Radio implements Device is</span></span><br><span class="line"><span class="function">    <span class="comment">// ...</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 客户端代码中的某个位置。</span></span></span><br><span class="line"><span class="function">tv </span>= <span class="keyword">new</span> Tv()</span><br><span class="line">remote = <span class="keyword">new</span> RemoteControl(tv)</span><br><span class="line">remote.togglePower()</span><br><span class="line"></span><br><span class="line">radio = <span class="keyword">new</span> Radio()</span><br><span class="line">remote = <span class="keyword">new</span> AdvancedRemoteControl(radio)</span><br></pre></td></tr></table></figure>
+
+<h4 id="桥接模式-适合场景"><a href="#桥接模式-适合场景" class="headerlink" title="桥接模式 适合场景"></a>桥接模式 适合场景</h4><ul>
+<li><p><strong>如果你想要拆分或重组一个具有多重功能的庞杂类 （例如能与多个数据库服务器进行交互的类）， 可以使用桥接模式。</strong><br>类的代码行数越多， 弄清其运作方式就越困难， 对其进行修改所花费的时间就越长。 一个功能上的变化可能需要在整个类范围内进行修改， 而且常常会产生错误， 甚至还会有一些严重的副作用。</p>
+<p>  桥接模式可以将庞杂类拆分为几个类层次结构。 此后， 你可以修改任意一个类层次结构而不会影响到其他类层次结构。 这种方法可以简化代码的维护工作， 并将修改已有代码的风险降到最低。</p>
+</li>
+<li><p><strong>如果你希望在几个独立维度上扩展一个类， 可使用该模式。</strong><br>桥接建议将每个维度抽取为独立的类层次。 初始类将相关工作委派给属于对应类层次的对象， 无需自己完成所有工作。</p>
+</li>
+<li><p><strong>如果你需要在运行时切换不同实现方法， 可使用桥接模式。</strong></p>
+</li>
+</ul>
+<h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4><ol>
+<li><p>明确类中独立的维度。 独立的概念可能是： 抽象/平台， 域/基础设施， 前端/后端或接口/实现。</p>
+</li>
+<li><p>了解客户端的业务需求， 并在抽象基类中定义它们。</p>
+</li>
+<li><p>确定在所有平台上都可执行的业务。 并在通用实现接口中声明抽象部分所需的业务。</p>
+</li>
+<li><p>为你域内的所有平台创建实现类， 但需确保它们遵循实现部分的接口。</p>
+</li>
+<li><p>在抽象类中添加指向实现类型的引用成员变量。 抽象部分会将大部分工作委派给该成员变量所指向的实现对象。</p>
+</li>
+<li><p>如果你的高层逻辑有多个变体， 则可通过扩展抽象基类为每个变体创建一个精确抽象。</p>
+</li>
+<li><p>客户端代码必须将实现对象传递给抽象部分的构造函数才能使其能够相互关联。 此后， 客户端只需与抽象对象进行交互， 无需和实现对象打交道。</p>
+</li>
+</ol>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
+<li><p>桥接模式优点</p>
+<ul>
+<li><p>你可以创建与平台无关的类和程序。</p>
+</li>
+<li><p>客户端代码仅与高层抽象部分进行互动， 不会接触到平台的详细信息。</p>
+</li>
+<li><p>开闭原则。 你可以新增抽象部分和实现部分， 且它们之间不会相互影响。</p>
+</li>
+<li><p>单一职责原则。 抽象部分专注于处理高层逻辑， 实现部分处理平台细节。</p>
+</li>
+</ul>
+</li>
+<li><p>桥接模式缺点</p>
+<ul>
+<li>桥接模式的引入会增加系统的理解与设计难度，由于聚合关联关系建立在抽象层，要求开发者针对抽象进行设计与编程。 – 桥接模式要求正确识别出系统中两个独立变化的维度，因此其使用范围具有一定的局限性。<h4 id="Bridge-模式中的登场角色"><a href="#Bridge-模式中的登场角色" class="headerlink" title="Bridge 模式中的登场角色"></a>Bridge 模式中的登场角色</h4></li>
+</ul>
+</li>
+<li><p>Abstraction (抽象化)<br>该角色位于”类的功能层次结构”的最上层,它使用了Implementor角色的方法定义了基本的功能.该角色中保存了Implementor角色的实例.<br>Display扮演此角色</p>
+</li>
+<li><p>RefinedAbstraction(改善后的抽象化)<br>在Abstraction的基础上增加了新功能的角色.<br>由CountDisplay类扮演</p>
+</li>
+<li><p>Implementor(实现者)<br>该角色位于”类的实现层次结构”的最上层.它定义了用于实现Abstraction角色的接口(API)的方法<br>由 DisplayImpl类扮演此角色.</p>
+</li>
+<li><p>ConcreteImplementor(具体实现者)<br>该角色负责实现Implementor角色中定义的接口(API).在实例程序中,由StringDisplayImpl类扮演此橘色</p>
+</li>
+<li><p>Bridge模式的类图<br>类的两个层次结构之间的桥梁是<code>impl</code>字段<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/br.png" alt></p>
+<h4 id="拓展思路的要点"><a href="#拓展思路的要点" class="headerlink" title="拓展思路的要点"></a>拓展思路的要点</h4></li>
+<li><p>分开后 更容易扩展<br>Bridge模式将 <strong>类的功能层次结构</strong> 与 <strong>类的实现层次结构</strong> 分离开了.将类的者两个层次结构分离开有利于独立地对它们进行扩展.<br>当想要增加功能时,只需要在<strong>类的功能层次结构</strong>一侧增加类即可,不必对”类的实现层次结构”做任何修改.而且,<strong>增加后的共嗯那个可以被”所有的实现”</strong>使用.</p>
+</li>
+<li><p>继承是强关联,委托是弱关联<br>只有Display类的实例生成时,才与作为参数被传入的类构成关联.例如,在程序中,当Main类生成Display类和CountDisplay类的实例时,才将StringDisplayImpl的实例作为参数传递给Display类和CountDisplay类.<br>如果我们不传递StringDisplayImpl类的实例,而是将其他ConcreteImplementor角色的实例传递给Display类和CountDisplay类,就能很容易地改变实现.这时,发生变化的代码只有Main类,Display类和DisplayImpl类则不需要做任何修改.</p>
+</li>
+</ul>
+<h4 id="与其他模式的关系"><a href="#与其他模式的关系" class="headerlink" title="与其他模式的关系"></a>与其他模式的关系</h4><ul>
+<li><p>桥接模式通常会于开发前期进行设计， 使你能够将程序的各个部分独立开来以便开发。 另一方面， <a href>适配器模式</a>通常在已有程序中使用， 让相互不兼容的类能很好地合作。</p>
+</li>
+<li><p>桥接、 <a href>状态模式</a>和<a href>策略模式</a> (在某种程度上包括适配器) 模式的接口非常相似。 实际上， 它们都基于组合模式——即将工作委派给其他对象， 不过也各自解决了不同的问题。 模式并不只是以特定方式组织代码的配方， 你还可以使用它们来和其他开发者讨论模式所解决的问题。</p>
+</li>
+<li><p>你可以将抽象工厂模式和桥接搭配使用。 如果由桥接定义的抽象只能与特定实现合作， 这一模式搭配就非常有用。 在这种情况下， 抽象工厂可以对这些关系进行封装， 并且对客户端代码隐藏其复杂性。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>Thank you for your support</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jason 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jason 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 设计模式</a>
+              <a href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 桥接模式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/03/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BAbstract%20Factory%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之Abstract Factory模式">
+                  <i class="fa fa-chevron-left"></i> 设计模式之Abstract Factory模式
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BStrategy%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之Strategy模式">
+                  设计模式之Strategy模式 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#桥接模式-适合场景"><span class="nav-number">3.</span> <span class="nav-text">桥接模式 适合场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现方式"><span class="nav-number">4.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优缺点"><span class="nav-number">5.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bridge-模式中的登场角色"><span class="nav-number">6.</span> <span class="nav-text">Bridge 模式中的登场角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展思路的要点"><span class="nav-number">7.</span> <span class="nav-text">拓展思路的要点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#与其他模式的关系"><span class="nav-number">8.</span> <span class="nav-text">与其他模式的关系</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Jason"
+    src="/images/rlj2.jpg">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">Only action can relieve the uneasiness.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/R1895" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;R1895" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/jason1999/" title="博客园 &amp;rarr; https:&#x2F;&#x2F;www.cnblogs.com&#x2F;jason1999&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tjuyjn.top/" title="http:&#x2F;&#x2F;tjuyjn.top&#x2F;" rel="noopener" target="_blank">yjn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<div class="copyright">
+  
+  &copy; 2019 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">330k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:01</span>
+</div>
+  <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
+
+  </div>
+<br>
+<span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'sQH1h8lhQ9gWOGcmtUYC8XVl-MdYXbMMI',
+    appKey: 'vNW3GOfCCmYcbuAXh5ONlisr',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

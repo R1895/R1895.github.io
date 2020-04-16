@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="keywords" content="设计模式,抽象工厂模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之Abstract Factory模式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;25&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BAbstract%20Factory%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;ab3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;af.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;ab1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;ab2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;af1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;abf.png">
+<meta property="og:updated_time" content="2020-03-30T09:20:11.750Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;ab3.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BAbstract%20Factory%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>设计模式之Abstract Factory模式 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Jie</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">38</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BAbstract%20Factory%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj2.jpg">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="Only action can relieve the uneasiness.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设计模式之Abstract Factory模式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-25 10:24:00" itemprop="dateCreated datePublished" datetime="2020-03-25T10:24:00+08:00">2020-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-30 17:20:11" itemprop="dateModified" datetime="2020-03-30T17:20:11+08:00">2020-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BAbstract%20Factory%E6%A8%A1%E5%BC%8F/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BAbstract%20Factory%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>12k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>11 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/ab3.png" alt></p>
+<a id="more"></a>
+
+<ul>
+<li>意图: 提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</li>
+<li>何时使用: 系统的产品有多于一个的产品族，而系统只消费其中某一族的产品。</li>
+</ul>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p>Builder模式用来组装复杂的实例，Builder就是我们盖房子的一块块砖头，钢筋和水泥，以及简单的用法，使用监工将这些元素有机的组合在了一起就能够建造整个建筑了，是监工将这些原材料按照一定的次序和特定的处理流程糅合在了一起，这个过程就是组装了。而现在我们学习抽象工厂模式，将关键零件组装成产品。</p>
+</blockquote>
+<blockquote>
+<p>抽象工厂模式是一个非常复杂的模式，和工厂方法简直差别太大了，但是也有相同之处，那就是抽象工厂也是用了工厂方法来创造产品，只不过抽象工厂模式中包含了零件、产品、工厂、抽象等概念，这样就非常的复杂了，一般还要用到模板方法、迭代器甚至原型模式等，就“抽象”两个字来说，就是将所有的角色都分成两部分，一部分是这个角色的的抽象类，另一部分是这个角色的具体类（实现类），工厂就是沿用了工厂模式，因此抽象工厂模式主要分成两大部分，抽象部分和具体部分，如图所示。</p>
+</blockquote>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/af.png" alt></p>
+<p>就上面的抽象部分，最重要的就是抽象的工厂类、抽象的零件类（Link和Tray）、抽象的产品类（Page），这两个零件有共同之处，因此通过Item类进行抽象便于两者之间的互通。下面的具体实现部分就是对抽象的实现了，之后我们使用Main类来进行整合，可以发现我们只用对抽象类进行编程，完全不用使用任何的具体类就能实现我们想要的功能，甚至导致编译器在编译的时候还需要指出需要编译的具体类，因为我们使用了<strong>Class.forName()</strong>方法实现了反射。这样的结构看似非常的庞大，其实仔细的推敲，反而妙趣横生，当我们还想创建另一个具体的工厂的时候实在是太简单不过了，原来抽象工厂的代码都不用修改，只用按照相应的抽象实现就可以了，之后我们就可以直接使用了，只用在Main中将<strong>Class.forName()</strong>所指定的类改一下就可以了，非常的方便。凡是有利就有弊，如果我们对抽象工厂中的某些定义不满意了呢，这个时候如果我们对抽象方法进行一定的调整和更改（增加或删除），那么所有实现了该抽象工厂的具体工厂的类都需要进行修改，如果有100个具体工厂，无疑是非常可怕的，因此我们应该理智的取舍，</p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>我们将类分成三个部分，这样思路更加清晰，第一部分是抽象工厂中的类，第二部分是具体实现的具体工厂类，第三部分是测试使用的Main类。</p>
+<ol>
+<li><p>抽象工厂包</p>
+<ul>
+<li>抽象的零件类 Item.java<br>capation字段表示项目的”标题”<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.factory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> String caption;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Item</span><span class="params">(String caption)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.caption = caption;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">makeHTML</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>抽象的零件 Link.java<br>抽象地表示HTML的超链接的类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.factory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Link</span> <span class="keyword">extends</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> String url;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Link</span><span class="params">(String caption, String url)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(caption);</span><br><span class="line">		<span class="keyword">this</span>.url = url;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>抽象的零件:Tray.java<br>表示一个含有多个Link类和Tray类的容器<br>虽然Tray类也继承了Item类的抽象方法makeHTML,但是它并没有实现该方法因此,Tray也是个抽象类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.factory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Tray</span> <span class="keyword">extends</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> ArrayList tray = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Tray</span><span class="params">(String caption)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(caption);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Item item)</span> </span>&#123;</span><br><span class="line">		tray.add(item);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>抽象的产品:Page.java<br>Page类是抽象地表示HTML页面的类.<br>为了强调调用的是Page类自己的makeHTML方法,我们显示地加上了this.<br>makeHTML是一个抽象方法.有子类实现.<br>output方法是一个简单的 模板模式的 方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.factory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Page</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> String title;</span><br><span class="line">	<span class="keyword">protected</span> String author;</span><br><span class="line">	<span class="keyword">protected</span> ArrayList content = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Page</span><span class="params">(String title, String author)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.title = title;</span><br><span class="line">		<span class="keyword">this</span>.author = author;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Item item)</span> </span>&#123;</span><br><span class="line">		content.add(item);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">output</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String filename = title + <span class="string">".html"</span>;</span><br><span class="line">			Writer writer = <span class="keyword">new</span> FileWriter(filename);</span><br><span class="line">			writer.write(<span class="keyword">this</span>.makeHTML());</span><br><span class="line">			writer.close();</span><br><span class="line">			System.out.println(filename + <span class="string">" 编写完成。"</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">makeHTML</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>抽象的工厂:Factory.java<br>getFactory方法可以根据指定的类名生成具体工厂的实例.<br>下文会对Class类的forName方法和newInstance方法进行解释.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.factory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Factory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Factory <span class="title">getFactory</span><span class="params">(String classname)</span> </span>&#123;</span><br><span class="line">		Factory factory = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			factory = (Factory) Class.forName(classname).newInstance();<span class="comment">//反射</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			System.err.println(<span class="string">"没有找到 "</span> + classname + <span class="string">"类。"</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> factory;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Link <span class="title">createLink</span><span class="params">(String caption, String url)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Tray <span class="title">createTray</span><span class="params">(String caption)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Page <span class="title">createPage</span><span class="params">(String title, String author)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Main类<br> 使用工厂将零件组装成产品 Main.java<br> Main类会使用factory生成Link和Tray,然后将Link和Tray都放入Tray中.最后生成Page并将生成结果输出至文件.</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory;</span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Abstract_Factory.factory.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        if (args.length != 1) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println("Usage: java Main class.name.of.ConcreteFactory");</span></span><br><span class="line"><span class="comment">//            System.out.println("Example 1: java Main listfactory.ListFactory");</span></span><br><span class="line"><span class="comment">//            System.out.println("Example 2: java Main tablefactory.TableFactory");</span></span><br><span class="line"><span class="comment">//            System.exit(0);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">		String s1 = <span class="string">"com.edu.tju.GOF.Abstract_Factory.listfactory.ListFactory"</span>;</span><br><span class="line">		String s2 = <span class="string">"com.edu.tju.GOF.Abstract_Factory.tablefactory.TableFactory"</span>;</span><br><span class="line">		</span><br><span class="line">		Factory factory = Factory.getFactory(s1);</span><br><span class="line"></span><br><span class="line">		Link people = factory.createLink(<span class="string">"yjn"</span>, <span class="string">"http://tjuyjn.top/"</span>);</span><br><span class="line">		Link gmw = factory.createLink(<span class="string">"rlj"</span>, <span class="string">"https://r1895.github.io/"</span>);</span><br><span class="line"></span><br><span class="line">		Link us_yahoo = factory.createLink(<span class="string">"Yahoo!"</span>, <span class="string">"http://www.yahoo.com/"</span>);</span><br><span class="line">		Link jp_yahoo = factory.createLink(<span class="string">"Yahoo!Japan"</span>, <span class="string">"http://www.yahoo.co.jp/"</span>);</span><br><span class="line">		Link excite = factory.createLink(<span class="string">"Excite"</span>, <span class="string">"http://www.excite.com/"</span>);</span><br><span class="line">		Link google = factory.createLink(<span class="string">"Google"</span>, <span class="string">"http://www.google.com/"</span>);</span><br><span class="line"></span><br><span class="line">		Tray traynews = factory.createTray(<span class="string">"友链"</span>);</span><br><span class="line">		traynews.add(people);</span><br><span class="line">		traynews.add(gmw);</span><br><span class="line"></span><br><span class="line">		Tray trayyahoo = factory.createTray(<span class="string">"Yahoo!"</span>);</span><br><span class="line">		trayyahoo.add(us_yahoo);</span><br><span class="line">		trayyahoo.add(jp_yahoo);</span><br><span class="line"></span><br><span class="line">		Tray traysearch = factory.createTray(<span class="string">"检索引擎"</span>);</span><br><span class="line">		traysearch.add(trayyahoo);</span><br><span class="line">		traysearch.add(excite);</span><br><span class="line">		traysearch.add(google);</span><br><span class="line"></span><br><span class="line">		Page page = factory.createPage(<span class="string">"LinkPage"</span>, <span class="string">"Jason"</span>);</span><br><span class="line">		page.add(traynews);</span><br><span class="line">		page.add(traysearch);</span><br><span class="line">		page.output();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>具体工厂包</p>
+<ul>
+<li><p>ListFactory.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.listfactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Abstract_Factory.factory.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListFactory</span> <span class="keyword">extends</span> <span class="title">Factory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Link <span class="title">createLink</span><span class="params">(String caption, String url)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ListLink(caption, url);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Tray <span class="title">createTray</span><span class="params">(String caption)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ListTray(caption);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Page <span class="title">createPage</span><span class="params">(String title, String author)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ListPage(title, author);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>ListLink.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.listfactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Abstract_Factory.factory.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListLink</span> <span class="keyword">extends</span> <span class="title">Link</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ListLink</span><span class="params">(String caption, String url)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(caption, url);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">makeHTML</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"  &lt;li&gt;&lt;a href=\""</span> + url + <span class="string">"\"&gt;"</span> + caption + <span class="string">"&lt;/a&gt;&lt;/li&gt;\n"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ListLink类和ListTray类都是Item类的子类,所以可以放心调用makeHTML方法.</p>
+</li>
+<li><p>ListTray.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.listfactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Abstract_Factory.factory.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListTray</span> <span class="keyword">extends</span> <span class="title">Tray</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ListTray</span><span class="params">(String caption)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(caption);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">makeHTML</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		StringBuffer buffer = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">		buffer.append(<span class="string">"&lt;li&gt;\n"</span>);</span><br><span class="line">		buffer.append(caption + <span class="string">"\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;ul&gt;\n"</span>);</span><br><span class="line">		Iterator it = tray.iterator();</span><br><span class="line">		<span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">			Item item = (Item) it.next();</span><br><span class="line">			buffer.append(item.makeHTML());</span><br><span class="line">		&#125;</span><br><span class="line">		buffer.append(<span class="string">"&lt;/ul&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;/li&gt;\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> buffer.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ListPage.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.listfactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Abstract_Factory.factory.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListPage</span> <span class="keyword">extends</span> <span class="title">Page</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ListPage</span><span class="params">(String title, String author)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(title, author);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">makeHTML</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		StringBuffer buffer = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">		buffer.append(<span class="string">"&lt;html&gt;&lt;head&gt;&lt;title&gt;"</span> + title + <span class="string">"&lt;/title&gt;&lt;/head&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;body&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;h1&gt;"</span> + title + <span class="string">"&lt;/h1&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;ul&gt;\n"</span>);</span><br><span class="line">		Iterator it = content.iterator();</span><br><span class="line">		<span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">			Item item = (Item) it.next();</span><br><span class="line">			buffer.append(item.makeHTML());</span><br><span class="line">		&#125;</span><br><span class="line">		buffer.append(<span class="string">"&lt;/ul&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;hr&gt;&lt;address&gt;"</span> + author + <span class="string">"&lt;/address&gt;"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;/body&gt;&lt;/html&gt;\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> buffer.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后效果图是这样的<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/ab1.png" alt></p>
+</li>
+</ul>
+</li>
+</ol>
+<p>可以看到完全组成了一个网页。到了这里大家可能很质疑，难道费了这么大的功夫就是为了实现这么简单的功能？！其实这里我们可以看到抽象工厂的强大之处，零件的组装与嵌套，相互关联，通过迭代器、模板方法、工厂方法等模式最终实现了这种功能，可扩展性非常之强大，如果还要生成其他种类的工厂，将非常的方便，直接写实现类就可以了，其他代码基本上不需要改动，这样的功能可以说非常强大了，至今为止我们很多的代码都是<code>强耦合</code>的，很难实现复用，而这个抽象的工厂就可以实现高层次的复用，只需要知道实现类的类名就可以执行了，我们完全可以实现其他工厂，从而实现其他的功能。抽象工厂模式最重要的就是可复用性和完美的隔离性，其中使用了makeHTML()非常多次，通过迭代器来展现了这个方法的多态。灵活使用抽象工厂模式可以说是设计模式真正入门的起点。抽象工厂将抽象零件组装成抽象产品，易于增加具体的工厂难于增加新的零件。</p>
+<h4 id="添加其他工厂"><a href="#添加其他工厂" class="headerlink" title="添加其他工厂"></a>添加其他工厂</h4><p>照着上面代码的格式 仿生一个table工厂<br>TableFactor.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.tablefactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Abstract_Factory.factory.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TableFactory</span> <span class="keyword">extends</span> <span class="title">Factory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Link <span class="title">createLink</span><span class="params">(String caption, String url)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> TableLink(caption, url);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Tray <span class="title">createTray</span><span class="params">(String caption)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> TableTray(caption);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Page <span class="title">createPage</span><span class="params">(String title, String author)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> TablePage(title, author);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TableLink.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.tablefactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Abstract_Factory.factory.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TableLink</span> <span class="keyword">extends</span> <span class="title">Link</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TableLink</span><span class="params">(String caption, String url)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(caption, url);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">makeHTML</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"&lt;td&gt;&lt;a href=\""</span> + url + <span class="string">"\"&gt;"</span> + caption + <span class="string">"&lt;/a&gt;&lt;/td&gt;\n"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TablePage.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.tablefactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Abstract_Factory.factory.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TablePage</span> <span class="keyword">extends</span> <span class="title">Page</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TablePage</span><span class="params">(String title, String author)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(title, author);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">makeHTML</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		StringBuffer buffer = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">		buffer.append(<span class="string">"&lt;html&gt;&lt;head&gt;&lt;title&gt;"</span> + title + <span class="string">"&lt;/title&gt;&lt;/head&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;body&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;h1&gt;"</span> + title + <span class="string">"&lt;/h1&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;table width=\"80%\" border=\"3\"&gt;\n"</span>);</span><br><span class="line">		Iterator it = content.iterator();</span><br><span class="line">		<span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">			Item item = (Item) it.next();</span><br><span class="line">			buffer.append(<span class="string">"&lt;tr&gt;"</span> + item.makeHTML() + <span class="string">"&lt;/tr&gt;"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		buffer.append(<span class="string">"&lt;/table&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;hr&gt;&lt;address&gt;"</span> + author + <span class="string">"&lt;/address&gt;"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;/body&gt;&lt;/html&gt;\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> buffer.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TableTray.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Abstract_Factory.tablefactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Abstract_Factory.factory.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TableTray</span> <span class="keyword">extends</span> <span class="title">Tray</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TableTray</span><span class="params">(String caption)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(caption); <span class="comment">// 使用super(...)表达式</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">makeHTML</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		StringBuffer buffer = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">		buffer.append(<span class="string">"&lt;td&gt;"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;table width=\"100%\" border=\"1\"&gt;&lt;tr&gt;"</span>);</span><br><span class="line">		buffer.append(</span><br><span class="line">				<span class="string">"&lt;td bgcolor=\"#cccccc\" align=\"center\" colspan=\""</span> + tray.size() + <span class="string">"\"&gt;&lt;b&gt;"</span> + caption + <span class="string">"&lt;/b&gt;&lt;/td&gt;"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;/tr&gt;\n"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;tr&gt;\n"</span>);</span><br><span class="line">		Iterator it = tray.iterator();</span><br><span class="line">		<span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">			Item item = (Item) it.next();</span><br><span class="line">			buffer.append(item.makeHTML());</span><br><span class="line">		&#125;</span><br><span class="line">		buffer.append(<span class="string">"&lt;/tr&gt;&lt;/table&gt;"</span>);</span><br><span class="line">		buffer.append(<span class="string">"&lt;/td&gt;"</span>);</span><br><span class="line">		<span class="keyword">return</span> buffer.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/ab2.png" alt></p>
+<p>可以看出抽象工厂模式易于增加具体的工厂,但是增加新的零件的话,经编写完成的具体工厂越多,修改的工作量就会越大.</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li><p>实现方式:</p>
+<ul>
+<li>以不同的产品类型与产品变体为维度绘制矩阵。</li>
+<li>为所有产品声明抽象产品接口。 然后让所有具体产品类实现这些接口。</li>
+<li>声明抽象工厂接口， 并且在接口中为所有抽象产品提供一组构建方法。</li>
+<li>为每种产品变体实现一个具体工厂类。</li>
+<li>在应用程序中开发初始化代码。 该代码根据应用程序配置或当前环境， 对特定具体工厂类进行初始化。 然后将该工厂对象传递给所有需要创建产品的类。</li>
+<li>找出代码中所有对产品构造函数的直接调用， 将其替换为对工厂对象中相应构建方法的调用。</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>你可以确保同一工厂生成的产品相互匹配。</li>
+<li>你可以避免客户端和具体产品代码的耦合。</li>
+<li>单一职责原则。 你可以将产品生成代码抽取到同一位置， 使得代码易于维护。</li>
+<li>开闭原则。 向应用程序中引入新产品变体时， 你无需修改客户端代码。</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>产品族扩展非常困难，要增加一个系列的某一产品，既要在抽象的 Creator 里加代码，又要在具体的里面加代码。</li>
+</ul>
+</li>
+<li><p>使用场景</p>
+<ul>
+<li>QQ 换皮肤，一整套一起换</li>
+<li>生成不同操作系统的程序。</li>
+</ul>
+</li>
+<li><p>注意事项:</p>
+<ul>
+<li>产品族难扩展，产品等级易扩展。<h4 id="Abstract-Factory模式中登场的角色"><a href="#Abstract-Factory模式中登场的角色" class="headerlink" title="Abstract Factory模式中登场的角色"></a>Abstract Factory模式中登场的角色</h4></li>
+</ul>
+</li>
+<li><p>AbstractProduct(抽象产品)<br>AbstractProduct角色负责定义AbstractFactory 角色所生成的抽象零件和产品的接口(API).在程序中,Link,Tray,Page 类扮演此角色.</p>
+</li>
+<li><p>AbstractFactory(抽象工厂)<br>AbstractFactory角色负责定义用于生成产品的接口(API).在实例程序中,由Factory类扮演此角色.</p>
+</li>
+<li><p>Client (委托者)<br>Client角色仅会调用AbstractFactory角色和AbstractProduct角色的接口(API)来进行工作,对于具体的零件,产品和工厂一无所知.在程序中,由Main类扮演此角色.</p>
+</li>
+<li><p>ContreteProduct(具体产品)<br>ConcreteProduct角色负责实现AbstractProduct角色的接口(API).在程序中<br>ListLink类,ListTray类,ListPage类扮演此角色</p>
+</li>
+<li><p>ConcreteFactory(具体工厂)<br>ConcreteFactory角色负责实现AbstractFactory角色的接口(API).<br>listfactory类扮演此角色</p>
+</li>
+<li><p>AbstractFactory模式的类图(忽略了Client角色)<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/af1.png" alt></p>
+</li>
+</ul>
+<h4 id="抽象工厂模式-与其他模式的关系"><a href="#抽象工厂模式-与其他模式的关系" class="headerlink" title="抽象工厂模式 与其他模式的关系"></a>抽象工厂模式 与其他模式的关系</h4><ul>
+<li>在许多设计工作的初期都会使用工厂方法模式 （较为简单， 而且可以更方便地通过子类进行定制）， 随后演化为使用抽象工厂模式、 原型模式或生成器模式 （更灵活但更加复杂）。</li>
+<li>抽象工厂模式通常基于一组<a href>工厂方法</a>， 但你也可以使用<a href>原型模式</a>来生成这些类的方法。</li>
+<li>你可以将抽象工厂和<a href>桥接模式</a>搭配使用。 如果由桥接定义的抽象只能与特定实现合作， 这一模式搭配就非常有用。 在这种情况下， 抽象工厂可以对这些关系进行封装， 并且对客户端代码隐藏其复杂性。</li>
+</ul>
+<h4 id="java反射"><a href="#java反射" class="headerlink" title="java反射"></a>java反射</h4><p><a href="https://www.jianshu.com/p/9be58ee20dee" target="_blank" rel="noopener">传送🚪</a><br><a href="https://baike.baidu.com/item/JAVA%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/6015990" target="_blank" rel="noopener">JAVA反射机制</a></p>
+<p>尽管反射机制带来了极大的灵活性及方便性，但反射也有缺点。反射机制的功能非常强大，但不能滥用。在能不使用反射完成时，尽量不要使用，原因有以下几点：</p>
+<ol>
+<li>性能问题。<br>Java反射机制中包含了一些动态类型，所以Java虚拟机不能够对这些动态代码进行优化。因此，反射操作的效率要比正常操作效率低很多。我们应该避免在对性能要求很高的程序或经常被执行的代码中使用反射。而且，如何使用反射决定了性能的高低。如果它作为程序中较少运行的部分，性能将不会成为一个问题。</li>
+<li>安全限制。<br>使用反射通常需要程序的运行没有安全方面的限制。如果一个程序对安全性提出要求，则最好不要使用反射。</li>
+<li>程序健壮性。<br>反射允许代码执行一些通常不被允许的操作，所以使用反射有可能会导致意想不到的后果。反射代码破坏了Java程序结构的抽象性，所以当程序运行的平台发生变化的时候，由于抽象的逻辑结构不能被识别，代码产生的效果与之前会产生差异。</li>
+</ol>
+<h4 id="熟能生巧"><a href="#熟能生巧" class="headerlink" title="熟能生巧"></a>熟能生巧</h4><p>用抽象工厂模式设计农场类。</p>
+<p>分析：农场中除了像畜牧场一样可以养动物，还可以培养植物，如养马、养牛、种菜、种水果等，所以本实例比前面介绍的畜牧场类复杂，必须用抽象工厂模式来实现。</p>
+<blockquote>
+<p>本例用抽象工厂模式来设计两个农场，一个是韶关农场用于养牛和种菜，一个是上饶农场用于养马和种水果，可以在以上两个农场中定义一个生成动物的方法 newAnimal() 和一个培养植物的方法 newPlant()。</p>
+</blockquote>
+<p>对马类、牛类、蔬菜类和水果类等具体产品类，由于要显示它们的图像<a href="http://c.biancheng.net/uploads/soft/181113/3-1Q114160J0.zip" target="_blank" rel="noopener">（点此下载图片）</a>，所以它们的构造函数中用到了 JPanel、JLabel 和 ImageIcon 等组件，并定义一个 show() 方法来显示它们。<br>客户端程序通过对象生成器类 ReadXML 读取 XML 配置文件中的数据来决定养什么动物和培养什么植物<a href="http://c.biancheng.net/uploads/soft/181113/3-1Q114160S7.zip" target="_blank" rel="noopener">（点此下载 XML 文件）</a>。其结构图如图所示<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/abf.png" alt></p>
+<p><a href="http://c.biancheng.net/view/1351.html" target="_blank" rel="noopener">源码</a></p>
+<p><a href="https://www.cnblogs.com/gclokok/p/10029088.html" target="_blank" rel="noopener">抽象工厂和工厂方法的区别</a></p>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>Thank you for your support</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jason 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jason 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 设计模式</a>
+              <a href="/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 抽象工厂模式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/03/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BBuilder%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之Builder模式">
+                  <i class="fa fa-chevron-left"></i> 设计模式之Builder模式
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BBridge%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之Bridge模式">
+                  设计模式之Bridge模式 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例"><span class="nav-number">2.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加其他工厂"><span class="nav-number">3.</span> <span class="nav-text">添加其他工厂</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Abstract-Factory模式中登场的角色"><span class="nav-number">5.</span> <span class="nav-text">Abstract Factory模式中登场的角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象工厂模式-与其他模式的关系"><span class="nav-number">6.</span> <span class="nav-text">抽象工厂模式 与其他模式的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java反射"><span class="nav-number">7.</span> <span class="nav-text">java反射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#熟能生巧"><span class="nav-number">8.</span> <span class="nav-text">熟能生巧</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Jason"
+    src="/images/rlj2.jpg">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">Only action can relieve the uneasiness.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/R1895" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;R1895" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/jason1999/" title="博客园 &amp;rarr; https:&#x2F;&#x2F;www.cnblogs.com&#x2F;jason1999&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tjuyjn.top/" title="http:&#x2F;&#x2F;tjuyjn.top&#x2F;" rel="noopener" target="_blank">yjn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<div class="copyright">
+  
+  &copy; 2019 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">330k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:01</span>
+</div>
+  <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
+
+  </div>
+<br>
+<span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'sQH1h8lhQ9gWOGcmtUYC8XVl-MdYXbMMI',
+    appKey: 'vNW3GOfCCmYcbuAXh5ONlisr',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

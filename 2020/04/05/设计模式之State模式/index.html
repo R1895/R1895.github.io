@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="状态模式(State Pattern)是一种行为设计模式, 让你能在一个对象的内部状态变化时改变其行为, 使其看上去就像改变了自身所属的类一样。状态模式允许一个对象在其内部状态改变时改变它的行为,对象看起来似乎修改了它的类。其别名为状态对象(Objects for States),状态模式是一种对象行为型模式。">
+<meta name="keywords" content="设计模式,状态模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之State模式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;05&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BState%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:description" content="状态模式(State Pattern)是一种行为设计模式, 让你能在一个对象的内部状态变化时改变其行为, 使其看上去就像改变了自身所属的类一样。状态模式允许一个对象在其内部状态改变时改变它的行为,对象看起来似乎修改了它的类。其别名为状态对象(Objects for States),状态模式是一种对象行为型模式。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;state2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;state1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;state.png">
+<meta property="og:updated_time" content="2020-04-01T13:35:32.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;state2.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BState%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>设计模式之State模式 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Jie</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">38</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BState%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj2.jpg">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="Only action can relieve the uneasiness.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设计模式之State模式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-05 10:24:00" itemprop="dateCreated datePublished" datetime="2020-04-05T10:24:00+08:00">2020-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-01 21:35:32" itemprop="dateModified" datetime="2020-04-01T21:35:32+08:00">2020-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/04/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BState%E6%A8%A1%E5%BC%8F/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BState%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>状态模式(State Pattern)是一种行为设计模式, 让你能在一个对象的内部状态变化时改变其行为, 使其看上去就像改变了自身所属的类一样。状态模式允许一个对象在其内部状态改变时改变它的行为,对象看起来似乎修改了它的类。其别名为状态对象(Objects for States),状态模式是一种对象行为型模式。</p>
+<a id="more"></a>
+
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>状态模式与有限状态机的概念紧密相关.</p>
+<ul>
+<li>其主要思想是:<br>  在任意时刻仅可处于几种有限的状态中.在任何一个特定状态中,程序的行为都不相同,且可瞬间从一个状态切换到另一个状态.不过,根据当前状态,程序可能会切换到另外一种状态,也可能会保持当前状态不变.这些数量有限且预先定义的状态切换规则被称为转移。</li>
+<li>应用实例<ul>
+<li>打篮球的时候运动员可以有正常状态、不正常状态和超常状态。</li>
+<li>操作系统, ready,runing,block状态.</li>
+<li>编译原理的DFA M,NFA M, </li>
+</ul>
+</li>
+<li>优点:<ul>
+<li>封装了转换规则。 </li>
+<li>枚举可能的状态,在枚举状态之前需要确定状态种类。 </li>
+<li>将所有与某个状态有关的行为放到一个类中,并且可以方便地增加新的状态,只需要改变对象状态即可改变对象的行为。 </li>
+<li>允许状态转换逻辑与状态对象合成一体,而不是某一个巨大的条件语句块。 </li>
+<li>可以让多个环境对象共享一个状态对象,从而减少系统中对象的个数。</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>状态模式的使用必然会增加系统类和对象的个数。 </li>
+<li>状态模式的结构与实现都较为复杂,如果使用不当将导致程序结构和代码的混乱。 </li>
+<li>状态模式对”开闭原则”的支持并不太好,对于可以切换状态的状态模式,增加新的状态类需要修改那些负责状态转换的源代码,否则无法切换到新增状态,而且修改某个状态类的行为也需修改对应类的源代码。<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4></li>
+</ul>
+</li>
+<li>一定要用状态模式嘛?<br>其实不用也是可以的,但是考虑到代码的可维护性,可扩展性,可复用性这些层面的话,状态模式就很有用了.<br>比如,考虑一个银行系统,可以用来取款,打电话,报警,记录着四种功能,但是考虑如下需求:在白天如果我们去取款是正常的,晚上取款就要发出警报；在白天打电话有人接,晚上打电话启动留言功能；白天和晚上按警铃都会报警。那么我们应该如何设计这个程序呢,当然我们可以对每一个动作(作为一个函数),在这个函数内部,我们进行判断是白天还是黑夜,然后根据具体的情况做出反应。这样当然是可以的,但是假如我们的状态(白天和黑夜)非常的多呢,比如将24小时分成24个时间段(24个状态),那么我们对于每一个函数就要判断24遍,这无疑是非常糟糕的代码,可读性非常的差,并且如果需求发生了改变,我们很难去修改代码(很容易出现错误),但是如果我们考虑将这些状态都作为一个类,在每一个类内部进行处理、判断和相应的切换,这样思路就非常的清晰,如果再增加一种状态,代码需要修改的地方会非常的少,对于状态非常多的情景来说非常的方便。</li>
+</ul>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/state2.png" alt></p>
+<ol>
+<li>Context接口<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.State;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Context</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setClock</span><span class="params">(<span class="keyword">int</span> hour)</span></span>;                <span class="comment">// 设置时间</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">changeState</span><span class="params">(State state)</span></span>;          <span class="comment">// 改变状态</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">callSecurityCenter</span><span class="params">(String msg)</span></span>;    <span class="comment">// 联系警报中心</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">recordLog</span><span class="params">(String msg)</span></span>;             <span class="comment">// 在警报中心留下记录</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>SafeFrame实现类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.State;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.awt.Frame;</span><br><span class="line"><span class="keyword">import</span> java.awt.Label;</span><br><span class="line"><span class="keyword">import</span> java.awt.Color;</span><br><span class="line"><span class="keyword">import</span> java.awt.Button;</span><br><span class="line"><span class="keyword">import</span> java.awt.TextField;</span><br><span class="line"><span class="keyword">import</span> java.awt.TextArea;</span><br><span class="line"><span class="keyword">import</span> java.awt.Panel;</span><br><span class="line"><span class="keyword">import</span> java.awt.BorderLayout;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SafeFrame</span> <span class="keyword">extends</span> <span class="title">Frame</span> <span class="keyword">implements</span> <span class="title">ActionListener</span>, <span class="title">Context</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TextField textClock = <span class="keyword">new</span> TextField(<span class="number">60</span>);        <span class="comment">// 显示当前时间</span></span><br><span class="line">    <span class="keyword">private</span> TextArea textScreen = <span class="keyword">new</span> TextArea(<span class="number">10</span>, <span class="number">60</span>);     <span class="comment">// 显示警报中心的记录</span></span><br><span class="line">    <span class="keyword">private</span> Button buttonUse = <span class="keyword">new</span> Button(<span class="string">"使用金库"</span>);      <span class="comment">// 金库使用按钮</span></span><br><span class="line">    <span class="keyword">private</span> Button buttonAlarm = <span class="keyword">new</span> Button(<span class="string">"按下警铃"</span>);    <span class="comment">// 按下警铃按钮</span></span><br><span class="line">    <span class="keyword">private</span> Button buttonPhone = <span class="keyword">new</span> Button(<span class="string">"正常通话"</span>);    <span class="comment">// 正常通话按钮</span></span><br><span class="line">    <span class="keyword">private</span> Button buttonExit = <span class="keyword">new</span> Button(<span class="string">"结束"</span>);         <span class="comment">// 结束按钮</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> State state = DayState.getInstance();           <span class="comment">// 当前的状态</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SafeFrame</span><span class="params">(String title)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(title);</span><br><span class="line">        setBackground(Color.lightGray);</span><br><span class="line">        setLayout(<span class="keyword">new</span> BorderLayout());</span><br><span class="line">        <span class="comment">//  配置textClock</span></span><br><span class="line">        add(textClock, BorderLayout.NORTH);</span><br><span class="line">        textClock.setEditable(<span class="keyword">false</span>);</span><br><span class="line">        <span class="comment">// 配置textScreen</span></span><br><span class="line">        add(textScreen, BorderLayout.CENTER);</span><br><span class="line">        textScreen.setEditable(<span class="keyword">false</span>);</span><br><span class="line">        <span class="comment">// 为界面添加按钮</span></span><br><span class="line">        Panel panel = <span class="keyword">new</span> Panel();</span><br><span class="line">        panel.add(buttonUse);</span><br><span class="line">        panel.add(buttonAlarm);</span><br><span class="line">        panel.add(buttonPhone);</span><br><span class="line">        panel.add(buttonExit);</span><br><span class="line">        <span class="comment">// 配置界面</span></span><br><span class="line">        add(panel, BorderLayout.SOUTH);</span><br><span class="line">        <span class="comment">// 显示</span></span><br><span class="line">        pack();</span><br><span class="line">        show();</span><br><span class="line">        <span class="comment">// 设置监听器</span></span><br><span class="line">        buttonUse.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">        buttonAlarm.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">        buttonPhone.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">        buttonExit.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 按钮被按下后该方法会被调用</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">        System.out.println(e.toString());</span><br><span class="line">        <span class="keyword">if</span> (e.getSource() == buttonUse) &#123;           <span class="comment">// 金库使用按钮</span></span><br><span class="line">            state.doUse(<span class="keyword">this</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.getSource() == buttonAlarm) &#123;  <span class="comment">// 按下警铃按钮</span></span><br><span class="line">            state.doAlarm(<span class="keyword">this</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.getSource() == buttonPhone) &#123;  <span class="comment">// 正常通话按钮</span></span><br><span class="line">            state.doPhone(<span class="keyword">this</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.getSource() == buttonExit) &#123;   <span class="comment">// 结束按钮</span></span><br><span class="line">            System.exit(<span class="number">0</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"未预料错误"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 设置时间</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setClock</span><span class="params">(<span class="keyword">int</span> hour)</span> </span>&#123;</span><br><span class="line">        String clockstring = <span class="string">"现在时间是"</span>;</span><br><span class="line">        <span class="keyword">if</span> (hour &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            clockstring += <span class="string">"0"</span> + hour + <span class="string">":00"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            clockstring += hour + <span class="string">":00"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(clockstring);</span><br><span class="line">        textClock.setText(clockstring);</span><br><span class="line">        state.doClock(<span class="keyword">this</span>, hour);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 改变状态</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeState</span><span class="params">(State state)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"从"</span> + <span class="keyword">this</span>.state + <span class="string">"状态变为了"</span> + state + <span class="string">"状态。"</span>);</span><br><span class="line">        <span class="keyword">this</span>.state = state;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 联系警报中心</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">callSecurityCenter</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        textScreen.append(<span class="string">"call! "</span> + msg + <span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 在警报中心留下记录</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recordLog</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        textScreen.append(<span class="string">"record ... "</span> + msg + <span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>State接口<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.State;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">State</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">doClock</span><span class="params">(Context context, <span class="keyword">int</span> hour)</span></span>;    <span class="comment">// 设置时间</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">doUse</span><span class="params">(Context context)</span></span>;                <span class="comment">// 使用金库</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">doAlarm</span><span class="params">(Context context)</span></span>;              <span class="comment">// 按下警铃</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">doPhone</span><span class="params">(Context context)</span></span>;              <span class="comment">// 正常通话</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>NightState实现类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.State;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NightState</span> <span class="keyword">implements</span> <span class="title">State</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> NightState singleton = <span class="keyword">new</span> NightState();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">NightState</span><span class="params">()</span> </span>&#123;                              <span class="comment">// 构造函数的可见性是private</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> State <span class="title">getInstance</span><span class="params">()</span> </span>&#123;                 <span class="comment">// 获取唯一实例</span></span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doClock</span><span class="params">(Context context, <span class="keyword">int</span> hour)</span> </span>&#123;    <span class="comment">// 设置时间</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="number">9</span> &lt;= hour &amp;&amp; hour &lt; <span class="number">17</span>) &#123;</span><br><span class="line">            context.changeState(DayState.getInstance());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doUse</span><span class="params">(Context context)</span> </span>&#123;                <span class="comment">// 使用金库</span></span><br><span class="line">        context.callSecurityCenter(<span class="string">"紧急：晚上使用金库！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAlarm</span><span class="params">(Context context)</span> </span>&#123;              <span class="comment">// 按下警铃</span></span><br><span class="line">        context.callSecurityCenter(<span class="string">"按下警铃(晚上)"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPhone</span><span class="params">(Context context)</span> </span>&#123;              <span class="comment">// 正常通话</span></span><br><span class="line">        context.recordLog(<span class="string">"晚上的通话录音"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;                          <span class="comment">// 显示表示类的文字</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"[晚上]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>DayState实现类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.State;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DayState</span> <span class="keyword">implements</span> <span class="title">State</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> DayState singleton = <span class="keyword">new</span> DayState();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">DayState</span><span class="params">()</span> </span>&#123;                                <span class="comment">// 构造函数的可见性是private</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> State <span class="title">getInstance</span><span class="params">()</span> </span>&#123;                 <span class="comment">// 获取唯一实例</span></span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doClock</span><span class="params">(Context context, <span class="keyword">int</span> hour)</span> </span>&#123;    <span class="comment">// 设置时间</span></span><br><span class="line">        <span class="keyword">if</span> (hour &lt; <span class="number">9</span> || <span class="number">17</span> &lt;= hour) &#123;</span><br><span class="line">            context.changeState(NightState.getInstance());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doUse</span><span class="params">(Context context)</span> </span>&#123;                <span class="comment">// 使用金库</span></span><br><span class="line">        context.recordLog(<span class="string">"使用金库(白天)"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAlarm</span><span class="params">(Context context)</span> </span>&#123;              <span class="comment">// 按下警铃</span></span><br><span class="line">        context.callSecurityCenter(<span class="string">"按下警铃(白天)"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPhone</span><span class="params">(Context context)</span> </span>&#123;              <span class="comment">// 正常通话</span></span><br><span class="line">        context.callSecurityCenter(<span class="string">"正常通话(白天)"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;                          <span class="comment">// 显示表示类的文字</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"[白天]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Main类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.State;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SafeFrame frame = <span class="keyword">new</span> SafeFrame(<span class="string">"State Sample"</span>);</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> hour = <span class="number">0</span>; hour &lt; <span class="number">24</span>; hour++) &#123;</span><br><span class="line">                frame.setClock(hour);   <span class="comment">// 设置时间</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>可以看到状态模式的强大威力，是用最简洁的代码通过接口、抽象类、普通类、继承、委托、代理模式等方式，将状态抽象为类，然后通过控制状态的逻辑委托不同的状态去做不同的事情，对于每一个状态来说又再次委托控制状态的逻辑做出相应的动作和修改，这样看起来比较复杂，其实仔细阅读就会发现因为接口（抽象类）的原因，使得程序非常的简洁，各个状态分工明确，密切配合。</li>
+<li>但是状态模式也有一些缺点，正是因为各个状态密切配合，在一个状态之中要知道其他状态的对象，这就造成了一定的关联，状态与状态之间是一种紧耦合的关系，这是状态模式的一点缺点，针对于这一点，我们可以将状态迁移的代码统一交给SafeFrame来做，这样就要使用到了Mediator仲裁者模式了。</li>
+<li>使用单例的原因是如果一直创造新的对象会对内存产生浪费，因此单例即可。同样的使用状态模式通过接口使用state变量来表示相应的状态，不会产生混淆和矛盾，相比于使用多个变量来分区间表示状态来说是非常清晰简练的。State模式便于增加新的状态（也需要修改其他状态的状态迁移代码），不便于增加新的“依赖于状态的处理”，比如doAlarm等，因为一旦增加了，实现了State接口的所有状态都要增加该部分代码。</li>
+<li>同时我们也看到了实例的多面性，比如SafeFrame实例实现了ActionListener接口和Context接口，那么就可以将new SafeFrame()对象传入fun1(ActionListener a)和fun2(Context context)这两个方法之中，之后这两个方法对该对象的使用是不同的，权限也不一样，因此多接口就会产生多面性。状态模式其实是用了分而治之的思想，将不同的状态分开来讨论，抽取共同性，从而使问题变得简单。</li>
+</ul>
+<h4 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h4><ol>
+<li><p>下文 (Context) 保存了对于一个具体状态对象的引用, 并会将所有与该状态相关的工作委派给它。 上下文通过状态接口与状态对象交互, 且会提供一个设置器用于传递新的状态对象。</p>
+</li>
+<li><p>状态 (State) 接口会声明特定于状态的方法。 这些方法应能被其他所有具体状态所理解, 因为你不希望某些状态所拥有的方法永远不会被调用。</p>
+</li>
+<li><p>具体状态 (Concrete States) 会自行实现特定于状态的方法。 为了避免多个状态中包含相似代码, 你可以提供一个封装有部分通用行为的中间抽象类。<br> 状态对象可存储对于上下文对象的反向引用。 状态可以通过该引用从上下文处获取所需信息, 并且能触发状态转移。</p>
+</li>
+<li><p>上下文和具体状态都可以设置上下文的下个状态, 并可通过替换连接到上下文的状态对象来完成实际的状态转换。</p>
+</li>
+</ol>
+<p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/state1.png" alt></p>
+<h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4><ol>
+<li>确定哪些类是上下文。 它可能是包含依赖于状态的代码的已有类； 如果特定于状态的代码分散在多个类中, 那么它可能是一个新的类。</li>
+<li>声明状态接口。 虽然你可能会需要完全复制上下文中声明的所有方法, 但最好是仅把关注点放在那些可能包含特定于状态的行为的方法上。</li>
+<li>为每个实际状态创建一个继承于状态接口的类。 然后检查上下文中的方法并将与特定状态相关的所有代码抽取到新建的类中。<br> 在将代码移动到状态类的过程中, 你可能会发现它依赖于上下文中的一些私有成员。 你可以采用以下几种变通方式：<ul>
+<li>将这些成员变量或方法设为公有。</li>
+<li>将需要抽取的上下文行为更改为上下文中的公有方法, 然后在状态类中调用。 这种方式简陋却便捷, 你可以稍后再对其进行修补。</li>
+<li>将状态类嵌套在上下文类中。 这种方式需要你所使用的编程语言支持嵌套类。</li>
+</ul>
+</li>
+<li>在上下文类中添加一个状态接口类型的引用成员变量, 以及一个用于修改该成员变量值的公有设置器。</li>
+<li>再次检查上下文中的方法, 将空的条件语句替换为相应的状态对象方法。</li>
+<li>为切换上下文状态, 你需要创建某个状态类实例并将其传递给上下文。 你可以在上下文、 各种状态或客户端中完成这项工作。 无论在何处完成这项工作, 该类都将依赖于其所实例化的具体类。<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4>状态模式将根据当前回放状态, 让媒体播放器中的相同控件完成不同的行为。<br><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/state.png" alt><br>使用状态对象更改对象行为的示例<br>播放器的主要对象总是会连接到一个负责播放器绝大部分工作的状态对象中。 部分操作会更换播放器当前的状态对象, 以此改变播放器对于用户互动所作出的反应。<br>根据伪代码及类图实现状态模式.</li>
+</ol>
+<ul>
+<li>伪代码<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">// 音频播放器(Audio­Player)类即为上下文。它还会维护指向状态类实例的引用,</span><br><span class="line">// 该状态类则用于表示音频播放器当前的状态。</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AudioPlayer</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">field</span> <span class="title">state</span>:</span> State</span><br><span class="line">    field UI, volume, playlist, currentSong</span><br><span class="line"></span><br><span class="line">    constructor AudioPlayer() <span class="keyword">is</span></span><br><span class="line">        this.state = new ReadyState(this)</span><br><span class="line"></span><br><span class="line">        // 上下文会将处理用户输入的工作委派给状态对象。由于每个状态都以不</span><br><span class="line">        // 同的方式处理输入,其结果自然将依赖于当前所处的状态。</span><br><span class="line">        UI = new UserInterface()</span><br><span class="line">        UI.lockButton.onClick(this.clickLock)</span><br><span class="line">        UI.playButton.onClick(this.clickPlay)</span><br><span class="line">        UI.nextButton.onClick(this.clickNext)</span><br><span class="line">        UI.prevButton.onClick(this.clickPrevious)</span><br><span class="line"></span><br><span class="line">    // 其他对象必须能切换音频播放器当前所处的状态。</span><br><span class="line">    method changeState(state: State) <span class="keyword">is</span></span><br><span class="line">        this.state = state</span><br><span class="line"></span><br><span class="line">    // UI 方法会将执行工作委派给当前状态。</span><br><span class="line">    method clickLock() <span class="keyword">is</span></span><br><span class="line">        state.clickLock()</span><br><span class="line">    method clickPlay() <span class="keyword">is</span></span><br><span class="line">        state.clickPlay()</span><br><span class="line">    method clickNext() <span class="keyword">is</span></span><br><span class="line">        state.clickNext()</span><br><span class="line">    method clickPrevious() <span class="keyword">is</span></span><br><span class="line">        state.clickPrevious()</span><br><span class="line"></span><br><span class="line">    // 状态可调用上下文的一些服务方法。</span><br><span class="line">    method startPlayback() <span class="keyword">is</span></span><br><span class="line">        // ...</span><br><span class="line">    method stopPlayback() <span class="keyword">is</span></span><br><span class="line">        // ...</span><br><span class="line">    method nextSong() <span class="keyword">is</span></span><br><span class="line">        // ...</span><br><span class="line">    method previousSong() <span class="keyword">is</span></span><br><span class="line">        // ...</span><br><span class="line">    method fastForward(time) <span class="keyword">is</span></span><br><span class="line">        // ...</span><br><span class="line">    method rewind(time) <span class="keyword">is</span></span><br><span class="line">        // ...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 所有具体状态类都必须实现状态基类声明的方法,并提供反向引用指向与状态相</span><br><span class="line">// 关的上下文对象。状态可使用反向引用将上下文转换为另一个状态。</span><br><span class="line">abstract <span class="class"><span class="keyword">class</span> <span class="title">State</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">protected</span> <span class="title">field</span> <span class="title">player</span>:</span> AudioPlayer</span><br><span class="line"></span><br><span class="line">    // 上下文将自身传递给状态构造函数。这可帮助状态在需要时获取一些有用的</span><br><span class="line">    // 上下文数据。</span><br><span class="line">    constructor State(player) <span class="keyword">is</span></span><br><span class="line">        this.player = player</span><br><span class="line"></span><br><span class="line">    abstract method clickLock()</span><br><span class="line">    abstract method clickPlay()</span><br><span class="line">    abstract method clickNext()</span><br><span class="line">    abstract method clickPrevious()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 具体状态会实现与上下文状态相关的多种行为。</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LockedState</span> <span class="title">extends</span> <span class="title">State</span> <span class="title">is</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line">    // 当你解锁一个锁定的播放器时,它可能处于两种状态之一。</span><br><span class="line">    method clickLock() <span class="keyword">is</span></span><br><span class="line">        <span class="keyword">if</span> (player.playing)</span><br><span class="line">            player.changeState(new PlayingState(player))</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            player.changeState(new ReadyState(player))</span><br><span class="line"></span><br><span class="line">    method clickPlay() <span class="keyword">is</span></span><br><span class="line">        // 已锁定,什么也不做。</span><br><span class="line"></span><br><span class="line">    method clickNext() <span class="keyword">is</span></span><br><span class="line">        // 已锁定,什么也不做。</span><br><span class="line"></span><br><span class="line">    method clickPrevious() <span class="keyword">is</span></span><br><span class="line">        // 已锁定,什么也不做。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 它们还可在上下文中触发状态转换。</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReadyState</span> <span class="title">extends</span> <span class="title">State</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">clickLock</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        <span class="title">player</span>.<span class="title">changeState</span><span class="params">(new LockedState<span class="params">(player)</span>)</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">clickPlay</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        <span class="title">player</span>.<span class="title">startPlayback</span><span class="params">()</span></span></span><br><span class="line"><span class="class">        <span class="title">player</span>.<span class="title">changeState</span><span class="params">(new PlayingState<span class="params">(player)</span>)</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">clickNext</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        <span class="title">player</span>.<span class="title">nextSong</span><span class="params">()</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">clickPrevious</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        <span class="title">player</span>.<span class="title">previousSong</span><span class="params">()</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">PlayingState</span> <span class="title">extends</span> <span class="title">State</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">clickLock</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        <span class="title">player</span>.<span class="title">changeState</span><span class="params">(new LockedState<span class="params">(player)</span>)</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">clickPlay</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        <span class="title">player</span>.<span class="title">stopPlayback</span><span class="params">()</span></span></span><br><span class="line"><span class="class">        <span class="title">player</span>.<span class="title">changeState</span><span class="params">(new ReadyState<span class="params">(player)</span>)</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">clickNext</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        <span class="title">if</span> <span class="params">(event.doubleclick)</span></span></span><br><span class="line"><span class="class">            <span class="title">player</span>.<span class="title">nextSong</span><span class="params">()</span></span></span><br><span class="line"><span class="class">        <span class="title">else</span></span></span><br><span class="line"><span class="class">            <span class="title">player</span>.<span class="title">fastForward</span><span class="params">(<span class="number">5</span>)</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">method</span> <span class="title">clickPrevious</span><span class="params">()</span> <span class="title">is</span></span></span><br><span class="line"><span class="class">        <span class="title">if</span> <span class="params">(event.doubleclick)</span></span></span><br><span class="line"><span class="class">            <span class="title">player</span>.<span class="title">previous</span><span class="params">()</span></span></span><br><span class="line"><span class="class">        <span class="title">else</span></span></span><br><span class="line"><span class="class">            <span class="title">player</span>.<span class="title">rewind</span><span class="params">(<span class="number">5</span>)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>Thank you for your support</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jason 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jason 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 设计模式</a>
+              <a href="/tags/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 状态模式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/04/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BMemento%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之Memento模式">
+                  <i class="fa fa-chevron-left"></i> 设计模式之Memento模式
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/04/06/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BFlyweight%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之Flyweight模式">
+                  设计模式之Flyweight模式 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#角色"><span class="nav-number">3.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现方式"><span class="nav-number">4.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#练习"><span class="nav-number">5.</span> <span class="nav-text">练习</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Jason"
+    src="/images/rlj2.jpg">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">Only action can relieve the uneasiness.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/R1895" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;R1895" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/jason1999/" title="博客园 &amp;rarr; https:&#x2F;&#x2F;www.cnblogs.com&#x2F;jason1999&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tjuyjn.top/" title="http:&#x2F;&#x2F;tjuyjn.top&#x2F;" rel="noopener" target="_blank">yjn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<div class="copyright">
+  
+  &copy; 2019 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">330k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:01</span>
+</div>
+  <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
+
+  </div>
+<br>
+<span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'sQH1h8lhQ9gWOGcmtUYC8XVl-MdYXbMMI',
+    appKey: 'vNW3GOfCCmYcbuAXh5ONlisr',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

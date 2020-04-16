@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Jason's blogs" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="keywords" content="设计模式,原型模式,Hashmap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之Prototype模式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;23&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BPrototype%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="Jason&#39;s blogs">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;pt1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;pt.png">
+<meta property="og:updated_time" content="2020-03-30T09:39:21.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;rlj-1999-1259282223.cos.ap-beijing.myqcloud.com&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;pt1.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BPrototype%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>设计模式之Prototype模式 | Jason's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Jie</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">38</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BPrototype%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/rlj2.jpg">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="Only action can relieve the uneasiness.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设计模式之Prototype模式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-23 10:24:00" itemprop="dateCreated datePublished" datetime="2020-03-23T10:24:00+08:00">2020-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-30 17:39:21" itemprop="dateModified" datetime="2020-03-30T17:39:21+08:00">2020-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BPrototype%E6%A8%A1%E5%BC%8F/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BPrototype%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/pt1.png" alt></p>
+<a id="more"></a>
+
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><ul>
+<li>意图: 用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</li>
+<li>何时使用:<ul>
+<li>当一个系统应该独立于它的产品创建，构成和表示时。</li>
+<li>当要实例化的类是在运行时刻指定时，例如，通过动态装载。</li>
+<li>为了避免创建一个与产品类层次平行的工厂类层次时。 </li>
+<li>当一个类的实例只能有几个不同状态组合中的一种时。建立相应数目的原型并克隆它们可能比每次用合适的状态手工实例化该类更方便一些。</li>
+</ul>
+</li>
+<li>解决方法:利用已有的一个原型对象，快速地生成和原型对象一样的实例。<ul>
+<li>实现克隆操作，在 JAVA 继承 Cloneable，重写 clone(),在 .NET 中可以使用 Object 类的 MemberwiseClone() 方法来实现对象的浅拷贝或通过序列化的方式来实现深拷贝。(.NET是个什么东西感兴趣的可以自行查阅)</li>
+<li>原型模式同样用于隔离类对象的使用者和具体类型（易变类）之间的耦合关系，它同样要求这些”易变类”拥有稳定的接口。</li>
+</ul>
+</li>
+</ul>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p><img src="https://rlj-1999-1259282223.cos.ap-beijing.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/pt.png" alt><br>Product.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Prototype.framework;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Product</span> <span class="keyword">extends</span> <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">use</span><span class="params">(String word)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Product <span class="title">createClone</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Manager.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Prototype.framework.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Manager</span> </span>&#123;</span><br><span class="line">    HashMap hashmap = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(String key,Product p)</span></span>&#123;</span><br><span class="line">        hashmap.put(key, p);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Product <span class="title">create</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">        Product p=(Product)hashmap.get(key);</span><br><span class="line">        <span class="keyword">return</span> p.createClone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MessageBox.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Prototype;</span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Prototype.framework.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageBox</span> <span class="keyword">implements</span> <span class="title">Product</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">char</span> decochar;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MessageBox</span><span class="params">(<span class="keyword">char</span> decochar)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.decochar = decochar;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">use</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> length = s.getBytes().length;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length + <span class="number">4</span>; i++) &#123;</span><br><span class="line">			System.out.print(decochar);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">""</span>);</span><br><span class="line">		System.out.println(decochar + <span class="string">" "</span> + s + <span class="string">" "</span> + decochar);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length + <span class="number">4</span>; i++) &#123;</span><br><span class="line">			System.out.print(decochar);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">""</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Product <span class="title">createClone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Product p = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			p = (Product) clone();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> p;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Underline.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Prototype;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Prototype.framework.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Underline</span> <span class="keyword">implements</span> <span class="title">Product</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">char</span> ulchar;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Underline</span><span class="params">(<span class="keyword">char</span> ulchar)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.ulchar = ulchar;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">use</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> length = s.getBytes().length;</span><br><span class="line">		System.out.println(<span class="string">"\""</span> + s + <span class="string">"\""</span>);</span><br><span class="line">		System.out.print(<span class="string">" "</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">			System.out.print(ulchar);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">""</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Product <span class="title">createClone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Product p = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			p = (Product) clone();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> p;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Main.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.edu.tju.GOF.Prototype;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Prototype.framework.Manager;</span><br><span class="line"><span class="keyword">import</span> com.edu.tju.GOF.Prototype.framework.Product;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 准备</span></span><br><span class="line">		Manager manager = <span class="keyword">new</span> Manager();</span><br><span class="line">		Underline uline = <span class="keyword">new</span> Underline(<span class="string">'~'</span>);</span><br><span class="line">		MessageBox mbox = <span class="keyword">new</span> MessageBox(<span class="string">'*'</span>);</span><br><span class="line">		MessageBox sbox = <span class="keyword">new</span> MessageBox(<span class="string">'/'</span>);</span><br><span class="line">		manager.register(<span class="string">"strong message"</span>, uline);</span><br><span class="line">		manager.register(<span class="string">"warning box"</span>, mbox);</span><br><span class="line">		manager.register(<span class="string">"slash box"</span>, sbox);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 生成</span></span><br><span class="line">		Product p1 = manager.create(<span class="string">"strong message"</span>);</span><br><span class="line">		p1.use(<span class="string">"Hello,rlj."</span>);</span><br><span class="line">		Product p2 = manager.create(<span class="string">"warning box"</span>);</span><br><span class="line">		p2.use(<span class="string">"Hello,jason."</span>);</span><br><span class="line">		Product p3 = manager.create(<span class="string">"slash box"</span>);</span><br><span class="line">		p3.use(<span class="string">"Hello,girls."</span>);</span><br><span class="line">		Product p4 = manager.create(<span class="string">"slash box"</span>);</span><br><span class="line">		p3.use(<span class="string">"Hello,girls."</span>);</span><br><span class="line">		System.out.println(p1.getClass() == p2.getClass());<span class="comment">//false</span></span><br><span class="line">		System.out.println(p3.getClass() == p4.getClass());<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色</h4><p>原型模式中有三个登场角色:</p>
+<ol>
+<li><strong>原型角色(Prototype)</strong>：<br>Product角色负责定义用于复制现有实例来生成新的实例的方法.在示例程序中,由Product接口扮演此角色.</li>
+<li><strong>具体原型角色(ConcretePrototype)</strong>：<br>ConcretePrototype 角色负责实现复制现有实例并生成新实例的方法.在示例程序中,由MessageBox类和Underline类扮演此角色.</li>
+<li><strong>使用者角色(Client)</strong>：维护一个注册表，并提供一个找出正确实例原型的方法。最后，提供一个获取新实例的方法，用来委托复制实例的方法生成新实例。<br>在实例中Manager类扮演此角色.</li>
+</ol>
+<h4 id="拓展阅读"><a href="#拓展阅读" class="headerlink" title="拓展阅读"></a>拓展阅读</h4><ol>
+<li><p>在Java中,我们可以使用new关键字指定类名来生成类的实例.像这样使用new来生成实例时,是必须指定类名的.但是在开发过程中,有时候也会有”在不指定类名的前提下生成实例”的需求.例如一下的情况,我们就不能根据类来生成实例,而要根据现有的实例来生成实例</p>
+<ul>
+<li>对象种类繁多,无法将它们整合在一个类中时</li>
+<li>难以根据类生成实例时<br>  生成实例的过程过于负责,很难根据类来生成实例.</li>
+<li>想解耦框架与生成的实例时</li>
+</ul>
+</li>
+<li><p>python 中的 原型模式</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"><span class="comment"># 用copy包实现深拷贝(copy.deepcopy())和浅拷贝(copy.copy())</span></span><br><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> abstractmethod,ABCMeta</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span><span class="params">(metaclass=ABCMeta)</span>:</span></span><br><span class="line">    _id =<span class="string">""</span></span><br><span class="line">    in_type = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getType</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.in_type</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getID</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._id</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setID</span><span class="params">(self,in_id)</span>:</span></span><br><span class="line">        self._id = in_id</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">clone</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment">#深拷贝</span></span><br><span class="line">        myclone = copy.deepcopy(self)</span><br><span class="line">        <span class="keyword">return</span> myclone</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建实体类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span><span class="params">(Shape)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">       self.in_type = <span class="string">"Rectangel"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Inside Rectangle.draw() method."</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span><span class="params">(Shape)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.in_type = <span class="string">"Square"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Inside Square.draw() method."</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span><span class="params">(Shape)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.in_type = <span class="string">"Circle"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Inside Circle.draw() method."</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取数据实体类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeCache</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">#Python 无静态变量，用开放类变量</span></span><br><span class="line">    shapeMap = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getShape</span><span class="params">(self,shapeID)</span>:</span></span><br><span class="line">        cachedShape = self.shapeMap[shapeID]</span><br><span class="line">        <span class="keyword">return</span> cachedShape.clone()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 静态方法</span></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">loadCache</span><span class="params">()</span>:</span></span><br><span class="line">        circle1 = Circle()</span><br><span class="line">        circle1.setID(<span class="string">"1"</span>)</span><br><span class="line">        ShapeCache.shapeMap[circle1.getID()] = circle1</span><br><span class="line"></span><br><span class="line">        square1 = Square()</span><br><span class="line">        square1.setID(<span class="string">"2"</span>)</span><br><span class="line">        ShapeCache.shapeMap[square1.getID()] = square1</span><br><span class="line"></span><br><span class="line">        rectangle1 = Rectangle()</span><br><span class="line">        rectangle1.setID(<span class="string">"3"</span>)</span><br><span class="line">        ShapeCache.shapeMap[rectangle1.getID()] = rectangle1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用输出</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ShapeCache.loadCache()</span><br><span class="line">    myShape = ShapeCache()</span><br><span class="line"></span><br><span class="line">    cloneShape1 = myShape.getShape(<span class="string">"1"</span>)</span><br><span class="line">    print(<span class="string">"Shape : %s"</span>  %cloneShape1.getType())</span><br><span class="line">    cloneShape1.draw()</span><br><span class="line"></span><br><span class="line">    cloneShape2 = myShape.getShape(<span class="string">"2"</span>)</span><br><span class="line">    print(<span class="string">"Shape : %s"</span> % cloneShape2.getType())</span><br><span class="line">    cloneShape2.draw()</span><br><span class="line"></span><br><span class="line">    cloneShape3 = myShape.getShape(<span class="string">"3"</span>)</span><br><span class="line">    print(<span class="string">"Shape : %s"</span> % cloneShape3.getType())</span><br><span class="line">    cloneShape3.draw()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>clone方法和java.lang.Cloneable接口</p>
+<p> Java语言为我们准备了用于复制实例的clone方法.请注意,要想调用clone方法,<strong>被复制对象的类必须实现java.lang.Cloneable接口</strong>,不论是被复制对象的类实现了Cloneable接口还是其某个父类实现Cloneable接口,亦或是被复制对象的类实现了Cloneable接口的子接口都可以.</p>
+<p> 实现了Cloneable接口的类的实例可以调用clone 进行复制,clone方法的返回值是复制出的新的实例(clone方法内部所进行的处理是分配与要复制的实例同样大小的空间,接着将要复制的实例字段的值复制到所分配的内存空间中去).</p>
+<p> 如果没有实现Cloneable接口的类的实例调用了clone方法,则会在运行时抛出<code>CloneNotSupportedException</code>异常.</p>
+</li>
+</ol>
+<ul>
+<li><p>那么clone方法是在哪里定义的呢?<br>clone方法定义在java.lang.Object中.因为Object类是所有Java类的父类,因此所有的Java类都继承了clone方法.</p>
+</li>
+<li><p>我们需要实现Cloneable的哪些方法呢?<br>提到Cloneable接口,很容易让人误以为Cloneable接口中声明了clone方法,其实这是错误的.在Cloneable接口中并没有声明任何方法.它知识被用来标记”可以使用clone方法进行复制”的.这样的接口被称为<strong>标记接口</strong>.</p>
+</li>
+<li><p>clone方法进行的是浅拷贝</p>
+<h4 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h4><p>个人理解就是,比如说我有一双aj11康扣,有一天刷完鞋丢了.<br>可是我很喜欢这双鞋,所以我又买了一双(深拷贝),并且在这双鞋上签上了名字(<strong>修改对象参数</strong>,不会影响原来的康扣,<strong>重新分配空间</strong>).<br>但是有一天,我突然又找到了我丢的那双,上面一定是没有写着名字的(勉强看作浅拷贝吧.鞋还是原来的鞋)<br><a href="https://www.cnblogs.com/shakinghead/p/7651502.html" target="_blank" rel="noopener">传送🚪</a></p>
+<h4 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h4></li>
+</ul>
+<ol>
+<li>除了Cloneable,java中还有哪些常见的标记接口呢?</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>Thank you for your support</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jason 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jason 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 设计模式</a>
+              <a href="/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i># 原型模式</a>
+              <a href="/tags/Hashmap/" rel="tag"><i class="fa fa-tag"></i># Hashmap</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/03/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BSingleton%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之Singleton模式">
+                  <i class="fa fa-chevron-left"></i> 设计模式之Singleton模式
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/03/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BBuilder%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之Builder模式">
+                  设计模式之Builder模式 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#登场角色"><span class="nav-number">3.</span> <span class="nav-text">登场角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展阅读"><span class="nav-number">4.</span> <span class="nav-text">拓展阅读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝和浅拷贝"><span class="nav-number">5.</span> <span class="nav-text">深拷贝和浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思考题"><span class="nav-number">6.</span> <span class="nav-text">思考题</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Jason"
+    src="/images/rlj2.jpg">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">Only action can relieve the uneasiness.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/R1895" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;R1895" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/jason1999/" title="博客园 &amp;rarr; https:&#x2F;&#x2F;www.cnblogs.com&#x2F;jason1999&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tjuyjn.top/" title="http:&#x2F;&#x2F;tjuyjn.top&#x2F;" rel="noopener" target="_blank">yjn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<div class="copyright">
+  
+  &copy; 2019 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">330k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:01</span>
+</div>
+  <div class="powered-by"> <a href="https://r1895.github.io/" class="theme-link" rel="noopener" target="_blank">Jason</a>·个人专属
+
+  </div>
+<br>
+<span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'sQH1h8lhQ9gWOGcmtUYC8XVl-MdYXbMMI',
+    appKey: 'vNW3GOfCCmYcbuAXh5ONlisr',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
